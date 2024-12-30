@@ -1,14 +1,15 @@
 # UWB Hacks 2025 Website
 
 This is the website for UWB Hacks 2025. It uses (or will use) the following technologies:
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* shadcn/ui
-* NodeJS
-* PostgreSQL
-* Vercel
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- NodeJS
+- PostgreSQL
+- Vercel
 
 Right now, I'm installing packages using pnpm because npm wouldn't work for me, which is why there's a `pnpm-lock.yaml`. We should decide on a standard package manager to use.
 
