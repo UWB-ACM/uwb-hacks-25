@@ -1,0 +1,64 @@
+{
+    "prizes": [
+        {
+            "name": "Wireless Earbuds",
+            "description": "High-quality wireless earbuds with noise cancellation.",
+            "stock": 10,
+            "price": 500
+        },
+        {
+            "name": "Mechanical Keyboard",
+            "description": "Compact mechanical keyboard with customizable RGB lighting.",
+            "stock": 5,
+            "price": 800
+        },
+        {
+            "name": "Portable Power Bank",
+            "description": "10,000mAh power bank for charging devices on the go.",
+            "stock": 15,
+            "price": 300
+        },
+        {
+            "name": "Bluetooth Speaker",
+            "description": "Portable Bluetooth speaker with excellent sound quality.",
+            "stock": 8,
+            "price": 600
+        },
+        {
+            "name": "Gaming Mouse",
+            "description": "Ergonomic gaming mouse with adjustable DPI settings.",
+            "stock": 12,
+            "price": 400
+        },
+        {
+            "name": "Gift Card",
+            "description": "$25 gift card for a popular online retailer.",
+            "stock": 20,
+            "price": 250
+        },
+        {
+            "name": "Laptop Stand",
+            "description": "Adjustable laptop stand for better ergonomics.",
+            "stock": 10,
+            "price": 350
+        },
+        {
+            "name": "LED Desk Lamp",
+            "description": "Energy-efficient desk lamp with adjustable brightness.",
+            "stock": 7,
+            "price": 200
+        },
+        {
+            "name": "Smart Notebook",
+            "description": "Reusable notebook with digital storage capabilities.",
+            "stock": 5,
+            "price": 700
+        },
+        {
+            "name": "T-Shirt",
+            "description": "Commemorative UWB Hacks t-shirt in various sizes.",
+            "stock": 25,
+            "price": 150
+        }
+    ]
+}
