@@ -25,15 +25,18 @@ export default function Card({ prize }: CardProps) {
                     className="object-contain"
                 />
             </div>
+            {/* Name */}
+            <h2 className="text-center text-2xl">{prize.name}</h2>
             {/* Stock and Price */}
-            <div className="flex justify-around pb-4">
+            <div className="flex justify-around py-1">
                 <p>{`${prize.stock} Left!`}</p>
                 <p>{`${prize.price} Hackeroons`}</p>
             </div>
-            {/* Name */}
-            <h2 className="text-center text-2xl">{prize.name}</h2>
             {/* Description */}
             <h3 className="text-center">{prize.description}</h3>
+            <button className="py-4 mt-4 bg-green-500 text-white rounded-md">
+                Buy
+            </button>
         </div>
     );
 }

@@ -20,7 +20,7 @@ export default function page() {
             <section>
                 <h1 className="text-center text-3xl p-4">Prizes</h1>
                 {/* Prize Card Components Container */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 px-8 pb-4 gap-4">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 px-8 pb-4 gap-6">
                     {prizes.map((prize, index) => (
                         <Card key={index} prize={prize} />
                     ))}
