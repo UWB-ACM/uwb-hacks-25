@@ -3,7 +3,7 @@
     {
       "id": "12345",
       "name": "Simon Doa",
-      "hackeroons": 10,
+      "hackeroons": 1000,
       "history": [["workshop1", "workshop", 10], ["acm hat", "purchase", -10], ["workshop2", "workshop", 10]]
     }
 }
