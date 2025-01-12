@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import React, { useState, useEffect, useRef } from "react";
 import Card from "../../ui/components/Card";
 import prizes_data from "../mockprizes.json";
@@ -14,6 +16,8 @@ type Prize = {
 };
 
 export default function Page() {
+    const router = useRouter();
+
     const prizes = prizes_data["prizes"];
     const { name, hackeroons } = user_data["user"];
     const [hackeroonAmount, setHackeroonAmount] = useState(hackeroons);
@@ -27,6 +31,12 @@ export default function Page() {
             console.log("header offset height,", headerOffsetHeight);
         }
     }, [headerOffsetHeight]);
+
+    const handleSubmit = () => {
+        if (selectedItems.length != 0) {
+            router.push("/staff/buy-prizes/transaction-complete");
+        }
+    };
 
     return (
         <>
@@ -75,7 +85,10 @@ export default function Page() {
                                 ))}
                             </ul>
                         </div>
-                        <button className="w-full h-[6%] bg-green-500 hover:bg-green-600/90 duration-300 border-[1px] border-black rounded-md text-white">
+                        <button
+                            className="w-full h-[6%] bg-green-500 hover:bg-green-600/90 duration-300 border-[1px] border-black rounded-md text-white"
+                            onClick={handleSubmit}
+                        >
                             Complete
                         </button>
                     </div>
