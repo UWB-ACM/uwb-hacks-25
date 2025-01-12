@@ -1,17 +1,27 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { TestRecord } from "../util/dataTypes";
 
 export default function Home() {
+    const [testData, setData] = useState<TestRecord[]>([]);
+
     useEffect(() => {
         fetch("/api/test")
             .then((response) => response.json())
-            .then((data) => console.log(data))
+            .then((remote_data) => {
+                setData(remote_data.data);
+            })
             .catch((error) => console.error("Failed to load data:", error));
     }, []);
 
     return (
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-            hello world
+        <div className="w-full h-screen flex flex-col justify-center items-center">
+            {testData.map((data, i) => (
+                <div className="flex" key={i}>
+                    <h1 className="mr-4 font-extrabold">{data.id}</h1>
+                    <h1>{data.created_at}</h1>
+                </div>
+            ))}
         </div>
     );
 }
