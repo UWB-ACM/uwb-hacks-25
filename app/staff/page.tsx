@@ -1,45 +1,40 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Card from "../ui/components/Card";
-import prizes_data from "./mockprizes.json";
-import user_data from "../participant/mockuser.json";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-    // View Prize Availability (Simple card component), displays:
-    //  - Prize name
-    //  - Prize description
-    //  - Stock
-    //  - Price
-
-    // Facilitate Price Purchases (implement basic buy item function, implement shopping cart in future sprint)
-    // Incorporate buy component into prize Card component (include buy quantity input for eligible prizes)
-
-    const prizes = prizes_data["prizes"];
-    const { hackeroons } = user_data["user"];
-    const [hackeroonAmount, setHackeroonAmount] = useState(hackeroons);
-
-    useEffect(() => {
-        console.log(hackeroonAmount);
-    }, [hackeroonAmount]);
+    const router = useRouter();
 
     return (
-        <div className="">
-            {/* Prize Catalog */}
-            <section>
-                <h1 className="text-center text-3xl p-4">Prizes</h1>
-                {/* Prize Card Components Container */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 px-8 pb-4 gap-6">
-                    {prizes.map((prize, index) => (
-                        <Card
-                            key={index}
-                            prize={prize}
-                            hackeroonAmount={hackeroonAmount}
-                            setHackeroonAmount={setHackeroonAmount}
-                        />
-                    ))}
-                </div>
-            </section>
+        <div className="h-screen w-full grid place-content-center">
+            <h1 className="text-4xl text-center">Staff Dashboard</h1>
+            {/* Container for Buttons */}
+            <div className="w-[95vw] flex gap-x-4 justify-between mt-4">
+                <button
+                    className="h-[70vh] w-[30vw] bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 grid place-content-center hover:bg-neutral-200 duration-300"
+                    onClick={() => {
+                        router.push("staff/buy-prizes");
+                    }}
+                >
+                    <p>Buy Prizes</p>
+                </button>
+                <button
+                    className="h-[70vh] w-[30vw] bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 grid place-content-center hover:bg-neutral-200 duration-300"
+                    onClick={() => {
+                        router.push("staff/transfer-hackeroons");
+                    }}
+                >
+                    Transfer Hackeroons
+                </button>
+                <button
+                    className="h-[70vh] w-[30vw] bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 grid place-content-center hover:bg-neutral-200 duration-300"
+                    onClick={() => {
+                        router.push("staff/modify-user");
+                    }}
+                >
+                    Modify User Account
+                </button>
+            </div>
         </div>
     );
 }
