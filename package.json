@@ -9,8 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@prisma/client": "6.2.1",
-        "@slonik/pg-driver": "^46.4.0",
+        "@upstash/redis": "^1.34.3",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "lucide-react": "^0.469.0",
