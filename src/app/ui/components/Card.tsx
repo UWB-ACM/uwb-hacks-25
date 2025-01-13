@@ -54,7 +54,7 @@ export default function Card({
     };
 
     return (
-        <div className="flex flex-col justify-center p-8 min-h-[200px] bg-neutral-200 rounded-lg border-2 border-neutral-400 shadow-md">
+        <div className="flex flex-col justify-center p-8 h-[400px] bg-neutral-200 rounded-lg border-2 border-neutral-400 shadow-md">
             {/* Image */}
             <div className="h-[100px] flex justify-center py-4 my-4 bg-neutral-100 rounded-md">
                 <Image

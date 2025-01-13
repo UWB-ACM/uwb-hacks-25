@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Card from "../../ui/components/Card";
 import prizes_data from "../mockprizes.json";
 import user_data from "../../participant/mockuser.json";
@@ -22,15 +22,7 @@ export default function Page() {
     const { name, hackeroons } = user_data["user"];
     const [hackeroonAmount, setHackeroonAmount] = useState(hackeroons);
 
-    const headerRef = useRef<HTMLDivElement>(null!);
-    const [headerOffsetHeight, setHeaderOffsetHeight] = useState(0);
     const [selectedItems, setSelectedItems] = useState<Prize[]>([]);
-    useEffect(() => {
-        if (headerRef != null) {
-            setHeaderOffsetHeight(headerRef.current.offsetHeight);
-            console.log("header offset height,", headerOffsetHeight);
-        }
-    }, [headerOffsetHeight]);
 
     const handleSubmit = () => {
         if (selectedItems.length != 0) {
@@ -40,23 +32,37 @@ export default function Page() {
 
     return (
         <>
-            {/* Prize Catalog */}
-            <div ref={headerRef} className="sticky top-0 bg-white">
-                <h1 className="text-center text-3xl pt-4">Prizes</h1>
-                <div className="flex justify-around">
-                    <h2 className="text-center text-2xl">
+            {/*
+                Header
+                
+                Contains:
+                    - Title of Page ("Prizes")
+                    - Person you're buying prizes for
+                    - Person's current total hackeroon amount
+            */}
+            <div className="h-[15vh] flex flex-col justify-center bg-neutral-100 py-4 px-6 border-b-[1px] border-black">
+                <h1 className="text-center text-3xl pb-4">Prizes</h1>
+                <div className="flex justify-around text-center text-2xl">
+                    <h2>
                         Buying for <span className="font-bold">{name}</span>
                     </h2>
-                    <h2 className="text-center text-2xl pb-4">
+                    <h2>
                         Hackeroons Remaining:{" "}
                         <span className="font-bold">{hackeroonAmount}</span>
                     </h2>
                 </div>
             </div>
-            {/* Prize Cards and Selected Items Container */}
-            <div className="flex">
+
+            {/*
+                Buy Prize 
+                
+                Contains:
+                    - Prize Cards
+                    - Shopping Cart / Selected Items
+            */}
+            <div className="h-[85vh] flex">
                 {/* Prize Cards */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 px-8 pb-4 mt-4 mr-[20vw] gap-6">
+                <div className="h-[85vh] w-[85vw] p-12 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {prizes.map((prize, index) => (
                         <Card
                             key={index}
@@ -67,31 +73,25 @@ export default function Page() {
                         />
                     ))}
                 </div>
-                {/* Selected Items / Shopping Cart */}
-                <div className="relative">
-                    <div
-                        className={`fixed bottom-0 right-0 w-[20vw] flex flex-col justify-between p-4 bg-neutral-200`}
-                        style={{
-                            top: `${headerOffsetHeight}px`,
-                        }}
-                    >
-                        <div>
-                            <h3 className="text-2xl text-center">
-                                Selected Items
-                            </h3>
-                            <ul className="list-disc mt-1 px-2">
-                                {selectedItems.map((item) => (
-                                    <li key={item.id}>{item.name}</li>
-                                ))}
-                            </ul>
-                        </div>
-                        <button
-                            className="w-full h-[6%] bg-green-500 hover:bg-green-600/90 duration-300 border-[1px] border-black rounded-md text-white"
-                            onClick={handleSubmit}
-                        >
-                            Complete
-                        </button>
+
+                {/* Shopping Cart / Selected Items */}
+                <div className="h-[85vh] w-[15vw] flex flex-col justify-between bg-neutral-100 border-l-[1px] border-black">
+                    {/* Selected Items */}
+                    <div className="p-4">
+                        <h2 className="text-center text-2xl">Selected Items</h2>
+                        <ul className="list-disc px-4 space-y-2">
+                            {selectedItems.map((item) => (
+                                <li key={item.id}>{item.name}</li>
+                            ))}
+                        </ul>
                     </div>
+                    {/* Complete Button */}
+                    <button
+                        className="p-4 bg-green-500 hover:bg-green-600/90 duration-300 border-[1px] border-black text-white"
+                        onClick={handleSubmit}
+                    >
+                        Complete
+                    </button>
                 </div>
             </div>
         </>
