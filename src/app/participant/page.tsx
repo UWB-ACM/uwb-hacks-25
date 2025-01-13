@@ -3,7 +3,7 @@ import data from "./mockuser.json";
 import QRCode from "react-qr-code";
 
 export default function page() {
-    let user = data.user;
+    const user = data.user;
 
     return (
         <div className="pt-20 px-[5%]">
