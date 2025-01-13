@@ -19,7 +19,6 @@
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "supabase": "^2.2.1",
-        "react-qr-code": "^2.0.15",
         "tailwind-merge": "^2.6.0",
         "tailwindcss-animate": "^1.0.7",
         "uwb-hacks-website-25": "link:"
