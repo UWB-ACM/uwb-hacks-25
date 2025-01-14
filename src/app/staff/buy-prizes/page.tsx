@@ -80,7 +80,9 @@ export default function Page() {
                 <div className="h-[85vh] w-[30vw] md:w-[20vw] flex flex-col justify-between bg-neutral-100 border-l-[1px] border-black">
                     {/* Selected Items */}
                     <div className="p-4">
-                        <h2 className="text-center text-xl md:text-2xl">Selected Items</h2>
+                        <h2 className="text-center text-xl md:text-2xl">
+                            Selected Items
+                        </h2>
                         <ul className="list-disc px-4 space-y-2">
                             {selectedItems.map((item) => (
                                 <li key={item.id}>{item.name}</li>
