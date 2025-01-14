@@ -41,8 +41,10 @@ export default function Page() {
                     - Person's current total hackeroon amount
             */}
             <div className="h-[15vh] flex flex-col justify-center bg-neutral-100 py-4 px-6 border-b-[1px] border-black">
-                <h1 className="text-center text-3xl pb-4">Prizes</h1>
-                <div className="flex justify-around text-center text-2xl">
+                <h1 className="text-center text-2xl md:text-3xl pb-4">
+                    Prizes
+                </h1>
+                <div className="flex justify-around gap-x-4 text-center text-xl md:text-2xl">
                     <h2>
                         Buying for <span className="font-bold">{name}</span>
                     </h2>
@@ -62,7 +64,7 @@ export default function Page() {
             */}
             <div className="h-[85vh] flex">
                 {/* Prize Cards */}
-                <div className="h-[85vh] w-[85vw] p-12 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="h-[85vh] w-[70vw] md:w-[80vw] lg:w-[85vw] p-8 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {prizes.map((prize, index) => (
                         <Card
                             key={index}
@@ -75,10 +77,10 @@ export default function Page() {
                 </div>
 
                 {/* Shopping Cart / Selected Items */}
-                <div className="h-[85vh] w-[15vw] flex flex-col justify-between bg-neutral-100 border-l-[1px] border-black">
+                <div className="h-[85vh] w-[30vw] md:w-[20vw] flex flex-col justify-between bg-neutral-100 border-l-[1px] border-black">
                     {/* Selected Items */}
                     <div className="p-4">
-                        <h2 className="text-center text-2xl">Selected Items</h2>
+                        <h2 className="text-center text-xl md:text-2xl">Selected Items</h2>
                         <ul className="list-disc px-4 space-y-2">
                             {selectedItems.map((item) => (
                                 <li key={item.id}>{item.name}</li>

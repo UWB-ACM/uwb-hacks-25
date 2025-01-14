@@ -54,7 +54,7 @@ export default function Card({
     };
 
     return (
-        <div className="flex flex-col justify-center p-8 h-[400px] bg-neutral-200 rounded-lg border-2 border-neutral-400 shadow-md">
+        <div className="flex flex-col justify-between p-8 h-min-[500px] bg-neutral-200 rounded-lg border-2 border-neutral-400 shadow-md">
             {/* Image */}
             <div className="h-[100px] flex justify-center py-4 my-4 bg-neutral-100 rounded-md">
                 <Image
@@ -68,7 +68,7 @@ export default function Card({
             {/* Name */}
             <h2 className="text-center text-2xl">{prize.name}</h2>
             {/* Stock and Price */}
-            <div className="flex justify-around py-1">
+            <div className="flex flex-col lg:flex-row text-center justify-around py-2">
                 <p>{`${prizeStock} Left!`}</p>
                 <p>{`${prize.price} Hackeroons`}</p>
             </div>
