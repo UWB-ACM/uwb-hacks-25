@@ -18,10 +18,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const query = sql`
-      SELECT "user", SUM("amount") as total_earned
-      FROM transactions
-      GROUP BY "user"
-      ORDER BY total_earned DESC
+      SELECT u."id", u."name", SUM(t."amount") as total_amount
+      FROM transactions t
+      JOIN users u ON u."id" = t."user"
+      GROUP BY u."id", u."name"
+      ORDER BY total_amount DESC
       LIMIT 10
     `;
     
