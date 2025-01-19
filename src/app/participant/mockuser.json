@@ -1,9 +1,12 @@
 {
-  "user":
-    {
-      "id": "12345",
-      "name": "Simon Dao",
-      "hackeroons": 1000,
-      "history": [["workshop1", "workshop", 10], ["acm hat", "purchase", -10], ["workshop2", "workshop", 10]]
+    "user": {
+        "id": "12345",
+        "name": "Simon Dao",
+        "hackeroons": 1000,
+        "history": [
+            ["workshop1", "workshop", 10],
+            ["acm hat", "purchase", -10],
+            ["workshop2", "workshop", 10]
+        ]
     }
 }
