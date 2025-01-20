@@ -11,6 +11,11 @@ import { User } from "./dataTypes";
 const sessionTimeSeconds = 7 * 24 * 60 * 60;
 
 /**
+ * The part of a user that's available in a session.
+ */
+export type SessionUser = Pick<User, "id" | "name" | "email" | "picture">;
+
+/**
  * The data associated with a user's session.
  *
  * This is just a regular object, and changes to
@@ -24,7 +29,7 @@ export interface Session {
      * never change.
      * Other data needs to be queried per-request.
      */
-    user?: Pick<User, "id" | "name" | "email" | "picture">;
+    user?: SessionUser;
 
     /**
      * A random value to prevent tampering with the auth URL.
