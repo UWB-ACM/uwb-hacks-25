@@ -54,7 +54,14 @@ export async function GET(request: Request) {
             ));
 
         delete session.googleState;
-        if (user) session.user = user;
+        if (user) {
+            session.user = {
+                id: user.id,
+                email: user.email,
+                name: user.name,
+                picture: user.picture,
+            };
+        }
 
         await saveSession(session);
 

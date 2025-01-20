@@ -41,6 +41,42 @@ export interface User {
 }
 
 /**
+ * What privileges is the user able to access.
+ *
+ * In general, Staff is for things like adding
+ * hackaroons, and Admin is for managing the
+ * database.
+ */
+export enum PermissionLevel {
+    /**
+     * Something everyone can do.
+     */
+    User = 0,
+
+    /**
+     * Something like adding hackaroons.
+     */
+    Staff = 1,
+
+    /**
+     * Something like managing the database.
+     */
+    Admin = 2,
+}
+
+/**
+ * Determines whether a user meets the permission requirements.
+ * @param user - is the permissions of the user to check.
+ * @param requires - is the required permission level.
+ */
+export function hasPermissions(
+    user: PermissionLevel,
+    requires: { has: PermissionLevel },
+): boolean {
+    return user >= requires.has;
+}
+
+/**
  * An event record in the database.
  */
 export interface Event {

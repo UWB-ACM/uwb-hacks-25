@@ -1,6 +1,6 @@
 import "server-only";
 
-import { User } from "@/src/util/dataTypes";
+import { PermissionLevel, User } from "@/src/util/dataTypes";
 import sql from "@/src/util/database";
 
 /**
@@ -58,4 +58,18 @@ export async function getUserFromGoogle(
         // has no transactions.
         balance: data[0].balance || 0,
     };
+}
+
+/**
+ * Gets the permission level for a user, or null
+ * if the user doesn't exist.
+ * @param user - is the user to look for.
+ */
+export async function getPermissionLevel(
+    user: number,
+): Promise<PermissionLevel | null> {
+    const data = await sql`SELECT permission FROM users WHERE id=${user};`;
+
+    if (data.length === 0) return null;
+    return data[0].permission;
 }
