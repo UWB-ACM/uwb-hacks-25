@@ -1,6 +1,9 @@
+import "server-only";
+
 import { cookies } from "next/headers";
 import { buildKey, redis } from "@/src/util/redis";
 import { NextRequest, NextResponse } from "next/server";
+import { User } from "./dataTypes";
 
 /**
  * The time that a session should last for, in seconds.
@@ -16,9 +19,17 @@ const sessionTimeSeconds = 7 * 24 * 60 * 60;
  */
 export interface Session {
     /**
-     * The ID of the user in the database (if they're authenticated).
+     * The user's data (if they're authenticated).
+     * This only includes data that realistically should
+     * never change.
+     * Other data needs to be queried per-request.
      */
-    userId?: string;
+    user?: Pick<User, "id" | "name" | "email" | "picture">;
+
+    /**
+     * A random value to prevent tampering with the auth URL.
+     */
+    googleState?: string;
 }
 
 /**
@@ -31,24 +42,18 @@ export async function getSession(): Promise<Session> {
 
     const cookie = cookieStore.get("session-uwbh25");
     if (!cookie?.value) {
+        console.error("No session cookie found.");
         return {};
     }
 
     // We have a session ID, so try to read the data for it.
-    const data = await redis.get(buildKey("session"));
-    if (!data || typeof data !== "string") {
+    const data = await redis.get<Session>(buildKey("session", cookie.value));
+    if (!data || typeof data !== "object") {
+        console.error("Session data is invalid.");
         return {};
     }
 
-    try {
-        return JSON.parse(data) as Session;
-    } catch (e) {
-        // The JSON should be valid, but if it isn't,
-        // it's better to clear the user's session than
-        // to give them an error page.
-        console.error(e);
-        return {};
-    }
+    return data;
 }
 
 /**

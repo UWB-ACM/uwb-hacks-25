@@ -15,7 +15,7 @@ export interface User {
     /**
      * The user's google ID, used for OAuth2 with google.
      */
-    google_id: string;
+    googleId: string;
 
     /**
      * The user's name.
@@ -26,6 +26,11 @@ export interface User {
      * The user's email, which is unique per-account.
      */
     email: string;
+
+    /**
+     * A URL to the user's picture, if it exists.
+     */
+    picture: string | null;
 
     /**
      * The user's balance.
@@ -103,6 +108,11 @@ export interface Prize {
  * A transaction record in the database.
  */
 export interface Transaction {
+    /**
+     * The event's ID, which is unique to it.
+     */
+    id: number;
+
     /**
      * The ID of the user who this transaction is about.
      */
