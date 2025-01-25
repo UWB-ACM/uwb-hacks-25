@@ -1,4 +1,208 @@
-export type TestRecord = {
+export interface TestRecord {
     id: number;
     created_at: string;
+}
+
+/**
+ * A user record in the database.
+ */
+export interface User {
+    /**
+     * The user's ID, which is unique to them.
+     */
+    id: number;
+
+    /**
+     * The user's google ID, used for OAuth2 with google.
+     */
+    googleId: string;
+
+    /**
+     * The user's name.
+     */
+    name: string;
+
+    /**
+     * The user's email, which is unique per-account.
+     */
+    email: string;
+
+    /**
+     * A URL to the user's picture, if it exists.
+     */
+    picture: string | null;
+
+    /**
+     * The user's balance.
+     *
+     * This needs to be retrieved separately from the user.
+     */
+    balance: number;
+}
+
+/**
+ * What privileges is the user able to access.
+ *
+ * In general, Staff is for things like adding
+ * hackaroons, and Admin is for managing the
+ * database.
+ */
+export enum PermissionLevel {
+    /**
+     * Something everyone can do.
+     */
+    User = 0,
+
+    /**
+     * Something like adding hackaroons.
+     */
+    Staff = 1,
+
+    /**
+     * Something like managing the database.
+     */
+    Admin = 2,
+}
+
+/**
+ * Determines whether a user meets the permission requirements.
+ * @param user - is the permissions of the user to check.
+ * @param requires - is the required permission level.
+ */
+export function hasPermissions(
+    user: PermissionLevel,
+    requires: { has: PermissionLevel },
+): boolean {
+    return user >= requires.has;
+}
+
+/**
+ * An event record in the database.
+ */
+export interface Event {
+    /**
+     * The event's ID, which is unique to it.
+     */
+    id: number;
+
+    /**
+     * The event's name.
+     */
+    name: string;
+
+    /**
+     * The event's description.
+     */
+    description: string;
+
+    /**
+     * The data/time when the event will start (if it exists).
+     */
+    start: Date | null;
+
+    /**
+     * The data/time when the event will end (if it exists).
+     */
+    end: Date | null;
+}
+
+/**
+ * A prize record in the database.
+ */
+export interface Prize {
+    /**
+     * The prize's ID, which is unique to it.
+     */
+    id: number;
+
+    /**
+     * The prize's name.
+     */
+    name: string;
+
+    /**
+     * The prize's description (if it exists).
+     */
+    description: string | null;
+
+    /**
+     * The current stock of the prize.
+     *
+     * This is different from the initial_stock field
+     * and needs to be computed based on it and all the
+     * transactions on the prize.
+     */
+    stock: number;
+
+    /**
+     * The prize's price.
+     */
+    price: number;
+}
+
+/**
+ * A transaction record in the database.
+ */
+export interface Transaction {
+    /**
+     * The event's ID, which is unique to it.
+     */
+    id: number;
+
+    /**
+     * The ID of the user who this transaction is about.
+     */
+    user: number;
+
+    /**
+     * The type of the transaction (i.e., its purpose).
+     */
+    type: TransactionType;
+
+    /**
+     * The amount added to the user's balance.
+     * This field can be negative, in which case it
+     * means how much is removed.
+     */
+    amount: number;
+
+    /**
+     * The ID of the user who authorized this transaction (if they exist).
+     */
+    authorized_by: number | null;
+
+    /**
+     * If this transaction was related to an event, this is the ID of that event.
+     */
+    event: number | null;
+
+    /**
+     * If this transaction was related to a prize, this is the ID of that prize.
+     */
+    prize: number | null;
+
+    /**
+     * The time at which the transaction occurred.
+     */
+    time: Date;
+}
+
+/**
+ * The reason for a transaction.
+ */
+export enum TransactionType {
+    /**
+     * A generic transaction.
+     */
+    Unknown = 0,
+
+    /**
+     * A reward associated with attending an event.
+     */
+    EventAttendance = 1,
+
+    /**
+     * A payment to purchase a prize.
+     */
+    PrizePurchase = 2,
 }
