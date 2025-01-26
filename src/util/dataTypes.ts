@@ -15,7 +15,7 @@ export interface User {
     /**
      * The user's google ID, used for OAuth2 with google.
      */
-    google_id: string;
+    googleId: string;
 
     /**
      * The user's name.
@@ -28,11 +28,52 @@ export interface User {
     email: string;
 
     /**
+     * A URL to the user's picture, if it exists.
+     */
+    picture: string | null;
+
+    /**
      * The user's balance.
      *
      * This needs to be retrieved separately from the user.
      */
     balance: number;
+}
+
+/**
+ * What privileges is the user able to access.
+ *
+ * In general, Staff is for things like adding
+ * hackaroons, and Admin is for managing the
+ * database.
+ */
+export enum PermissionLevel {
+    /**
+     * Something everyone can do.
+     */
+    User = 0,
+
+    /**
+     * Something like adding hackaroons.
+     */
+    Staff = 1,
+
+    /**
+     * Something like managing the database.
+     */
+    Admin = 2,
+}
+
+/**
+ * Determines whether a user meets the permission requirements.
+ * @param user - is the permissions of the user to check.
+ * @param requires - is the required permission level.
+ */
+export function hasPermissions(
+    user: PermissionLevel,
+    requires: { has: PermissionLevel },
+): boolean {
+    return user >= requires.has;
 }
 
 /**
@@ -103,6 +144,11 @@ export interface Prize {
  * A transaction record in the database.
  */
 export interface Transaction {
+    /**
+     * The event's ID, which is unique to it.
+     */
+    id: number;
+
     /**
      * The ID of the user who this transaction is about.
      */

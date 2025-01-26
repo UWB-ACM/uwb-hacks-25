@@ -1,23 +1,15 @@
-"use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { Prize } from "@/src/util/dataTypes";
 
-type Prize = {
-    id: number;
-    name: string;
-    description: string;
-    stock: number;
-    price: number;
-};
-
-type CardProps = {
+export interface CardProps {
     prize: Prize;
     hackeroonAmount: number;
     setHackeroonAmount: React.Dispatch<React.SetStateAction<number>>;
     setSelectedItems: React.Dispatch<React.SetStateAction<Prize[]>>;
-};
+}
 
-export default function Card({
+export default function PrizeCard({
     prize,
     hackeroonAmount,
     setHackeroonAmount,
@@ -25,26 +17,27 @@ export default function Card({
 }: CardProps) {
     const [isItemBought, setIsItemBought] = useState(false);
     const [prizeStock, setPrizeStock] = useState(prize.stock);
+
     const buyItem = (itemPrice: number) => {
-        // If item is not bought, user has enough hackeroons to buy item, and item stock is > 0
         if (
-            isItemBought === false &&
+            !isItemBought &&
             hackeroonAmount - itemPrice >= 0 &&
             prizeStock > 0
         ) {
-            // Buy item
+            // If we can buy it, and we haven't already, then do so.
+
             setHackeroonAmount((prev) => prev - itemPrice);
             setIsItemBought(true);
-            // Decrement Stock
+            // Remove from stock
             setPrizeStock((prev) => prev - 1);
             // Add item to selected items
             setSelectedItems((prev) => [...prev, prize]);
-        }
-        // If item is bought, unbuy item and refund hackeroons
-        if (isItemBought === true) {
+        } else if (isItemBought) {
+            // If item is bought, unbuy item and refund hackeroons
+
             setHackeroonAmount((prev) => prev + itemPrice);
             setIsItemBought(false);
-            // Increment Stock
+            // Restore Stock
             setPrizeStock((prev) => prev + 1);
             // Remove item from selected items
             setSelectedItems((prev) =>
@@ -54,7 +47,7 @@ export default function Card({
     };
 
     return (
-        <div className="flex flex-col justify-center p-8 min-h-[200px] bg-neutral-200 rounded-lg border-2 border-neutral-400 shadow-md">
+        <div className="flex flex-col justify-between p-8 h-min-[500px] bg-neutral-200 rounded-lg border-2 border-neutral-400 shadow-md">
             {/* Image */}
             <div className="h-[100px] flex justify-center py-4 my-4 bg-neutral-100 rounded-md">
                 <Image
@@ -68,7 +61,7 @@ export default function Card({
             {/* Name */}
             <h2 className="text-center text-2xl">{prize.name}</h2>
             {/* Stock and Price */}
-            <div className="flex justify-around py-1">
+            <div className="flex flex-col lg:flex-row text-center justify-around py-2">
                 <p>{`${prizeStock} Left!`}</p>
                 <p>{`${prize.price} Hackeroons`}</p>
             </div>
