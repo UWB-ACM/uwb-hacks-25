@@ -1,27 +1,20 @@
-"use client";
-import { useEffect, useState } from "react";
-import { TestRecord } from "../util/dataTypes";
+import { getLeaderboard } from "../util/db/leaderboard";
 
-export default function Home() {
-    const [testData, setData] = useState<TestRecord[]>([]);
+export default async function Page() {
+    const [leaderboard] = await Promise.all([getLeaderboard()]);
 
-    useEffect(() => {
-        fetch("/api/test")
-            .then((response) => response.json())
-            .then((remote_data) => {
-                setData(remote_data.data);
-            })
-            .catch((error) => console.error("Failed to load data:", error));
-    }, []);
+    const leaderboardList = leaderboard.map((user, index) => (
+        <li key={index} className="flex justify-between">
+            <span>{user.name}</span>
+            <span>{user.balance}</span>
+        </li>
+    ));
 
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center">
-            {testData.map((data, i) => (
-                <div className="flex" key={i}>
-                    <h1 className="mr-4 font-extrabold">{data.id}</h1>
-                    <h1>{data.created_at}</h1>
-                </div>
-            ))}
+            <h1 className="font-bold">Leaderboard</h1>
+            
+            {leaderboardList}
         </div>
     );
 }

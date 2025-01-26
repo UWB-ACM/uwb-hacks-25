@@ -1,9 +1,13 @@
 import React from "react";
-import data from "./mockuser.json";
 import QRCode from "react-qr-code";
+import { getSession } from "@/src/util/session";
+import {
+    getBalanceForUser,
+    getTransactionsForUser,
+} from "@/src/util/db/transaction";
 
-export default function page() {
-    const user = data.user;
+export default async function page() {
+    const data = await getSession();
 
     return (
         <div className="pt-20 px-[5%]">
@@ -13,21 +17,37 @@ export default function page() {
                     pfp
                 </div>
                 <div className="ml-4 pr-24">
-                    <div className="mb-1">{user.name}</div>
-                    <div>Hackeroons: {user.hackeroons}</div>
+                    <div className="mb-1">
+                        {data.user?.name ?? "Unauthenticated User"}
+                    </div>
+                    <div>
+                        Hackeroons:{" "}
+                        {data.user?.id
+                            ? (await getBalanceForUser(data.user.id)).toString()
+                            : "N/A"}
+                    </div>
                 </div>
                 {/* QR code */}
                 <div>
-                    <QRCode size={64} value={user.id} viewBox={`0 0 256 256`} />
+                    <QRCode
+                        size={64}
+                        value={data.user?.id?.toString?.() ?? "No ID"}
+                        viewBox={`0 0 256 256`}
+                    />
                 </div>
             </div>
 
             {/* Hackeroon history */}
             <div>
                 <div>Transaction History</div>
-                {user.history.map((event, index) => (
-                    <div key={index}>
-                        {event[0]} {event[1]} {event[2]}
+                {(data.user?.id
+                    ? await getTransactionsForUser(data.user.id)
+                    : []
+                ).map((transaction) => (
+                    <div key={transaction.id}>
+                        [{transaction.type}] H${transaction.amount}{" "}
+                        {transaction.event} {transaction.prize}{" "}
+                        {transaction.time.toString()}
                     </div>
                 ))}
             </div>
