@@ -1,11 +1,23 @@
 import React from "react";
-import user_data from "@/src/app/participant/mockuser.json";
 import Link from "next/link";
+import { getSession } from "@/src/util/session";
+import {
+    getBalanceForUser,
+    getTransactionsForUser,
+} from "@/src/util/db/transaction";
 
-export default function Page() {
-    // get user's data, will change once using database
-    const user = user_data["user"];
-    const historyList = user["history"];
+export default async function Page() {
+    // TODO: Make this apply to the scanned user, not the staff member.
+    const session = await getSession();
+
+    // The user must exist.
+    if (!session.user?.id) {
+        return <>A user must be selected first.</>;
+    }
+
+    const user = session.user;
+    const balance = await getBalanceForUser(user.id);
+    const history = await getTransactionsForUser(user.id);
 
     // returning the card with user information
     return (
@@ -23,26 +35,18 @@ export default function Page() {
                     {/* displaying number of hackeroons user has */}
                     <div className="py-2">
                         Hackeroons{" "}
-                        <span className="text-2xl font-bold">
-                            {user.hackeroons}
-                        </span>
+                        <span className="text-2xl font-bold">{balance}</span>
                     </div>
                     {/* displaying user transactions */}
                     <div className="py-2">
                         Transactions
                         <ul>
                             {/* iterating through user's transaction list */}
-                            {historyList.map((listItem, idx) => (
-                                <li className="mt-4" key={idx}>
-                                    {" "}
-                                    {/* in the array representing a user transaction, 
-                                        add a gap between each element
-                                    */}
-                                    <div className="grid grid-cols-3">
-                                        {listItem.map((item, idx1) => (
-                                            <p key={idx1}>{listItem[idx1]}</p>
-                                        ))}
-                                    </div>{" "}
+                            {history.map((transaction) => (
+                                <li className="mt-4" key={transaction.id}>
+                                    [{transaction.type}] H${transaction.amount}{" "}
+                                    {transaction.event} {transaction.prize}{" "}
+                                    {transaction.time.toString()}
                                 </li>
                             ))}
                         </ul>
