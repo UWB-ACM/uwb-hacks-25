@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import PrizeCard from "@/src/app/ui/components/PrizeCard";
 import { Prize, TransactionType } from "@/src/util/dataTypes";
 import { SessionUser } from "@/src/util/session";
@@ -19,16 +19,7 @@ export default function BuyPage({
     const router = useRouter();
 
     const [hackeroonAmount, setHackeroonAmount] = useState(balance);
-
-    const headerRef = useRef<HTMLDivElement>(null!);
-    const [headerOffsetHeight, setHeaderOffsetHeight] = useState(0);
     const [selectedItems, setSelectedItems] = useState<Prize[]>([]);
-    useEffect(() => {
-        if (headerRef != null) {
-            setHeaderOffsetHeight(headerRef.current.offsetHeight);
-            console.log("header offset height,", headerOffsetHeight);
-        }
-    }, [headerOffsetHeight]);
 
     const handleSubmit = async () => {
         if (selectedItems.length !== 0) {
@@ -59,24 +50,40 @@ export default function BuyPage({
 
     return (
         <>
-            {/* Prize Catalog */}
-            <div ref={headerRef} className="sticky top-0 bg-white">
-                <h1 className="text-center text-3xl pt-4">Prizes</h1>
-                <div className="flex justify-around">
-                    <h2 className="text-center text-2xl">
+            {/*
+                Header
+                
+                Contains:
+                    - Title of Page ("Prizes")
+                    - Person you're buying prizes for
+                    - Person's current total hackeroon amount
+            */}
+            <div className="h-[15vh] flex flex-col justify-center bg-neutral-100 py-4 px-6 border-b-[1px] border-black">
+                <h1 className="text-center text-2xl md:text-3xl pb-4">
+                    Prizes
+                </h1>
+                <div className="flex justify-around gap-x-4 text-center text-xl md:text-2xl">
+                    <h2>
                         Buying for{" "}
                         <span className="font-bold">{user.name}</span>
                     </h2>
-                    <h2 className="text-center text-2xl pb-4">
+                    <h2>
                         Hackeroons Remaining:{" "}
                         <span className="font-bold">{hackeroonAmount}</span>
                     </h2>
                 </div>
             </div>
-            {/* Prize Cards and Selected Items Container */}
-            <div className="flex">
+
+            {/*
+                Buy Prize 
+                
+                Contains:
+                    - Prize Cards
+                    - Shopping Cart / Selected Items
+            */}
+            <div className="h-[85vh] flex">
                 {/* Prize Cards */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 px-8 pb-4 mt-4 mr-[20vw] gap-6">
+                <div className="h-[85vh] w-[70vw] md:w-[80vw] lg:w-[85vw] p-8 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {prizes.map((prize, index) => (
                         <PrizeCard
                             key={index}
@@ -87,31 +94,27 @@ export default function BuyPage({
                         />
                     ))}
                 </div>
-                {/* Selected Items / Shopping Cart */}
-                <div className="relative">
-                    <div
-                        className={`fixed bottom-0 right-0 w-[20vw] flex flex-col justify-between p-4 bg-neutral-200`}
-                        style={{
-                            top: `${headerOffsetHeight}px`,
-                        }}
-                    >
-                        <div>
-                            <h3 className="text-2xl text-center">
-                                Selected Items
-                            </h3>
-                            <ul className="list-disc mt-1 px-2">
-                                {selectedItems.map((item) => (
-                                    <li key={item.id}>{item.name}</li>
-                                ))}
-                            </ul>
-                        </div>
-                        <button
-                            className="w-full h-[6%] bg-green-500 hover:bg-green-600/90 duration-300 border-[1px] border-black rounded-md text-white"
-                            onClick={handleSubmit}
-                        >
-                            Complete
-                        </button>
+
+                {/* Shopping Cart / Selected Items */}
+                <div className="h-[85vh] w-[30vw] md:w-[20vw] flex flex-col justify-between bg-neutral-100 border-l-[1px] border-black">
+                    {/* Selected Items */}
+                    <div className="p-4">
+                        <h2 className="text-center text-xl md:text-2xl">
+                            Selected Items
+                        </h2>
+                        <ul className="list-disc px-4 space-y-2">
+                            {selectedItems.map((item) => (
+                                <li key={item.id}>{item.name}</li>
+                            ))}
+                        </ul>
                     </div>
+                    {/* Complete Button */}
+                    <button
+                        className="p-4 bg-green-500 hover:bg-green-600/90 duration-300 border-[1px] border-black text-white"
+                        onClick={handleSubmit}
+                    >
+                        Complete
+                    </button>
                 </div>
             </div>
         </>
