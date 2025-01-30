@@ -4,6 +4,26 @@ export interface TestRecord {
 }
 
 /**
+ * A user and balance in the database.
+ */
+export interface LeaderboardRecord {
+    /**
+     * The user's ID, which is unique to it.
+     */
+    id: number;
+
+    /**
+     * The prize's name.
+     */
+    name: string;
+
+    /**
+     * The number of hackeroons in account.
+     */
+    balance: number;
+}
+
+/**
  * A user record in the database.
  */
 export interface User {
