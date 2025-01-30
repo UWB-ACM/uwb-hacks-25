@@ -1,6 +1,8 @@
 import TestUserName from "@/src/components/TestUserName";
 import TestRecords from "@/src/components/TestRecords";
 import HeroSection from "@/src/components/(landing-page)/HeroSection";
+import AboutSection from "@/src/components/(landing-page)/AboutSection";
+
 
 export default function Home() {
     return (
@@ -8,6 +10,7 @@ export default function Home() {
             {/* <TestUserName />
             <TestRecords /> */}
             <HeroSection/>
+            <AboutSection/>
             
         </div>
     );
