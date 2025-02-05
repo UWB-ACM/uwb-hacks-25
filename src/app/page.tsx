@@ -10,12 +10,10 @@ import FAQSection from "../components/(landing-page)/FAQSection";
 import MeetTheTeamSection from "../components/(landing-page)/MeetTheTeamSection";
 import SponsorsSection from "../components/(landing-page)/SponsorsSection";
 
+export default function Page() {
 
-export default function Home() {
     return (
         <div className="max-w-[80vw] flex flex-col justify-center items-center mx-auto">
-            {/* <TestUserName />
-            <TestRecords /> */}
 
             <HeroSection />
             <AboutSection />
@@ -34,6 +32,7 @@ export default function Home() {
             <MeetTheTeamSection />
 
             <SponsorsSection />
+
         </div>
     );
 }
