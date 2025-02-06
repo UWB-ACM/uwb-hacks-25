@@ -1,8 +1,8 @@
 import React from "react";
-import HackathonDates from "@/src/components/(landing-page)/(HeroSectionComponents)/HackathonDates";
-import VolunteerSection from "@/src/components/(landing-page)/(HeroSectionComponents)/VolunteerSection";
-import LogoContainer from "@/src/components/(landing-page)/(HeroSectionComponents)/LogoContainer";
-import Countdown from "@/src/components/(landing-page)/(HeroSectionComponents)/Countdown";
+import HackathonDates from "@/src/components/landing-page/(HeroSectionComponents)/HackathonDates";
+import VolunteerSection from "@/src/components/landing-page/(HeroSectionComponents)/VolunteerSection";
+import LogoContainer from "@/src/components/landing-page/(HeroSectionComponents)/LogoContainer";
+import Countdown from "@/src/components/landing-page/(HeroSectionComponents)/Countdown";
 
 const HeroSection = () => {
     return (
