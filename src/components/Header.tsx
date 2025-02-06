@@ -2,12 +2,14 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import { link } from "fs";
+import Link from "next/link";
 
 export default function Header() {
     const router = useRouter();
     // sort users in descending order by their hackeroon count
     return (
-        <nav className="h-28 px-20 w-full flex justify-between place-content-center">
+        <nav className="h-28 px-20 w-full justify-between place-content-center flex">
             <button
                 className="font-h1 text-5xl"
                 onClick={() => {
@@ -22,6 +24,7 @@ export default function Header() {
                     className="font-h3 font-medium text-lg"
                     onClick={() => {
                         router.push("/");
+
                         //scroll down to about section
                     }}
                 >
