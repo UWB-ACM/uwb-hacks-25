@@ -1,5 +1,3 @@
-import TestUserName from "@/src/components/TestUserName";
-import TestRecords from "@/src/components/TestRecords";
 import HeroSection from "@/src/components/(landing-page)/HeroSection";
 import AboutSection from "@/src/components/(landing-page)/AboutSection";
 import WhatsNewSection from "../components/(landing-page)/WhatsNewSection";
