@@ -7,6 +7,12 @@ export default {
     content: [join(__dirname, 'src/**/*.{js,ts,jsx,tsx}')],
     theme: {
         extend: {
+            fontFamily: {
+                h1: ['h1-font'],
+                h2: ['h2-font'],
+                "h2-bold": ['h2-font-bold'],
+                h3: ['h3-font']
+            },
             colors: {
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
