@@ -6,18 +6,16 @@ import Countdown from "@/src/components/landing-page/(HeroSectionComponents)/Cou
 
 const HeroSection = () => {
     return (
-        <div className="grow bg-blue-400 flex m-0 p-0">
-            <div className="flex flex-col grow items-center justify-center">
-                <LogoContainer />
-                <Countdown />
-            </div>
+        <div className=" grow justify-center grid sm:grid-cols-3 sm:gap-x-[5rem] sm:flex">
+        <LogoContainer/>
 
+        <div className="grid grid-cols-subgrid gap-1">
             {/* Dates of Hackathon + Volunteer Apply button section in here */}
-            <div className="flex flex-col grow  items-center justify-center">
-                <HackathonDates />
-                <VolunteerSection />
-            </div>
+            <HackathonDates />
+            <VolunteerSection />
+            <Countdown/>
         </div>
+    </div>
     );
 };
 

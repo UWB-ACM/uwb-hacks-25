@@ -18,17 +18,18 @@ export default function Page() {
                 <HeroSection />
             </div>
 
-            <div className="w-full h-screen flex" style={{}}>
+            <div className="w-full flex" style={{
+                height: "calc(100vh - 7rem)",
+            }}>
                 <AboutSection />
             </div>
 
-            <div className="bg-orange-300 h-screen" style={{}}>
+            <div className="bg-orange-300" style={{}}>
                 <div className="flex gap-x-[3rem]">
                     <WhatsNewSection />
                     <LeaderboardSection />
                 </div>
             </div>
-
            <div className="bg-orange-300 h-screen" style={{}}>
                 <TracksSection />
             </div>
@@ -36,13 +37,13 @@ export default function Page() {
                 <ScheduleSection />
             </div>
             <div className="bg-orange-300 h-screen" style={{}}>
-                <FAQSection />
-            </div>
-            <div className="bg-orange-300 h-screen" style={{}}>
                 <MeetTheTeamSection />
             </div>
             <div className="bg-orange-300 h-screen" style={{}}>
                 <SponsorsSection />
+            </div>
+            <div className="bg-orange-300 h-screen" style={{}}>
+                <FAQSection />
             </div>
         </div>
     );
