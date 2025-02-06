@@ -1,7 +1,7 @@
 import React from "react";
 import { getPrizes } from "@/src/util/db/prize";
 import { getSession } from "@/src/util/session";
-import BuyPage from "@/src/app/staff/buy-prizes/BuyPage";
+import BuyPage from "@/src/components/staff/BuyPage";
 import { getBalanceForUser } from "@/src/util/db/transaction";
 
 export default async function Page() {

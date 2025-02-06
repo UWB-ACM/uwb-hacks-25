@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import PrizeCard from "@/src/app/ui/components/PrizeCard";
+import PrizeCard from "@/src/components/staff/PrizeCard";
 import { Prize, TransactionType } from "@/src/util/dataTypes";
 import { SessionUser } from "@/src/util/session";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
