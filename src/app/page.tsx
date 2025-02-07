@@ -16,6 +16,7 @@ export default function Page() {
                 style={{ height: "calc(100vh - 7rem)" }}
             >
                 <HeroSection />
+                
             </div>
 
             <div className="w-full flex" style={{
