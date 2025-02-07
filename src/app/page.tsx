@@ -9,27 +9,43 @@ import MeetTheTeamSection from "../components/landing-page/MeetTheTeamSection";
 import SponsorsSection from "../components/landing-page/SponsorsSection";
 
 export default function Page() {
-
     return (
-        <div className="max-w-[80vw] flex flex-col justify-center items-center mx-auto">
-            <HeroSection />
-            <AboutSection />
-
-            <div className="flex gap-x-[3rem]">
-                <WhatsNewSection />
-                <LeaderboardSection />
+        <div className="flex flex-col w-full mx-auto max-w-[50rem]">
+            <div
+                className="w-full flex "
+                style={{ height: "calc(100vh - 7rem)" }}
+            >
+                <HeroSection />
+                
             </div>
 
-            <TracksSection />
+            <div className="w-full flex" style={{
+                height: "calc(100vh - 7rem)",
+            }}>
+                <AboutSection />
+            </div>
 
-            <ScheduleSection />
-
-            <FAQSection />
-
-            <MeetTheTeamSection />
-
-            <SponsorsSection />
-
+            <div className="bg-orange-300" style={{}}>
+                <div className="flex gap-x-[3rem]">
+                    <WhatsNewSection />
+                    <LeaderboardSection />
+                </div>
+            </div>
+           <div className="bg-orange-300 h-screen" style={{}}>
+                <TracksSection />
+            </div>
+            <div className="bg-orange-300 h-screen" style={{}}>
+                <ScheduleSection />
+            </div>
+            <div className="bg-orange-300 h-screen" style={{}}>
+                <MeetTheTeamSection />
+            </div>
+            <div className="bg-orange-300 h-screen" style={{}}>
+                <SponsorsSection />
+            </div>
+            <div className="bg-orange-300 h-screen" style={{}}>
+                <FAQSection />
+            </div>
         </div>
     );
 }
