@@ -15,12 +15,11 @@ const HeroSection = () => {
                   </div>
 
                   {/* Right Column - Dates and Countdown */}
-                  <div className="flex flex-col gap-6">
-                    <div className="bg-white/40 rounded-lg p-6">
+                  <div className="flex flex-col gap-x-6">
+                    <div className="bg-white/40 rounded-lg p-8">
                        <HackathonDates />
                       <Countdown /> 
                     </div>
-                      
                   </div>
               </div>
           </div>
