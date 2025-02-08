@@ -5,7 +5,7 @@ import Countdown from "@/src/components/landing-page/(HeroSectionComponents)/Cou
 
 const HeroSection = () => {
   return (
-      <div className="flex w-full justify-center min-h-screen bg-gradient-to-b from-purple-300 from-[10%] via-orange-400 via-50% to-red-500 to-80%">
+      <div className="flex w-full justify-center min-h-screen bg-hero bg-cover bg-center">
           <div className="relative z-10 container px-4 py-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-8">
                   {/* Left Column - Logo and Volunteer */}
