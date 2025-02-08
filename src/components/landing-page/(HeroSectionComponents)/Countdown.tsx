@@ -38,11 +38,11 @@ const Countdown = () => {
     }, []);
 
     return (
-        <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6">
-            <h2 className="text-xl font-bold text-blue-500 mb-4">
+        <div className=" rounded-lg p-6">
+            <h2 className="text-xl font-bold text-blue-600 mb-4">
                 READY TO LAUNCH IN...
             </h2>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid sm:grid-cols-4 gap-2">
                 <div>
                     <div className="text-4xl font-mono font-bold">
                         {timeLeft.days}
