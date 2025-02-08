@@ -1,6 +1,6 @@
 const VolunteerSection = () => {
     return (
-        <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6">
+        <div className="bg-white/40 rounded-lg p-6">
             <h2 className="text-xl font-bold mb-4">
                 Be the power behind the superpowers!
             </h2>
