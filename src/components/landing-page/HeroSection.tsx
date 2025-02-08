@@ -1,4 +1,3 @@
-import React from "react";
 import HackathonDates from "@/src/components/landing-page/(HeroSectionComponents)/HackathonDates";
 import VolunteerSection from "@/src/components/landing-page/(HeroSectionComponents)/VolunteerSection";
 import LogoContainer from "@/src/components/landing-page/(HeroSectionComponents)/LogoContainer";
@@ -6,16 +5,28 @@ import Countdown from "@/src/components/landing-page/(HeroSectionComponents)/Cou
 
 const HeroSection = () => {
     return (
-        <div className=" grow justify-center grid sm:grid-cols-3 sm:gap-x-[5rem] sm:flex">
-        <LogoContainer/>
+        <div className="relative min-h-screen bg-gradient-to-b from-purple-300 from-[10%] via-orange-400 via-50% to-red-500 to-80%">
+            {/* City Background */}
 
-        <div className="grid grid-cols-subgrid gap-1">
-            {/* Dates of Hackathon + Volunteer Apply button section in here */}
-            <HackathonDates />
-            <VolunteerSection />
-            <Countdown/>
+            {/* Content */}
+            <div className="relative z-10 container px-4 py-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    {/* Logo Section */}
+                    <div className="lg:col-span-1 mt-4">
+                        <LogoContainer />
+                    </div>
+
+                    <div className="lg:col-span-1 lg:mt-16">
+                        <VolunteerSection />
+                    </div>
+
+                    <div className="lg:col-span-1 space-y-8 lg:mt-8">
+                        <HackathonDates />
+                        <Countdown />
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
     );
 };
 
