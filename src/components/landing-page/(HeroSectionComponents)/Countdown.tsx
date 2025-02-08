@@ -38,34 +38,34 @@ const Countdown = () => {
     }, []);
 
     return (
-        <div className=" rounded-lg p-6">
+        <div className="rounded-lg p-6">
             <h2 className="text-xl font-bold text-blue-600 mb-4">
                 READY TO LAUNCH IN...
             </h2>
-            <div className="grid sm:grid-cols-4 gap-2">
+            <div className="grid sm:grid-cols-4">
                 <div>
+                    <div className="text-sm text-gray-600">DAYS</div>
                     <div className="text-4xl font-mono font-bold">
                         {timeLeft.days}
                     </div>
-                    <div className="text-sm text-gray-600">DAYS</div>
                 </div>
                 <div>
+                    <div className="text-sm text-gray-600">HOURS</div>
                     <div className="text-4xl font-mono font-bold">
                         {timeLeft.hours}
                     </div>
-                    <div className="text-sm text-gray-600">HOURS</div>
                 </div>
                 <div>
+                    <div className="text-sm text-gray-600">MINUTES</div>
                     <div className="text-4xl font-mono font-bold">
                         {timeLeft.minutes}
                     </div>
-                    <div className="text-sm text-gray-600">MINUTES</div>
                 </div>
                 <div>
+                    <div className="text-sm text-gray-600">SECONDS</div>
                     <div className="text-4xl font-mono font-bold">
                         {timeLeft.seconds}
                     </div>
-                    <div className="text-sm text-gray-600">SECONDS</div>
                 </div>
             </div>
         </div>
