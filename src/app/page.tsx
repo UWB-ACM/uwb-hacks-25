@@ -13,16 +13,13 @@ export default function Page() {
         <div className="flex flex-col w-full">
             <div
                 className="w-full flex justify-center "
-                style={{ height: "calc(100vh - 7rem)" }}
+                // style={{ height: "calc(100vh - 7rem)" }}
             >
                 <HeroSection />
             </div>
 
             <div
                 className="w-full flex"
-                style={{
-                    height: "calc(100vh - 7rem)",
-                }}
             >
                 <AboutSection />
             </div>
