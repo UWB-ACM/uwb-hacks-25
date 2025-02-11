@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { committees } from './(MeetTheTeamSectionComponents)/Committees';
-import CommitteeTabs from './(MeetTheTeamSectionComponents)/CommitteeTabs';
-import MembersGrid from './(MeetTheTeamSectionComponents)/MembersGrid';
+import { committees } from '@/src/components/landing-page/(MeetTheTeamSectionComponents)/Committees';
+import CommitteeTabs from '@/src/components/landing-page/(MeetTheTeamSectionComponents)/CommitteeTabs';
+import MembersGrid from '@/src/components/landing-page/(MeetTheTeamSectionComponents)/MembersGrid';
 
 const MeetTheTeamSection = () => {
   const [activeCommitteeId, setActiveCommitteeId] = useState(committees[0].id);

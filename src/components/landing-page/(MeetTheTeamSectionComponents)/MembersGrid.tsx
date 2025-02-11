@@ -1,5 +1,5 @@
 import React from 'react';
-import MemberCard from './MemberCard';
+import MemberCard from '@/src/components/landing-page/(MeetTheTeamSectionComponents)/MemberCard';
 
 interface TeamMembersGridProps {
   members: { id: string; name: string; role: string; photo: string }[];
