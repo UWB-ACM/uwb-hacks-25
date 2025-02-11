@@ -37,7 +37,7 @@ export default function Page() {
             <div className="bg-orange-300 h-screen" style={{}}>
                 <ScheduleSection />
             </div>
-            <div className="bg-orange-300 h-screen" style={{}}>
+            <div className="bg-orange-300 min-h-screen overflow-auto" style={{}}>
                 <MeetTheTeamSection />
             </div>
             <div className="bg-orange-300 h-screen" style={{}}>
