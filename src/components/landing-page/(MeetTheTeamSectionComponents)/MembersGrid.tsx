@@ -7,7 +7,7 @@ interface TeamMembersGridProps {
 
 const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
       {members.map((member) => (
         <MemberCard key={member.id} member={member} />
       ))}
