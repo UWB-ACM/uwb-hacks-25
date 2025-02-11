@@ -10,7 +10,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
       <img
         src={member.photo}
         alt={member.name}
-        className="w-20 h-20 rounded-full border-2 border-black"
+        className="w-20 h-20 border-4 border-black"
       />
       <div>
         <h3 className="text-xl font-bold">{member.name}</h3>

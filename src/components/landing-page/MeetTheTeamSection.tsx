@@ -15,7 +15,7 @@ const MeetTheTeamSection = () => {
       {/* Heading */}
       <div className="text-center">
         <h1 className="text-3xl font-bold">
-          MEET THE TEAM
+          MEET THE LEAGUE
         </h1>
       </div>
 
