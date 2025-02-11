@@ -3,12 +3,12 @@ export const committees = [
     id: 'commitee-leads',
     name: 'Justice Leads',
     members: [
-      { id: 'simon-dao', name: 'Simon Dao', role: 'Lead for Digital Experience', photo: '/MeetTheTeamPhotos/simon-dao.jpg' },
-      { id: 'chinmayee-chadalavada', name: 'Chin Chadalavada', role: 'Lead for Sponsorships Outreach', photo: '/MeetTheTeamPhotos/chinmayee-chadalavada.jpg' },
-      { id: 'vinaya-chava', name: 'Vinaya Chava', role: 'Lead for Local Arrangements', photo: '/MeetTheTeamPhotos/vinaya-chava.jpg' },
-      { id: 'hannah-kim', name: 'Hannah Kim', role: 'Lead for Production Management', photo: '/MeetTheTeamPhotos/hannah-kim.jpg' },
-      { id: 'breanna-powell', name: 'Breanna Powell', role: 'Lead for Marketing', photo: '/MeetTheTeamPhotos/breanna-powell.jpg' },
-      { id: 'bruce-duong', name: 'Bruce Duong', role: 'Lead for Financial Management', photo: '/MeetTheTeamPhotos/bruce-duong.jpg' },
+      { id: 'simon-dao', name: 'Simon Dao', role: 'Digital Experience Lead', photo: '/MeetTheTeamPhotos/simon-dao.jpg' },
+      { id: 'chinmayee-chadalavada', name: 'Chin Chadalavada', role: 'Sponsorships Outreach Lead', photo: '/MeetTheTeamPhotos/chinmayee-chadalavada.jpg' },
+      { id: 'vinaya-chava', name: 'Vinaya Chava', role: 'Local Arrangements Lead', photo: '/MeetTheTeamPhotos/vinaya-chava.jpg' },
+      { id: 'hannah-kim', name: 'Hannah Kim', role: 'Production Management Lead', photo: '/MeetTheTeamPhotos/hannah-kim.jpg' },
+      { id: 'breanna-powell', name: 'Breanna Powell', role: 'Marketing Lead', photo: '/MeetTheTeamPhotos/breanna-powell.jpg' },
+      { id: 'bruce-duong', name: 'Bruce Duong', role: 'Financial Management Lead', photo: '/MeetTheTeamPhotos/bruce-duong.jpg' },
     ],
   },
   {
