@@ -1,29 +1,30 @@
 export const committees = [
   {
     id: 'commitee-leads',
-    name: 'Committee Leads',
+    name: 'Justice Leads',
     members: [
-      { id: 'simon-dao1', name: 'Simon Dao', role: 'Lead for Digital Experience, Content and Design', photo: 'https://cdn.discordapp.com/avatars/277605748995915779/22a912d2aac0802ffde3a03eb9caeae4.webp?size=240' },
-      { id: 'simon-dao2', name: 'Simon Dao', role: 'Lead for Digital Experience, Content and Design', photo: 'https://cdn.discordapp.com/avatars/277605748995915779/22a912d2aac0802ffde3a03eb9caeae4.webp?size=240' },
-      { id: 'simon-dao3', name: 'Simon Dao', role: 'Lead for Digital Experience, Content and Design', photo: 'https://cdn.discordapp.com/avatars/277605748995915779/22a912d2aac0802ffde3a03eb9caeae4.webp?size=240' },
-      { id: 'simon-dao4', name: 'Simon Dao', role: 'Lead for Digital Experience, Content and Design', photo: 'https://cdn.discordapp.com/avatars/277605748995915779/22a912d2aac0802ffde3a03eb9caeae4.webp?size=240' },
-      { id: 'simon-dao5', name: 'Simon Dao', role: 'Lead for Digital Experience, Content and Design', photo: 'https://cdn.discordapp.com/avatars/277605748995915779/22a912d2aac0802ffde3a03eb9caeae4.webp?size=240' },
+      { id: 'simon-dao', name: 'Simon Dao', role: 'Lead for Digital Experience', photo: '/MeetTheTeamPhotos/simon-dao.jpg' },
+      { id: 'chinmayee-chadalavada', name: 'Chin Chadalavada', role: 'Lead for Sponsorships Outreach', photo: '/MeetTheTeamPhotos/chinmayee-chadalavada.jpg' },
+      { id: 'vinaya-chava', name: 'Vinaya Chava', role: 'Lead for Local Arrangements', photo: '/MeetTheTeamPhotos/vinaya-chava.jpg' },
+      { id: 'hannah-kim', name: 'Hannah Kim', role: 'Lead for Production Management', photo: '/MeetTheTeamPhotos/hannah-kim.jpg' },
+      { id: 'breanna-powell', name: 'Breanna Powell', role: 'Lead for Marketing', photo: '/MeetTheTeamPhotos/breanna-powell.jpg' },
+      { id: 'bruce-duong', name: 'Bruce Duong', role: 'Lead for Financial Management', photo: '/MeetTheTeamPhotos/bruce-duong.jpg' },
     ],
   },
   {
     id: 'digital-experience',
-    name: 'Digital Experience',
+    name: 'Digital Daredevils',
     members: [
-      { id: 'sam-park1', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park', name: 'Sam Park', role: 'Developer', photo: '/MeetTheTeamPhotos/sam-park.jpg' },
       { id: 'sam-park2', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
       { id: 'sam-park3', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
-      { id: 'sam-park4', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
-      { id: 'sam-park5', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'jingyi4', name: 'Jingyi', role: 'GOAT Designer', photo: 'https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/ywjjv6pml5diu5cwid21' },
+      { id: 'jingyi5', name: 'Jingyi', role: 'GOAT Designer', photo: 'https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/ywjjv6pml5diu5cwid21' },
     ],
   },
   {
-    id: 'digital-experience2',
-    name: 'Digital Experience 2',
+    id: 'sponsorships-outreach',
+    name: 'Sponsor Spartans',
     members: [
       { id: 'sam-park11', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
       { id: 'sam-park22', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
@@ -33,14 +34,47 @@ export const committees = [
     ],
   },
   {
-    id: 'content-and-design',
-    name: 'Content and Design',
+    id: 'local-arrangements',
+    name: 'Local Arrangement Liberators',
     members: [
-      { id: 'jingyi1', name: 'Jingyi', role: 'GOAT Designer', photo: 'https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/ywjjv6pml5diu5cwid21' },
-      { id: 'jingyi2', name: 'Jingyi', role: 'GOAT Designer', photo: 'https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/ywjjv6pml5diu5cwid21' },
-      { id: 'jingyi3', name: 'Jingyi', role: 'GOAT Designer', photo: 'https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/ywjjv6pml5diu5cwid21' },
-      { id: 'jingyi4', name: 'Jingyi', role: 'GOAT Designer', photo: 'https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/ywjjv6pml5diu5cwid21' },
-      { id: 'jingyi5', name: 'Jingyi', role: 'GOAT Designer', photo: 'https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/ywjjv6pml5diu5cwid21' },
+      { id: 'sam-park11', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park22', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park33', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park44', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park55', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
     ],
   },
+  {
+    id: 'production-management',
+    name: 'Production Patriots',
+    members: [
+      { id: 'sam-park11', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park22', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park33', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park44', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park55', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+    ],
+  },
+  {
+    id: 'marketing',
+    name: 'Marketing Masterminds',
+    members: [
+      { id: 'sam-park11', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park22', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park33', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park44', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park55', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+    ],
+  },
+  {
+    id: 'financial-management',
+    name: 'Finance Fighters',
+    members: [
+      { id: 'sam-park11', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park22', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park33', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park44', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+      { id: 'sam-park55', name: 'Sam Park', role: 'Developer', photo: 'https://i1.sndcdn.com/artworks-000480365457-2t079z-t1080x1080.jpg' },
+    ],
+  }
 ];
