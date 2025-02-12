@@ -4,9 +4,25 @@ import tailwindAnimate from "tailwindcss-animate";
 
 export default {
     darkMode: ["class"],
-    content: [join(__dirname, 'src/**/*.{js,ts,jsx,tsx}')],
+    content: [join(__dirname, "src/**/*.{js,ts,jsx,tsx}")],
     theme: {
         extend: {
+            screens: {
+                xs: "300px", // Extra small (Custom)
+                sm: "450px", // Small (Default)
+                md: "800px", // Medium (Default)
+                lg: "1000px", // Extra Large (Default)
+                xl: "1200px", // Large (Default)
+                "2xl": "1536px", // Very Large (Default)
+                "3xl": "1800px", // Ultra-wide (Custom)
+            },
+
+            fontFamily: {
+                h1: ["h1-font"],
+                h2: ["h2-font"],
+                "h2-bold": ["h2-font-bold"],
+                h3: ["h3-font"],
+            },
             colors: {
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
