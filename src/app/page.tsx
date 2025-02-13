@@ -10,40 +10,39 @@ import SponsorsSection from "../components/landing-page/SponsorsSection";
 
 export default function Page() {
     return (
-        <div className="flex flex-col w-full mx-auto max-w-[50rem]">
+        <div className="flex flex-col w-full">
             <div
-                className="w-full flex "
-                style={{ height: "calc(100vh - 7rem)" }}
+                className="w-full flex justify-center "
+                // style={{ height: "calc(100vh - 7rem)" }}
             >
                 <HeroSection />
-                
             </div>
 
-            <div className="w-full flex" style={{
-                height: "calc(100vh - 7rem)",
-            }}>
+            <div
+                className="w-full flex"
+            >
                 <AboutSection />
             </div>
 
-            <div className="bg-orange-300" style={{}}>
+            <div className="" style={{}}>
                 <div className="flex gap-x-[3rem]">
                     <WhatsNewSection />
                     <LeaderboardSection />
                 </div>
             </div>
-           <div className="bg-orange-300 h-screen" style={{}}>
+            <div className=" h-screen" style={{}}>
                 <TracksSection />
             </div>
-            <div className="bg-orange-300 h-screen" style={{}}>
+            <div className=" h-screen" style={{}}>
                 <ScheduleSection />
             </div>
-            <div className="bg-orange-300 h-screen" style={{}}>
+            <div className=" h-screen" style={{}}>
                 <MeetTheTeamSection />
             </div>
-            <div className="bg-orange-300 h-screen" style={{}}>
+            <div className=" h-screen" style={{}}>
                 <SponsorsSection />
             </div>
-            <div className="bg-orange-300 h-screen" style={{}}>
+            <div className=" h-screen" style={{}}>
                 <FAQSection />
             </div>
         </div>
