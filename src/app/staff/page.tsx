@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { FaGift } from "react-icons/fa6";
-import { BiTransferAlt } from "react-icons/bi";
 import { FaUserEdit } from "react-icons/fa";
+import { BiTransferAlt } from "react-icons/bi";
 
 export default function Page() {
     const router = useRouter();
