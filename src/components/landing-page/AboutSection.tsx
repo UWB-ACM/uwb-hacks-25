@@ -16,7 +16,7 @@ const AboutSection: React.FC = () => {
             <PolygonArea
                 area="top"
                 path="M1.5 1.5H1333.5V74.5562L1.5 125.442V1.5Z"
-                clipPath="0.112%_1.196%,100%_1.196%,100%_59.435%,0.112%_100%,0.112%_1.196%"
+                clipPath="0.112% 1.196%,100% 1.196%,100% 59.435%,0.112% 100%,0.112% 1.196%"
                 viewBox="0 0 1335 127"
             >
                 <div className="absolute [top:10%] lg:[top:20%] [left:50px]">
@@ -29,7 +29,7 @@ const AboutSection: React.FC = () => {
             <PolygonArea
                 area="husky"
                 path="M1.5 469.5V48.4192L846.5 1.58544V302.542L486.279 469.5H1.5Z"
-                clipPath="0.177%_100%,0.177%_10.313%,100%_0.338%,100%_64.439%,57.446%_100%,0.177%_100%"
+                clipPath="0.177% 100%,0.177% 10.313%,100% 0.338%,100% 64.439%,57.446% 100%,0.177% 100%"
                 viewBox="0 0 848 471"
                 width="90%"
                 height="150%"
@@ -54,7 +54,7 @@ const AboutSection: React.FC = () => {
             <PolygonArea
                 area="prizes"
                 path="M1.5 314.5V13.5198L430.5 1.54246V314.5H1.5Z"
-                clipPath="0.348%_100%,0.348%_4.299%,100%_0.49%,100%_100%,0.348%_100%"
+                clipPath="0.348% 100%,0.348% 4.299%,100% 0.49%,100% 100%,0.348% 100%"
                 viewBox="0 0 432 316"
                 height="140%"
             >
@@ -73,7 +73,7 @@ const AboutSection: React.FC = () => {
             <PolygonArea
                 area="stats"
                 path="M456.5 1.5H1.5V252.5H456.5V1.5Z"
-                clipPath="100%_0.594%,0.329%_0.594%,0.329%_100%,100%_100%,100%_0.594%"
+                clipPath="100% 0.594%,0.329% 0.594%,0.329% 100%,100% 100%,100% 0.594%"
                 viewBox="0 0 458 254"
             >
                 <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
@@ -88,7 +88,7 @@ const AboutSection: React.FC = () => {
             <PolygonArea
                 area="acm"
                 path="M829.5 430H1.5V179.974L401.819 1.5H829.5V430Z"
-                clipPath="100%_100%,0.181%_100%,0.181%_41.854%,48.441%_0.349%,100%_0.349%,100%_100%"
+                clipPath="100% 100%,0.181% 100%,0.181% 41.854%,48.441% 0.349%,100% 0.349%,100% 100%"
                 viewBox="0 0 831 432"
                 width="95%"
                 style={{ marginLeft: "auto" }}
