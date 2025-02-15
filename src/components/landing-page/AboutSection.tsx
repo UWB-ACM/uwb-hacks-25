@@ -1,26 +1,17 @@
-import React, { PropsWithChildren } from "react";
+import React, { CSSProperties, PropsWithChildren } from "react";
+import Image from "next/image";
 
 const AboutSection: React.FC = () => {
-    const aboutText = (
-        <svg
-            width="225"
-            height="59"
-            viewBox="0 0 225 59"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                d="M30.875 44.1875L32.5625 50.4375H42.25L29.6875 3.5625H16.9375L4.375 50.4375H14.0625L15.75 44.1875H30.875ZM28.375 34.8125H18.25L23.3125 15.9375L28.375 34.8125ZM30.1875 53.5625L29.7812 52H22.8125L21.125 58.25H5L0.3125 53.5625L14.5625 0.4375H32.0625L36.75 5.125L51 58.25H34.875L30.1875 53.5625ZM51.4375 3.5625V50.4375H71.75C81.125 50.4375 85.8125 45.75 85.8125 36.375C85.8125 32.8333 85.0208 29.7083 83.4375 27C85.0208 24.2917 85.8125 21.1667 85.8125 17.625C85.8125 8.25 81.125 3.5625 71.75 3.5625H51.4375ZM60.8125 22.3125V12.9375H71.75C74.875 12.9375 76.4375 14.5 76.4375 17.625C76.4375 20.75 74.875 22.3125 71.75 22.3125H60.8125ZM60.8125 31.6875H71.75C74.875 31.6875 76.4375 33.25 76.4375 36.375C76.4375 39.5 74.875 41.0625 71.75 41.0625H60.8125V31.6875ZM48.3125 53.5625V0.4375H71.75C79.0417 0.4375 84.5104 2.26042 88.1562 5.90625C91.8021 9.55208 93.625 15.0208 93.625 22.3125C93.625 26.4375 93 29.5625 91.75 31.6875C93 33.8125 93.625 36.9375 93.625 41.0625C93.625 52.5208 87.8958 58.25 76.4375 58.25H53L48.3125 53.5625ZM115.5 3.5625H109.25C99.875 3.5625 95.1875 8.25 95.1875 17.625V36.375C95.1875 45.75 99.875 50.4375 109.25 50.4375H115.5C124.875 50.4375 129.562 45.75 129.562 36.375V17.625C129.562 8.25 124.875 3.5625 115.5 3.5625ZM120.188 17.625V36.375C120.188 39.5 118.625 41.0625 115.5 41.0625H109.25C106.125 41.0625 104.562 39.5 104.562 36.375V17.625C104.562 14.5 106.125 12.9375 109.25 12.9375H115.5C118.625 12.9375 120.188 14.5 120.188 17.625ZM112.375 37.9375H115.5C116.542 37.9375 117.062 37.4167 117.062 36.375V20.75C113.938 20.75 112.375 22.3125 112.375 25.4375V37.9375ZM97.5312 52.7812C93.8854 49.1354 92.0625 43.6667 92.0625 36.375V17.625C92.0625 6.16667 97.7917 0.4375 109.25 0.4375H115.5C122.792 0.4375 128.26 2.26042 131.906 5.90625C135.552 9.55208 137.375 15.0208 137.375 22.3125V41.0625C137.375 52.5208 131.646 58.25 120.188 58.25H113.938C106.646 58.25 101.177 56.4271 97.5312 52.7812ZM163.938 36.375C163.938 39.5 162.375 41.0625 159.25 41.0625H153C149.875 41.0625 148.312 39.5 148.312 36.375V3.5625H138.938V36.375C138.938 45.75 143.625 50.4375 153 50.4375H159.25C168.625 50.4375 173.312 45.75 173.312 36.375V3.5625H163.938V36.375ZM156.125 37.9375H159.25C160.292 37.9375 160.812 37.4167 160.812 36.375V0.4375H176.438L181.125 5.125V41.0625C181.125 52.5208 175.396 58.25 163.938 58.25H157.688C150.396 58.25 144.927 56.4271 141.281 52.7812C137.635 49.1354 135.812 43.6667 135.812 36.375V0.4375H151.438L156.125 5.125V37.9375ZM204.562 12.9375H217.062V3.5625H182.688V12.9375H195.188V50.4375H204.562V12.9375ZM179.562 16.0625V0.4375H220.188L224.875 5.125V20.75H212.375V58.25H196.75L192.062 53.5625V20.75H184.25L179.562 16.0625Z"
-                fill="#49B2F8"
-            />
-        </svg>
-    );
-
     return (
         <div
             className={
                 'grow [min-height:60vw] p-10 gap-2 grid [grid-template-columns:1fr_1fr_1fr] [grid-template-rows:2fr_1fr_1fr_1fr_2fr_1fr_2fr] [grid-template-areas:"top_top_top"_"husky_husky_prizes"_"husky_husky_prizes"_"husky_husky_."_"._acm_acm"_"stats_acm_acm"_"stats_acm_acm"]'
             }
+            // TODO: How to represent this with tailwind?
+            style={{
+                background:
+                    "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
+            }}
         >
             <PolygonArea
                 area="top"
@@ -28,8 +19,13 @@ const AboutSection: React.FC = () => {
                 clipPath="0.112%_1.196%,100%_1.196%,100%_59.435%,0.112%_100%,0.112%_1.196%"
                 viewBox="0 0 1335 127"
             >
-                {aboutText}
+                <div className="absolute [top:10%] lg:[top:20%] [left:50px]">
+                    <h2 className="[color:#49B2F8] [font-family:h1-font] [font-size:calc(1rem_+_3vw)]">
+                        About
+                    </h2>
+                </div>
             </PolygonArea>
+
             <PolygonArea
                 area="husky"
                 path="M1.5 469.5V48.4192L846.5 1.58544V302.542L486.279 469.5H1.5Z"
@@ -38,8 +34,23 @@ const AboutSection: React.FC = () => {
                 width="90%"
                 height="150%"
             >
-                {aboutText}
+                <p className="text-right absolute [width:35%] [top:10%] [right:20px] [font-family:h2-font] [font-size:calc(0.1rem_+_1vw)]">
+                    UWB: Saves the World! is an annual hackathon teaching
+                    students computer science while preparing them for tech and
+                    business careers through hands-on learning and professional
+                    networking. Learn more here!
+                </p>
+
+                <div className="absolute [width:20%] [bottom:calc(10%_+_1.5vw)] [right:20%]">
+                    <Image
+                        src="/discord-fancy-yellow.svg"
+                        alt="Discord"
+                        width={168}
+                        height={122}
+                    />
+                </div>
             </PolygonArea>
+
             <PolygonArea
                 area="prizes"
                 path="M1.5 314.5V13.5198L430.5 1.54246V314.5H1.5Z"
@@ -47,25 +58,51 @@ const AboutSection: React.FC = () => {
                 viewBox="0 0 432 316"
                 height="140%"
             >
-                {aboutText}
+                <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
+                    <div className="flex-grow" />
+                    <p>$8,800+ prizes</p>
+                    <div className="flex-grow" />
+                    <p>11 Schools</p>
+                    <p className="[font-size:calc(0.1rem_+_1.25vw)]">
+                        (University/College/High School)
+                    </p>
+                    <div className="flex-grow" />
+                </div>
             </PolygonArea>
+
             <PolygonArea
                 area="stats"
                 path="M456.5 1.5H1.5V252.5H456.5V1.5Z"
                 clipPath="100%_0.594%,0.329%_0.594%,0.329%_100%,100%_100%,100%_0.594%"
                 viewBox="0 0 458 254"
             >
-                {aboutText}
+                <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
+                    <div className="flex-grow" />
+                    <p>350+ Hackers</p>
+                    <div className="flex-grow" />
+                    <p>65 Projects</p>
+                    <div className="flex-grow" />
+                </div>
             </PolygonArea>
+
             <PolygonArea
                 area="acm"
                 path="M829.5 430H1.5V179.974L401.819 1.5H829.5V430Z"
                 clipPath="100%_100%,0.181%_100%,0.181%_41.854%,48.441%_0.349%,100%_0.349%,100%_100%"
                 viewBox="0 0 831 432"
                 width="95%"
-                style="ml-auto"
+                style={{ marginLeft: "auto" }}
             >
-                {aboutText}
+                <p className="absolute [right:35%] [top:20%] [width:40%] [min-width:min-content] text-right [line-height:85%] [font-size:calc(0.2rem_+_2.5vw)] [font-family:var(--font-rubik-mono-one)] [color:#49B2F8]">
+                    UWB Association For Computing Machinery
+                </p>
+
+                <p className="text-left absolute [width:60%] [bottom:calc(1%_+_0.75vw)] [left:40px] [font-family:h2-font] [font-size:calc(0.1rem_+_1vw)]">
+                    UWB ACM is a chapter of the Association of Computing
+                    Machinery at UWB dedicated to creating events and providing
+                    insight into academics, research, and careers related to
+                    Computer Science. Learn more here.
+                </p>
             </PolygonArea>
         </div>
     );
@@ -79,12 +116,18 @@ const PolygonArea: React.FC<
         viewBox: string;
         width?: string;
         height?: string;
-        style?: string;
+        style?: CSSProperties;
     }>
 > = ({ area, path, clipPath, viewBox, width, height, style, children }) => {
     return (
         <div
-            className={`[grid-area:${area}] relative [width:${width ?? "100%"}] [height:${height ?? "100%"}] ${style ?? ""}`}
+            className={`relative`}
+            style={{
+                gridArea: area,
+                width: width ?? "100%",
+                height: height ?? "100%",
+                ...(style ?? {}),
+            }}
         >
             <svg
                 className="absolute z-10"
@@ -97,7 +140,8 @@ const PolygonArea: React.FC<
             </svg>
 
             <div
-                className={`absolute z-20 [width:100%] [height:100%] [clip-path:polygon(${clipPath})]`}
+                className={`absolute z-20 [width:100%] [height:100%]`}
+                style={{ clipPath: `polygon(${clipPath})` }}
             >
                 {children}
             </div>
