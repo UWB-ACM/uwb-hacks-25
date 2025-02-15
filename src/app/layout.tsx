@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Rubik_Mono_One, Open_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
+const inter = Inter({
+    variable: "--font-inter",
     subsets: ["latin"],
+    weight: ["400"],
 });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const openSans = Open_Sans({
+    variable: "--font-opensans",
     subsets: ["latin"],
+    weight: ["400"],
+});
+
+const rubikMonoOne = Rubik_Mono_One({
+    variable: "--font-rubik-mono-one",
+    subsets: ["latin"],
+    weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -26,10 +34,9 @@ export default function RootLayout({
         <html lang="en">
             <head>
                 <title>UWB Hacks 2025</title>
-                
             </head>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen`}
+                className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-screen`}
             >
                 {children}
             </body>
