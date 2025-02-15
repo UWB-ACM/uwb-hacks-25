@@ -38,32 +38,32 @@ const Countdown = () => {
     }, []);
 
     return (
-        <div className="rounded-lg p-6">
-            <h2 className="text-xl font-bold text-blue-600 mb-4">
+        <div className="rounded-lg p-6 flex flex-col items-center">
+            <h2 className="sm:text-4xl text-xl self-center font-bold text-blue-600 mb-4">
                 READY TO LAUNCH IN...
             </h2>
-            <div className="grid sm:grid-cols-4">
+            <div className="flex justify-between w-full max-w-[400px]">
                 <div>
-                    <div className="text-sm text-gray-600">DAYS</div>
-                    <div className="text-4xl font-mono font-bold">
+                    <div className="text-xs sm:text-sm text-gray-600">DAYS</div>
+                    <div className="text-lg sm:text-4xl font-mono font-bold">
                         {timeLeft.days}
                     </div>
                 </div>
                 <div>
-                    <div className="text-sm text-gray-600">HOURS</div>
-                    <div className="text-4xl font-mono font-bold">
+                    <div className="text-xs sm:text-sm text-gray-600">HOURS</div>
+                    <div className="text-lg sm:text-4xl font-mono font-bold">
                         {timeLeft.hours}
                     </div>
                 </div>
                 <div>
-                    <div className="text-sm text-gray-600">MINUTES</div>
-                    <div className="text-4xl font-mono font-bold">
+                    <div className="text-xs sm:text-sm text-gray-600">MINUTES</div>
+                    <div className="text-lg sm:text-4xl font-mono font-bold">
                         {timeLeft.minutes}
                     </div>
                 </div>
                 <div>
-                    <div className="text-sm text-gray-600">SECONDS</div>
-                    <div className="text-4xl font-mono font-bold">
+                    <div className="text-xs sm:text-sm text-gray-600">SECONDS</div>
+                    <div className="text-lg sm:text-4xl font-mono font-bold">
                         {timeLeft.seconds}
                     </div>
                 </div>

@@ -7,14 +7,17 @@ import ScheduleSection from "../components/landing-page/ScheduleSection";
 import FAQSection from "../components/landing-page/FAQSection";
 import MeetTheTeamSection from "../components/landing-page/MeetTheTeamSection";
 import SponsorsSection from "../components/landing-page/SponsorsSection";
+import Header from "../components/header/Header";
 
 export default function Page() {
     return (
         <div className="flex flex-col w-full">
+
+
             <div
-                className="w-full flex justify-center "
-                // style={{ height: "calc(100vh - 7rem)" }}
-            >
+                className="w-full min-h-[100vh] flex flex-col bg-hero bg-cover"
+                >
+                <Header/>
                 <HeroSection />
             </div>
 
