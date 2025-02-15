@@ -1,11 +1,17 @@
-import React from 'react'
-
 const HackathonDates = () => {
-  return (
-      <div className="border-[0.25rem] rounded-sm border-black p-[2rem] mb-[2rem]">
-          HackathonDates
-      </div>
-  );
-}
+    return (
+        <div className=" rounded-lg p-6">
+            <div className="text-[2.5rem] font-bold text-blue-600">
+                4.25 <span className="text-sm align-text-top">fri</span>
+            </div>
+            <div className="flex items-center gap-2">
+                <span className="text-sm sm:px-[3rem]"></span>
+                <div className="text-[2.5rem] font-bold text-blue-600">
+                    4.27 <span className="text-sm align-text-top">sun</span>
+                </div>
+            </div>
+        </div>
+    );
+};
 
-export default HackathonDates
+export default HackathonDates;
