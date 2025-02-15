@@ -10,7 +10,7 @@ import SponsorsSection from "../components/landing-page/SponsorsSection";
 
 export default function Page() {
     return (
-        <div className="flex flex-col w-full mx-auto max-w-[50rem]">
+        <div className="flex flex-col w-full mx-auto">
             <div
                 className="w-full flex "
                 style={{ height: "calc(100vh - 7rem)" }}

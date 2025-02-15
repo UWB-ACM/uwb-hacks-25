@@ -12,7 +12,7 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
   setActiveCommitteeId,
 }) => {
   return (
-    <div className="flex flex-wrap gap-4 relative">
+    <div className="justify-center flex flex-wrap gap-4 relative">
       {committees.map((committee) => (
         <button
           key={committee.id}
