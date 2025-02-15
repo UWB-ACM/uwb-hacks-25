@@ -11,7 +11,7 @@ function SideNav({
     return (
         <div
             className={`bg-orange-300 absolute w-screen h-screen p-5 font-h1 text-3xl`}
-            style={{ transform: "translateY(-7rem)", zIndex: 1000 }}
+            style={{ zIndex: 1000 }}
         >
             <button className="" onClick={() => setSideNavState(false)}>
                 X
