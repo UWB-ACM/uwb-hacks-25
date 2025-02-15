@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import Header from "@/src/components/header/Header";
+import '@/src/app/globals.css';
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -24,13 +25,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <head>
-                <title>UWB Hacks 2025</title>
-                
-            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen`}
             >
+                <Header/>
                 {children}
             </body>
         </html>
