@@ -11,26 +11,23 @@ This is the website for UWB Hacks 2025. It uses (or will use) the following tech
 - PostgreSQL
 - Vercel
 
-Right now, I'm installing packages using pnpm because npm wouldn't work for me, which is why there's a `pnpm-lock.yaml`. We should decide on a standard package manager to use.
-
-I've left the default README below, as it contains useful information. It needs to be removed at some point (and this README needs to be rewritten).
-
 ---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
 
+First, install all dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install .
+```
+
+Second, in the root directory, create a .env.local file. Ask Simon for the contents of that file to paste in.
+
+Third, run the development server:
+```bash
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
