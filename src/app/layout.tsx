@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Rubik_Mono_One } from "next/font/google";
 import "./globals.css";
 import Header from "../components/header/Header";
+import React from "react";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -11,6 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
+});
+
+const rubikMonoOne = Rubik_Mono_One({
+    variable: "--font-rubik-mono-one",
+    subsets: ["latin"],
+    weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +33,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen`}
+                className={`${geistSans.variable} ${geistMono.variable} ${rubikMonoOne.variable} antialiased w-screen`}
             >
                 <Header />
                 {children}
