@@ -15,18 +15,8 @@ body {
 }
 /* Custom Fonts */
 @font-face {
-    font-family: h1-font;
+    font-family: san-marino-beach;
     src: url("../../public/fonts/San Marino Beach.otf");
-}
-
-@font-face {
-    font-family: h2-font;
-    src: url("../../public/fonts/OpenSans-Regular.ttf");
-}
-
-@font-face {
-    font-family: h3-font;
-    src: url("../../public/fonts/Inter_Regular.ttf");
 }
 
 body {
