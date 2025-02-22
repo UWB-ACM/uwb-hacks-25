@@ -54,7 +54,7 @@ const AboutSection: React.FC = () => {
                     networking. Learn more here!
                 </p>
 
-                <div className="absolute [width:20%] [bottom:calc(10%_+_1.5vw)] [right:20%]">
+                <div className="absolute [width:20%] [bottom:calc(-50px_+_8vw)] [right:calc(35%_-_3vw)]">
                     <Image
                         src="/about/discord-fancy-yellow.svg"
                         alt="Discord"
@@ -119,7 +119,7 @@ const AboutSection: React.FC = () => {
                     />
                 </div>
 
-                <p className="absolute [right:35%] [top:20%] [width:40%] [min-width:min-content] text-right [line-height:85%] [font-size:calc(0.2rem_+_2.5vw)] [font-family:var(--font-rubik-mono-one)] [color:#49B2F8]">
+                <p className="absolute [right:35%] [top:20%] [width:40%] [min-width:min-content] text-right [line-height:85%] [font-size:calc(0.1rem_+_2.25vw)] [font-family:var(--font-rubik-mono-one)] [color:#49B2F8]">
                     UWB Association For Computing Machinery
                 </p>
 
