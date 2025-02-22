@@ -43,7 +43,7 @@ const AboutSection: React.FC = () => {
 
                 <div className="absolute [width:20%] [bottom:calc(10%_+_1.5vw)] [right:20%]">
                     <Image
-                        src="/discord-fancy-yellow.svg"
+                        src="/about/discord-fancy-yellow.svg"
                         alt="Discord"
                         width={168}
                         height={122}
