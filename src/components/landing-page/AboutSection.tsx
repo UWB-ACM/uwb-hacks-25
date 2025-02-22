@@ -20,7 +20,7 @@ const AboutSection: React.FC = () => {
                 viewBox="0 0 1335 127"
             >
                 <div className="absolute [top:10%] lg:[top:20%] [left:50px]">
-                    <h2 className="[color:#49B2F8] [font-family:h1-font] [font-size:calc(1rem_+_3vw)]">
+                    <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
                         About
                     </h2>
                 </div>
