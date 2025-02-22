@@ -34,6 +34,19 @@ const AboutSection: React.FC = () => {
                 width="90%"
                 height="150%"
             >
+                <div className="absolute [width:35%] [bottom:-20px] [left:-20px] [transform:rotate(180deg)]">
+                    <Image src="/accent.webp" alt="" width={586} height={610} />
+                </div>
+
+                <div className="absolute [width:50%] [bottom:-10%] [left:10px]">
+                    <Image
+                        src="/about/husky.png"
+                        alt="Husky Mascot"
+                        width={964}
+                        height={902}
+                    />
+                </div>
+
                 <p className="text-right absolute [width:35%] [top:10%] [right:20px] [font-family:h2-font] [font-size:calc(0.1rem_+_1vw)]">
                     UWB: Saves the World! is an annual hackathon teaching
                     students computer science while preparing them for tech and
@@ -93,6 +106,19 @@ const AboutSection: React.FC = () => {
                 width="95%"
                 style={{ marginLeft: "auto" }}
             >
+                <div className="absolute [width:30%] [right:-20px] [top:-20px]">
+                    <Image src="/accent.webp" alt="" width={586} height={610} />
+                </div>
+
+                <div className="absolute [width:30%] [top:5%] [right:20px]">
+                    <Image
+                        src="/about/uwb-acm-logo.png"
+                        alt="ACM at UWB Logo"
+                        width={750}
+                        height={750}
+                    />
+                </div>
+
                 <p className="absolute [right:35%] [top:20%] [width:40%] [min-width:min-content] text-right [line-height:85%] [font-size:calc(0.2rem_+_2.5vw)] [font-family:var(--font-rubik-mono-one)] [color:#49B2F8]">
                     UWB Association For Computing Machinery
                 </p>
@@ -103,6 +129,15 @@ const AboutSection: React.FC = () => {
                     insight into academics, research, and careers related to
                     Computer Science. Learn more here.
                 </p>
+
+                <div className="absolute [width:20%] [bottom:-10px] [right:calc(40px_+_0.4vw)]">
+                    <Image
+                        src="/about/discord-fancy-blue.svg"
+                        alt="Discord"
+                        width={168}
+                        height={122}
+                    />
+                </div>
             </PolygonArea>
         </div>
     );
@@ -136,7 +171,7 @@ const PolygonArea: React.FC<
                 width="100%"
                 height="100%"
             >
-                <path d={path} fill="white" stroke="black" strokeWidth="3" />
+                <path d={path} fill="white" />
             </svg>
 
             <div
@@ -145,6 +180,21 @@ const PolygonArea: React.FC<
             >
                 {children}
             </div>
+
+            <svg
+                className="absolute z-30"
+                viewBox={viewBox}
+                preserveAspectRatio="none"
+                width="100%"
+                height="100%"
+            >
+                <path
+                    d={path}
+                    fill="#00000000"
+                    stroke="black"
+                    strokeWidth="3"
+                />
+            </svg>
         </div>
     );
 };
