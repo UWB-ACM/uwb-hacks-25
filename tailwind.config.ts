@@ -16,12 +16,15 @@ export default {
                 "2xl": "1536px", // Very Large (Default)
                 "3xl": "1800px", // Ultra-wide (Custom)
             },
-
             fontFamily: {
-                h1: ["h1-font"],
-                h2: ["h2-font"],
+                opensans: ["var(--font-opensans)"],
+                inter: ["var(--font-inter)"],
+                "rubik-mono-one": ["var(--font-rubik-mono-one)"],
+                "san-marino-beach": ["san-marino-beach"],
+                h1: ["san-marino-beach"],
+                h2: ["var(--font-opensans)"],
                 "h2-bold": ["h2-font-bold"],
-                h3: ["h3-font"],
+                h3: ["var(--font-inter)"],
             },
             colors: {
                 background: "hsl(var(--background))",
@@ -71,8 +74,8 @@ export default {
                 sm: "calc(var(--radius) - 4px)",
             },
             backgroundImage: {
-                'hero': "url('/bg.jpg')"
-            }
+                hero: "url('/bg.jpg')",
+            },
         },
     },
     plugins: [tailwindAnimate],
