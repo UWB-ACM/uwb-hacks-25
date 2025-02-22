@@ -8,12 +8,20 @@ import FAQSection from "../components/landing-page/FAQSection";
 import MeetTheTeamSection from "../components/landing-page/MeetTheTeamSection";
 import SponsorsSection from "../components/landing-page/SponsorsSection";
 import Header from "../components/header/Header";
+// import { useRef } from "react";
 
 export default function Page() {
+
+    // const mainRef = useRef(null);
+    // const aboutRef = useRef(null);
+    // const tracksRef = useRef(null);
+    // const scheduleRef = useRef(null);
+    // const meetTheTeamRef = useRef(null);
+    // const sponsorsRef = useRef(null);
+    // const faqRef = useRef(null);
+
     return (
         <div className="flex flex-col w-full">
-
-
             <div
                 className="w-full min-h-[100vh] flex flex-col bg-hero bg-cover"
                 >
@@ -31,7 +39,7 @@ export default function Page() {
                     <LeaderboardSection />
                 </div>
             </div>
-            <div className=" h-screen" style={{}}>
+            <div className="h-screen" style={{}}>
                 <TracksSection />
             </div>
             <div className=" h-screen" style={{}}>
