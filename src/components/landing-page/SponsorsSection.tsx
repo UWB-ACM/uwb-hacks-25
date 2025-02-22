@@ -6,7 +6,7 @@ const SponsorsSection = () => {
         <div className="bg-[#FBE4A6] border-black border-[0.25rem] p-[5rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
             {/* Sponsors Section */}
             <div className="flex flex-col items-center">
-                <div className="justify-center items-center font-h1 text-[#49B2F8] text-5xl md:text-6xl lg:text-7xl text-center">
+                <div className="justify-center items-center font-h1 text-[#49B2F8] mb-[2rem] text-5xl md:text-6xl lg:text-7xl text-center">
                     UWB HACKS 2025 SPONSORS
                 </div>
 
