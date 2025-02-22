@@ -4,7 +4,6 @@ export const committees = [
     name: 'Justice Leads',
     members: [
       { id: 'breanna-powell', name: 'Breanna Powell', role: 'Marketing Lead', photo: '/MeetTheTeamPhotos/breanna-powell.jpg' },
-      { id: 'bruce-duong', name: 'Bruce Duong', role: 'Financial Management Lead', photo: '/MeetTheTeamPhotos/bruce-duong.jpg' },
       { id: 'chinmayee-chadalavada', name: 'Chin Chadalavada', role: 'Sponsorships Outreach Lead', photo: '/MeetTheTeamPhotos/chinmayee-chadalavada.jpg' },
       { id: 'ethan-leonard', name: 'Ethan Leonard', role: 'Sponsorships Outreach Co-Lead', photo: '/MeetTheTeamPhotos/ethan-leonard.png' },
       { id: 'jui-bangali', name: 'Jui Bangali', role: 'WiCyS President, Local Arrangments Member, Product Management Member', photo: '/MeetTheTeamPhotos/jui-bangali.jpg' },
@@ -29,14 +28,6 @@ export const committees = [
     members: [
       { id: 'simon-dao', name: 'Simon Dao', role: 'Digital Experience Lead, Content and Design Lead', photo: '/MeetTheTeamPhotos/simon-dao.jpg' },
       { id: 'sam-park', name: 'Sam Park', role: 'Developer', photo: '/MeetTheTeamPhotos/sam-park.jpg' },
-    ],
-  },
-  {
-    id: 'financial-management',
-    name: 'Finance Fighters',
-    members: [
-      { id: 'bruce-duong', name: 'Bruce Duong', role: 'Financial Management Lead', photo: '/MeetTheTeamPhotos/bruce-duong.jpg' },
-
     ],
   },
   {
