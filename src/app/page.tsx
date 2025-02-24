@@ -35,7 +35,7 @@ export default function Page() {
         <div className="flex flex-col w-full">
             <div
                 ref={mainRef}
-                className="w-full min-h-[100vh] flex flex-col bg-hero bg-cover"
+                className="w-full min-h-[100vh] flex flex-col bg-hero bg-cover bg-center"
             >
                 <Header refs={refs}/>
                 <HeroSection />
@@ -74,7 +74,7 @@ export default function Page() {
             </div>
             <div
                 ref={meetTheTeamRef}
-                className="bg-orange-300 min-h-screen overflow-auto"
+                className="min-h-screen overflow-auto"
                 style={{}}
             >
                 <MeetTheTeamSection />
