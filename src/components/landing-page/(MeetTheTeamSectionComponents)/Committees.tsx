@@ -25,7 +25,7 @@ export const committees = [
     id: 'digital-experience',
     name: 'Digital Daredevils',
     members: [
-      { id: 'simon-dao', name: 'Simon Dao', role: 'Digital Experience Lead, Content and Design Lead', photo: '/MeetTheTeamPhotos/simon-dao.jpg' },
+      { id: 'simon-dao', name: 'Simon Dao', role: 'Digital Experience Lead', photo: '/MeetTheTeamPhotos/simon-dao.jpg' },
       { id: 'sam-park', name: 'Sam Park', role: 'Developer', photo: '/MeetTheTeamPhotos/sam-park.jpg' },
     ],
   },
