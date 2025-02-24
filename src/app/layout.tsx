@@ -35,6 +35,7 @@ export default function RootLayout({
         <html lang="en">
             <head>
                 <title>UWB Hacks 2025</title>
+                <link rel="icon" href="/iconplaceholder.ico" sizes="any" />
             </head>
             <body
                 className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-screen`}
