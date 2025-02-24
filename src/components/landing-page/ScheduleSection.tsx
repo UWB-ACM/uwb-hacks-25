@@ -8,9 +8,9 @@ const ScheduleSection: React.FC = () => {
     );
 
     return (
-        <div className="bg-[#FBE4A6] p-10 grid gap-6 [grid-template-columns:repeat(3,1fr)]">
+        <div className=" p-10 grid gap-6 [grid-template-columns:repeat(3,1fr)]">
             <div className="col-span-3 flex justify-center">
-                {scheduleTitle};
+                {scheduleTitle}
             </div>
 
             <ScheduleCard
