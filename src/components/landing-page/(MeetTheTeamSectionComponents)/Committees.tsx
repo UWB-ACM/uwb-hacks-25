@@ -17,7 +17,6 @@ export const committees = [
     id: 'content-design',
     name: 'Content Design Champions',
     members: [
-      { id: 'simon-dao', name: 'Simon Dao', role: 'Digital Experience Lead, Content and Design Lead', photo: '/MeetTheTeamPhotos/simon-dao.jpg' },
       { id: 'sai-bathina', name: 'Sai Bathina', role: 'Avanade Rep, Content and Design Co-lead', photo: '/MeetTheTeamPhotos/sai-bathina.jpg' },
       { id: 'jingyi-zhong', name: 'Jingyi Zhong', role: 'Web Designer', photo: '/MeetTheTeamPhotos/default.jpg' },
     ],
