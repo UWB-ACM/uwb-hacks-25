@@ -29,9 +29,7 @@ export default function Page() {
                 <HeroSection />
             </div>
 
-            <div
-                className="w-full flex"
-            >
+            <div className="w-full flex">
                 <AboutSection />
             </div>
 
