@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface CommitteeTabsProps {
   committees: { id: string; name: string }[];
   activeCommitteeId: string;
