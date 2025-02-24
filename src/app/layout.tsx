@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import React from "react";
 import { Inter, Rubik_Mono_One, Open_Sans } from "next/font/google";
 import "./globals.css";
 
