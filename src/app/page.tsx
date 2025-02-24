@@ -47,7 +47,7 @@ export default function Page() {
             <div className=" h-screen" style={{}}>
                 <ScheduleSection />
             </div>
-            <div className=" h-screen" style={{}}>
+            <div className="bg-orange-300 min-h-screen overflow-auto" style={{}}>
                 <MeetTheTeamSection />
             </div>
             <div className=" h-screen" style={{}}>
