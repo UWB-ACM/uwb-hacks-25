@@ -4,7 +4,13 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SideNav from "./SideNav";
 
-export default function Header() {
+type HeaderProps = {
+    refs: {
+        [key: string]: React.RefObject<HTMLDivElement | null>;
+    };
+};
+
+export default function Header({ refs }: HeaderProps) {
     const [sideNavState, setSideNavState] = useState(false);
 
     const Desktop = () => {
@@ -25,9 +31,11 @@ export default function Header() {
                     <button
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            router.push("/");
 
                             //scroll down to about section
+                            refs["About"].current?.scrollIntoView({
+                                behavior: "smooth",
+                            });
                         }}
                     >
                         About
@@ -36,8 +44,10 @@ export default function Header() {
                     <button
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            router.push("/");
                             //scroll down to tracks section
+                            refs["Tracks"].current?.scrollIntoView({
+                                behavior: "smooth",
+                            });
                         }}
                     >
                         Tracks
@@ -46,8 +56,10 @@ export default function Header() {
                     <button
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            router.push("/");
                             //scroll down to schedule section
+                            refs["Schedule"].current?.scrollIntoView({
+                                behavior: "smooth",
+                            });
                         }}
                     >
                         Schedule
@@ -56,8 +68,10 @@ export default function Header() {
                     <button
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            router.push("/");
                             //scroll down to faq section
+                            refs["FAQ"].current?.scrollIntoView({
+                                behavior: "smooth",
+                            });
                         }}
                     >
                         FAQ
@@ -69,7 +83,7 @@ export default function Header() {
                             router.push("/staff");
                         }}
                     >
-                        Staff
+                        Login
                     </button>
                     {/* <button
                         className="font-h3 font-medium m-0"
@@ -104,8 +118,9 @@ export default function Header() {
                     onClick={() => {
                         setSideNavState(true);
                     }}
-                    
-                >X</button>
+                >
+                    X
+                </button>
             </nav>
         );
     };
@@ -120,7 +135,7 @@ export default function Header() {
             <div className="block md:hidden">
                 <Mobile />
             </div>
-            {sideNavState && <SideNav setSideNavState={setSideNavState}/>}
+            {sideNavState && <SideNav setSideNavState={setSideNavState} />}
         </>
     );
 }
