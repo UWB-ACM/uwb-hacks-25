@@ -31,7 +31,6 @@ export default function Header({ refs }: HeaderProps) {
                     <button
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
-
                             //scroll down to about section
                             refs["About"].current?.scrollIntoView({
                                 behavior: "smooth",
