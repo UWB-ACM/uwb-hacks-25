@@ -274,7 +274,7 @@ const AboutSectionMobile: React.FC = () => (
                 UWB Association For Computing Machinery
             </p>
 
-            <p className="text-left absolute [width:60%] [bottom:calc(1%_+_0.75vw)] [left:10px] [font-family:h2-font] [font-size:calc(0.4rem_+_0.35vw)]">
+            <p className="text-left absolute [width:60%] [bottom:calc(1%_+_0.75vw)] [left:10px] [font-family:h2-font] [font-size:calc(0.35rem_+_0.35vw)]">
                 UWB ACM is a chapter of the Association of Computing Machinery
                 at UWB dedicated to creating events and providing insight into
                 academics, research, and careers related to Computer Science.
