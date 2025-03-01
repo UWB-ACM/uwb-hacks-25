@@ -34,6 +34,7 @@ export default function Page() {
     return (
         <div className="flex flex-col w-full">
             <div
+                id="main"
                 ref={mainRef}
                 className="w-full min-h-[100vh] flex flex-col bg-hero bg-cover"
             >
@@ -41,7 +42,7 @@ export default function Page() {
                 <HeroSection />
             </div>
 
-            <div ref={aboutRef} className="w-full flex" style={{}}>
+            <div id="about" ref={aboutRef} className="w-full flex" style={{}}>
                 <AboutSection />
             </div>
 
@@ -51,23 +52,34 @@ export default function Page() {
                     <LeaderboardSection />
                 </div>
             </div>
-            <div ref={tracksRef} className="h-screen" style={{}}>
+            <div id="tracks" ref={tracksRef} className="h-screen" style={{}}>
                 <TracksSection />
             </div>
-            <div ref={scheduleRef} className=" h-screen" style={{}}>
+            <div
+                id="schedule"
+                ref={scheduleRef}
+                className=" h-screen"
+                style={{}}
+            >
                 <ScheduleSection />
             </div>
             <div
+                id="team"
                 ref={meetTheTeamRef}
                 className="bg-orange-300 min-h-screen overflow-auto"
                 style={{}}
             >
                 <MeetTheTeamSection />
             </div>
-            <div ref={sponsorsRef} className=" h-screen" style={{}}>
+            <div
+                id="sponsors"
+                ref={sponsorsRef}
+                className=" h-screen"
+                style={{}}
+            >
                 <SponsorsSection />
             </div>
-            <div ref={faqRef} className=" h-screen" style={{}}>
+            <div id="faq" ref={faqRef} className=" h-screen" style={{}}>
                 <FAQSection />
             </div>
         </div>
