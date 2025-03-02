@@ -1,13 +1,11 @@
 import React from "react";
-import Image from "next/image";
-import ComicDotBackground from "@/public/FAQSection/ComicDotBackground.jpg";
 
 const FAQSection = () => {
     return (
         <div className="flex flex-col items-center h-full min-h-screen bg-[#FBE4A6] p-6 md:p-10">
-            <h1 className="font-h1 text-5xl md:text-7xl text-[#49B2F8] text-center">
+            <h2 className="font-h1 text-5xl md:text-7xl text-[#49B2F8] text-center">
                 FAQ
-            </h1>
+            </h2>
 
             <div className="relative container mx-auto bg-white border-2 border-black p-6 md:p-8 m-4 md:m-8 w-full max-w-full lg:max-w-5xl xl:max-w-6xl shadow-lg px-4 overflow-x-auto">
                 {/* FAQ Item 1 */}
@@ -15,13 +13,13 @@ const FAQSection = () => {
                     <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
                         1. How will UWB Hacks 2025 run?
                     </h2>
-                    <p className="pb-3 pb-3 pl-6 md:pl-12 font-h3 text-sm md:text-base leading-6">
+                    <p className="pb-3 pl-6 md:pl-12 font-h3 text-sm md:text-base leading-6">
                         The hackathon will take place over a weekend, where
                         participants will form teams, brainstorm ideas, and
-                        build projects that align with this year’s theme: "Save
-                        the World." You will have access to mentors, workshops,
-                        and networking opportunities to help bring your ideas to
-                        life.
+                        build projects that align with this year’s theme:
+                        &quot;Save the World.&quot; You will have access to
+                        mentors, workshops, and networking opportunities to help
+                        bring your ideas to life.
                     </p>
                 </div>
 
@@ -84,7 +82,7 @@ const FAQSection = () => {
                         sessions, and engaging activities. These will include
                         insightful talks from industry professionals and
                         hands-on learning experiences designed to align with
-                        this year's "Save the World" theme.
+                        this year&apos;s &quot;Save the World&quot; theme.
                     </p>
                 </div>
 
