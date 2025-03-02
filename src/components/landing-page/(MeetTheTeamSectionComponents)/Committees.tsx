@@ -42,7 +42,7 @@ export const committees = [
             {
                 id: "simon-dao",
                 name: "Simon Dao",
-                role: "Digital Experience Lead, Content and Design Lead",
+                role: "Website Development Lead",
                 photo: "/MeetTheTeamPhotos/simon-dao.jpg",
             },
             {
