@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /staff/
+Disallow: /participant/
+
+Sitemap: https://uwbhacks.com/sitemap.xml
