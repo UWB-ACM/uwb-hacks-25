@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         description,
         card: "summary_large_image",
         images: {
-            url: "https://uwbhacks.com/public/card-image.png",
+            url: "https://uwbhacks.com/card-image.png",
             width: 1500,
             height: 750,
         },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         description,
         locale: "en_US",
         images: {
-            url: "https://uwbhacks.com/public/card-image.png",
+            url: "https://uwbhacks.com/card-image.png",
             width: 1500,
             height: 750,
         },
