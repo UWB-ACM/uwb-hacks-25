@@ -37,10 +37,22 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Keeping consistent formatting with prettier
+
+Before pushing your changes, please make sure to run the following command:
+```bash
+npx prettier --write .
+```
+
 ## Branching
 
 Ensure that you are on your own branch and do not push to origin/main
 Also, please delete unused branches you are no longer using.
+
+If you find that your local git environment has too many dead branches that are no longer on the remote repository, you can run the following command to remove them.
+```bash
+git remote prune origin
+```
 
 ## Learn More
 
