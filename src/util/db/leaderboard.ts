@@ -12,6 +12,6 @@ export async function getLeaderboard(): Promise<LeaderboardRecord[]> {
     return data.map((row) => ({
         id: row.user,
         name: row.name,
-        balance: row.balance
+        balance: row.balance,
     }));
 }

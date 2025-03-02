@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/src/components/header/MainHeader";
-import '@/src/app/globals.css';
+import "@/src/app/globals.css";
+import React from "react";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -14,8 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "UWB HACKS 2025",
-    description: "UWB HACKS 2025",
+    title: "Participant Dashboard | UWB Hacks 25",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen`}
             >
-                <Header/>
+                <Header />
                 {children}
             </body>
         </html>

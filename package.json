@@ -6,7 +6,9 @@
         "dev": "next dev --turbopack",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint --fix",
+        "format": "prettier --write src/",
+        "lint-check": "prettier --check src/ && next lint"
     },
     "dependencies": {
         "@upstash/redis": "^1.34.3",

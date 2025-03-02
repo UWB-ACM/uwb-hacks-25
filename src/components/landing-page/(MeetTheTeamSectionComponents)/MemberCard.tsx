@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 interface MemberCardProps {
   member: {id: string; name: string; role: string; photo: string };
@@ -21,6 +21,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
       </div>
     </div>
   );
+
 };
 
 export default MemberCard;
