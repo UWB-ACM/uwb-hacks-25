@@ -23,8 +23,10 @@ export default function Header({ refs }: HeaderProps) {
                     }}
                 >
                     {/* Using spans so the text stays inline when compressed */}
-                    <span>UWB</span>
-                    <span className="ml-3">Hacks</span>
+                    <h1>
+                        <span>UWB</span>
+                        <span className="ml-3">Hacks</span>
+                    </h1>
                 </button>
 
                 <div className="hidden md:flex gap-x-10 ">
@@ -124,8 +126,10 @@ export default function Header({ refs }: HeaderProps) {
                     }}
                 >
                     {/* Using spans so the text stays inline when compressed */}
-                    <span>UWB</span>
-                    <span className="ml-3">Hacks</span>
+                    <h1>
+                        <span>UWB</span>
+                        <span className="ml-3">Hacks</span>
+                    </h1>
                 </button>
 
                 <button
