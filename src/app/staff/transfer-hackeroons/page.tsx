@@ -4,19 +4,19 @@ import TransferHackaroonsPage from "@/src/app/staff/transfer-hackeroons/Transfer
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Transfer Hackaroons | UWB Hacks 25",
+    title: "Transfer Hackaroons | UWB Hacks 25",
 };
 
 export default async function Page() {
-  // TODO: Make this apply to the scanned user, not the staff member.
-  const session = await getSession();
+    // TODO: Make this apply to the scanned user, not the staff member.
+    const session = await getSession();
 
-  // The user must exist.
-  if (!session.user?.id) {
-    return <>A user must be selected first.</>;
-  }
+    // The user must exist.
+    if (!session.user?.id) {
+        return <>A user must be selected first.</>;
+    }
 
-  const user = session.user;
+    const user = session.user;
 
-  return <TransferHackaroonsPage user={user} />;
+    return <TransferHackaroonsPage user={user} />;
 }
