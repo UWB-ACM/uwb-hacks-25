@@ -6,15 +6,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
+  baseDirectory: __dirname,
 });
 
 const eslintConfig = [
-    ...compat.extends(
-        "next/core-web-vitals",
-        "next/typescript",
-        "eslint-config-prettier",
-    ),
+  ...compat.extends(
+    "next/core-web-vitals",
+    "next/typescript",
+    "eslint-config-prettier",
+  ),
 ];
 
 export default eslintConfig;

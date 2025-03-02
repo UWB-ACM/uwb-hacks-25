@@ -18,99 +18,89 @@ import sql from "@/src/util/database";
  * @param prize - is the prize that this transaction is associated with (if it exists).
  */
 export async function createTransaction(
-    user: number,
-    type: TransactionType,
-    amount: number,
-    authorized_by: number | null,
-    event: number | null,
-    prize: number | null,
+  user: number,
+  type: TransactionType,
+  amount: number,
+  authorized_by: number | null,
+  event: number | null,
+  prize: number | null,
 ): Promise<Transaction | null> {
-    let data;
+  let data;
 
-    switch (type) {
-        case TransactionType.Unknown: {
-            if (event || prize) {
-                throw new Error(
-                    "Unknown transactions cannot have events/prizes!",
-                );
-            }
+  switch (type) {
+    case TransactionType.Unknown: {
+      if (event || prize) {
+        throw new Error("Unknown transactions cannot have events/prizes!");
+      }
 
-            // A user's balance must never go below zero, and this
-            // needs to be enforced here.
-            // To avoid issues with concurrency, we'll lock
-            // the user's account record, although any row unique
-            // to the user would work.
-            // We don't care about the result of that lock, however, so just
-            // retrieve the result of the insert query.
-            data = (
-                await sql.begin((sql) => [
-                    sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
-                    sql`INSERT INTO transactions ("user", type, amount, authorized_by) (SELECT ${user}, ${type}, ${amount}, ${authorized_by} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0) RETURNING id, time;`,
-                ])
-            )[1];
-            break;
-        }
-        case TransactionType.EventAttendance: {
-            if (prize) {
-                throw new Error(
-                    "EventAttendance transactions cannot have prizes!",
-                );
-            }
-
-            if (!event) {
-                throw new Error(
-                    "EventAttendance transactions must have an event!",
-                );
-            }
-
-            data = (
-                await sql.begin((sql) => [
-                    sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
-                    sql`INSERT INTO transactions ("user", type, amount, authorized_by, event) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${event} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0) RETURNING id, time;`,
-                ])
-            )[1];
-            break;
-        }
-        case TransactionType.PrizePurchase: {
-            if (event) {
-                throw new Error(
-                    "PrizePurchase transactions cannot have events!",
-                );
-            }
-
-            if (!prize) {
-                throw new Error(
-                    "PrizePurchase transactions must have a prize!",
-                );
-            }
-
-            // To ensure that we don't give the same prize to two people,
-            // this locks the prizes row before performing the write.
-            data = (
-                await sql.begin((sql) => [
-                    sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
-                    sql`SELECT 1 FROM prizes WHERE id=${prize} FOR UPDATE;`,
-                    sql`INSERT INTO transactions ("user", type, amount, authorized_by, prize) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${prize} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0 AND (SELECT Count(*) FROM transactions WHERE transactions.prize=${prize}) < (SELECT initial_stock FROM prizes WHERE id=${prize})) RETURNING id, time;`,
-                ])
-            )[1];
-            break;
-        }
-        default: {
-            throw new Error("Unhandled transaction type: " + type);
-        }
+      // A user's balance must never go below zero, and this
+      // needs to be enforced here.
+      // To avoid issues with concurrency, we'll lock
+      // the user's account record, although any row unique
+      // to the user would work.
+      // We don't care about the result of that lock, however, so just
+      // retrieve the result of the insert query.
+      data = (
+        await sql.begin((sql) => [
+          sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
+          sql`INSERT INTO transactions ("user", type, amount, authorized_by) (SELECT ${user}, ${type}, ${amount}, ${authorized_by} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0) RETURNING id, time;`,
+        ])
+      )[1];
+      break;
     }
+    case TransactionType.EventAttendance: {
+      if (prize) {
+        throw new Error("EventAttendance transactions cannot have prizes!");
+      }
 
-    if (data.length === 0) return null;
-    return {
-        id: data[0].id,
-        user,
-        type,
-        amount,
-        authorized_by,
-        event,
-        prize,
-        time: data[0].time,
-    };
+      if (!event) {
+        throw new Error("EventAttendance transactions must have an event!");
+      }
+
+      data = (
+        await sql.begin((sql) => [
+          sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
+          sql`INSERT INTO transactions ("user", type, amount, authorized_by, event) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${event} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0) RETURNING id, time;`,
+        ])
+      )[1];
+      break;
+    }
+    case TransactionType.PrizePurchase: {
+      if (event) {
+        throw new Error("PrizePurchase transactions cannot have events!");
+      }
+
+      if (!prize) {
+        throw new Error("PrizePurchase transactions must have a prize!");
+      }
+
+      // To ensure that we don't give the same prize to two people,
+      // this locks the prizes row before performing the write.
+      data = (
+        await sql.begin((sql) => [
+          sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
+          sql`SELECT 1 FROM prizes WHERE id=${prize} FOR UPDATE;`,
+          sql`INSERT INTO transactions ("user", type, amount, authorized_by, prize) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${prize} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0 AND (SELECT Count(*) FROM transactions WHERE transactions.prize=${prize}) < (SELECT initial_stock FROM prizes WHERE id=${prize})) RETURNING id, time;`,
+        ])
+      )[1];
+      break;
+    }
+    default: {
+      throw new Error("Unhandled transaction type: " + type);
+    }
+  }
+
+  if (data.length === 0) return null;
+  return {
+    id: data[0].id,
+    user,
+    type,
+    amount,
+    authorized_by,
+    event,
+    prize,
+    time: data[0].time,
+  };
 }
 
 /**
@@ -118,13 +108,12 @@ export async function createTransaction(
  * @param user - is the ID of the user to get the balance of.
  */
 export async function getBalanceForUser(user: number): Promise<number> {
-    const balance =
-        await sql`SELECT balance FROM balances WHERE "user"=${user};`;
+  const balance = await sql`SELECT balance FROM balances WHERE "user"=${user};`;
 
-    // No balance row means 0 balance, since
-    // it just means that no transactions have occurred.
-    if (balance.length === 0) return 0;
-    return balance[0].balance;
+  // No balance row means 0 balance, since
+  // it just means that no transactions have occurred.
+  if (balance.length === 0) return 0;
+  return balance[0].balance;
 }
 
 /**
@@ -132,19 +121,19 @@ export async function getBalanceForUser(user: number): Promise<number> {
  * @param user - is the user to look for transactions on.
  */
 export async function getTransactionsForUser(
-    user: number,
+  user: number,
 ): Promise<Transaction[]> {
-    const data =
-        await sql`SELECT id, type, amount, authorized_by, event, prize, time FROM transactions WHERE "user"=${user};`;
+  const data =
+    await sql`SELECT id, type, amount, authorized_by, event, prize, time FROM transactions WHERE "user"=${user};`;
 
-    return data.map((row) => ({
-        id: row.id,
-        user,
-        type: row.type,
-        amount: row.amount,
-        authorized_by: row.authorized_by,
-        event: row.event,
-        prize: row.prize,
-        time: row.time,
-    }));
+  return data.map((row) => ({
+    id: row.id,
+    user,
+    type: row.type,
+    amount: row.amount,
+    authorized_by: row.authorized_by,
+    event: row.event,
+    prize: row.prize,
+    time: row.time,
+  }));
 }
