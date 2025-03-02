@@ -1,5 +1,10 @@
 import React from "react";
 import Header from "@/src/components/header/StaffHeader";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Staff Dashboard | UWB Hacks 25",
+};
 
 export default function RootLayout({
     children,
