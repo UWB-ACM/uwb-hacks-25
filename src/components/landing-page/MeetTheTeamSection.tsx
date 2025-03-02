@@ -6,32 +6,36 @@ import CommitteeTabs from "@/src/components/landing-page/(MeetTheTeamSectionComp
 import MembersGrid from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/MembersGrid";
 
 const MeetTheTeamSection = () => {
-  const [activeCommitteeId, setActiveCommitteeId] = useState(committees[0].id);
+    const [activeCommitteeId, setActiveCommitteeId] = useState(
+        committees[0].id,
+    );
 
-  const activeCommittee = committees.find(
-    (committee) => committee.id === activeCommitteeId,
-  );
+    const activeCommittee = committees.find(
+        (committee) => committee.id === activeCommitteeId,
+    );
 
-  return (
-    <div className="p-6 space-y-8">
-      {/* Heading */}
-      <div className="text-center font-h1">
-        <h1 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
-          MEET THE LEAGUE
-        </h1>
-      </div>
+    return (
+        <div className="p-6 space-y-8">
+            {/* Heading */}
+            <div className="text-center font-h1">
+                <h1 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
+                    MEET THE LEAGUE
+                </h1>
+            </div>
 
-      {/* Tabs */}
-      <CommitteeTabs
-        committees={committees}
-        activeCommitteeId={activeCommitteeId}
-        setActiveCommitteeId={setActiveCommitteeId}
-      />
+            {/* Tabs */}
+            <CommitteeTabs
+                committees={committees}
+                activeCommitteeId={activeCommitteeId}
+                setActiveCommitteeId={setActiveCommitteeId}
+            />
 
-      {/* Team Members */}
-      {activeCommittee && <MembersGrid members={activeCommittee.members} />}
-    </div>
-  );
+            {/* Team Members */}
+            {activeCommittee && (
+                <MembersGrid members={activeCommittee.members} />
+            )}
+        </div>
+    );
 };
 
 export default MeetTheTeamSection;

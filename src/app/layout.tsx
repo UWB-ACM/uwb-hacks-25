@@ -5,75 +5,75 @@ import "./globals.css";
 import { ReactLenis } from "../util/lenis";
 
 const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400"],
+    variable: "--font-inter",
+    subsets: ["latin"],
+    weight: ["400"],
 });
 
 const openSans = Open_Sans({
-  variable: "--font-opensans",
-  subsets: ["latin"],
-  weight: ["400"],
+    variable: "--font-opensans",
+    subsets: ["latin"],
+    weight: ["400"],
 });
 
 const rubikMonoOne = Rubik_Mono_One({
-  variable: "--font-rubik-mono-one",
-  subsets: ["latin"],
-  weight: ["400"],
+    variable: "--font-rubik-mono-one",
+    subsets: ["latin"],
+    weight: ["400"],
 });
 
 const title = "UWB Hacks 2025";
 const description =
-  "Students assemble! We need your skills, NOW! Combine forces and push your potential to the limit at the 9th annual UW Bothell Hackathon, UWB Hacks: Save the World!";
+    "Students assemble! We need your skills, NOW! Combine forces and push your potential to the limit at the 9th annual UW Bothell Hackathon, UWB Hacks: Save the World!";
 const url = "https://uwbhacks.com/";
 
 export const metadata: Metadata = {
-  title,
-  description,
-  alternates: {
-    canonical: url,
-  },
-  twitter: {
     title,
     description,
-    card: "summary_large_image",
-    images: {
-      url: "https://uwbhacks.com/card-image.png",
-      width: 1500,
-      height: 750,
+    alternates: {
+        canonical: url,
     },
-  },
-  openGraph: {
-    url,
-    title,
-    description,
-    locale: "en_US",
-    images: {
-      url: "https://uwbhacks.com/card-image.png",
-      width: 1500,
-      height: 750,
+    twitter: {
+        title,
+        description,
+        card: "summary_large_image",
+        images: {
+            url: "https://uwbhacks.com/card-image.png",
+            width: 1500,
+            height: 750,
+        },
     },
-  },
-  robots: "max-image-preview:large",
-  icons: "/iconplaceholder.ico",
+    openGraph: {
+        url,
+        title,
+        description,
+        locale: "en_US",
+        images: {
+            url: "https://uwbhacks.com/card-image.png",
+            width: 1500,
+            height: 750,
+        },
+    },
+    robots: "max-image-preview:large",
+    icons: "/iconplaceholder.ico",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f36a1a",
+    themeColor: "#f36a1a",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-screen`}
-      >
-        <ReactLenis root>{children}</ReactLenis>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body
+                className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-screen`}
+            >
+                <ReactLenis root>{children}</ReactLenis>
+            </body>
+        </html>
+    );
 }

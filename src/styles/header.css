@@ -1,17 +1,17 @@
 .scale-up-animation {
-  transition: 300ms;
+    transition: 300ms;
 }
 
 .scale-up-animation:hover {
-  transition: 300ms;
-  transform: scale(1.1);
+    transition: 300ms;
+    transform: scale(1.1);
 }
 
 .tilt-animation {
-  transition: 300ms;
+    transition: 300ms;
 }
 
 .tilt-animation:hover {
-  transition: 300ms;
-  transform: rotate(5deg);
+    transition: 300ms;
+    transform: rotate(5deg);
 }
