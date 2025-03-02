@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import SideNav from "./SideNav";
 
 type HeaderProps = {
-    refs: {
+    refs?: {
         [key: string]: React.RefObject<HTMLDivElement | null>;
     };
 };
@@ -31,11 +31,14 @@ export default function Header({ refs }: HeaderProps) {
                     <button
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
-
-                            //scroll down to about section
-                            refs["About"].current?.scrollIntoView({
-                                behavior: "smooth",
-                            });
+                            // scroll down to about section
+                            if (refs) {
+                                refs["About"].current?.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                router.push("/#about");
+                            }
                         }}
                     >
                         About
@@ -44,10 +47,14 @@ export default function Header({ refs }: HeaderProps) {
                     <button
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            //scroll down to tracks section
-                            refs["Tracks"].current?.scrollIntoView({
-                                behavior: "smooth",
-                            });
+                            // scroll down to tracks section
+                            if (refs) {
+                                refs["Tracks"].current?.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                router.push("/#tracks");
+                            }
                         }}
                     >
                         Tracks
@@ -56,10 +63,14 @@ export default function Header({ refs }: HeaderProps) {
                     <button
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            //scroll down to schedule section
-                            refs["Schedule"].current?.scrollIntoView({
-                                behavior: "smooth",
-                            });
+                            // scroll down to schedule section
+                            if (refs) {
+                                refs["Schedule"].current?.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                router.push("/#schedule");
+                            }
                         }}
                     >
                         Schedule
@@ -69,9 +80,13 @@ export default function Header({ refs }: HeaderProps) {
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
                             //scroll down to faq section
-                            refs["FAQ"].current?.scrollIntoView({
-                                behavior: "smooth",
-                            });
+                            if (refs) {
+                                refs["FAQ"].current?.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                router.push("/#faq");
+                            }
                         }}
                     >
                         FAQ

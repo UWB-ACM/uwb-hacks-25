@@ -17,8 +17,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-
 First, install all dependencies:
+
 ```bash
 pnpm install .
 ```
@@ -26,6 +26,7 @@ pnpm install .
 Second, in the root directory, create a .env.local file. Ask Simon for the contents of that file to paste in.
 
 Third, run the development server:
+
 ```bash
 pnpm run dev
 ```
@@ -38,7 +39,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Branching
 
-Ensure that you are on your own branch and do not push to origin/main 
+Ensure that you are on your own branch and do not push to origin/main
 Also, please delete unused branches you are no longer using.
 
 ## Learn More
