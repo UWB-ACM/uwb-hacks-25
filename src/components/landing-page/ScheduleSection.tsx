@@ -5,7 +5,6 @@ const ScheduleSection: React.FC = () => {
     return (
         <div className=" p-10 grid gap-6 [grid-template-columns:repeat(3,1fr)]">
             <div className="col-span-3 flex justify-center">
-
                 <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
                     Schedule
                 </h2>
