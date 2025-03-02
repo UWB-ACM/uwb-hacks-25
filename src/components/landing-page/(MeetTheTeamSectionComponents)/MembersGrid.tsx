@@ -14,7 +14,7 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
   useEffect(() => {
     if (containerRef.current) {
 
-      const gridItems = document.querySelectorAll('.test');
+      const gridItems = document.querySelectorAll('.member-card-animation');
       gsap.fromTo(gridItems, { opacity: 0, scale: 1, duration: 0.5 }, { opacity: 1, scale: 1, stagger: 0.1, duration: 0.5, ease: "circ" });
     }
   }, [members]); // Runs when `state` or members change
