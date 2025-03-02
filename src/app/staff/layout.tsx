@@ -7,9 +7,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div
-            className={`w-screen`}
-        >
+        <div className={`w-screen`}>
             <Header />
             {children}
         </div>
