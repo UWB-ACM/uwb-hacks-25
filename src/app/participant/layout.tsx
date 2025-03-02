@@ -15,8 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "UWB HACKS 2025",
-    description: "UWB HACKS 2025",
+    title: "Participant Dashboard | UWB Hacks 25",
 };
 
 export default function RootLayout({
