@@ -50,19 +50,25 @@ const Countdown = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="text-xs sm:text-sm text-gray-600">HOURS</div>
+                    <div className="text-xs sm:text-sm text-gray-600">
+                        HOURS
+                    </div>
                     <div className="text-lg sm:text-4xl font-mono font-bold">
                         {timeLeft.hours}
                     </div>
                 </div>
                 <div>
-                    <div className="text-xs sm:text-sm text-gray-600">MINUTES</div>
+                    <div className="text-xs sm:text-sm text-gray-600">
+                        MINUTES
+                    </div>
                     <div className="text-lg sm:text-4xl font-mono font-bold">
                         {timeLeft.minutes}
                     </div>
                 </div>
                 <div>
-                    <div className="text-xs sm:text-sm text-gray-600">SECONDS</div>
+                    <div className="text-xs sm:text-sm text-gray-600">
+                        SECONDS
+                    </div>
                     <div className="text-lg sm:text-4xl font-mono font-bold">
                         {timeLeft.seconds}
                     </div>

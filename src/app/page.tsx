@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
@@ -22,13 +22,13 @@ export default function Page() {
     const faqRef = useRef<HTMLDivElement>(null);
 
     const refs = {
-        "Main": mainRef,
-        "About": aboutRef,
-        "Tracks": tracksRef,
-        "Schedule": scheduleRef,
-        "MeetTheTeam": meetTheTeamRef,
-        "Sponsors": sponsorsRef,
-        "FAQ": faqRef
+        Main: mainRef,
+        About: aboutRef,
+        Tracks: tracksRef,
+        Schedule: scheduleRef,
+        MeetTheTeam: meetTheTeamRef,
+        Sponsors: sponsorsRef,
+        FAQ: faqRef,
     };
 
     return (
@@ -37,39 +37,24 @@ export default function Page() {
                 ref={mainRef}
                 className="w-full min-h-[100vh] flex flex-col bg-hero bg-cover"
             >
-                <Header refs={refs}/>
+                <Header refs={refs} />
                 <HeroSection />
             </div>
 
-            <div
-                ref={aboutRef}
-                className="w-full flex"
-                style={{}}
-            >
+            <div ref={aboutRef} className="w-full flex" style={{}}>
                 <AboutSection />
             </div>
 
-            <div
-                className=""
-                style={{}}
-            >
+            <div className="" style={{}}>
                 <div className="flex gap-x-[3rem]">
                     <WhatsNewSection />
                     <LeaderboardSection />
                 </div>
             </div>
-            <div
-                ref={tracksRef}
-                className="h-screen"
-                style={{}}
-            >
+            <div ref={tracksRef} className="h-screen" style={{}}>
                 <TracksSection />
             </div>
-            <div
-                ref={scheduleRef}
-                className=" h-screen"
-                style={{}}
-            >
+            <div ref={scheduleRef} className=" h-screen" style={{}}>
                 <ScheduleSection />
             </div>
             <div
@@ -79,18 +64,10 @@ export default function Page() {
             >
                 <MeetTheTeamSection />
             </div>
-            <div
-                ref={sponsorsRef}
-                className=" h-screen"
-                style={{}}
-            >
+            <div ref={sponsorsRef} className=" h-screen" style={{}}>
                 <SponsorsSection />
             </div>
-            <div
-                ref={faqRef}
-                className=" h-screen"
-                style={{}}
-            >
+            <div ref={faqRef} className=" h-screen" style={{}}>
                 <FAQSection />
             </div>
         </div>
