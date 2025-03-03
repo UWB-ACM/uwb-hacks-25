@@ -2,8 +2,6 @@
 
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
-import WhatsNewSection from "../components/landing-page/WhatsNewSection";
-import LeaderboardSection from "../components/landing-page/LeaderboardSection";
 import TracksSection from "../components/landing-page/TrackSection";
 import ScheduleSection from "../components/landing-page/ScheduleSection";
 import FAQSection from "../components/landing-page/FAQSection";
@@ -11,6 +9,7 @@ import MeetTheTeamSection from "../components/landing-page/MeetTheTeamSection";
 import SponsorsSection from "../components/landing-page/SponsorsSection";
 import Header from "../components/header/MainHeader";
 import { useRef } from "react";
+import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
 export default function Page() {
     const mainRef = useRef<HTMLDivElement>(null);
@@ -47,9 +46,10 @@ export default function Page() {
             </div>
 
             <div className="" style={{}}>
-                <div className="flex gap-x-[3rem]">
-                    <WhatsNewSection />
-                    <LeaderboardSection />
+                <div className="flex w-full justify-center px-10">
+                    <SponsorInfo/>
+                    {/* <WhatsNewSection />
+                    <LeaderboardSection /> */}
                 </div>
             </div>
             <div id="tracks" ref={tracksRef} className="h-screen" style={{}}>
