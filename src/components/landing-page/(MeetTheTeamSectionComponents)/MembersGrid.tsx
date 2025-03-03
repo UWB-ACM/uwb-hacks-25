@@ -5,7 +5,7 @@ import MemberCard from "@/src/components/landing-page/(MeetTheTeamSectionCompone
 import gsap from "gsap";
 
 interface TeamMembersGridProps {
-    members: { id: string; name: string; role: string; photo: string }[];
+    members: { id: string; name: string; role: string; photo: string; link: string }[];
 }
 
 const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
