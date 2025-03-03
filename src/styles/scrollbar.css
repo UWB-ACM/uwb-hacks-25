@@ -1,0 +1,5 @@
+/* TODO add scrollbar code */
+
+::-webkit-scrollbar-thumb {
+    background: #d12003;
+}
