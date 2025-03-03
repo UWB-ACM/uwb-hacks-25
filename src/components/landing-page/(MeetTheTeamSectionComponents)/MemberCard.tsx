@@ -11,9 +11,9 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
             href={member.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block"
+            className="block group"
         >
-            <div className="member-card-animation flex items-center p-4 space-x-4 border-4 border-black shadow-lg bg-white hover:scale-105 transition-transform cursor-pointer">
+            <div className="flex items-center p-4 space-x-4 border-4 border-black shadow-lg bg-white transition-transform transform group-hover:scale-105 cursor-pointer duration-300">
                 <Image
                     src={member.photo}
                     alt={member.name}
