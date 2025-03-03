@@ -87,10 +87,7 @@ export default function Page() {
                     className="w-full min-h-[100vh] bg-blue flex flex-col relative"
                 >
                     <Header refs={refs} />
-                    <Parallax speed={-10}>
-                        <HeroSection />
-                    </Parallax>
-
+                    <HeroSection />
                     <Parallax
                         speed={-30}
                         className="absolute w-full h-full z-[-3] bottom-[40]"
