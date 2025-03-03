@@ -16,18 +16,6 @@ export const committees = [
                 photo: "/MeetTheTeamPhotos/chinmayee-chadalavada.jpg",
             },
             {
-                id: "ethan-leonard",
-                name: "Ethan Leonard",
-                role: "Sponsorships Outreach Co-Lead",
-                photo: "/MeetTheTeamPhotos/ethan-leonard.png",
-            },
-            {
-                id: "jui-bangali",
-                name: "Jui Bangali",
-                role: "WiCyS President, Local Arrangments Member, Product Management Member",
-                photo: "/MeetTheTeamPhotos/jui-bangali.jpg",
-            },
-            {
                 id: "hannah-kim",
                 name: "Hannah Kim",
                 role: "Production Management Lead",
@@ -57,6 +45,18 @@ export const committees = [
         id: "content-design",
         name: "Content Design Champions",
         members: [
+            {
+                id: "simon-dao",
+                name: "Simon Dao",
+                role: "Content and Design Lead",
+                photo: "/MeetTheTeamPhotos/simon-dao.jpg",
+            },
+            {
+                id: "ruthie-lartey",
+                name: "Ruthie Lartey",
+                role: "Content and Design Co-lead, Marketing Member",
+                photo: "/MeetTheTeamPhotos/ruthie-lartey.jpg",
+            },
             {
                 id: "sai-bathina",
                 name: "Sai Bathina",
@@ -116,6 +116,12 @@ export const committees = [
                 name: "Breanna Powell",
                 role: "Marketing Lead",
                 photo: "/MeetTheTeamPhotos/breanna-powell.jpg",
+            },
+            {
+                id: "ruthie-lartey",
+                name: "Ruthie Lartey",
+                role: "Content and Design Co-lead, Marketing Member",
+                photo: "/MeetTheTeamPhotos/ruthie-lartey.jpg",
             },
         ],
     },
