@@ -10,7 +10,7 @@ interface TeamMembersGridProps {
         name: string;
         role: string;
         photo: string;
-        link: string;
+        link?: string;
     }[];
 }
 
@@ -24,7 +24,7 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
             );
             gsap.fromTo(
                 gridItems,
-                { opacity: 0, scale: 1, duration: 0.5 },
+                { opacity: 0, scale: 1 },
                 {
                     opacity: 1,
                     scale: 1,
@@ -34,12 +34,12 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
                 },
             );
         }
-    }, [members]); // Runs when `state` or members change
+    }, [members]);
 
     return (
         <div
             ref={containerRef}
-            className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+            className="flex flex-wrap justify-center gap-6" // Flexbox layout with wrapping
         >
             {members.map((member) => (
                 <MemberCard key={member.id} member={member} />
