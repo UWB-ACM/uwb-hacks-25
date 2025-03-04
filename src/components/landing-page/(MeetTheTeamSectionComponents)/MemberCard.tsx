@@ -16,28 +16,34 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
 
     const cardContent = (
         <div
-            className={`relative flex items-center p-4 space-x-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300`}
+            className="relative flex items-center p-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300 min-h-[140px] h-full"
         >
-            {/* Profile Image */}
+            {/* Profile Image on the Left */}
             <Image
                 src={member.photo}
                 alt={member.name}
-                className="border-4 border-black"
+                className="border-4 border-black flex-shrink-0"
                 width={80}
                 height={80}
             />
-            {/* Member Details */}
-            <div>
-                <h3 className="text-xl font-bold">{member.name}</h3>
-                <p className="text-sm text-gray-600">{member.role}</p>
+
+            {/* Member Info on the Right */}
+            <div className="flex flex-col flex-grow ml-4 min-w-0">
+                <h3 className="text-xl font-bold break-words whitespace-normal">
+                    {member.name}
+                </h3>
+                <p className="text-sm text-gray-600 break-words whitespace-normal">
+                    {member.role}
+                </p>
             </div>
-            {/* LinkedIn Logo (Only Show if a Link Exists) */}
+
+            {/* LinkedIn Logo (Top Right) */}
             {isClickable && (
                 <Image
                     src="/MeetTheTeamPhotos/linkedin-icon/LI-In-Bug.png"
                     alt="LinkedIn"
-                    width={30}
-                    height={30}
+                    width={24}
+                    height={24}
                     className="absolute top-2 right-2"
                 />
             )}
