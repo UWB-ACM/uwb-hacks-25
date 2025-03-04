@@ -3,9 +3,9 @@
 
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
-import WhatsNewSection from "../components/landing-page/WhatsNewSection";
-import LeaderboardSection from "../components/landing-page/LeaderboardSection";
-import TracksSection from "../components/landing-page/TrackSection";
+// import WhatsNewSection from "../components/landing-page/WhatsNewSection";
+// import LeaderboardSection from "../components/landing-page/LeaderboardSection";
+// import TracksSection from "../components/landing-page/TrackSection";
 import ScheduleSection from "../components/landing-page/ScheduleSection";
 import FAQSection from "../components/landing-page/FAQSection";
 import MeetTheTeamSection from "../components/landing-page/MeetTheTeamSection";
@@ -87,7 +87,9 @@ export default function Page() {
                     className="w-full min-h-[100vh] bg-blue flex flex-col relative"
                 >
                     <Header refs={refs} />
+
                     <HeroSection />
+
                     <Parallax
                         speed={-30}
                         className="absolute w-full h-full z-[-3] bottom-[40]"
@@ -124,23 +126,23 @@ export default function Page() {
                     <AboutSection />
                 </div>
 
-                <div className="" style={{}}>
+                {/* TODO - release all of these the day of the event */}
+                {/* <div className="" style={{}}>
                     <div className="flex gap-x-[3rem]">
 
                         {/* TODO unlock this during the day of the hackathon */}
                         {/* <WhatsNewSection />
                         <LeaderboardSection /> */}
                     </div>
-                </div>
-                {/* TODO unlock this during the day of the hackathon */}
-                <div
+                </div> */}
+                {/* <div
                     id="tracks"
                     ref={tracksRef}
                     className="h-screen"
                     style={{}}
                 >
                     <TracksSection />
-                </div>
+                </div> */}
                 <div
                     id="schedule"
                     ref={scheduleRef}
