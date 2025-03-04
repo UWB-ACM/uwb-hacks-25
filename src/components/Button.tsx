@@ -45,6 +45,15 @@ const Button = ({ onClick, children }: ButtonProps) => {
         });
     };
 
+    const handleTouchStart = () => {
+        gsap.to(flatShadow.current, {
+            x: 1,
+            y: 1,
+            duration: 0.1,
+            ease: "none",
+        });
+    };
+
     return (
         <button
             onClick={onClick}
@@ -52,6 +61,8 @@ const Button = ({ onClick, children }: ButtonProps) => {
             onMouseLeave={handleMouseLeave}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            // onTouchEnd={handleMouseUp}
             className="relative hover:-translate-x-1 hover:-translate-y-1 active:translate-x-1 active:translate-y-1 transform duration-200"
         >
             <svg
