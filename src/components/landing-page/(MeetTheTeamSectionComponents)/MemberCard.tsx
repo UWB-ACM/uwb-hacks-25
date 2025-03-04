@@ -18,7 +18,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
         <div
             className="relative flex items-center p-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300 min-h-[140px] h-full"
             style={{
-                minWidth: "min(100%, 250px)",
+                minWidth: "min(100%, 280px)",
                 maxWidth: "400px",
             }}
         >
