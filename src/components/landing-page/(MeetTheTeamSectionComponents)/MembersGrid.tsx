@@ -37,9 +37,11 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
     return (
         <div
             ref={containerRef}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-fr"
+            className="grid gap-6 auto-rows-fr"
             style={{
-                gridAutoFlow: "dense", // Allows rows to adjust dynamically
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                gridAutoFlow: "dense",
             }}
         >
             {members.map((member) => (
