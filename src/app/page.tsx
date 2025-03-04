@@ -160,7 +160,7 @@ export default function Page() {
                 <div
                     id="sponsors"
                     ref={sponsorsRef}
-                    className=" h-screen"
+                    className=""
                     style={{}}
                 >
                     <SponsorsSection />
