@@ -1,9 +1,16 @@
 import React from "react";
+import Button from "../Button";
 
 const TracksSection = () => {
     return (
-        <div className="h-full border-black border-[0.25rem] p-[10rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
-            TracksSection
+        <div className="h-full border-black border-[0.25rem] p-[10rem] mb-[1rem] mt-[1rem] grid place-content-center">
+            <Button
+                onClick={() => {
+                    console.log("clicked");
+                }}
+            >
+                Discord
+            </Button>
         </div>
     );
 };
