@@ -36,7 +36,7 @@ export default function Page() {
             <div className=" h-screen" style={{}}>
                 <TracksSection />
             </div>
-            <div className=" h-screen" style={{}}>
+            <div className="" style={{}}>
                 <ScheduleSection />
             </div>
             <div className=" h-screen" style={{}}>
