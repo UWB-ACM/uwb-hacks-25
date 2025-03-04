@@ -37,7 +37,7 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
     return (
         <div
             ref={containerRef}
-            className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+            className="flex flex-wrap justify-center gap-6" // Flexbox layout with wrapping
         >
             {members.map((member) => (
                 <MemberCard key={member.id} member={member} />
