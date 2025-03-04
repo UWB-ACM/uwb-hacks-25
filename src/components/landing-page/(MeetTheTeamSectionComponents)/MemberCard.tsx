@@ -42,8 +42,8 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
                 <Image
                     src="/MeetTheTeamPhotos/linkedin-icon/LI-In-Bug.png"
                     alt="LinkedIn"
-                    width={24}
-                    height={24}
+                    width={30}
+                    height={30}
                     className="absolute top-2 right-2"
                 />
             )}
