@@ -1,5 +1,5 @@
 import Image from "next/image";
-import UwbHacksLogo from "@/public/heroSection/logo.png";
+import UwbHacksLogo from "@/public/hero/logo.png";
 
 const LogoContainer = () => {
     return (
