@@ -157,12 +157,7 @@ export default function Page() {
                 >
                     <MeetTheTeamSection />
                 </div>
-                <div
-                    id="sponsors"
-                    ref={sponsorsRef}
-                    className=" h-screen"
-                    style={{}}
-                >
+                <div id="sponsors" ref={sponsorsRef} className="" style={{}}>
                     <SponsorsSection />
                 </div>
                 <div id="faq" ref={faqRef} className=" h-screen" style={{}}>
