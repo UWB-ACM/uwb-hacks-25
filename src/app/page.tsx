@@ -87,9 +87,8 @@ export default function Page() {
                     className="w-full min-h-[100vh] bg-blue flex flex-col relative"
                 >
                     <Header refs={refs} />
-                    <Parallax speed={0}>
-                        <HeroSection />
-                    </Parallax>
+
+                    <HeroSection />
 
                     <Parallax
                         speed={-30}
@@ -130,8 +129,10 @@ export default function Page() {
                 {/* TODO - release all of these the day of the event */}
                 {/* <div className="" style={{}}>
                     <div className="flex gap-x-[3rem]">
-                        <WhatsNewSection />
-                        <LeaderboardSection />
+
+                        {/* TODO unlock this during the day of the hackathon */}
+                        {/* <WhatsNewSection />
+                        <LeaderboardSection /> */}
                     </div>
                 </div> */}
                 {/* <div
