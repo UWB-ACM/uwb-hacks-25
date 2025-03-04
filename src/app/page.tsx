@@ -122,24 +122,6 @@ export default function Page() {
                         />
                     </Parallax>
                 </div>
-<<<<<<< HEAD
-            </div>
-            <div className=" h-screen" style={{}}>
-                <TracksSection />
-            </div>
-            <div className="" style={{}}>
-                <ScheduleSection />
-            </div>
-            <div className=" h-screen" style={{}}>
-                <MeetTheTeamSection />
-            </div>
-            <div className=" h-screen" style={{}}>
-                <SponsorsSection />
-            </div>
-            <div className=" h-screen" style={{}}>
-                <FAQSection />
-            </div>
-=======
 
                 <div id="about" ref={aboutRef} className="w-full flex">
                     <AboutSection />
@@ -162,7 +144,7 @@ export default function Page() {
                 <div
                     id="schedule"
                     ref={scheduleRef}
-                    className=" h-screen"
+                    className=" min-h-screen flex flex-col pt-10"
                     style={{}}
                 >
                     <ScheduleSection />
@@ -187,7 +169,6 @@ export default function Page() {
                     <FAQSection />
                 </div>
             </ParallaxProvider>
->>>>>>> main
         </div>
     );
 }
