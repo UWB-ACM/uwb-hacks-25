@@ -3,73 +3,105 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SideNav from "./SideNav";
+import "../../styles/header.css";
 
-export default function Header() {
+type HeaderProps = {
+    refs?: {
+        [key: string]: React.RefObject<HTMLDivElement | null>;
+    };
+};
+
+export default function Header({ refs }: HeaderProps) {
     const [sideNavState, setSideNavState] = useState(false);
 
     const Desktop = () => {
         return (
-            <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full">
+            <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full ">
                 <button
-                    className="font-h1 text-5xl"
+                    className="font-h1 text-5xl scale-up-animation"
                     onClick={() => {
                         router.push("/");
                     }}
                 >
                     {/* Using spans so the text stays inline when compressed */}
-                    <span>UWB</span>
-                    <span className="ml-3">Hacks</span>
+                    <h1>
+                        <span>UWB</span>
+                        <span className="ml-3">Hacks</span>
+                    </h1>
                 </button>
 
                 <div className="hidden md:flex gap-x-10 ">
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
-                            router.push("/");
-
-                            //scroll down to about section
+                            // scroll down to about section
+                            if (refs) {
+                                refs["About"].current?.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                router.push("/#about");
+                            }
                         }}
                     >
                         About
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
-                            router.push("/");
-                            //scroll down to tracks section
+                            // scroll down to tracks section
+                            if (refs) {
+                                refs["Tracks"].current?.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                router.push("/#tracks");
+                            }
                         }}
                     >
                         Tracks
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
-                            router.push("/");
-                            //scroll down to schedule section
+                            // scroll down to schedule section
+                            if (refs) {
+                                refs["Schedule"].current?.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                router.push("/#schedule");
+                            }
                         }}
                     >
                         Schedule
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
-                            router.push("/");
                             //scroll down to faq section
+                            if (refs) {
+                                refs["FAQ"].current?.scrollIntoView({
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                router.push("/#faq");
+                            }
                         }}
                     >
                         FAQ
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             router.push("/staff");
                         }}
                     >
-                        Staff
+                        Login
                     </button>
                     {/* <button
                         className="font-h3 font-medium m-0"
@@ -89,14 +121,16 @@ export default function Header() {
         return (
             <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full min-w-72">
                 <button
-                    className="font-h1 text-3xl"
+                    className="font-h1 text-3xl tilt-animation scale-up-animation"
                     onClick={() => {
                         router.push("/");
                     }}
                 >
                     {/* Using spans so the text stays inline when compressed */}
-                    <span>UWB</span>
-                    <span className="ml-3">Hacks</span>
+                    <h1>
+                        <span>UWB</span>
+                        <span className="ml-3">Hacks</span>
+                    </h1>
                 </button>
 
                 <button
@@ -104,8 +138,9 @@ export default function Header() {
                     onClick={() => {
                         setSideNavState(true);
                     }}
-                    
-                >X</button>
+                >
+                    X
+                </button>
             </nav>
         );
     };
@@ -120,7 +155,7 @@ export default function Header() {
             <div className="block md:hidden">
                 <Mobile />
             </div>
-            {sideNavState && <SideNav setSideNavState={setSideNavState}/>}
+            {sideNavState && <SideNav setSideNavState={setSideNavState} />}
         </>
     );
 }

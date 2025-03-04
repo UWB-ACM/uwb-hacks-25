@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 html,
@@ -15,22 +16,13 @@ body {
 }
 /* Custom Fonts */
 @font-face {
-    font-family: h1-font;
+    font-family: san-marino-beach;
     src: url("../../public/fonts/San Marino Beach.otf");
-}
-
-@font-face {
-    font-family: h2-font;
-    src: url("../../public/fonts/OpenSans-Regular.ttf");
-}
-
-@font-face {
-    font-family: h3-font;
-    src: url("../../public/fonts/Inter_Regular.ttf");
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffe6a2;
 }
 
 @layer base {
@@ -97,3 +89,5 @@ body {
         @apply bg-background text-foreground;
     }
 }
+
+/* TODO add scrollbar code */

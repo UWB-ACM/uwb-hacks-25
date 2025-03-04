@@ -5,6 +5,11 @@ import {
     getBalanceForUser,
     getTransactionsForUser,
 } from "@/src/util/db/transaction";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Modify User | UWB Hacks 25",
+};
 
 export default async function Page() {
     // TODO: Make this apply to the scanned user, not the staff member.
