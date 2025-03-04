@@ -1,5 +1,6 @@
 import React, { CSSProperties, PropsWithChildren } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const AboutSection: React.FC = () => {
     return (
@@ -68,12 +69,15 @@ const AboutSectionDesktop: React.FC = () => (
             </p>
 
             <div className="absolute [width:20%] [bottom:calc(-50px_+_8vw)] [right:calc(35%_-_3vw)]">
-                <Image
-                    src="/about/discord-fancy-yellow.svg"
-                    alt="Discord"
-                    width={168}
-                    height={122}
-                />
+                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                    <Image
+                        src="/about/discord-fancy-yellow.svg"
+                        alt="Discord"
+                        width={168}
+                        height={122}
+                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                    />
+                </Link>
             </div>
         </PolygonArea>
 
@@ -144,12 +148,15 @@ const AboutSectionDesktop: React.FC = () => (
             </p>
 
             <div className="absolute [width:20%] [bottom:-10px] [right:calc(40px_+_0.4vw)]">
-                <Image
-                    src="/about/discord-fancy-blue.svg"
-                    alt="Discord"
-                    width={168}
-                    height={122}
-                />
+                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                    <Image
+                        src="/about/discord-fancy-blue.svg"
+                        alt="Discord"
+                        width={168}
+                        height={122}
+                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                    />
+                </Link>
             </div>
         </PolygonArea>
     </div>
@@ -209,12 +216,15 @@ const AboutSectionMobile: React.FC = () => (
             </p>
 
             <div className="absolute [width:30%] [bottom:10px] [right:10px]">
-                <Image
-                    src="/about/discord-yellow.svg"
-                    alt="Discord"
-                    width={90}
-                    height={32}
-                />
+                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                    <Image
+                        src="/about/discord-yellow.svg"
+                        alt="Discord"
+                        width={90}
+                        height={32}
+                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                    />
+                </Link>
             </div>
         </PolygonArea>
 
@@ -282,12 +292,15 @@ const AboutSectionMobile: React.FC = () => (
             </p>
 
             <div className="absolute [width:25%] [bottom:5px] [right:20px]">
-                <Image
-                    src="/about/discord-yellow.svg"
-                    alt="Discord"
-                    width={90}
-                    height={32}
-                />
+                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                    <Image
+                        src="/about/discord-yellow.svg"
+                        alt="Discord"
+                        width={90}
+                        height={32}
+                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                    />
+                </Link>
             </div>
         </PolygonArea>
     </div>
@@ -332,7 +345,7 @@ const PolygonArea: React.FC<
             </div>
 
             <svg
-                className="absolute z-30"
+                className="absolute z-30 pointer-events-none"
                 viewBox={viewBox}
                 preserveAspectRatio="none"
                 width="100%"
