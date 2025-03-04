@@ -16,7 +16,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
 
     const cardContent = (
         <div
-            className="relative flex items-center p-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300 min-h-[140px] h-full w-[400px]" // Fixed width
+            className="relative flex items-center p-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300 min-h-[140px] h-full w-[380px]" // Fixed width
         >
             {/* Profile Image on the Left */}
             <Image
