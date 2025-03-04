@@ -126,10 +126,13 @@ export default function Page() {
 
                 <div className="" style={{}}>
                     <div className="flex gap-x-[3rem]">
-                        <WhatsNewSection />
-                        <LeaderboardSection />
+
+                        {/* TODO unlock this during the day of the hackathon */}
+                        {/* <WhatsNewSection />
+                        <LeaderboardSection /> */}
                     </div>
                 </div>
+                {/* TODO unlock this during the day of the hackathon */}
                 <div
                     id="tracks"
                     ref={tracksRef}
