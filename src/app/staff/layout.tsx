@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/src/components/header/StaffHeader";
+import Header from "@/src/components/header/Header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,30 @@ export default function RootLayout({
 }>) {
     return (
         <div className={`w-screen`}>
-            <Header />
+            <Header
+                links={[
+                    {
+                        id: "prizes",
+                        name: "Buy Prizes",
+                        url: "/staff/buy-prizes",
+                    },
+                    {
+                        id: "modify-user",
+                        name: "Modify User",
+                        url: "/staff/modify-user",
+                    },
+                    {
+                        id: "transfer-hackeroons",
+                        name: "Transfer Hackeroons",
+                        url: "/staff/transfer-hackeroons",
+                    },
+                    {
+                        id: "dashboard",
+                        name: "Dashboard",
+                        url: "/staff",
+                    },
+                ]}
+            />
 
             {children}
         </div>
