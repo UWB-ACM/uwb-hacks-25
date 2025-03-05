@@ -3,8 +3,8 @@ import React from "react";
 function Sponsors() {
     return (
         <div className="flex flex-col w-screen items-center">
-            <div className="max-w-[1000px] flex flex-col">
-                <div className="text-center bg-white border-2 border-black p-6 md:p-8 m-4 md:m-8 shadow-lg px-4 overflow-x-auto">
+            <div className="max-w-[1000px] flex flex-col items-center">
+                <div className="text-center bg-white border-2 border-black p-6 md:p-8 m-4 md:m-8 shadow-lg px-4 overflow-x-auto w-full">
                     <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
                         Why Sponsor Us?
                     </h2>
@@ -17,8 +17,8 @@ function Sponsors() {
                     </p>
                 </div>
 
-                <div className="flex">
-                    <div className="flex flex-col grow items-center text-center bg-white border-2 border-black p-2 mx-8 my-6 shadow-lg">
+                <div className="flex flex-wrap justify-center w-full">
+                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-lg grow md:w-[300px]">
                         <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
                             📢 Elevate Your Brand
                         </h2>
@@ -29,7 +29,8 @@ function Sponsors() {
                             a leader in innovation and social responsibility.
                         </p>
                     </div>
-                    <div className="flex flex-col grow items-center text-center bg-white border-2 border-black p-2 mx-8 my-6 shadow-lg">
+                    <div className="w-6"></div>
+                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-lg grow md:w-[300px]">
                         <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
                             🎯 Access Top Emerging Talent
                         </h2>
@@ -41,8 +42,8 @@ function Sponsors() {
                         </p>
                     </div>
                 </div>
-                <div className="flex">
-                    <div className="flex flex-col grow items-center text-center bg-white border-2 border-black p-2 mx-8 my-6 shadow-lg">
+                <div className="flex flex-wrap justify-center w-full mt-6 mb-16 ">
+                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-lg grow md:w-[300px]">
                         <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
                             🚀 Drive Innovation & Community Impact{" "}
                         </h2>
@@ -53,7 +54,8 @@ function Sponsors() {
                             tools, or products.
                         </p>
                     </div>
-                    <div className="flex flex-col grow items-center text-center bg-white border-2 border-black p-2 mx-8 my-6 shadow-lg">
+                    <div className="w-6"></div>
+                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-lg grow md:w-[300px]">
                         <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
                             🤝 Engage with Hackers
                         </h2>

@@ -176,7 +176,7 @@ export default function Page() {
                 <div id="sponsors" ref={sponsorsRef} className="" style={{}}>
                     <SponsorsSection />
                 </div>
-                <div id="faq" ref={faqRef} className=" h-screen" style={{}}>
+                <div id="faq" ref={faqRef} className="min-h-screen" style={{}}>
                     <FAQSection />
                 </div>
             </ParallaxProvider>

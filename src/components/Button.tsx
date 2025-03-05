@@ -2,18 +2,17 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 
 type ButtonProps = {
-    onClick?: () => void;
-    className?: string;
+    onClick: () => void;
     children: React.ReactNode;
 };
 
-const Button = ({ onClick, className, children }: ButtonProps) => {
+const Button = ({ onClick, children }: ButtonProps) => {
     const flatShadow = useRef<SVGSVGElement>(null);
 
     const handleMouseEnter = () => {
         gsap.to(flatShadow.current, {
-            x: 0.5,
-            y: 0.5,
+            x: 7,
+            y: 7,
             duration: 0.2,
             ease: "none",
         });
@@ -30,8 +29,8 @@ const Button = ({ onClick, className, children }: ButtonProps) => {
 
     const handleMouseDown = () => {
         gsap.to(flatShadow.current, {
-            x: 0.1,
-            y: 0.1,
+            x: 1,
+            y: 1,
             duration: 0.2,
             ease: "none",
         });
@@ -39,8 +38,8 @@ const Button = ({ onClick, className, children }: ButtonProps) => {
 
     const handleMouseUp = () => {
         gsap.to(flatShadow.current, {
-            x: 0.5,
-            y: 0.5,
+            x: 7,
+            y: 7,
             duration: 0.2,
             ease: "none",
         });
@@ -48,8 +47,8 @@ const Button = ({ onClick, className, children }: ButtonProps) => {
 
     const handleTouchStart = () => {
         gsap.to(flatShadow.current, {
-            x: 0.1,
-            y: 0.1,
+            x: 1,
+            y: 1,
             duration: 0.1,
             ease: "none",
         });
@@ -96,12 +95,7 @@ const Button = ({ onClick, className, children }: ButtonProps) => {
                     strokeWidth="2"
                 />
             </svg>
-            <div
-                className={
-                    (className ? className + " " : "text-3xl ") +
-                    "absolute w-[85%] top-2 left-2 font-bold bg-white px-2 py-[2px] border-2 border-black"
-                }
-            >
+            <div className="absolute w-[85%] top-2 left-2 text-3xl font-bold bg-white px-2 py-[2px] border-2 border-black">
                 {children}
             </div>
         </button>
