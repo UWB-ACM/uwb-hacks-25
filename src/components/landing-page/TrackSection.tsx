@@ -32,6 +32,8 @@ const TracksSection = () => {
             tlRef.current.pause().clear();
         }
 
+        if (isOpen) return;
+
         gsap.to(".lid", {
             y: "-100vh",
             x: "18vw",
