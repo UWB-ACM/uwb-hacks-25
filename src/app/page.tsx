@@ -47,7 +47,7 @@ export default function Page() {
 
             <div className="" style={{}}>
                 <div className="flex w-full justify-center px-10">
-                    <SponsorInfo/>
+                    <SponsorInfo />
                     {/* <WhatsNewSection />
                     <LeaderboardSection /> */}
                 </div>
@@ -74,12 +74,12 @@ export default function Page() {
             <div
                 id="sponsors"
                 ref={sponsorsRef}
-                className=" h-screen"
+                className="min-h-screen"
                 style={{}}
             >
                 <SponsorsSection />
             </div>
-            <div id="faq" ref={faqRef} className=" h-screen" style={{}}>
+            <div id="faq" ref={faqRef} className="min-h-screen" style={{}}>
                 <FAQSection />
             </div>
         </div>
