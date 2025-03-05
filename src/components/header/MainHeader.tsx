@@ -19,8 +19,9 @@ export default function Header({ refs }: HeaderProps) {
             <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full ">
                 <Link href="/">
                     <button className="font-h1 text-5xl scale-up-animation">
-                        {/* Using spans so the text stays inline when compressed */}
+                        {/* This h1 should exist on the main page, and only the main page. */}
                         <h1>
+                            {/* Using spans so the text stays inline when compressed */}
                             <span>UWB</span>
                             <span className="ml-3">Hacks</span>
                         </h1>

@@ -15,10 +15,8 @@ export default function Header() {
                 <Link href="/">
                     <button className="font-h1 text-5xl  scale-up-animation">
                         {/* Using spans so the text stays inline when compressed */}
-                        <h1>
-                            <span>UWB</span>
-                            <span className="ml-3">Hacks</span>
-                        </h1>
+                        <span>UWB</span>
+                        <span className="ml-3">Hacks</span>
                     </button>
                 </Link>
 
@@ -73,10 +71,8 @@ export default function Header() {
                     }}
                 >
                     {/* Using spans so the text stays inline when compressed */}
-                    <h1>
-                        <span>UWB</span>
-                        <span className="ml-3">Hacks</span>
-                    </h1>
+                    <span>UWB</span>
+                    <span className="ml-3">Hacks</span>
                 </button>
 
                 <button
