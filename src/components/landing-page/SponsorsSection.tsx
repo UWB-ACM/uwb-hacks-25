@@ -1,5 +1,11 @@
 import Image from "next/image";
 import React from "react";
+import SponsorBGImage from "@/public/sponsorsSection/sponsor-bg.svg";
+import UWBStemImage from "@/public/sponsorsSection/uwb-stem.png";
+import UWBBusinessImage from "@/public/sponsorsSection/uwb-business.png";
+import AvanadeImage from "@/public/sponsorsSection/avanade-logo.svg";
+import RedBullImage from "@/public/sponsorsSection/redbull-logo.svg";
+import UWBACMImage from "@/public/about/uwb-acm-logo.png";
 
 const SponsorsSection = () => {
     return (
@@ -9,45 +15,36 @@ const SponsorsSection = () => {
             <Image
                 className="hidden md:block absolute -z-10 md:object-cover"
                 alt="background img"
-                src={"/sponsorsSection/sponsor-bg.svg"}
-                height={0}
-                width={0}
+                src={SponsorBGImage}
                 fill
             />
 
             {/* Sponsors Section */}
             <div className="flex flex-col items-center">
-                <div className="justify-center items-center font-h1 text-[#49B2F8] mb-[2rem] text-5xl md:text-6xl lg:text-7xl text-center">
+                <h2 className="justify-center items-center font-h1 text-[#49B2F8] mb-[2rem] text-5xl md:text-6xl lg:text-7xl text-center">
                     UWB HACKS 2025 SPONSORS
-                </div>
+                </h2>
 
                 {/* sponsor grid */}
                 <div className="grid md:grid-cols-3 justify-between items-center">
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image
-                            src="/sponsorsSection/uwb-stem.png"
-                            alt="sponsor2"
-                            width={500}
-                            height={500}
-                        ></Image>
+                        <Image src={UWBStemImage} width={500} alt="sponsor2" />
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
                         <Image
-                            src="/sponsorsSection/avanade-logo.svg"
+                            src={AvanadeImage}
+                            width={500}
                             alt="sponsor3"
-                            width={500}
-                            height={500}
                         ></Image>
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
                         <Image
-                            src="/sponsorsSection/uwb-business.png"
-                            alt="sponsor4"
+                            src={UWBBusinessImage}
                             width={500}
-                            height={500}
-                        ></Image>
+                            alt="sponsor4"
+                        />
                     </div>
                 </div>
 
@@ -55,47 +52,26 @@ const SponsorsSection = () => {
                     {/* sponsor logo container, place logo w/ img inside of each of these divs */}
                     <div className="flex justify-center items-center p-6 transition">
                         <Image
-                            src="/sponsorsSection/redbull-logo.svg"
+                            src={RedBullImage}
+                            width={175}
                             alt="sponsor1"
-                            width={175}
-                            height={175}
                         ></Image>
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image
-                            src="/about/uwb-acm-logo.png"
-                            alt="sponsor5"
-                            width={175}
-                            height={175}
-                        ></Image>
+                        <Image src={UWBACMImage} width={175} alt="sponsor5" />
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image
-                            src="/about/uwb-acm-logo.png"
-                            alt="sponsor6"
-                            width={175}
-                            height={175}
-                        ></Image>
+                        <Image src={UWBACMImage} width={175} alt="sponsor6" />
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image
-                            src="/about/uwb-acm-logo.png"
-                            alt="sponsor7"
-                            width={175}
-                            height={175}
-                        ></Image>
+                        <Image src={UWBACMImage} width={175} alt="sponsor7" />
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image
-                            src="/about/uwb-acm-logo.png"
-                            alt="sponsor8"
-                            width={175}
-                            height={175}
-                        ></Image>
+                        <Image src={UWBACMImage} width={175} alt="sponsor8" />
                     </div>
                 </div>
             </div>

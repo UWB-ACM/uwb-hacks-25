@@ -73,7 +73,7 @@ export default {
                 sm: "calc(var(--radius) - 4px)",
             },
             backgroundImage: {
-                hero: "url('/hero/background.svg')",
+                hero: "url('/hero/background.png')",
             },
         },
     },

@@ -1,5 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
+
+import "../styles/globals.css";
 
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
@@ -15,6 +16,11 @@ import { useEffect, useRef, useState } from "react";
 import { Parallax } from "react-scroll-parallax";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Lenis from "lenis";
+import Image from "next/image";
+import ScrollImage from "@/public/hero/scroll-top.svg";
+import BackgroundImage from "@/public/hero/background.png";
+import MidgroundImage from "@/public/hero/midground.png";
+import ForegroundImage from "@/public/hero/foreground.png";
 import "../styles/globals.css";
 import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
@@ -78,7 +84,11 @@ export default function Page() {
                     showGoTop ? "" : "hidden"
                 }`}
             >
-                <img src="/hero/scroll-top.svg" alt="" />
+                <Image
+                    src={ScrollImage}
+                    className="w-full"
+                    alt="Scroll to the top"
+                />
             </button>
 
             <ParallaxProvider>
@@ -95,8 +105,9 @@ export default function Page() {
                         speed={-30}
                         className="absolute w-full h-full z-[-3] bottom-[40]"
                     >
-                        <img
-                            src="/hero/background.svg"
+                        <Image
+                            src={BackgroundImage}
+                            priority
                             alt=""
                             className="absolute object-cover w-full h-full "
                         />
@@ -105,8 +116,9 @@ export default function Page() {
                         speed={-20}
                         className="absolute w-full h-full z-[-2] bottom-[0]"
                     >
-                        <img
-                            src="/hero/midground.svg"
+                        <Image
+                            src={MidgroundImage}
+                            priority
                             alt=""
                             className="absolute object-cover w-screen h-screen bottom-[0]"
                         />
@@ -115,8 +127,9 @@ export default function Page() {
                         speed={-5}
                         className="absolute w-full h-full z-[-1] bottom-[0]"
                     >
-                        <img
-                            src="/hero/foreground.svg"
+                        <Image
+                            src={ForegroundImage}
+                            priority
                             alt=""
                             className="absolute object-cover w-screen h-screen bottom-[-10]"
                         />
