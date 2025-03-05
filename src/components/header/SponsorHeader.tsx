@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SideNav from "./SideNav";
+import "../../styles/header.css";
 
 export default function Header() {
     const [sideNavState, setSideNavState] = useState(false);
@@ -11,7 +12,7 @@ export default function Header() {
         return (
             <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full">
                 <button
-                    className="font-h1 text-5xl"
+                    className="font-h1 text-5xl  scale-up-animation"
                     onClick={() => {
                         router.push("/");
                     }}
@@ -25,7 +26,7 @@ export default function Header() {
 
                 <div className="hidden md:flex gap-x-10 ">
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
                                 router.push("/sponsor/");
@@ -35,7 +36,7 @@ export default function Header() {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
                          
@@ -47,7 +48,7 @@ export default function Header() {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
                          
@@ -59,7 +60,7 @@ export default function Header() {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
                          
@@ -71,7 +72,7 @@ export default function Header() {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
                          
@@ -83,7 +84,7 @@ export default function Header() {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             router.push("/sponsor/other");
                         }}
