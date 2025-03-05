@@ -128,13 +128,15 @@ export default function Page() {
                 </div>
 
                 {/* TODO - release all of these the day of the event */}
-                {/* <div className="" style={{}}>
+                <div className="" style={{}}>
                     <div className="flex w-full justify-center px-10">
 
                         {/* TODO unlock this during the day of the hackathon */}
-                        {/* <SponsorInfo/>
+                        <SponsorInfo/>
                     {/* <WhatsNewSection />
                         <LeaderboardSection /> */} 
+                    </div>
+                </div>
                 {/* <div
                     id="tracks"
                     ref={tracksRef}
