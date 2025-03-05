@@ -3,10 +3,11 @@ import { gsap } from "gsap";
 
 type ButtonProps = {
     onClick: () => void;
+    className?: string;
     children: React.ReactNode;
 };
 
-const Button = ({ onClick, children }: ButtonProps) => {
+const Button = ({ onClick, className, children }: ButtonProps) => {
     const flatShadow = useRef<SVGSVGElement>(null);
 
     const handleMouseEnter = () => {
@@ -95,7 +96,12 @@ const Button = ({ onClick, children }: ButtonProps) => {
                     strokeWidth="2"
                 />
             </svg>
-            <div className="absolute w-[85%] top-2 left-2 text-3xl font-bold bg-white px-2 py-[2px] border-2 border-black">
+            <div
+                className={
+                    "absolute w-[85%] top-2 left-2 font-bold bg-white px-2 py-[2px] border-2 border-black " +
+                    (className || "text-3xl")
+                }
+            >
                 {children}
             </div>
         </button>
