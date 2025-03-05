@@ -42,7 +42,7 @@ export default function Header({ refs }: HeaderProps) {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
                             if (refs) {
