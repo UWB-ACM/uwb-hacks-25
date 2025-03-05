@@ -1,11 +1,14 @@
 import React from "react";
+import Image from "next/image";
 
 const ScheduleSection: React.FC = () => {
     return (
         <>
             <div className="self-center col-span-1 md:col-span-3 mb-4 md:mb-6">
-                <img
+                <Image
                     src="/scheduleSection/sched-text.svg"
+                    width={439}
+                    height={75}
                     alt="Schedule"
                     className="drop-shadow-md w-[250px] md:w-[400px] mx-auto md:mx-auto lg:ml-0 lg:text-left"
                 />
@@ -70,8 +73,10 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
 }) => {
     return (
         <div className="relative border-2 border-black bg-white p-4 md:p-6 flex flex-col min-h-[300px] md:min-h-[400px] overflow-hidden schedule-card transition-transform hover:scale-105 hover:border-yellow-500 hover:bg-[#fdf4c5]">
-            <img
+            <Image
                 src="/scheduleSection/sched-accent.svg"
+                width={191}
+                height={166}
                 alt="Accent Graphic"
                 className={`w-[80px] h-[70px] absolute ${
                     accentPosition === "bottom-left"
