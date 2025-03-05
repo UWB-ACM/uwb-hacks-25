@@ -144,7 +144,7 @@ export default function Page() {
                 <div
                     id="schedule"
                     ref={scheduleRef}
-                    className=" h-screen"
+                    className=" min-h-screen flex flex-col pt-10"
                     style={{}}
                 >
                     <ScheduleSection />
