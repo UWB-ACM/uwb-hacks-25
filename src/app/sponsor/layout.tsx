@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/src/components/header/SponsorHeader";
+import Header from "@/src/components/header/Header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,40 @@ export default function RootLayout({
 }>) {
     return (
         <div className={`w-screen`}>
-            <Header />
+            <Header
+                links={[
+                    {
+                        id: "sponsor",
+                        name: "Why Work With Us",
+                        url: "/sponsor",
+                    },
+                    {
+                        id: "prizes",
+                        name: "Prizes",
+                        url: "/sponsor/prizes",
+                    },
+                    {
+                        id: "judging",
+                        name: "Judging",
+                        url: "/sponsor/judging",
+                    },
+                    {
+                        id: "hackeroons",
+                        name: "Hackeroons",
+                        url: "/sponsor/hackeroons",
+                    },
+                    {
+                        id: "workshops",
+                        name: "Workshops",
+                        url: "/sponsor/workshops",
+                    },
+                    {
+                        id: "other",
+                        name: "Other",
+                        url: "/sponsor/other",
+                    },
+                ]}
+            />
             {children}
         </div>
     );
