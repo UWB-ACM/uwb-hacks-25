@@ -16,6 +16,7 @@ import { Parallax } from "react-scroll-parallax";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Lenis from "lenis";
 import "../styles/globals.css";
+import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
 export default function Page() {
     const mainRef = useRef<HTMLDivElement>(null);
@@ -128,11 +129,12 @@ export default function Page() {
 
                 {/* TODO - release all of these the day of the event */}
                 {/* <div className="" style={{}}>
-                    <div className="flex gap-x-[3rem]">
+                    <div className="flex w-full justify-center px-10">
 
                         {/* TODO unlock this during the day of the hackathon */}
-                        {/* <WhatsNewSection />
-                        <LeaderboardSection /> */}
+                        {/* <SponsorInfo/>
+                    {/* <WhatsNewSection />
+                        <LeaderboardSection /> */} 
                 {/* <div
                     id="tracks"
                     ref={tracksRef}
