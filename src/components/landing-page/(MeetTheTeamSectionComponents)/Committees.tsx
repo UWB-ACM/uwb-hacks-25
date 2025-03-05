@@ -99,6 +99,13 @@ export const committees = [
                 photo: "/MeetTheTeamPhotos/sam-park.jpg",
                 link: "https://www.linkedin.com/in/sam-d-park/",
             },
+            {
+                id: "jonah-uellenberg",
+                name: "Jonah Uellenberg",
+                role: "Developer",
+                photo: "/MeetTheTeamPhotos/jonah-uellenberg.jpg",
+                link: "https://www.linkedin.com/in/uellenberg",
+            },
         ],
     },
     {
