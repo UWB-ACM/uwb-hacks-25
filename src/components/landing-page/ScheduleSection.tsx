@@ -1,14 +1,14 @@
 import React from "react";
+import Image from "next/image";
+import AccentImage from "@/public/accent.webp";
 
 const ScheduleSection: React.FC = () => {
     return (
         <>
             <div className="self-center col-span-1 md:col-span-3 mb-4 md:mb-6">
-                <img
-                    src="/scheduleSection/sched-text.svg"
-                    alt="Schedule"
-                    className="drop-shadow-md w-[250px] md:w-[400px] mx-auto md:mx-auto lg:ml-0 lg:text-left"
-                />
+                <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
+                    SCHEDULE
+                </h2>
             </div>
             <div className="bg-[#FBE4A6] p-6 md:p-10 grid gap-y-6 gap-x-6 [grid-template-columns:repeat(1,1fr)] md:[grid-template-columns:repeat(3,1fr)] mb-20">
                 <ScheduleCard
@@ -70,10 +70,10 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
 }) => {
     return (
         <div className="relative border-2 border-black bg-white p-4 md:p-6 flex flex-col min-h-[300px] md:min-h-[400px] overflow-hidden schedule-card transition-transform hover:scale-105 hover:border-yellow-500 hover:bg-[#fdf4c5]">
-            <img
-                src="/scheduleSection/sched-accent.svg"
-                alt="Accent Graphic"
-                className={`w-[80px] h-[70px] absolute ${
+            <Image
+                src={AccentImage}
+                alt=""
+                className={`w-[80px] h-[70px] absolute rotate-180 ${
                     accentPosition === "bottom-left"
                         ? "bottom-0 left-0"
                         : accentPosition === "bottom-right"
