@@ -133,8 +133,6 @@ export default function Page() {
                         {/* TODO unlock this during the day of the hackathon */}
                         {/* <WhatsNewSection />
                         <LeaderboardSection /> */}
-                    </div>
-                </div> */}
                 {/* <div
                     id="tracks"
                     ref={tracksRef}
