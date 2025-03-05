@@ -3,9 +3,9 @@
 
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
-import WhatsNewSection from "../components/landing-page/WhatsNewSection";
-import LeaderboardSection from "../components/landing-page/LeaderboardSection";
-import TracksSection from "../components/landing-page/TrackSection";
+// import WhatsNewSection from "../components/landing-page/WhatsNewSection";
+// import LeaderboardSection from "../components/landing-page/LeaderboardSection";
+// import TracksSection from "../components/landing-page/TrackSection";
 import ScheduleSection from "../components/landing-page/ScheduleSection";
 import FAQSection from "../components/landing-page/FAQSection";
 import MeetTheTeamSection from "../components/landing-page/MeetTheTeamSection";
@@ -16,6 +16,7 @@ import { Parallax } from "react-scroll-parallax";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Lenis from "lenis";
 import "../styles/globals.css";
+import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
 export default function Page() {
     const mainRef = useRef<HTMLDivElement>(null);
@@ -87,9 +88,8 @@ export default function Page() {
                     className="w-full min-h-[100vh] bg-blue flex flex-col relative"
                 >
                     <Header refs={refs} />
-                    <Parallax speed={-10}>
-                        <HeroSection />
-                    </Parallax>
+
+                    <HeroSection />
 
                     <Parallax
                         speed={-30}
@@ -127,20 +127,23 @@ export default function Page() {
                     <AboutSection />
                 </div>
 
+                {/* TODO - release all of these the day of the event */}
                 <div className="" style={{}}>
-                    <div className="flex gap-x-[3rem]">
-                        <WhatsNewSection />
-                        <LeaderboardSection />
+                    <div className="flex w-full justify-center px-10">
+                        {/* TODO unlock this during the day of the hackathon */}
+                        <SponsorInfo />
+                        {/* <WhatsNewSection />
+                        <LeaderboardSection /> */}
                     </div>
                 </div>
-                <div
+                {/* <div
                     id="tracks"
                     ref={tracksRef}
                     className="h-screen"
                     style={{}}
                 >
                     <TracksSection />
-                </div>
+                </div> */}
                 <div
                     id="schedule"
                     ref={scheduleRef}

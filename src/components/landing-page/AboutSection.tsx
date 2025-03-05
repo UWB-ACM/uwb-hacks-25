@@ -1,6 +1,6 @@
-import React, { CSSProperties, PropsWithChildren } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PolygonArea from "../PolygonArea";
 
 const AboutSection: React.FC = () => {
     return (
@@ -19,7 +19,7 @@ const AboutSection: React.FC = () => {
 const AboutSectionDesktop: React.FC = () => (
     <div
         className={
-            'grow [min-height:60vw] p-10 gap-2 grid [grid-template-columns:1fr_1fr_1fr] [grid-template-rows:2fr_1fr_1fr_1fr_2fr_1fr_2fr] [grid-template-areas:"top_top_top"_"husky_husky_prizes"_"husky_husky_prizes"_"husky_husky_."_"._acm_acm"_"stats_acm_acm"_"stats_acm_acm"]'
+            'grow [min-height:60vw] px-10 pt-10 gap-2 grid [grid-template-columns:1fr_1fr_1fr] [grid-template-rows:2fr_1fr_1fr_1fr_2fr_1fr_2fr] [grid-template-areas:"top_top_top"_"husky_husky_prizes"_"husky_husky_prizes"_"husky_husky_."_"._acm_acm"_"stats_acm_acm"_"stats_acm_acm"]'
         }
         // TODO: How to represent this with tailwind?
         style={{
@@ -165,7 +165,7 @@ const AboutSectionDesktop: React.FC = () => (
 const AboutSectionMobile: React.FC = () => (
     <div
         className={
-            'grow [min-height:130vw] p-10 gap-2 grid [grid-template-columns:1fr_1fr] [grid-template-rows:1fr_1fr_1fr_1fr_1fr_1fr] [grid-template-areas:"top_top"_"husky_husky"_"husky_husky"_"stats_prizes"_"acm_acm"_"acm_acm"]'
+            'grow [min-height:130vw] px-10 pt-10 gap-2 grid [grid-template-columns:1fr_1fr] [grid-template-rows:1fr_1fr_1fr_1fr_1fr_1fr] [grid-template-areas:"top_top"_"husky_husky"_"husky_husky"_"stats_prizes"_"acm_acm"_"acm_acm"]'
         }
         // TODO: How to represent this with tailwind?
         style={{
@@ -305,61 +305,5 @@ const AboutSectionMobile: React.FC = () => (
         </PolygonArea>
     </div>
 );
-
-const PolygonArea: React.FC<
-    PropsWithChildren<{
-        area: string;
-        path: string;
-        clipPath: string;
-        viewBox: string;
-        width?: string;
-        height?: string;
-        style?: CSSProperties;
-    }>
-> = ({ area, path, clipPath, viewBox, width, height, style, children }) => {
-    return (
-        <div
-            className={`relative`}
-            style={{
-                gridArea: area,
-                width: width ?? "100%",
-                height: height ?? "100%",
-                ...(style ?? {}),
-            }}
-        >
-            <svg
-                className="absolute z-10"
-                viewBox={viewBox}
-                preserveAspectRatio="none"
-                width="100%"
-                height="100%"
-            >
-                <path d={path} fill="white" />
-            </svg>
-
-            <div
-                className={`absolute z-20 [width:100%] [height:100%]`}
-                style={{ clipPath: `polygon(${clipPath})` }}
-            >
-                {children}
-            </div>
-
-            <svg
-                className="absolute z-30 pointer-events-none"
-                viewBox={viewBox}
-                preserveAspectRatio="none"
-                width="100%"
-                height="100%"
-            >
-                <path
-                    d={path}
-                    fill="#00000000"
-                    stroke="black"
-                    strokeWidth="3"
-                />
-            </svg>
-        </div>
-    );
-};
 
 export default AboutSection;

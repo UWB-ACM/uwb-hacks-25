@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SideNav from "./SideNav";
+import "../../styles/header.css";
 
 export default function Header() {
     const [sideNavState, setSideNavState] = useState(false);
@@ -11,7 +12,7 @@ export default function Header() {
         return (
             <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full">
                 <button
-                    className="font-h1 text-5xl"
+                    className="font-h1 text-5xl scale-up-animation"
                     onClick={() => {
                         router.push("/");
                     }}
@@ -21,7 +22,7 @@ export default function Header() {
                     <span className="ml-3">Hacks</span>
                 </button>
                 <button
-                    className="font-h3 font-medium text-lg"
+                    className="font-h3 font-medium text-lg scale-up-animation"
                     onClick={() => {
                         router.push("/staff/buy-prizes");
                     }}
@@ -29,7 +30,7 @@ export default function Header() {
                     Buy Prizes
                 </button>
                 <button
-                    className="font-h3 font-medium text-lg"
+                    className="font-h3 font-medium text-lg scale-up-animation"
                     onClick={() => {
                         router.push("/staff/modify-user");
                     }}
@@ -37,7 +38,7 @@ export default function Header() {
                     Modify User
                 </button>
                 <button
-                    className="font-h3 font-medium text-lg"
+                    className="font-h3 font-medium text-lg scale-up-animation"
                     onClick={() => {
                         router.push("/staff/transfer-hackeroons");
                     }}
@@ -45,7 +46,7 @@ export default function Header() {
                     Transfer Hackeroons
                 </button>
                 <button
-                    className="font-h3 font-medium text-lg"
+                    className="font-h3 font-medium text-lg scale-up-animation"
                     onClick={() => {
                         router.push("/staff");
                     }}

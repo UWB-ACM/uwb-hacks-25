@@ -1,7 +1,7 @@
 import HackathonDates from "@/src/components/landing-page/(HeroSectionComponents)/HackathonDates";
 import VolunteerSection from "@/src/components/landing-page/(HeroSectionComponents)/VolunteerSection";
-import LogoContainer from "@/src/components/landing-page/(HeroSectionComponents)/LogoContainer";
 import Countdown from "@/src/components/landing-page/(HeroSectionComponents)/Countdown";
+import SponsorUsSection from "./(HeroSectionComponents)/SponsorUsSection";
 
 const HeroSection = () => {
     return (
@@ -10,7 +10,7 @@ const HeroSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-8 max-w-[1500px] mx-auto">
                     {/* Left Column - Logo and Volunteer */}
                     <div className="flex flex-col gap-12  max-w-md">
-                        <LogoContainer />
+                        <SponsorUsSection />
                         <div className="hidden md:block">
                             <VolunteerSection />
                         </div>
