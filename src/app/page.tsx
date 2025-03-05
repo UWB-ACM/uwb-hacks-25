@@ -11,7 +11,7 @@ import ScheduleSection from "../components/landing-page/ScheduleSection";
 import FAQSection from "../components/landing-page/FAQSection";
 import MeetTheTeamSection from "../components/landing-page/MeetTheTeamSection";
 import SponsorsSection from "../components/landing-page/SponsorsSection";
-import Header from "../components/header/MainHeader";
+import Header from "../components/header/Header";
 import { useEffect, useRef, useState } from "react";
 import { Parallax } from "react-scroll-parallax";
 import { ParallaxProvider } from "react-scroll-parallax";
@@ -33,16 +33,6 @@ export default function Page() {
     const sponsorsRef = useRef<HTMLDivElement>(null);
     const faqRef = useRef<HTMLDivElement>(null);
     const lenis = useRef<Lenis | null>(null);
-
-    const refs = {
-        Main: mainRef,
-        About: aboutRef,
-        Tracks: tracksRef,
-        Schedule: scheduleRef,
-        MeetTheTeam: meetTheTeamRef,
-        Sponsors: sponsorsRef,
-        FAQ: faqRef,
-    };
 
     const [showGoTop, setShowGoTop] = useState(false);
 
@@ -97,7 +87,46 @@ export default function Page() {
                     ref={mainRef}
                     className="w-full min-h-[100vh] bg-blue flex flex-col relative"
                 >
-                    <Header refs={refs} />
+                    {/* Wrap H1 is used for the main page. */}
+                    <Header
+                        links={[
+                            {
+                                id: "sponsor",
+                                name: "Sponsor Us",
+                                url: "/sponsor",
+                            },
+                            {
+                                id: "about",
+                                name: "About",
+                                url: "/#about",
+                                scrollRef: aboutRef,
+                            },
+                            {
+                                id: "tracks",
+                                name: "Tracks",
+                                url: "/#tracks",
+                                scrollRef: tracksRef,
+                            },
+                            {
+                                id: "schedule",
+                                name: "Schedule",
+                                url: "/#schedule",
+                                scrollRef: scheduleRef,
+                            },
+                            {
+                                id: "faq",
+                                name: "FAQ",
+                                url: "/#faq",
+                                scrollRef: faqRef,
+                            },
+                            {
+                                id: "login",
+                                name: "Login",
+                                url: "/api/auth/google",
+                            },
+                        ]}
+                        wrapH1
+                    />
 
                     <HeroSection />
 
