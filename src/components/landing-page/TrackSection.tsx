@@ -5,49 +5,41 @@ import gsap from "gsap";
 
 const TracksSection = () => {
     const boxRef = useRef(null);
-    const tl = useRef<gsap.core.Timeline>(null);
-
     const [isOpen, setIsOpen] = useState(false);
+    const tlRef = useRef<gsap.core.Timeline>(null);
 
     useEffect(() => {
-        tl.current = gsap
-            .timeline({ paused: true, repeat: -1, repeatDelay: 1.5 })
-            .to(boxRef.current, { y: -50, rotateZ: 5, duration: 0.15 })
-            .to(boxRef.current, { rotateZ: -5, duration: 0.08 })
-            .to(boxRef.current, { rotateZ: 5, duration: 0.08 })
-            .to(boxRef.current, { rotateZ: -5, duration: 0.08 })
-            .to(boxRef.current, { rotateZ: 5, duration: 0.08 })
-            .to(boxRef.current, { rotateZ: -5, duration: 0.08 })
-            .to(boxRef.current, { rotateZ: 5, duration: 0.08 })
-            .to(boxRef.current, { rotateZ: -5, duration: 0.08 })
-            .to(boxRef.current, { y: 0, rotateZ: 0, duration: 0.15 });
+        const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+
+        tl.to(".box", { y: -50, x: 10, rotateZ: 5, duration: 0.3 })
+            .to(".box", { x: -10, rotateZ: -5, duration: 0.12 })
+            .to(".box", { x: 10, rotateZ: 5, duration: 0.12 })
+            .to(".box", { x: -10, rotateZ: -5, duration: 0.12 })
+            .to(".box", { x: 10, rotateZ: 5, duration: 0.12 })
+            .to(".box", { x: -10, rotateZ: -5, duration: 0.12 })
+            .to(".box", { x: 10, rotateZ: 5, duration: 0.12 })
+            .to(".box", { x: -10, rotateZ: -5, duration: 0.12 })
+            .to(".box", { x: 0, y: 0, rotateZ: 0, duration: 0.3 });
+
+        tlRef.current = tl;
 
         return () => {
-            tl.current?.kill();
+            tl.kill();
         };
     }, []);
 
-    const onMouseEnter = () => {
-        if (isOpen) return;
-        tl.current?.restart();
-    };
-
-    const onMouseLeave = () => {
-        if (isOpen) return;
-        tl.current?.pause(0);
-    };
-
     const handleClick = () => {
-        tl.current?.pause();
+        if (tlRef.current) {
+            tlRef.current.pause().clear();
+        }
 
-        gsap.to(boxRef.current, {
+        gsap.to(".box", {
             y: 0,
             rotateZ: 0,
             duration: 1,
             ease: "power2.out",
             onComplete: () => {
                 setIsOpen(true);
-                tl.current?.clear();
             },
         });
     };
@@ -64,8 +56,6 @@ const TracksSection = () => {
                 <button
                     ref={boxRef}
                     onClick={handleClick}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
                     className="box relative flex flex-col items-center"
                 >
                     <div className="z-[5] absolute -top-5 flex">
