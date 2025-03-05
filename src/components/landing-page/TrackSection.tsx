@@ -43,7 +43,7 @@ const TracksSection = () => {
         gsap.to(boxRef.current, {
             y: 0,
             rotateZ: 0,
-            duration: 0.3,
+            duration: 1,
             ease: "power2.out",
             onComplete: () => {
                 setIsOpen(true);
@@ -85,12 +85,12 @@ const TracksSection = () => {
                 </button>
             </div>
             {!isOpen && (
-                <p className="flex items-center text-lg md:text-xl lg:text-2xl text-center font-h2 p-4 md:p-8 opacity-0">
+                <p className="flex items-center text-lg md:text-xl lg:text-2xl text-center font-h2 px-6 pb-4 md:p-8 opacity-0">
                     Tracks will be unveiled on the day of the hackathon!
                 </p>
             )}
             {isOpen && (
-                <p className="flex items-center text-lg md:text-xl lg:text-2xl text-center font-h2 p-4 md:p-8">
+                <p className="flex items-center text-lg md:text-xl lg:text-2xl text-center font-h2 px-6 pb-4 md:p-8">
                     Tracks will be unveiled on the day of the hackathon!
                 </p>
             )}
