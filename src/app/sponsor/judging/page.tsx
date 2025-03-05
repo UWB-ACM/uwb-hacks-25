@@ -9,11 +9,11 @@ function Page() {
                         Join Us as a Judge!
                     </h1>
                     <p className="pb-3 pl-6 font-h3 text-sm md:text-base mt-4 md:mt-6">
-                        We're looking for industry professionals, academics, and
+                        {`We're looking for industry professionals, academics, and
                         experts who are passionate about technology and making
                         an impact. As a judge, you'll get a chance to engage
                         with cutting-edge projects and help us identify the next
-                        big innovation in saving the world.
+                        big innovation in saving the world.`}
                     </p>
                 </div>
             </div>
