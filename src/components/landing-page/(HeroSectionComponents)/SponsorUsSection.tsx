@@ -1,19 +1,13 @@
-import { useRouter } from "next/navigation";
-import Button from "../../Button";
+import Button from "@/src/components/Button";
+import Link from "next/link";
 
 const Page = () => {
-    const router = useRouter();
-
-    const onClick = () => {
-        router.push("/sponsor");
-    };
-
     return (
         <div className="bg-white/40 rounded-lg p-6">
-            <h2 className="text-xl font-bold mb-4">
-                Become a Sponsor!
-            </h2>
-            <Button className="text-[23px]" onClick={onClick}>Sponsor Us</Button>
+            <h2 className="text-xl font-bold mb-4">Become a Sponsor!</h2>
+            <Link href="/sponsor">
+                <Button className="text-[23px]">Sponsor Us</Button>
+            </Link>
         </div>
     );
 };

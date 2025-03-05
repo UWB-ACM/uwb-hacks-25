@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 
 type ButtonProps = {
-    onClick: () => void;
+    onClick?: () => void;
     className?: string;
     children: React.ReactNode;
 };
