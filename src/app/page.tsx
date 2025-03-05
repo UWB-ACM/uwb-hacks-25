@@ -142,7 +142,7 @@ export default function Page() {
 
                 {/* TODO - release all of these the day of the event */}
                 <div className="" style={{}}>
-                    <div className="flex w-full justify-center px-10">
+                    <div className="flex flex-col w-full justify-center px-10">
                         {/* TODO unlock this during the day of the hackathon */}
                         <SponsorInfo />
                         {/* <WhatsNewSection />
