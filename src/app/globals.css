@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 html,
@@ -21,7 +22,7 @@ body {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #FFE6A2;
+    background-color: #ffe6a2;
 }
 
 @layer base {

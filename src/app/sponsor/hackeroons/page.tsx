@@ -15,7 +15,7 @@ function Page() {
                         className="animate-bounce"
                     ></Image>
                 </div>
-                <div className="text-center p-6 md:p-8 mb-2 md:mb-4 px-4 overflow-x-auto">
+                <div className="text-center  p-6 md:p-8 mb-2 md:mb-4 px-4 overflow-x-auto">
                     <h1 className="font-rubik-mono-one text-4xl md:text-5xl">
                         Hackeroons
                     </h1>
