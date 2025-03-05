@@ -101,7 +101,7 @@ export default function Page() {
                         className="absolute w-full h-full z-[-3] bottom-[40]"
                     >
                         <Image
-                            src="/hero/background.svg"
+                            src="/hero/background.png"
                             width={1408}
                             height={768}
                             priority
@@ -114,7 +114,7 @@ export default function Page() {
                         className="absolute w-full h-full z-[-2] bottom-[0]"
                     >
                         <Image
-                            src="/hero/midground.svg"
+                            src="/hero/midground.png"
                             width={1408}
                             height={768}
                             priority
@@ -127,7 +127,7 @@ export default function Page() {
                         className="absolute w-full h-full z-[-1] bottom-[0]"
                     >
                         <Image
-                            src="/hero/foreground.svg"
+                            src="/hero/foreground.png"
                             width={1408}
                             height={768}
                             priority
