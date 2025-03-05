@@ -35,7 +35,7 @@ export default function Header({ refs }: HeaderProps) {
                         className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
-                                router.push("/sponsor");
+                            router.push("/sponsor");
                         }}
                     >
                         Sponsor Us

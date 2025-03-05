@@ -5,7 +5,7 @@ const SponsorsSection = () => {
     return (
         <div className="relative border-black py-[5rem] px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
             {/* Background Image */}
-            
+
             <Image
                 className="hidden md:block absolute -z-10 md:object-cover"
                 alt="background img"
