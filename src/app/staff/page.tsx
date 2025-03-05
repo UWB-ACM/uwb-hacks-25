@@ -10,8 +10,6 @@ export default function Page() {
 
     return (
         <div className="w-screen py-4 px-8 grid place-content-center">
-
-
             <h1 className="text-4xl text-center">Staff Dashboard</h1>
             {/* Container for Buttons */}
             <div className="w-[95vw] flex flex-col items-center md:flex-row gap-y-4 md:gap-x-4 justify-between mt-6">

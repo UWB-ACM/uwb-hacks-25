@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SideNav from "./SideNav";
+import "../../styles/header.css";
 
 type HeaderProps = {
     refs?: {
@@ -15,9 +16,9 @@ export default function Header({ refs }: HeaderProps) {
 
     const Desktop = () => {
         return (
-            <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full">
+            <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full ">
                 <button
-                    className="font-h1 text-5xl"
+                    className="font-h1 text-5xl scale-up-animation"
                     onClick={() => {
                         router.push("/");
                     }}
@@ -31,10 +32,10 @@ export default function Header({ refs }: HeaderProps) {
 
                 <div className="hidden md:flex gap-x-10 ">
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
-                                router.push("/sponsor");
+                            router.push("/sponsor");
                         }}
                     >
                         Sponsor Us
@@ -57,7 +58,7 @@ export default function Header({ refs }: HeaderProps) {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to tracks section
                             if (refs) {
@@ -73,7 +74,7 @@ export default function Header({ refs }: HeaderProps) {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to schedule section
                             if (refs) {
@@ -89,7 +90,7 @@ export default function Header({ refs }: HeaderProps) {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             //scroll down to faq section
                             if (refs) {
@@ -105,7 +106,7 @@ export default function Header({ refs }: HeaderProps) {
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg"
+                        className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             router.push("/staff");
                         }}
@@ -130,7 +131,7 @@ export default function Header({ refs }: HeaderProps) {
         return (
             <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full min-w-72">
                 <button
-                    className="font-h1 text-3xl"
+                    className="font-h1 text-3xl tilt-animation scale-up-animation"
                     onClick={() => {
                         router.push("/");
                     }}
