@@ -16,9 +16,9 @@ const SponsorsSection = () => {
 
             {/* Sponsors Section */}
             <div className="flex flex-col items-center">
-                <div className="justify-center items-center font-h1 text-[#49B2F8] mb-[2rem] text-5xl md:text-6xl lg:text-7xl text-center">
+                <h2 className="justify-center items-center font-h1 text-[#49B2F8] mb-[2rem] text-5xl md:text-6xl lg:text-7xl text-center">
                     UWB HACKS 2025 SPONSORS
-                </div>
+                </h2>
 
                 {/* sponsor grid */}
                 <div className="grid md:grid-cols-3 justify-between items-center">

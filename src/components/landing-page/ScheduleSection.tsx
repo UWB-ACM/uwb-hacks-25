@@ -5,13 +5,9 @@ const ScheduleSection: React.FC = () => {
     return (
         <>
             <div className="self-center col-span-1 md:col-span-3 mb-4 md:mb-6">
-                <Image
-                    src="/scheduleSection/sched-text.svg"
-                    width={439}
-                    height={75}
-                    alt="Schedule"
-                    className="drop-shadow-md w-[250px] md:w-[400px] mx-auto md:mx-auto lg:ml-0 lg:text-left"
-                />
+                <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
+                    SCHEDULE
+                </h2>
             </div>
             <div className="bg-[#FBE4A6] p-6 md:p-10 grid gap-y-6 gap-x-6 [grid-template-columns:repeat(1,1fr)] md:[grid-template-columns:repeat(3,1fr)] mb-20">
                 <ScheduleCard
