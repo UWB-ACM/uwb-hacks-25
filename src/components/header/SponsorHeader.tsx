@@ -29,7 +29,7 @@ export default function Header() {
                         className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
-                                router.push("/sponsor/");
+                            router.push("/sponsor/");
                         }}
                     >
                         Why Work With Us
@@ -39,10 +39,9 @@ export default function Header() {
                         className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
-                         
-                                router.push("/sponsor/prizes");
-                            }
-                        }
+
+                            router.push("/sponsor/prizes");
+                        }}
                     >
                         Prizes
                     </button>
@@ -51,10 +50,9 @@ export default function Header() {
                         className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
-                         
-                                router.push("/sponsor/judging");
-                            }
-                        }
+
+                            router.push("/sponsor/judging");
+                        }}
                     >
                         Judging
                     </button>
@@ -63,10 +61,9 @@ export default function Header() {
                         className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
-                         
-                                router.push("/sponsor/hackeroons");
-                            }
-                        }
+
+                            router.push("/sponsor/hackeroons");
+                        }}
                     >
                         Hackeroons
                     </button>
@@ -75,10 +72,9 @@ export default function Header() {
                         className="font-h3 font-medium text-lg scale-up-animation"
                         onClick={() => {
                             // scroll down to about section
-                         
-                                router.push("/sponsor/workshops");
-                            }
-                        }
+
+                            router.push("/sponsor/workshops");
+                        }}
                     >
                         Workshops
                     </button>

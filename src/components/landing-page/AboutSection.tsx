@@ -173,7 +173,6 @@ const AboutSectionMobile: React.FC = () => (
                 "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
         }}
     >
-  
         <PolygonArea
             area="top"
             path="M1 1H322V54.7625L1 91.8777V1Z"
