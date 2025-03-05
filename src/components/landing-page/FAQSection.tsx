@@ -58,12 +58,12 @@ const FAQSection = () => {
                     6. What activities will take place aside from hacking?
                 </h3>
                 <p className="pl-4 md:pl-12 font-h3 text-sm md:text-base leading-6">
-                    In addition to the hackathon, participants will have the
+                    {`In addition to the hackathon, participants will have the
                     opportunity to attend interactive workshops, networking
                     sessions, and engaging activities. These will include
                     insightful talks from industry professionals and hands-on
                     learning experiences designed to align with this year's Save
-                    the World theme.
+                    the World theme.`}
                 </p>
             </div>
         </div>
