@@ -3,16 +3,17 @@ import { gsap } from "gsap";
 
 type ButtonProps = {
     onClick: () => void;
+    className?: string;
     children: React.ReactNode;
 };
 
-const Button = ({ onClick, children }: ButtonProps) => {
+const Button = ({ onClick, className, children }: ButtonProps) => {
     const flatShadow = useRef<SVGSVGElement>(null);
 
     const handleMouseEnter = () => {
         gsap.to(flatShadow.current, {
-            x: 7,
-            y: 7,
+            x: 0.5,
+            y: 0.5,
             duration: 0.2,
             ease: "none",
         });
@@ -29,8 +30,8 @@ const Button = ({ onClick, children }: ButtonProps) => {
 
     const handleMouseDown = () => {
         gsap.to(flatShadow.current, {
-            x: 1,
-            y: 1,
+            x: 0.1,
+            y: 0.1,
             duration: 0.2,
             ease: "none",
         });
@@ -38,8 +39,8 @@ const Button = ({ onClick, children }: ButtonProps) => {
 
     const handleMouseUp = () => {
         gsap.to(flatShadow.current, {
-            x: 7,
-            y: 7,
+            x: 0.5,
+            y: 0.5,
             duration: 0.2,
             ease: "none",
         });
@@ -47,8 +48,8 @@ const Button = ({ onClick, children }: ButtonProps) => {
 
     const handleTouchStart = () => {
         gsap.to(flatShadow.current, {
-            x: 1,
-            y: 1,
+            x: 0.1,
+            y: 0.1,
             duration: 0.1,
             ease: "none",
         });
@@ -95,7 +96,12 @@ const Button = ({ onClick, children }: ButtonProps) => {
                     strokeWidth="2"
                 />
             </svg>
-            <div className="absolute w-[85%] top-2 left-2 text-3xl font-bold bg-white px-2 py-[2px] border-2 border-black">
+            <div
+                className={
+                    (className ? className + " " : "text-3xl ") +
+                    "absolute w-[85%] top-2 left-2 font-bold bg-white px-2 py-[2px] border-2 border-black"
+                }
+            >
                 {children}
             </div>
         </button>
