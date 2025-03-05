@@ -34,9 +34,17 @@ const TracksSection = () => {
 
         gsap.to(".lid", {
             y: "-100vh",
-            x: "70vw",
+            x: "18vw",
             rotate: 160,
-            duration: 0.7,
+            duration: 0.9,
+            onComplete: () => {
+                gsap.to(".lid", {
+                    y: "100vh",
+                    x: "24vw",
+                    rotate: 160,
+                    duration: 1,
+                });
+            },
         });
 
         gsap.to(".box", {
