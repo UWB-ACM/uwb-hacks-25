@@ -3,22 +3,15 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SideNav from "./SideNav";
-import "../../styles/header.css";
 
-type HeaderProps = {
-    refs?: {
-        [key: string]: React.RefObject<HTMLDivElement | null>;
-    };
-};
-
-export default function Header({ refs }: HeaderProps) {
+export default function Header() {
     const [sideNavState, setSideNavState] = useState(false);
 
     const Desktop = () => {
         return (
-            <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full ">
+            <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full">
                 <button
-                    className="font-h1 text-5xl scale-up-animation"
+                    className="font-h1 text-5xl"
                     onClick={() => {
                         router.push("/");
                     }}
@@ -32,96 +25,71 @@ export default function Header({ refs }: HeaderProps) {
 
                 <div className="hidden md:flex gap-x-10 ">
                     <button
-                        className="font-h3 font-medium text-lg scale-up-animation"
+                        className="font-h3 font-medium text-lg"
                         onClick={() => {
                             // scroll down to about section
-                                router.push("/sponsor");
+                                router.push("/sponsor/");
                         }}
                     >
-                        Sponsor Us
+                        Why Work With Us
                     </button>
 
                     <button
                         className="font-h3 font-medium text-lg"
                         onClick={() => {
                             // scroll down to about section
-                            if (refs) {
-                                refs["About"].current?.scrollIntoView({
-                                    behavior: "smooth",
-                                });
-                            } else {
-                                router.push("/#about");
+                         
+                                router.push("/sponsor/prizes");
                             }
-                        }}
+                        }
                     >
-                        About
+                        Prizes
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg scale-up-animation"
+                        className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            // scroll down to tracks section
-                            if (refs) {
-                                refs["Tracks"].current?.scrollIntoView({
-                                    behavior: "smooth",
-                                });
-                            } else {
-                                router.push("/#tracks");
+                            // scroll down to about section
+                         
+                                router.push("/sponsor/judging");
                             }
-                        }}
+                        }
                     >
-                        Tracks
+                        Judging
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg scale-up-animation"
+                        className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            // scroll down to schedule section
-                            if (refs) {
-                                refs["Schedule"].current?.scrollIntoView({
-                                    behavior: "smooth",
-                                });
-                            } else {
-                                router.push("/#schedule");
+                            // scroll down to about section
+                         
+                                router.push("/sponsor/hackeroons");
                             }
-                        }}
+                        }
                     >
-                        Schedule
+                        Hackeroons
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg scale-up-animation"
+                        className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            //scroll down to faq section
-                            if (refs) {
-                                refs["FAQ"].current?.scrollIntoView({
-                                    behavior: "smooth",
-                                });
-                            } else {
-                                router.push("/#faq");
+                            // scroll down to about section
+                         
+                                router.push("/sponsor/workshops");
                             }
-                        }}
+                        }
                     >
-                        FAQ
+                        Workshops
                     </button>
 
                     <button
-                        className="font-h3 font-medium text-lg scale-up-animation"
+                        className="font-h3 font-medium text-lg"
                         onClick={() => {
-                            router.push("/staff");
+                            router.push("/sponsor/other");
                         }}
                     >
-                        Login
+                        Other
                     </button>
-                    {/* <button
-                        className="font-h3 font-medium m-0"
-                        style={{fontSize: "5px"}}
-                        onClick={() => {
-                            router.push("/api/auth/google");
-                        }}
-                    >
-                        Auth
-                    </button> */}
                 </div>
             </nav>
         );
@@ -131,7 +99,7 @@ export default function Header({ refs }: HeaderProps) {
         return (
             <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full min-w-72">
                 <button
-                    className="font-h1 text-3xl tilt-animation scale-up-animation"
+                    className="font-h1 text-3xl"
                     onClick={() => {
                         router.push("/");
                     }}
