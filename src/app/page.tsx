@@ -70,7 +70,7 @@ export default function Page() {
     const scrollToTop = () => {
         if (lenis.current) {
             lenis.current.scrollTo(0, {
-                duration: 1.5,
+                duration: 0.4,
                 easing: (t: number) => t,
             });
         }
@@ -80,7 +80,7 @@ export default function Page() {
         <div className="flex flex-col w-full">
             <button
                 onClick={scrollToTop}
-                className={`fixed z-[100] w-20 h-20 bottom-4 bg-white rounded-lg right-10 scroll-up-animation ${
+                className={`fixed z-[100] w-16 h-16 bottom-4 bg-white border-black border-2 right-10 scroll-up-animation ${
                     showGoTop ? "" : "hidden"
                 }`}
             >
