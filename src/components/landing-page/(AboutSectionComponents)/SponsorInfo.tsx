@@ -20,9 +20,8 @@ function SponsorInfo() {
                 and innovation, welcoming projects of all skill levels, from
                 no-code to high-code solutions.
             </p>
-            <Button className="text-[25px]" onClick={() => {}}>
-                Learn More
-            </Button>
+            {/* TODO: Add a link here. */}
+            <Button className="text-[25px]">Learn More</Button>
         </div>
     );
 }

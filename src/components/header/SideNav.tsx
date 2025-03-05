@@ -1,11 +1,15 @@
 import React from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function SideNav({
     setSideNavState,
 }: {
     setSideNavState: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+    // TODO: These need access to refs list to do the scrolling.
+    //       Ideally, we'll have a ScrollLink component that both
+    //       this and the desktop view do.
     const router = useRouter();
 
     return (
@@ -53,15 +57,11 @@ function SideNav({
                 >
                     FAQ
                 </button>
-                <button
-                    onClick={() => {
-                        router.push("/staff");
-                        setSideNavState(false);
-                    }}
-                    className="text-white font-h1 text-3xl"
-                >
-                    Staff
-                </button>
+                <Link href="/staff">
+                    <button className="text-white font-h1 text-3xl">
+                        Staff
+                    </button>
+                </Link>
             </div>
         </div>
     );
