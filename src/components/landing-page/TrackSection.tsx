@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 
 const TracksSection = () => {
-    const container = useRef(null);
     const boxRef = useRef(null);
     const tl = useRef<gsap.core.Timeline>(null);
 
@@ -39,22 +38,29 @@ const TracksSection = () => {
     };
 
     const handleClick = () => {
-        setIsOpen(true);
-        tl.current?.pause(0).clear();
+        tl.current?.pause();
+
+        gsap.to(boxRef.current, {
+            y: 0,
+            rotateZ: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            onComplete: () => {
+                setIsOpen(true);
+                tl.current?.clear();
+            },
+        });
     };
 
     return (
-        <div
-            ref={container}
-            className="relative flex-col h-[50vh] md:h-[60vh] lg:h-[60vh] max-h-[425px] md:max-h-[450px] lg:max-h-[550px] m-10 flex items-center bg-white border-[3px] border-black mb-0"
-        >
+        <div className="relative flex-col m-10 flex items-center bg-white border-[3px] border-black mb-0 overflow-hidden">
             <h1
                 className="z-10 text-[#49B2F8] font-h1 my-4"
                 style={{ fontSize: "calc(1rem + 3vw)" }}
             >
                 TRACKS
             </h1>
-            <div className="h-[70%] md:h-[80%] flex items-center">
+            <div className="h-[40vh] md:h-[30vh] lg:h-[40vh] max-h-[300px] md:max-h-[350px] flex items-center">
                 <button
                     ref={boxRef}
                     onClick={handleClick}
@@ -78,9 +84,16 @@ const TracksSection = () => {
                     </div>
                 </button>
             </div>
-            <p className="bg-orange-200 lg:bg-orange-400 xl:bg-orange-600 flex items-center text-xl lg:text-2xl text-center p-4 md:p-8">
-                Tracks will be unveiled on hackathon day!
-            </p>
+            {!isOpen && (
+                <p className="flex items-center text-lg md:text-xl lg:text-2xl text-center font-h2 p-4 md:p-8 opacity-0">
+                    Tracks will be unveiled on the day of the hackathon!
+                </p>
+            )}
+            {isOpen && (
+                <p className="flex items-center text-lg md:text-xl lg:text-2xl text-center font-h2 p-4 md:p-8">
+                    Tracks will be unveiled on the day of the hackathon!
+                </p>
+            )}
         </div>
     );
 };
