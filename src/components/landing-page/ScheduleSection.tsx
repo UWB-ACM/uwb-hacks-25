@@ -74,11 +74,11 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
     return (
         <div className="relative border-2 border-black bg-white p-4 md:p-6 flex flex-col min-h-[300px] md:min-h-[400px] overflow-hidden schedule-card transition-transform hover:scale-105 hover:border-yellow-500 hover:bg-[#fdf4c5]">
             <Image
-                src="/scheduleSection/sched-accent.svg"
-                width={191}
-                height={166}
-                alt="Accent Graphic"
-                className={`w-[80px] h-[70px] absolute ${
+                src="/accent.webp"
+                width={568}
+                height={610}
+                alt=""
+                className={`w-[80px] h-[70px] absolute rotate-180 ${
                     accentPosition === "bottom-left"
                         ? "bottom-0 left-0"
                         : accentPosition === "bottom-right"

@@ -88,8 +88,10 @@ const FAQSection = () => {
 
                 {/* Decorative Image
                 <Image
-                    src={ComicDotBackground}
-                    alt="Comic Dot Background"
+                    src="/accent.webp"
+                    alt=""
+                    width={586}
+                    height={610}
                     className="absolute bottom-0 right-0 w-[10vw] max-w-40 lg:max-w-64 h-auto object-contain"
                 /> */}
             </div>
