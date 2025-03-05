@@ -1,5 +1,7 @@
 "use client";
 
+import "../styles/globals.css";
+
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
 import WhatsNewSection from "../components/landing-page/WhatsNewSection";
@@ -14,8 +16,11 @@ import { useEffect, useRef, useState } from "react";
 import { Parallax } from "react-scroll-parallax";
 import { ParallaxProvider } from "react-scroll-parallax";
 import Lenis from "lenis";
-import "../styles/globals.css";
 import Image from "next/image";
+import ScrollImage from "@/public/hero/scroll-top.svg";
+import BackgroundImage from "@/public/hero/background.png";
+import MidgroundImage from "@/public/hero/midground.png";
+import ForegroundImage from "@/public/hero/foreground.png";
 
 export default function Page() {
     const mainRef = useRef<HTMLDivElement>(null);
@@ -78,9 +83,8 @@ export default function Page() {
                 }`}
             >
                 <Image
-                    src="/hero/scroll-top.svg"
-                    width={18}
-                    height={18}
+                    src={ScrollImage}
+                    className="w-full"
                     alt="Scroll to the top"
                 />
             </button>
@@ -101,9 +105,7 @@ export default function Page() {
                         className="absolute w-full h-full z-[-3] bottom-[40]"
                     >
                         <Image
-                            src="/hero/background.png"
-                            width={1408}
-                            height={768}
+                            src={BackgroundImage}
                             priority
                             alt=""
                             className="absolute object-cover w-full h-full "
@@ -114,9 +116,7 @@ export default function Page() {
                         className="absolute w-full h-full z-[-2] bottom-[0]"
                     >
                         <Image
-                            src="/hero/midground.png"
-                            width={1408}
-                            height={768}
+                            src={MidgroundImage}
                             priority
                             alt=""
                             className="absolute object-cover w-screen h-screen bottom-[0]"
@@ -127,9 +127,7 @@ export default function Page() {
                         className="absolute w-full h-full z-[-1] bottom-[0]"
                     >
                         <Image
-                            src="/hero/foreground.png"
-                            width={1408}
-                            height={768}
+                            src={ForegroundImage}
                             priority
                             alt=""
                             className="absolute object-cover w-screen h-screen bottom-[-10]"

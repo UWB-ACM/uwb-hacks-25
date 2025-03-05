@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import LinkedInImage from "@/public/MeetTheTeamPhotos/linkedin-icon/LI-In-Bug.png";
 
 interface MemberCardProps {
     member: {
@@ -40,10 +41,9 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
             {/* LinkedIn Logo (Top Right) */}
             {isClickable && (
                 <Image
-                    src="/MeetTheTeamPhotos/linkedin-icon/LI-In-Bug.png"
-                    alt="LinkedIn"
+                    src={LinkedInImage}
                     width={30}
-                    height={30}
+                    alt="LinkedIn"
                     className="absolute top-2 right-2"
                 />
             )}
