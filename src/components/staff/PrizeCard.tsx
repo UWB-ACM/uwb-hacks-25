@@ -50,6 +50,7 @@ export default function PrizeCard({
         <div className="flex flex-col justify-between p-8 h-min-[500px] bg-neutral-200 rounded-lg border-2 border-neutral-400 shadow-md">
             {/* Image */}
             <div className="h-[100px] flex justify-center py-4 my-4 bg-neutral-100 rounded-md">
+                {/* TODO: Fix this image */}
                 <Image
                     src={"/globe.svg"}
                     height={200}

@@ -14,6 +14,7 @@ export default function RootLayout({
     return (
         <div className={`w-screen`}>
             <Header />
+
             {children}
         </div>
     );

@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SideNav from "./SideNav";
+import "../../styles/header.css";
+import Link from "next/link";
 
 export default function Header() {
     const [sideNavState, setSideNavState] = useState(false);
@@ -10,86 +12,50 @@ export default function Header() {
     const Desktop = () => {
         return (
             <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full">
-                <button
-                    className="font-h1 text-5xl"
-                    onClick={() => {
-                        router.push("/");
-                    }}
-                >
-                    {/* Using spans so the text stays inline when compressed */}
-                    <h1>
+                <Link href="/">
+                    <button className="font-h1 text-5xl  scale-up-animation">
+                        {/* Using spans so the text stays inline when compressed */}
                         <span>UWB</span>
                         <span className="ml-3">Hacks</span>
-                    </h1>
-                </button>
+                    </button>
+                </Link>
 
                 <div className="hidden md:flex gap-x-10 ">
-                    <button
-                        className="font-h3 font-medium text-lg"
-                        onClick={() => {
-                            // scroll down to about section
-                                router.push("/sponsor/");
-                        }}
-                    >
-                        Why Work With Us
-                    </button>
+                    <Link href="/sponsor">
+                        <button className="font-h3 font-medium text-lg scale-up-animation">
+                            Why Work With Us
+                        </button>
+                    </Link>
 
-                    <button
-                        className="font-h3 font-medium text-lg"
-                        onClick={() => {
-                            // scroll down to about section
-                         
-                                router.push("/sponsor/prizes");
-                            }
-                        }
-                    >
-                        Prizes
-                    </button>
+                    <Link href="/sponsor/prizes">
+                        <button className="font-h3 font-medium text-lg scale-up-animation">
+                            Prizes
+                        </button>
+                    </Link>
 
-                    <button
-                        className="font-h3 font-medium text-lg"
-                        onClick={() => {
-                            // scroll down to about section
-                         
-                                router.push("/sponsor/judging");
-                            }
-                        }
-                    >
-                        Judging
-                    </button>
+                    <Link href="/sponsor/judging">
+                        <button className="font-h3 font-medium text-lg scale-up-animation">
+                            Judging
+                        </button>
+                    </Link>
 
-                    <button
-                        className="font-h3 font-medium text-lg"
-                        onClick={() => {
-                            // scroll down to about section
-                         
-                                router.push("/sponsor/hackeroons");
-                            }
-                        }
-                    >
-                        Hackeroons
-                    </button>
+                    <Link href="/sponsor/hackeroons">
+                        <button className="font-h3 font-medium text-lg scale-up-animation">
+                            Hackeroons
+                        </button>
+                    </Link>
 
-                    <button
-                        className="font-h3 font-medium text-lg"
-                        onClick={() => {
-                            // scroll down to about section
-                         
-                                router.push("/sponsor/workshops");
-                            }
-                        }
-                    >
-                        Workshops
-                    </button>
+                    <Link href="/sponsor/workshops">
+                        <button className="font-h3 font-medium text-lg scale-up-animation">
+                            Workshops
+                        </button>
+                    </Link>
 
-                    <button
-                        className="font-h3 font-medium text-lg"
-                        onClick={() => {
-                            router.push("/sponsor/other");
-                        }}
-                    >
-                        Other
-                    </button>
+                    <Link href="/sponsor/other">
+                        <button className="font-h3 font-medium text-lg scale-up-animation">
+                            Other
+                        </button>
+                    </Link>
                 </div>
             </nav>
         );
@@ -105,10 +71,8 @@ export default function Header() {
                     }}
                 >
                     {/* Using spans so the text stays inline when compressed */}
-                    <h1>
-                        <span>UWB</span>
-                        <span className="ml-3">Hacks</span>
-                    </h1>
+                    <span>UWB</span>
+                    <span className="ml-3">Hacks</span>
                 </button>
 
                 <button

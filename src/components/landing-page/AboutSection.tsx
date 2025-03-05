@@ -1,5 +1,12 @@
-import React, { CSSProperties, PropsWithChildren } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import AccentImage from "@/public/accent.webp";
+import HuskyImage from "@/public/about/husky.png";
+import DiscordFancyYellowImage from "@/public/about/discord-fancy-yellow.svg";
+import DiscordFancyBlueImage from "@/public/about/discord-fancy-blue.svg";
+import DiscordYellowImage from "@/public/about/discord-yellow.svg";
+import ACMLogoImage from "@/public/about/uwb-acm-logo.png";
+import PolygonArea from "../PolygonArea";
 
 const AboutSection: React.FC = () => {
     return (
@@ -48,16 +55,11 @@ const AboutSectionDesktop: React.FC = () => (
             height="150%"
         >
             <div className="absolute [width:35%] [bottom:-20px] [left:-20px] [transform:rotate(180deg)]">
-                <Image src="/accent.webp" alt="" width={586} height={610} />
+                <Image src={AccentImage} alt="" />
             </div>
 
             <div className="absolute [width:50%] [bottom:-10%] [left:10px]">
-                <Image
-                    src="/about/husky.png"
-                    alt="Husky Mascot"
-                    width={964}
-                    height={902}
-                />
+                <Image src={HuskyImage} alt="Husky Mascot" />
             </div>
 
             <p className="text-right absolute [width:35%] [top:10%] [right:20px] [font-family:h2-font] [font-size:calc(0.1rem_+_1vw)]">
@@ -68,12 +70,13 @@ const AboutSectionDesktop: React.FC = () => (
             </p>
 
             <div className="absolute [width:20%] [bottom:calc(-50px_+_8vw)] [right:calc(35%_-_3vw)]">
-                <Image
-                    src="/about/discord-fancy-yellow.svg"
-                    alt="Discord"
-                    width={168}
-                    height={122}
-                />
+                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                    <Image
+                        src={DiscordFancyYellowImage}
+                        alt="Discord"
+                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                    />
+                </Link>
             </div>
         </PolygonArea>
 
@@ -120,16 +123,11 @@ const AboutSectionDesktop: React.FC = () => (
             style={{ marginLeft: "auto" }}
         >
             <div className="absolute [width:30%] [right:-20px] [top:-20px]">
-                <Image src="/accent.webp" alt="" width={586} height={610} />
+                <Image src={AccentImage} alt="" />
             </div>
 
             <div className="absolute [width:30%] [top:5%] [right:20px]">
-                <Image
-                    src="/about/uwb-acm-logo.png"
-                    alt="ACM at UWB Logo"
-                    width={750}
-                    height={750}
-                />
+                <Image src={ACMLogoImage} alt="ACM at UWB Logo" />
             </div>
 
             <p className="absolute [right:35%] [top:20%] [width:40%] [min-width:min-content] text-right [line-height:85%] [font-size:calc(0.1rem_+_2.25vw)] [font-family:var(--font-rubik-mono-one)] [color:#49B2F8]">
@@ -144,12 +142,13 @@ const AboutSectionDesktop: React.FC = () => (
             </p>
 
             <div className="absolute [width:20%] [bottom:-10px] [right:calc(40px_+_0.4vw)]">
-                <Image
-                    src="/about/discord-fancy-blue.svg"
-                    alt="Discord"
-                    width={168}
-                    height={122}
-                />
+                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                    <Image
+                        src={DiscordFancyBlueImage}
+                        alt="Discord"
+                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                    />
+                </Link>
             </div>
         </PolygonArea>
     </div>
@@ -166,7 +165,6 @@ const AboutSectionMobile: React.FC = () => (
                 "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
         }}
     >
-  
         <PolygonArea
             area="top"
             path="M1 1H322V54.7625L1 91.8777V1Z"
@@ -190,16 +188,11 @@ const AboutSectionMobile: React.FC = () => (
             style={{ bottom: "10%" }}
         >
             <div className="absolute [width:35%] [bottom:-20px] [left:-20px] [transform:rotate(180deg)]">
-                <Image src="/accent.webp" alt="" width={586} height={610} />
+                <Image src={AccentImage} alt="" />
             </div>
 
             <div className="absolute [width:50%] [bottom:-10%] [left:10px]">
-                <Image
-                    src="/about/husky.png"
-                    alt="Husky Mascot"
-                    width={964}
-                    height={902}
-                />
+                <Image src={HuskyImage} alt="Husky Mascot" />
             </div>
 
             <p className="text-right absolute [width:35%] [height:60%] [top:10%] [right:20px] [font-family:h2-font] [font-size:calc(0.4rem_+_0.05vw)] [padding-top:5px]">
@@ -210,12 +203,13 @@ const AboutSectionMobile: React.FC = () => (
             </p>
 
             <div className="absolute [width:30%] [bottom:10px] [right:10px]">
-                <Image
-                    src="/about/discord-yellow.svg"
-                    alt="Discord"
-                    width={90}
-                    height={32}
-                />
+                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                    <Image
+                        src={DiscordYellowImage}
+                        alt="Discord"
+                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                    />
+                </Link>
             </div>
         </PolygonArea>
 
@@ -259,16 +253,11 @@ const AboutSectionMobile: React.FC = () => (
             viewBox="0 0 323 169"
         >
             <div className="absolute [width:30%] [right:-20px] [top:-20px]">
-                <Image src="/accent.webp" alt="" width={586} height={610} />
+                <Image src={AccentImage} alt="" />
             </div>
 
             <div className="absolute [width:30%] [top:5%] [right:20px]">
-                <Image
-                    src="/about/uwb-acm-logo.png"
-                    alt="ACM at UWB Logo"
-                    width={750}
-                    height={750}
-                />
+                <Image src={ACMLogoImage} alt="ACM at UWB Logo" />
             </div>
 
             <p className="absolute [left:10px] [top:10px] [width:40%] [min-width:min-content] text-left [line-height:85%] [font-size:calc(0.8rem_+_0.4vw)] [font-family:var(--font-rubik-mono-one)] [color:#49B2F8]">
@@ -283,71 +272,16 @@ const AboutSectionMobile: React.FC = () => (
             </p>
 
             <div className="absolute [width:25%] [bottom:5px] [right:20px]">
-                <Image
-                    src="/about/discord-yellow.svg"
-                    alt="Discord"
-                    width={90}
-                    height={32}
-                />
+                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                    <Image
+                        src={DiscordYellowImage}
+                        alt="Discord"
+                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                    />
+                </Link>
             </div>
         </PolygonArea>
     </div>
 );
-
-const PolygonArea: React.FC<
-    PropsWithChildren<{
-        area: string;
-        path: string;
-        clipPath: string;
-        viewBox: string;
-        width?: string;
-        height?: string;
-        style?: CSSProperties;
-    }>
-> = ({ area, path, clipPath, viewBox, width, height, style, children }) => {
-    return (
-        <div
-            className={`relative`}
-            style={{
-                gridArea: area,
-                width: width ?? "100%",
-                height: height ?? "100%",
-                ...(style ?? {}),
-            }}
-        >
-            <svg
-                className="absolute z-10"
-                viewBox={viewBox}
-                preserveAspectRatio="none"
-                width="100%"
-                height="100%"
-            >
-                <path d={path} fill="white" />
-            </svg>
-
-            <div
-                className={`absolute z-20 [width:100%] [height:100%]`}
-                style={{ clipPath: `polygon(${clipPath})` }}
-            >
-                {children}
-            </div>
-
-            <svg
-                className="absolute z-30"
-                viewBox={viewBox}
-                preserveAspectRatio="none"
-                width="100%"
-                height="100%"
-            >
-                <path
-                    d={path}
-                    fill="#00000000"
-                    stroke="black"
-                    strokeWidth="3"
-                />
-            </svg>
-        </div>
-    );
-};
 
 export default AboutSection;
