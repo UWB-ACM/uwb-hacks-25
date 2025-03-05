@@ -1,8 +1,11 @@
+import { useRouter } from "next/navigation";
 import Button from "../../Button";
 
-const VolunteerSection = () => {
+const Page = () => {
+    const router = useRouter();
+
     const onClick = () => {
-        //go to the volunteer page
+        router.push("/sponsor");
     };
 
     return (
@@ -10,9 +13,9 @@ const VolunteerSection = () => {
             <h2 className="text-xl font-bold mb-4">
                 Be the power behind the superpowers!
             </h2>
-            <Button onClick={onClick}>Volunteer</Button>
+            <Button onClick={onClick}>Discord</Button>
         </div>
     );
 };
 
-export default VolunteerSection;
+export default Page;
