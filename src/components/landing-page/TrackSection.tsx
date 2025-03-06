@@ -72,7 +72,7 @@ const TracksSection = () => {
             y: "-=150px",
             scale: 0.3,
             opacity: 1,
-            duration: 0.9,
+            duration: 0.8,
             delay: 0.4,
             ease: "power3.out",
         });
@@ -80,7 +80,7 @@ const TracksSection = () => {
         gsap.to(".content", {
             y: "+=350px",
             scale: 1,
-            delay: 1,
+            delay: 0.8,
             duration: 0.7,
             ease: "power3.out",
         });
@@ -116,12 +116,12 @@ const TracksSection = () => {
                 </button>
             </div>
             {!isOpen && (
-                <p className="flex items-center text-lg md:text-xl lg:text-2xl text-center font-h1 tracking-wider px-6 pb-4 md:p-8 opacity-0">
+                <p className="flex items-center text-lg md:text-xl lg:text-2xl xl:text-3xl text-center font-h1 tracking-wider px-6 pb-4 md:p-8 opacity-0">
                     Tracks will be unveiled on the day of the hackathon!
                 </p>
             )}
             {isOpen && (
-                <p className="opacity-0 content flex items-center text-lg md:text-xl lg:text-2xl text-center font-h1 tracking-wider px-6 pb-4 md:p-8">
+                <p className="opacity-0 content flex items-center text-lg md:text-xl lg:text-2xl xl:text-3xl text-center font-h1 tracking-wider px-6 pb-4 md:p-8 text-orange-400">
                     Tracks will be unveiled on the day of the hackathon!
                 </p>
             )}
