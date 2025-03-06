@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import Image from "next/image";
 
 const TracksSection = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,7 @@ const TracksSection = () => {
             y: "-100vh",
             x: "18vw",
             rotate: 160,
-            duration: 0.9,
+            duration: 1.1,
             onComplete: () => {
                 gsap.to(".lid", {
                     y: "100vh",
@@ -98,6 +99,13 @@ const TracksSection = () => {
                 duration: 0.9,
                 delay: 0.5,
                 onComplete: () => {
+                    gsap.to(".questionMark", {
+                        rotate:
+                            Math.floor(Math.random() * 2) == 0 ? 1080 : -1080,
+                        scale: 0,
+                        duration: 1,
+                    });
+
                     const contentElement = document.querySelector(".content");
                     const contentHeight = contentElement
                         ? contentElement.getBoundingClientRect().height
@@ -124,6 +132,36 @@ const TracksSection = () => {
             ref={containerRef}
             className="relative flex-col m-10 flex items-center bg-white border-[3px] border-black mb-0 overflow-hidden"
         >
+            {/* Random question marks */}
+            <Image
+                className="questionMark absolute top-[10%] left-[10%] -rotate-[12deg]"
+                alt="question mark in background 1"
+                src={"/tracksSection/question-mark1.svg"}
+                width={60}
+                height={60}
+            />
+            <Image
+                className="questionMark absolute bottom-[15%] left-[20%] rotate-[25deg]"
+                alt="question mark in background 1"
+                src={"/tracksSection/question-mark2.svg"}
+                width={70}
+                height={70}
+            />
+            <Image
+                className="questionMark absolute top-[10%] right-[20%] rotate-[25deg]"
+                alt="question mark in background 1"
+                src={"/tracksSection/question-mark2.svg"}
+                width={100}
+                height={100}
+            />
+            <Image
+                className="questionMark absolute bottom-[15%] right-[20%] -rotate-[25deg]"
+                alt="question mark in background 1"
+                src={"/tracksSection/question-mark1.svg"}
+                width={40}
+                height={40}
+            />
+
             <h1
                 className="text-[#49B2F8] font-h1 my-4"
                 style={{ fontSize: "calc(1rem + 3vw)" }}
