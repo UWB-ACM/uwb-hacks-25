@@ -195,12 +195,12 @@ const TracksSection = () => {
                 </div>
             )}
             {!isOpen && (
-                <p className="content flex items-center text-lg md:text-xl lg:text-2xl xl:text-3xl text-center font-h1 tracking-wider px-6 pb-12 opacity-0">
+                <p className="content flex items-center text-lg md:text-xl lg:text-2xl xl:text-3xl text-center font-h1 px-6 pb-12 opacity-0">
                     Tracks will be unveiled on the day of the hackathon!
                 </p>
             )}
             {isOpen && (
-                <p className="content flex items-center text-lg md:text-xl lg:text-2xl xl:text-3xl text-center font-h1 tracking-wider px-6 pb-12 opacity-0 text-orange-400">
+                <p className="content flex items-center text-lg md:text-xl lg:text-2xl xl:text-3xl text-center font-h1 px-6 pb-12 opacity-0 text-orange-500">
                     Tracks will be unveiled on the day of the hackathon!
                 </p>
             )}
