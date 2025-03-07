@@ -28,8 +28,12 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
 
             {/* Member Info (Increased Spacing) */}
             <div className="flex flex-col flex-grow min-w-0 text-center sm:text-left mt-2 sm:mt-0 sm:ml-4">
-                <h3 className="text-sm sm:text-lg font-bold truncate leading-tight text-wrap">{member.name}</h3>
-                <p className="text-sm text-gray-600 hidden sm:block truncate text-wrap">{member.role}</p>
+                <h3 className="text-sm sm:text-lg font-bold truncate leading-tight text-wrap">
+                    {member.name}
+                </h3>
+                <p className="text-sm text-gray-600 hidden sm:block truncate text-wrap">
+                    {member.role}
+                </p>
             </div>
 
             {/* LinkedIn Logo */}
@@ -43,7 +47,6 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
                     />
                 )}
             </div>
-            
         </div>
     );
 
