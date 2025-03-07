@@ -92,8 +92,8 @@ const TracksSection = () => {
                     height={0}
                 />
             </div>
-            <div className="z-[5] font-h1 text-xl md:text-2xl lg:text-3xl text-center m-4 pt-2 bg-white">
-                All hackathon tracks will be <br /> unveiled on the big day!
+            <div className="z-[5] font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center m-2 md:m-4 pt-2 bg-white">
+                All hackathon tracks will be unveiled on the big day!
             </div>
         </div>
     );
