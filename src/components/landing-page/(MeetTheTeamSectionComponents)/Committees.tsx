@@ -181,6 +181,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/jesse-garcia-7116461a4/",
             },
             {
+                id: "logan-choi",
+                name: "Logan Choi",
+                role: "Marketing Member",
+                photo: "/MeetTheTeamPhotos/logan-choi.png",
+                link: "https://www.linkedin.com/in/loganchoi/",
+            },
+            {
                 id: "ruthie-lartey",
                 name: "Ruthie Lartey",
                 role: "Content and Design Co-lead, Marketing Member",
