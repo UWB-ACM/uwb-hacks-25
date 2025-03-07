@@ -59,6 +59,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/jui-bangali/",
             },
             {
+                id: "kat-tran",
+                name: "Kat Tran",
+                role: "WiCyS Vice President, Developer, Sponsorships Outreach Member",
+                photo: "/MeetTheTeamPhotos/kat-tran.jpg",
+                link: "https://www.linkedin.com/in/katqatran/",
+            },
+            {
                 id: "ruthie-lartey",
                 name: "Ruthie Lartey",
                 role: "ACM-W, Content and Design Co-lead, Marketing Member",
@@ -118,6 +125,13 @@ export const committees = [
                 role: "Developer",
                 photo: "/MeetTheTeamPhotos/jonah-uellenberg.jpg",
                 link: "https://www.linkedin.com/in/uellenberg",
+            },
+            {
+                id: "kat-tran",
+                name: "Kat Tran",
+                role: "WiCyS Vice President, Developer, Sponsorships Outreach Member",
+                photo: "/MeetTheTeamPhotos/kat-tran.jpg",
+                link: "https://www.linkedin.com/in/katqatran/",
             },
             {
                 id: "khushmeet-gobindpuri",
@@ -254,6 +268,13 @@ export const committees = [
                 role: "Sponsorships Outreach Member",
                 photo: "/MeetTheTeamPhotos/justin-liao.png",
                 link: "https://www.linkedin.com/in/justin-liao23/",
+            },
+            {
+                id: "kat-tran",
+                name: "Kat Tran",
+                role: "WiCyS Vice President, Developer, Sponsorships Outreach Member",
+                photo: "/MeetTheTeamPhotos/kat-tran.jpg",
+                link: "https://www.linkedin.com/in/katqatran/",
             },
             {
                 id: "khushnain-gobindpuri",
