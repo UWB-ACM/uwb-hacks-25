@@ -23,7 +23,9 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
         if (containerRef.current && contentRef.current) {
             const { scrollWidth, clientWidth } = containerRef.current;
             setShowLeftArrow(containerRef.current.scrollLeft > 0);
-            setShowRightArrow(containerRef.current.scrollLeft < scrollWidth - clientWidth);
+            setShowRightArrow(
+                containerRef.current.scrollLeft < scrollWidth - clientWidth,
+            );
             setIsScrollable(scrollWidth > clientWidth);
         }
     };
@@ -66,8 +68,13 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     ));
 
     // Split the committeeCards into two rows
-    const firstRow = committeeCards.slice(0, Math.ceil(committeeCards.length / 2));
-    const secondRow = committeeCards.slice(Math.ceil(committeeCards.length / 2));
+    const firstRow = committeeCards.slice(
+        0,
+        Math.ceil(committeeCards.length / 2),
+    );
+    const secondRow = committeeCards.slice(
+        Math.ceil(committeeCards.length / 2),
+    );
 
     return (
         <div
@@ -102,12 +109,16 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
                 <div ref={contentRef} className="inline-block">
                     <div className="grid grid-rows-2 gap-4 pb-3 pt-3">
                         {/* First row of committees */}
-                        <div className={`flex gap-4 ${isScrollable ? "justify-start" : "justify-center"}`}>
+                        <div
+                            className={`flex gap-4 ${isScrollable ? "justify-start" : "justify-center"}`}
+                        >
                             {firstRow}
                         </div>
 
                         {/* Second row of committees */}
-                        <div className={`flex gap-4 ${isScrollable ? "justify-start" : "justify-center"}`}>
+                        <div
+                            className={`flex gap-4 ${isScrollable ? "justify-start" : "justify-center"}`}
+                        >
                             {secondRow}
                         </div>
                     </div>
