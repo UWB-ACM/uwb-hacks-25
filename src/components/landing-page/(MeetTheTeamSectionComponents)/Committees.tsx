@@ -66,6 +66,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/katqatran/",
             },
             {
+                id: "prarin-behdarvandian",
+                name: "Prarin (Melody) Behdarvandian",
+                role: "Content and Design Member, Marketing Member",
+                photo: "/MeetTheTeamPhotos/prarin-behdarvandian.png",
+                link: "https://www.linkedin.com/in/p-behdar/",
+            },
+            {
                 id: "ruthie-lartey",
                 name: "Ruthie Lartey",
                 role: "ACM-W, Content and Design Co-lead, Marketing Member",
@@ -78,7 +85,7 @@ export const committees = [
                 role: "Content and Design, Husky Artist",
                 photo: "/MeetTheTeamPhotos/sarinna-thaiy.jpg",
                 link: "https://linkedin.com/in/sarinnathaiy",
-            }
+            },
         ],
     },
     {
@@ -91,6 +98,13 @@ export const committees = [
                 role: "Content and Design Lead",
                 photo: "/MeetTheTeamPhotos/simon-dao.jpg",
                 link: "https://www.linkedin.com/in/simon-dao/",
+            },
+            {
+                id: "prarin-behdarvandian",
+                name: "Prarin (Melody) Behdarvandian",
+                role: "Content and Design Member, Marketing Member",
+                photo: "/MeetTheTeamPhotos/prarin-behdarvandian.png",
+                link: "https://www.linkedin.com/in/p-behdar/",
             },
             {
                 id: "ruthie-lartey",
@@ -191,10 +205,17 @@ export const committees = [
             {
                 id: "jui-bangali",
                 name: "Jui Bangali",
-                role: "WiCyS President, Local Arrangments Member, Product Management Member",
+                role: "WiCyS President, Local Arrangements Member, Product Management Member",
                 photo: "/MeetTheTeamPhotos/jui-bangali.jpg",
                 link: "https://www.linkedin.com/in/jui-bangali/",
             },
+            {
+                id: "tarang-jammalamadaka",
+                name: "Tarang (TJ) Jammalamadaka",
+                role: "Local Arrangements Member, Marketing Member",
+                photo: "/MeetTheTeamPhotos/default.jpg",
+                link: "https://www.linkedin.com/in/tarang-tj/"
+            }
         ],
     },
     {
@@ -230,12 +251,26 @@ export const committees = [
                 link: "https://www.linkedin.com/in/khushmeetgobindpuri/",
             },
             {
+                id: "prarin-behdarvandian",
+                name: "Prarin (Melody) Behdarvandian",
+                role: "Content and Design Member, Marketing Member",
+                photo: "/MeetTheTeamPhotos/prarin-behdarvandian.png",
+                link: "https://www.linkedin.com/in/p-behdar/",
+            },
+            {
                 id: "ruthie-lartey",
                 name: "Ruthie Lartey",
                 role: "Content and Design Co-lead, Marketing Member",
                 photo: "/MeetTheTeamPhotos/ruthie-lartey.jpg",
                 link: "https://www.linkedin.com/in/ruthie-lartey/",
             },
+            {
+                id: "tarang-jammalamadaka",
+                name: "Tarang (TJ) Jammalamadaka",
+                role: "Local Arrangements Member, Marketing Member",
+                photo: "/MeetTheTeamPhotos/default.jpg",
+                link: "https://www.linkedin.com/in/tarang-tj/"
+            }
         ],
     },
     {
