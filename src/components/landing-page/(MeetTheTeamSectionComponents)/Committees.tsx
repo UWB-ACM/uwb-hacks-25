@@ -86,6 +86,13 @@ export const committees = [
                 photo: "/MeetTheTeamPhotos/sarinna-thaiy.jpg",
                 link: "https://linkedin.com/in/sarinnathaiy",
             },
+            {
+                id: "jingyi-zhong",
+                name: "Jing Yi Zhong",
+                role: "Web Designer",
+                photo: "/MeetTheTeamPhotos/default.jpg",
+                link: "https://www.linkedin.com/in/zhongjy/",
+            },
         ],
     },
     {
@@ -129,7 +136,7 @@ export const committees = [
             },
             {
                 id: "jingyi-zhong",
-                name: "Jingyi Zhong",
+                name: "Jing Yi Zhong",
                 role: "Web Designer",
                 photo: "/MeetTheTeamPhotos/default.jpg",
                 link: "https://www.linkedin.com/in/zhongjy/",
