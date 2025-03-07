@@ -167,6 +167,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/breanna-powell-wa/",
             },
             {
+                id: "jesse-garcia",
+                name: "Jesse Garcia",
+                role: "BAP, Marketing Member",
+                photo: "/MeetTheTeamPhotos/jesse-garcia.jpg",
+                link: "https://www.linkedin.com/in/jesse-garcia-7116461a4/",
+            },
+            {
                 id: "ruthie-lartey",
                 name: "Ruthie Lartey",
                 role: "Content and Design Co-lead, Marketing Member",
