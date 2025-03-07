@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useRef } from "react";
 import MemberCard from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/MemberCard";
 import gsap from "gsap";
@@ -39,7 +37,7 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
     return (
         <div
             ref={containerRef}
-            className="flex flex-wrap justify-center gap-6" // Flexbox layout with wrapping
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full"
         >
             {members.map((member) => (
                 <MemberCard key={member.id} member={member} />
