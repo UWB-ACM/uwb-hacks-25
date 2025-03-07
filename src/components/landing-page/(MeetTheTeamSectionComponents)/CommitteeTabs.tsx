@@ -14,15 +14,17 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     setActiveCommitteeId,
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(false);
+    const [isScrollable, setIsScrollable] = useState(false);
 
     const checkScroll = () => {
-        if (containerRef.current) {
-            const { scrollLeft, scrollWidth, clientWidth } =
-                containerRef.current;
-            setShowLeftArrow(scrollLeft > 0);
-            setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1); // Adjust for rounding errors
+        if (containerRef.current && contentRef.current) {
+            const { scrollWidth, clientWidth } = containerRef.current;
+            setShowLeftArrow(containerRef.current.scrollLeft > 0);
+            setShowRightArrow(containerRef.current.scrollLeft < scrollWidth - clientWidth);
+            setIsScrollable(scrollWidth > clientWidth);
         }
     };
 
@@ -33,7 +35,6 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
             container.addEventListener("scroll", checkScroll);
         }
 
-        // Handle window resize
         window.addEventListener("resize", checkScroll);
 
         return () => {
@@ -46,7 +47,7 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
 
     const scrollLeft = () => {
         containerRef.current?.scrollBy({ left: -200, behavior: "smooth" });
-        setTimeout(checkScroll, 300); // Ensure visibility updates after scrolling
+        setTimeout(checkScroll, 300);
     };
 
     const scrollRight = () => {
@@ -65,16 +66,15 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     ));
 
     // Split the committeeCards into two rows
-    const firstRow = committeeCards.slice(
-        0,
-        Math.ceil(committeeCards.length / 2),
-    );
-    const secondRow = committeeCards.slice(
-        Math.ceil(committeeCards.length / 2),
-    );
+    const firstRow = committeeCards.slice(0, Math.ceil(committeeCards.length / 2));
+    const secondRow = committeeCards.slice(Math.ceil(committeeCards.length / 2));
 
     return (
-        <div className="relative bg-white p-6 border-4 border-black">
+        <div
+            className={`relative bg-white p-6 border-4 border-black ${
+                isScrollable ? "w-full" : "w-fit mx-auto"
+            }`}
+        >
             {/* Scroll arrows */}
             {showLeftArrow && (
                 <button
@@ -93,25 +93,23 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
                 </button>
             )}
 
-            {/* Scroll container with ref attached here */}
+            {/* Scrollable container */}
             <div
                 ref={containerRef}
-                className="overflow-x-auto px-12 no-scrollbar"
+                className="overflow-x-auto no-scrollbar px-12"
             >
-                {/* Transform layer to contain scaling */}
-                <div className="grid grid-rows-2 gap-4 pb-3 pt-3 transform">
-                    {/* First row of committees */}
-                    <div
-                        className={`flex gap-4 overflow-visible ${showLeftArrow || showRightArrow ? "justify-start" : "justify-center"}`}
-                    >
-                        {firstRow}
-                    </div>
+                {/* Content wrapper */}
+                <div ref={contentRef} className="inline-block">
+                    <div className="grid grid-rows-2 gap-4 pb-3 pt-3">
+                        {/* First row of committees */}
+                        <div className={`flex gap-4 ${isScrollable ? "justify-start" : "justify-center"}`}>
+                            {firstRow}
+                        </div>
 
-                    {/* Second row of committees */}
-                    <div
-                        className={`flex gap-4 overflow-visible ${showLeftArrow || showRightArrow ? "justify-start" : "justify-center"}`}
-                    >
-                        {secondRow}
+                        {/* Second row of committees */}
+                        <div className={`flex gap-4 ${isScrollable ? "justify-start" : "justify-center"}`}>
+                            {secondRow}
+                        </div>
                     </div>
                 </div>
             </div>
