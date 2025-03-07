@@ -232,7 +232,7 @@ export const committees = [
             {
                 id: "jesse-garcia",
                 name: "Jesse Garcia",
-                role: "BAP, Marketing Member",
+                role: "BAP President, Marketing Member",
                 photo: "/MeetTheTeamPhotos/jesse-garcia.jpg",
                 link: "https://www.linkedin.com/in/jesse-garcia-7116461a4/",
             },
