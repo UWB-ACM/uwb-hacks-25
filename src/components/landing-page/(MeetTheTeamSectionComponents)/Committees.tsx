@@ -1,7 +1,7 @@
 export const committees = [
     {
-        id: "commitee-leads",
-        name: "Justice Leads",
+        id: "executives",
+        name: "The Executives",
         members: [
             {
                 id: "breanna-powell",
@@ -48,6 +48,26 @@ export const committees = [
         ],
     },
     {
+        id: "commitee-leads",
+        name: "Justice Leads",
+        members: [
+            {
+                id: "jui-bangali",
+                name: "Jui Bangali",
+                role: "WiCyS President, Local Arrangments Member, Product Management Member",
+                photo: "/MeetTheTeamPhotos/jui-bangali.jpg",
+                link: "https://www.linkedin.com/in/jui-bangali/",
+            },
+            {
+                id: "ruthie-lartey",
+                name: "Ruthie Lartey",
+                role: "ACM-W, Content and Design Co-lead, Marketing Member",
+                photo: "/MeetTheTeamPhotos/ruthie-lartey.jpg",
+                link: "https://www.linkedin.com/in/ruthie-lartey/",
+            }
+        ],
+    },
+    {
         id: "content-design",
         name: "Content Design Champions",
         members: [
@@ -61,7 +81,7 @@ export const committees = [
             {
                 id: "ruthie-lartey",
                 name: "Ruthie Lartey",
-                role: "Content and Design Co-lead, Marketing Member",
+                role: "ACM-W, Content and Design Co-lead, Marketing Member",
                 photo: "/MeetTheTeamPhotos/ruthie-lartey.jpg",
                 link: "https://www.linkedin.com/in/ruthie-lartey/",
             },
@@ -93,19 +113,19 @@ export const committees = [
                 link: "https://www.linkedin.com/in/simon-dao/",
             },
             {
-                id: "sam-park",
-                name: "Sam Park",
-                role: "Developer",
-                photo: "/MeetTheTeamPhotos/sam-park.jpg",
-                link: "https://www.linkedin.com/in/sam-d-park/",
-            },
-            {
                 id: "jonah-uellenberg",
                 name: "Jonah Uellenberg",
                 role: "Developer",
                 photo: "/MeetTheTeamPhotos/jonah-uellenberg.jpg",
                 link: "https://www.linkedin.com/in/uellenberg",
             },
+            {
+                id: "sam-park",
+                name: "Sam Park",
+                role: "Developer",
+                photo: "/MeetTheTeamPhotos/sam-park.jpg",
+                link: "https://www.linkedin.com/in/sam-d-park/",
+            }
         ],
     },
     {
