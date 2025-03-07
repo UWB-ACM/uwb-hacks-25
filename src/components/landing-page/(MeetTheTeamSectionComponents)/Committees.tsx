@@ -217,6 +217,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/breanna-powell-wa/",
             },
             {
+                id: "jason-zhang",
+                name: "Jason Zhang",
+                role: "Local Arrangements Member, Marketing Member, Production Management Member",
+                photo: "/MeetTheTeamPhotos/default.jpg",
+                link: "https://linkedin.com/in/jasonzhng/",
+            },
+            {
                 id: "jui-bangali",
                 name: "Jui Bangali",
                 role: "WiCyS President, Local Arrangements Member, Product Management Member",
@@ -242,6 +249,13 @@ export const committees = [
                 role: "Marketing Lead, Local Arrangements Member, Production Management Member, Sponsorships Outreach Member",
                 photo: "/MeetTheTeamPhotos/breanna-powell.jpg",
                 link: "https://www.linkedin.com/in/breanna-powell-wa/",
+            },
+            {
+                id: "jason-zhang",
+                name: "Jason Zhang",
+                role: "Local Arrangements Member, Marketing Member, Production Management Member",
+                photo: "/MeetTheTeamPhotos/default.jpg",
+                link: "https://linkedin.com/in/jasonzhng/",
             },
             {
                 id: "jesse-garcia",
@@ -304,6 +318,13 @@ export const committees = [
                 role: "Marketing Lead, Local Arrangements Member, Production Management Member, Sponsorships Outreach Member",
                 photo: "/MeetTheTeamPhotos/breanna-powell.jpg",
                 link: "https://www.linkedin.com/in/breanna-powell-wa/",
+            },
+            {
+                id: "jason-zhang",
+                name: "Jason Zhang",
+                role: "Local Arrangements Member, Marketing Member, Production Management Member",
+                photo: "/MeetTheTeamPhotos/default.jpg",
+                link: "https://linkedin.com/in/jasonzhng/",
             },
             {
                 id: "jui-bangali",
