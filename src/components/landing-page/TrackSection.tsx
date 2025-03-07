@@ -1,49 +1,58 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 
 const TracksSection = () => {
-    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-    tl.to(".box", { y: "-2vh", duration: 0.75, ease: "bounce.in" });
-    tl.to(".box", {
-        x: 20,
-        rotate: "5deg",
-        duration: 0.15,
-        ease: "power1.out",
-    });
-    tl.to(".box", {
-        x: -20,
-        rotate: "-5deg",
-        duration: 0.15,
-        ease: "power1.out",
-    });
-    tl.to(".box", {
-        x: 20,
-        rotate: "5deg",
-        duration: 0.15,
-        ease: "power1.out",
-    });
-    tl.to(".box", {
-        x: -20,
-        rotate: "-5deg",
-        duration: 0.15,
-        ease: "power1.out",
-    });
-    tl.to(".box", {
-        x: 20,
-        rotate: "5deg",
-        duration: 0.15,
-        ease: "power1.out",
-    });
-    tl.to(".box", {
-        x: -20,
-        rotate: "-5deg",
-        duration: 0.15,
-        ease: "power1.out",
-    });
-    tl.to(".box", { y: 0, x: 0, rotate: 0, duration: 0.3 });
+    const tlRef = useRef<gsap.core.Timeline | null>(null);
+
+    useEffect(() => {
+        tlRef.current = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+
+        tlRef.current.to(".box", {
+            y: "-2vh",
+            duration: 0.75,
+            ease: "bounce.in",
+        });
+        tlRef.current.to(".box", {
+            x: 20,
+            rotate: "5deg",
+            duration: 0.15,
+            ease: "power1.out",
+        });
+        tlRef.current.to(".box", {
+            x: -20,
+            rotate: "-5deg",
+            duration: 0.15,
+            ease: "power1.out",
+        });
+        tlRef.current.to(".box", {
+            x: 20,
+            rotate: "5deg",
+            duration: 0.15,
+            ease: "power1.out",
+        });
+        tlRef.current.to(".box", {
+            x: -20,
+            rotate: "-5deg",
+            duration: 0.15,
+            ease: "power1.out",
+        });
+        tlRef.current.to(".box", {
+            x: 20,
+            rotate: "5deg",
+            duration: 0.15,
+            ease: "power1.out",
+        });
+        tlRef.current.to(".box", {
+            x: -20,
+            rotate: "-5deg",
+            duration: 0.15,
+            ease: "power1.out",
+        });
+        tlRef.current.to(".box", { y: 0, x: 0, rotate: 0, duration: 0.3 });
+    }, []);
 
     return (
         <div className="relative flex-col m-10 flex items-center bg-white border-[3px] border-black mb-0 overflow-hidden">
