@@ -234,7 +234,7 @@ export const committees = [
                 id: "tarang-jammalamadaka",
                 name: "Tarang (TJ) Jammalamadaka",
                 role: "Local Arrangements Member, Marketing Member",
-                photo: "/MeetTheTeamPhotos/default.jpg",
+                photo: "/MeetTheTeamPhotos/tarang-jammalamadaka.png",
                 link: "https://www.linkedin.com/in/tarang-tj/"
             }
         ],
@@ -296,7 +296,7 @@ export const committees = [
                 id: "tarang-jammalamadaka",
                 name: "Tarang (TJ) Jammalamadaka",
                 role: "Local Arrangements Member, Marketing Member",
-                photo: "/MeetTheTeamPhotos/default.jpg",
+                photo: "/MeetTheTeamPhotos/tarang-jammalamadaka.png",
                 link: "https://www.linkedin.com/in/tarang-tj/"
             }
         ],
