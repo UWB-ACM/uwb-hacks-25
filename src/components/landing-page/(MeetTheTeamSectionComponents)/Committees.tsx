@@ -132,6 +132,13 @@ export const committees = [
                 role: "Developer",
                 photo: "/MeetTheTeamPhotos/sam-park.jpg",
                 link: "https://www.linkedin.com/in/sam-d-park/",
+            },
+            {
+                id: "sohan-dandu",
+                name: "Sohan Dandu",
+                role: "Developer",
+                photo: "/MeetTheTeamPhotos/default.jpg",
+                link: undefined,
             }
         ],
     },
