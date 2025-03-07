@@ -22,9 +22,20 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     const checkScroll = () => {
         if (containerRef.current && contentRef.current) {
             const { scrollWidth, clientWidth } = containerRef.current;
-            setShowLeftArrow(containerRef.current.scrollLeft > 0);
+
+            const minScroll = 0;
+            const maxScroll = scrollWidth - clientWidth;
+
+            // This is a small adjustment factor to fix
+            // rounding/float issues that would make hiding the
+            // buttons impossible on some devices.
+            const epsilon = 1;
+
+            setShowLeftArrow(
+                containerRef.current.scrollLeft > minScroll + epsilon,
+            );
             setShowRightArrow(
-                containerRef.current.scrollLeft < scrollWidth - clientWidth,
+                containerRef.current.scrollLeft < maxScroll - epsilon,
             );
             setIsScrollable(scrollWidth > clientWidth);
         }
