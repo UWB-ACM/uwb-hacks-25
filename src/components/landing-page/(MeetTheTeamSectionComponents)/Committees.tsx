@@ -120,6 +120,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/uellenberg",
             },
             {
+                id: "khushmeet-gobindpuri",
+                name: "Meeti Gobindpuri",
+                role: "Developer, Marketing Member",
+                photo: "/MeetTheTeamPhotos/khushmeet-gobindpuri.jpg",
+                link: "https://www.linkedin.com/in/khushmeetgobindpuri/",
+            },
+            {
                 id: "khushnain-gobindpuri",
                 name: "Khushnain Gobindpuri",
                 role: "Developer, Sponsorships Outreach Member",
@@ -186,6 +193,13 @@ export const committees = [
                 role: "Marketing Member",
                 photo: "/MeetTheTeamPhotos/logan-choi.png",
                 link: "https://www.linkedin.com/in/loganchoi/",
+            },
+            {
+                id: "khushmeet-gobindpuri",
+                name: "Meeti Gobindpuri",
+                role: "Developer, Marketing Member",
+                photo: "/MeetTheTeamPhotos/khushmeet-gobindpuri.jpg",
+                link: "https://www.linkedin.com/in/khushmeetgobindpuri/",
             },
             {
                 id: "ruthie-lartey",
