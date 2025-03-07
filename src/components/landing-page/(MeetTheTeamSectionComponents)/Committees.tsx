@@ -297,6 +297,13 @@ export const committees = [
                 role: "WiCyS Treasurer, Product Management Member",
                 photo: "/MeetTheTeamPhotos/lakshmi-srinivas.png",
                 link: "https://www.linkedin.com/in/lakshmikandagadlasrinivas/",
+            },
+            {
+                id: "ryan-chiang",
+                name: "Ryan Chiang",
+                role: "Product Management Member",
+                photo: "/MeetTheTeamPhotos/default.jpg",
+                link: "https://www.linkedin.com/in/ryankuen/",
             }
         ],
     },
