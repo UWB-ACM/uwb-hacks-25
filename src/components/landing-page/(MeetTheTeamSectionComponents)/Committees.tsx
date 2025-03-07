@@ -48,7 +48,7 @@ export const committees = [
         ],
     },
     {
-        id: "commitee-leads",
+        id: "committee-leads",
         name: "Justice Leads",
         members: [
             {
