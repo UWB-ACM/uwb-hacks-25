@@ -120,6 +120,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/uellenberg",
             },
             {
+                id: "khushnain-gobindpuri",
+                name: "Khushnain Gobindpuri",
+                role: "Developer, Sponsorships Outreach Member",
+                photo: "/MeetTheTeamPhotos/khushnain-gobindpuri.png",
+                link: "https://www.linkedin.com/in/khushnain-gobindpuri/",
+            },
+            {
                 id: "sam-park",
                 name: "Sam Park",
                 role: "Developer",
@@ -205,6 +212,13 @@ export const committees = [
                 role: "Sponsorships Outreach Co-Lead",
                 photo: "/MeetTheTeamPhotos/ethan-leonard.png",
                 link: "https://www.linkedin.com/in/ethan-s-leonard/",
+            },
+            {
+                id: "khushnain-gobindpuri",
+                name: "Khushnain Gobindpuri",
+                role: "Developer, Sponsorships Outreach Member",
+                photo: "/MeetTheTeamPhotos/khushnain-gobindpuri.png",
+                link: "https://www.linkedin.com/in/khushnain-gobindpuri/",
             },
             {
                 id: "lidia-workneh",
