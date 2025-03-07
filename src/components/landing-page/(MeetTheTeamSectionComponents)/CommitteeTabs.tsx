@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import CommitteeTab from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/CommitteeTab";
+
 
 interface CommitteeTabsProps {
     committees: { id: string; name: string }[];
@@ -21,6 +23,20 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     const scrollRight = () => {
         containerRef.current?.scrollBy({ left: 200, behavior: "smooth" });
     };
+
+    // Render all committee tabs
+    const committeeCards = committees.map((committee) => (
+        <CommitteeTab
+            key={committee.id}
+            committee={committee}
+            isActive={activeCommitteeId === committee.id}
+            onClick={() => setActiveCommitteeId(committee.id)}
+        />
+    ));
+
+    // Split the committeeCards into two rows
+    const firstRow = committeeCards.slice(0, Math.ceil(committeeCards.length / 2));
+    const secondRow = committeeCards.slice(Math.ceil(committeeCards.length / 2));
 
     return (
         <div className="relative bg-white p-6 border-4 border-black">
@@ -46,53 +62,13 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
                 {/* Transform layer to contain scaling */}
                 <div className="grid grid-rows-2 gap-4 pb-3 pt-3 transform">
                     {/* First row of committees */}
-                    <div className="flex gap-4 overflow-visible">
-                        {committees
-                            .slice(0, Math.ceil(committees.length / 2))
-                            .map((committee) => (
-                                <button
-                                    key={committee.id}
-                                    onClick={() =>
-                                        setActiveCommitteeId(committee.id)
-                                    }
-                                    className={`relative flex-shrink-0 px-5 py-2 text-md sm:text-lg font-bold border-4 shadow-lg transition-transform
-                                    ${
-                                        activeCommitteeId === committee.id
-                                            ? "bg-yellow-300 border-black scale-105 z-30"
-                                            : "bg-red-300 border-black hover:bg-yellow-200 hover:scale-105 z-20"
-                                    }`}
-                                >
-                                    <span
-                                        className={`absolute -bottom-1 left-0 w-full h-[6px] bg-black ${activeCommitteeId === committee.id ? "" : "opacity-50"}`}
-                                    />
-                                    {committee.name}
-                                </button>
-                            ))}
+                    <div className="flex gap-4 overflow-visible justify-start md:justify-center">
+                        {firstRow}
                     </div>
 
                     {/* Second row of committees */}
-                    <div className="flex gap-4 overflow-visible">
-                        {committees
-                            .slice(Math.ceil(committees.length / 2))
-                            .map((committee) => (
-                                <button
-                                    key={committee.id}
-                                    onClick={() =>
-                                        setActiveCommitteeId(committee.id)
-                                    }
-                                    className={`relative flex-shrink-0 px-5 py-2 text-md sm:text-lg  font-bold border-4 shadow-lg transition-transform
-                                    ${
-                                        activeCommitteeId === committee.id
-                                            ? "bg-yellow-300 border-black scale-105 z-30"
-                                            : "bg-red-300 border-black hover:bg-yellow-200 hover:scale-105 z-20"
-                                    }`}
-                                >
-                                    <span
-                                        className={`absolute -bottom-1 left-0 w-full h-[6px] bg-black ${activeCommitteeId === committee.id ? "" : "opacity-50"}`}
-                                    />
-                                    {committee.name}
-                                </button>
-                            ))}
+                    <div className="flex gap-4 overflow-visible justify-start md:justify-center">
+                        {secondRow}
                     </div>
                 </div>
             </div>
