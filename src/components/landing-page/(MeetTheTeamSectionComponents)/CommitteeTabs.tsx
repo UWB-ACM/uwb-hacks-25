@@ -51,7 +51,7 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
                             <button
                                 key={committee.id}
                                 onClick={() => setActiveCommitteeId(committee.id)}
-                                className={`relative flex-shrink-0 px-5 py-2 text-lg font-bold border-4 shadow-lg transition-transform
+                                className={`relative flex-shrink-0 px-5 py-2 text-md sm:text-lg font-bold border-4 shadow-lg transition-transform
                                     ${activeCommitteeId === committee.id
                                         ? "bg-yellow-300 border-black scale-105 z-30"
                                         : "bg-red-300 border-black hover:bg-yellow-200 hover:scale-105 z-20"
@@ -69,7 +69,7 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
                             <button
                                 key={committee.id}
                                 onClick={() => setActiveCommitteeId(committee.id)}
-                                className={`relative flex-shrink-0 px-5 py-2 text-lg font-bold border-4 shadow-lg transition-transform
+                                className={`relative flex-shrink-0 px-5 py-2 text-md sm:text-lg  font-bold border-4 shadow-lg transition-transform
                                     ${activeCommitteeId === committee.id
                                         ? "bg-yellow-300 border-black scale-105 z-30"
                                         : "bg-red-300 border-black hover:bg-yellow-200 hover:scale-105 z-20"
