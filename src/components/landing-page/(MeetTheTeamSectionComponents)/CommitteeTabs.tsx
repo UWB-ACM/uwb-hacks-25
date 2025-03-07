@@ -23,7 +23,7 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     };
 
     return (
-        <div className="relative bg-white p-6 border-4 border-black rounded-lg shadow-comic">
+        <div className="relative bg-white p-6 border-4 border-black">
             {/* Scroll arrows */}
             <button
                 onClick={scrollLeft}
