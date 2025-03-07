@@ -17,7 +17,9 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
 
     useEffect(() => {
         if (containerRef.current) {
-            const gridItems = document.querySelectorAll(".member-card-animation");
+            const gridItems = document.querySelectorAll(
+                ".member-card-animation",
+            );
             gsap.fromTo(
                 gridItems,
                 { opacity: 0, scale: 1 },
@@ -27,7 +29,7 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
                     stagger: 0.1,
                     duration: 0.5,
                     ease: "circ",
-                }
+                },
             );
         }
     }, [members]);
@@ -37,9 +39,9 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
             ref={containerRef}
             className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full"
         >
-        {members.map((member) => (
-            <MemberCard key={member.id} member={member} />
-        ))}
+            {members.map((member) => (
+                <MemberCard key={member.id} member={member} />
+            ))}
         </div>
     );
 };
