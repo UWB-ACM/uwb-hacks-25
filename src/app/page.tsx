@@ -6,7 +6,7 @@ import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
 // import WhatsNewSection from "../components/landing-page/WhatsNewSection";
 // import LeaderboardSection from "../components/landing-page/LeaderboardSection";
-// import TracksSection from "../components/landing-page/TrackSection";
+import TracksSection from "../components/landing-page/TrackSection";
 import ScheduleSection from "../components/landing-page/ScheduleSection";
 import FAQSection from "../components/landing-page/FAQSection";
 import MeetTheTeamSection from "../components/landing-page/MeetTheTeamSection";
@@ -178,14 +178,9 @@ export default function Page() {
                         <LeaderboardSection /> */}
                     </div>
                 </div>
-                {/* <div
-                    id="tracks"
-                    ref={tracksRef}
-                    className="h-screen"
-                    style={{}}
-                >
+                <div id="tracks" ref={tracksRef} style={{}}>
                     <TracksSection />
-                </div> */}
+                </div>
                 <div
                     id="schedule"
                     ref={scheduleRef}
