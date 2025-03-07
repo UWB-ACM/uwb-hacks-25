@@ -15,11 +15,11 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     const containerRef = useRef<HTMLDivElement>(null);
 
     const scrollLeft = () => {
-        containerRef.current?.scrollBy({ left: -150, behavior: "smooth" });
+        containerRef.current?.scrollBy({ left: -200, behavior: "smooth" });
     };
 
     const scrollRight = () => {
-        containerRef.current?.scrollBy({ left: 150, behavior: "smooth" });
+        containerRef.current?.scrollBy({ left: 200, behavior: "smooth" });
     };
 
     return (
