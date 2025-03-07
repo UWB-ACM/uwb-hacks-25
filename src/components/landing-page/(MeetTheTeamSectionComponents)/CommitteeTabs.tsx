@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import CommitteeTab from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/CommitteeTab";
-
 
 interface CommitteeTabsProps {
     committees: { id: string; name: string }[];
@@ -15,6 +14,29 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     setActiveCommitteeId,
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [showLeftArrow, setShowLeftArrow] = useState(false);
+    const [showRightArrow, setShowRightArrow] = useState(false);
+
+    const checkScroll = () => {
+        if (containerRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+            setShowLeftArrow(scrollLeft > 0);
+            setShowRightArrow(scrollLeft < scrollWidth - clientWidth);
+        }
+    };
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (container) {
+            checkScroll(); // Initial check
+            container.addEventListener("scroll", checkScroll);
+        }
+        return () => {
+            if (container) {
+                container.removeEventListener("scroll", checkScroll);
+            }
+        };
+    }, []);
 
     const scrollLeft = () => {
         containerRef.current?.scrollBy({ left: -200, behavior: "smooth" });
@@ -41,18 +63,22 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     return (
         <div className="relative bg-white p-6 border-4 border-black">
             {/* Scroll arrows */}
-            <button
-                onClick={scrollLeft}
-                className="absolute left-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg border-4 border-black z-40 hover:bg-yellow-200 transition-transform"
-            >
-                <FaChevronLeft className="text-black" />
-            </button>
-            <button
-                onClick={scrollRight}
-                className="absolute right-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg border-4 border-black z-40 hover:bg-yellow-200 transition-transform"
-            >
-                <FaChevronRight className="text-black" />
-            </button>
+            {showLeftArrow && (
+                <button
+                    onClick={scrollLeft}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg border-4 border-black z-40 hover:bg-yellow-200 transition-transform"
+                >
+                    <FaChevronLeft className="text-black" />
+                </button>
+            )}
+            {showRightArrow && (
+                <button
+                    onClick={scrollRight}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg border-4 border-black z-40 hover:bg-yellow-200 transition-transform"
+                >
+                    <FaChevronRight className="text-black" />
+                </button>
+            )}
 
             {/* Scroll container with ref attached here */}
             <div
