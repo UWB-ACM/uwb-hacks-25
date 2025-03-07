@@ -6,7 +6,11 @@ interface CommitteeTabProps {
     onClick: () => void;
 }
 
-const CommitteeTab: React.FC<CommitteeTabProps> = ({ committee, isActive, onClick }) => {
+const CommitteeTab: React.FC<CommitteeTabProps> = ({
+    committee,
+    isActive,
+    onClick,
+}) => {
     return (
         <button
             onClick={onClick}
