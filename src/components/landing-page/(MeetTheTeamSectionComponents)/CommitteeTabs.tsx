@@ -27,17 +27,17 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     };
 
     return (
-        <div className="relative bg-white p-4 border-4 border-black rounded-lg shadow-comic">
+        <div className="relative bg-white p-4 border-4 border-black rounded-lg shadow-comic overflow-visible">
             {/* Scroll arrows with comic book style */}
             <button
                 onClick={scrollLeft}
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg border-4 border-black z-20 hover:bg-yellow-200 transition-all"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg border-4 border-black z-20 hover:bg-yellow-200 transition-all"
             >
                 <FaChevronLeft className="text-black" />
             </button>
             <button
                 onClick={scrollRight}
-                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg border-4 border-black z-20 hover:bg-yellow-200 transition-all"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg border-4 border-black z-20 hover:bg-yellow-200 transition-all"
             >
                 <FaChevronRight className="text-black" />
             </button>
@@ -45,18 +45,18 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
             {/* Scrollable container with padding */}
             <div
                 ref={containerRef}
-                className="grid grid-rows-2 gap-2 overflow-x-auto no-scrollbar px-12"
+                className="grid grid-rows-2 gap-3 overflow-x-auto no-scrollbar px-12 overflow-visible"
             >
                 {/* First row of tabs */}
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                     {committees.slice(0, Math.ceil(committees.length / 2)).map((committee) => (
                         <button
                             key={committee.id}
                             onClick={() => setActiveCommitteeId(committee.id)}
                             className={`relative flex-shrink-0 px-4 py-1 sm:px-6 sm:py-2 text-base sm:text-lg font-bold border-4 shadow-lg transition-all ${
                                 activeCommitteeId === committee.id
-                                    ? "bg-yellow-300 border-black scale-105"
-                                    : "bg-red-300 border-black hover:bg-yellow-200"
+                                    ? "bg-yellow-300 border-black scale-105 z-10"
+                                    : "bg-red-300 border-black hover:bg-yellow-200 hover:scale-105 hover:z-10"
                             }`}
                         >
                             <span
@@ -72,15 +72,15 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
                 </div>
 
                 {/* Second row of tabs */}
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                     {committees.slice(Math.ceil(committees.length / 2)).map((committee) => (
                         <button
                             key={committee.id}
                             onClick={() => setActiveCommitteeId(committee.id)}
                             className={`relative flex-shrink-0 px-4 py-1 sm:px-6 sm:py-2 text-base sm:text-lg font-bold border-4 shadow-lg transition-all ${
                                 activeCommitteeId === committee.id
-                                    ? "bg-yellow-300 border-black scale-105"
-                                    : "bg-red-300 border-black hover:bg-yellow-200"
+                                    ? "bg-yellow-300 border-black scale-105 z-10"
+                                    : "bg-red-300 border-black hover:bg-yellow-200 hover:scale-105 hover:z-10"
                             }`}
                         >
                             <span
