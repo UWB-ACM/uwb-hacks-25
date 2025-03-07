@@ -149,11 +149,7 @@ export default function Page() {
                         <LeaderboardSection /> */}
                     </div>
                 </div>
-                <div
-                    id="tracks"
-                    ref={tracksRef}
-                    style={{}}
-                >
+                <div id="tracks" ref={tracksRef} style={{}}>
                     <TracksSection />
                 </div>
                 <div
