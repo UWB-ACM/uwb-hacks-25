@@ -71,6 +71,13 @@ export const committees = [
                 role: "ACM-W, Content and Design Co-lead, Marketing Member",
                 photo: "/MeetTheTeamPhotos/ruthie-lartey.jpg",
                 link: "https://www.linkedin.com/in/ruthie-lartey/",
+            },
+            {
+                id: "sarinna-thaiy",
+                name: "Sarinna Thaiy",
+                role: "Content and Design, Husky Artist",
+                photo: "/MeetTheTeamPhotos/sarinna-thaiy.jpg",
+                link: "https://linkedin.com/in/sarinnathaiy",
             }
         ],
     },
@@ -98,6 +105,13 @@ export const committees = [
                 role: "Avanade Rep, Content and Design Co-lead",
                 photo: "/MeetTheTeamPhotos/sai-bathina.jpg",
                 link: "https://www.linkedin.com/in/saikanishkbathina/",
+            },
+            {
+                id: "sarinna-thaiy",
+                name: "Sarinna Thaiy",
+                role: "Content and Design, Husky Artist",
+                photo: "/MeetTheTeamPhotos/sarinna-thaiy.jpg",
+                link: "https://linkedin.com/in/sarinnathaiy",
             },
             {
                 id: "jingyi-zhong",
