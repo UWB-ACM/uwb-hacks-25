@@ -35,11 +35,11 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
     return (
         <div
             ref={containerRef}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full justify-items-center"
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full"
         >
-            {members.map((member) => (
-                <MemberCard key={member.id} member={member} />
-            ))}
+        {members.map((member) => (
+            <MemberCard key={member.id} member={member} />
+        ))}
         </div>
     );
 };
