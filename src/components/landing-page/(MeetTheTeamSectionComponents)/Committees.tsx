@@ -214,6 +214,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/ethan-s-leonard/",
             },
             {
+                id: "justin-liao",
+                name: "Justin Liao",
+                role: "Sponsorships Outreach Member",
+                photo: "/MeetTheTeamPhotos/justin-liao.png",
+                link: "https://www.linkedin.com/in/justin-liao23/",
+            },
+            {
                 id: "khushnain-gobindpuri",
                 name: "Khushnain Gobindpuri",
                 role: "Developer, Sponsorships Outreach Member",
