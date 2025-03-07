@@ -21,7 +21,7 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
         if (containerRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
             setShowLeftArrow(scrollLeft > 0);
-            setShowRightArrow(scrollLeft < scrollWidth - clientWidth);
+            setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1); // Adjust for rounding errors
         }
     };
 
@@ -31,19 +31,26 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
             checkScroll(); // Initial check
             container.addEventListener("scroll", checkScroll);
         }
+
+        // Handle window resize
+        window.addEventListener("resize", checkScroll);
+
         return () => {
             if (container) {
                 container.removeEventListener("scroll", checkScroll);
             }
+            window.removeEventListener("resize", checkScroll);
         };
     }, []);
 
     const scrollLeft = () => {
         containerRef.current?.scrollBy({ left: -200, behavior: "smooth" });
+        setTimeout(checkScroll, 300); // Ensure visibility updates after scrolling
     };
 
     const scrollRight = () => {
         containerRef.current?.scrollBy({ left: 200, behavior: "smooth" });
+        setTimeout(checkScroll, 300);
     };
 
     // Render all committee tabs
@@ -83,19 +90,20 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
             {/* Scroll container with ref attached here */}
             <div
                 ref={containerRef}
-                className="overflow-x-auto no-scrollbar px-12"
+                className="overflow-x-auto px-12 no-scrollbar"
             >
                 {/* Transform layer to contain scaling */}
                 <div className="grid grid-rows-2 gap-4 pb-3 pt-3 transform">
                     {/* First row of committees */}
-                    <div className="flex gap-4 overflow-visible justify-start md:justify-center">
-                        {firstRow}
-                    </div>
+                <div className={`flex gap-4 overflow-visible ${showLeftArrow || showRightArrow ? "justify-start" : "justify-center"}`}>
+                    {firstRow}
+                </div>
 
-                    {/* Second row of committees */}
-                    <div className="flex gap-4 overflow-visible justify-start md:justify-center">
-                        {secondRow}
-                    </div>
+                {/* Second row of committees */}
+                <div className={`flex gap-4 overflow-visible ${showLeftArrow || showRightArrow ? "justify-start" : "justify-center"}`}>
+                    {secondRow}
+                </div>
+
                 </div>
             </div>
         </div>
