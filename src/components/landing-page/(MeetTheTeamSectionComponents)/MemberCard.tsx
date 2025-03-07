@@ -17,34 +17,30 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
 
     const cardContent = (
         <div
-            className="relative flex items-center p-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300 min-h-[140px] h-full w-[380px]" // Fixed width
+            className="relative flex flex-col sm:flex-row items-center sm:items-start p-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300 w-[140px] h-[180px] sm:w-[340px] sm:h-[140px]"
         >
-            {/* Profile Image on the Left */}
+            {/* Profile Image */}
             <Image
                 src={member.photo}
                 alt={member.name}
-                className="border-4 border-black flex-shrink-0"
-                width={80}
-                height={80}
+                className="border-4 border-black w-24 h-24 object-cover"
+                width={96}
+                height={96}
             />
 
-            {/* Member Info on the Right */}
-            <div className="flex flex-col flex-grow ml-4 min-w-0">
-                <h3 className="text-xl font-bold break-words whitespace-normal leading-tight truncate">
-                    {member.name}
-                </h3>
-                <p className="text-sm text-gray-600 break-words whitespace-normal leading-tight truncate">
-                    {member.role}
-                </p>
+            {/* Member Info */}
+            <div className="flex flex-col flex-grow ml-0 sm:ml-4 min-w-0 text-center sm:text-left text">
+                <h3 className="text-lg font-bold truncate text-wrap">{member.name}</h3>
+                <p className="text-sm text-gray-600 hidden sm:block truncate text-wrap">{member.role}</p>
             </div>
 
-            {/* LinkedIn Logo (Top Right) */}
+            {/* LinkedIn Logo */}
             {isClickable && (
                 <Image
                     src={LinkedInImage}
                     width={30}
                     alt="LinkedIn"
-                    className="absolute top-2 right-2"
+                    className="absolute top-2 right-2 hidden sm:block"
                 />
             )}
         </div>
@@ -58,5 +54,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
         cardContent
     );
 };
+
+
 
 export default MemberCard;
