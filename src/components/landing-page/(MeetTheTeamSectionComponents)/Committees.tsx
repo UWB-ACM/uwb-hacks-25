@@ -242,6 +242,13 @@ export const committees = [
                 photo: "/MeetTheTeamPhotos/jui-bangali.jpg",
                 link: "https://www.linkedin.com/in/jui-bangali/",
             },
+            {
+                id: "lakshmi-srinivas",
+                name: "Lakshmi Srinivas",
+                role: "WiCyS Treasurer, Product Management Member",
+                photo: "/MeetTheTeamPhotos/lakshmi-srinivas.png",
+                link: "https://www.linkedin.com/in/lakshmikandagadlasrinivas/",
+            }
         ],
     },
     {
