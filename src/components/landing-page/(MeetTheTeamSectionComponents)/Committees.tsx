@@ -195,7 +195,7 @@ export const committees = [
                 role: "Developer",
                 photo: "/MeetTheTeamPhotos/default.jpg",
                 link: undefined,
-            }
+            },
         ],
     },
     {
@@ -235,8 +235,8 @@ export const committees = [
                 name: "Tarang (TJ) Jammalamadaka",
                 role: "Local Arrangements Member, Marketing Member",
                 photo: "/MeetTheTeamPhotos/tarang-jammalamadaka.png",
-                link: "https://www.linkedin.com/in/tarang-tj/"
-            }
+                link: "https://www.linkedin.com/in/tarang-tj/",
+            },
         ],
     },
     {
@@ -297,8 +297,8 @@ export const committees = [
                 name: "Tarang (TJ) Jammalamadaka",
                 role: "Local Arrangements Member, Marketing Member",
                 photo: "/MeetTheTeamPhotos/tarang-jammalamadaka.png",
-                link: "https://www.linkedin.com/in/tarang-tj/"
-            }
+                link: "https://www.linkedin.com/in/tarang-tj/",
+            },
         ],
     },
     {
@@ -346,7 +346,7 @@ export const committees = [
                 role: "Product Management Member",
                 photo: "/MeetTheTeamPhotos/default.jpg",
                 link: "https://www.linkedin.com/in/ryankuen/",
-            }
+            },
         ],
     },
     {
