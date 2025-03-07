@@ -6,7 +6,7 @@ export const committees = [
             {
                 id: "breanna-powell",
                 name: "Breanna Powell",
-                role: "Marketing Lead",
+                role: "Marketing Lead, Local Arrangements Member, Production Management Member, Sponsorships Outreach Member",
                 photo: "/MeetTheTeamPhotos/breanna-powell.jpg",
                 link: "https://www.linkedin.com/in/breanna-powell-wa/",
             },
@@ -27,7 +27,7 @@ export const committees = [
             {
                 id: "sai-bathina",
                 name: "Sai Bathina",
-                role: "Avanade Rep, Content and Design Co-lead",
+                role: "BCA, Avanade Rep, Content and Design Co-lead",
                 photo: "/MeetTheTeamPhotos/sai-bathina.jpg",
                 link: "https://www.linkedin.com/in/saikanishkbathina/",
             },
@@ -123,7 +123,7 @@ export const committees = [
             {
                 id: "sai-bathina",
                 name: "Sai Bathina",
-                role: "Avanade Rep, Content and Design Co-lead",
+                role: "BCA, Avanade Rep, Content and Design Co-lead",
                 photo: "/MeetTheTeamPhotos/sai-bathina.jpg",
                 link: "https://www.linkedin.com/in/saikanishkbathina/",
             },
@@ -210,6 +210,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/vinayachava/",
             },
             {
+                id: "breanna-powell",
+                name: "Breanna Powell",
+                role: "Marketing Lead, Local Arrangements Member, Production Management Member, Sponsorships Outreach Member",
+                photo: "/MeetTheTeamPhotos/breanna-powell.jpg",
+                link: "https://www.linkedin.com/in/breanna-powell-wa/",
+            },
+            {
                 id: "jui-bangali",
                 name: "Jui Bangali",
                 role: "WiCyS President, Local Arrangements Member, Product Management Member",
@@ -232,7 +239,7 @@ export const committees = [
             {
                 id: "breanna-powell",
                 name: "Breanna Powell",
-                role: "Marketing Lead",
+                role: "Marketing Lead, Local Arrangements Member, Production Management Member, Sponsorships Outreach Member",
                 photo: "/MeetTheTeamPhotos/breanna-powell.jpg",
                 link: "https://www.linkedin.com/in/breanna-powell-wa/",
             },
@@ -292,6 +299,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/hannah-hanul/",
             },
             {
+                id: "breanna-powell",
+                name: "Breanna Powell",
+                role: "Marketing Lead, Local Arrangements Member, Production Management Member, Sponsorships Outreach Member",
+                photo: "/MeetTheTeamPhotos/breanna-powell.jpg",
+                link: "https://www.linkedin.com/in/breanna-powell-wa/",
+            },
+            {
                 id: "jui-bangali",
                 name: "Jui Bangali",
                 role: "WiCyS President, Local Arrangments Member, Product Management Member",
@@ -335,9 +349,16 @@ export const committees = [
             {
                 id: "justin-liao",
                 name: "Justin Liao",
-                role: "Sponsorships Outreach Member",
+                role: "Sponsorships Outreach Co-Lead",
                 photo: "/MeetTheTeamPhotos/justin-liao.png",
                 link: "https://www.linkedin.com/in/justin-liao23/",
+            },
+            {
+                id: "breanna-powell",
+                name: "Breanna Powell",
+                role: "Marketing Lead, Local Arrangements Member, Production Management Member, Sponsorships Outreach Member",
+                photo: "/MeetTheTeamPhotos/breanna-powell.jpg",
+                link: "https://www.linkedin.com/in/breanna-powell-wa/",
             },
             {
                 id: "kat-tran",
