@@ -19,7 +19,8 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
 
     const checkScroll = () => {
         if (containerRef.current) {
-            const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+            const { scrollLeft, scrollWidth, clientWidth } =
+                containerRef.current;
             setShowLeftArrow(scrollLeft > 0);
             setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1); // Adjust for rounding errors
         }
@@ -64,8 +65,13 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
     ));
 
     // Split the committeeCards into two rows
-    const firstRow = committeeCards.slice(0, Math.ceil(committeeCards.length / 2));
-    const secondRow = committeeCards.slice(Math.ceil(committeeCards.length / 2));
+    const firstRow = committeeCards.slice(
+        0,
+        Math.ceil(committeeCards.length / 2),
+    );
+    const secondRow = committeeCards.slice(
+        Math.ceil(committeeCards.length / 2),
+    );
 
     return (
         <div className="relative bg-white p-6 border-4 border-black">
@@ -95,15 +101,18 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
                 {/* Transform layer to contain scaling */}
                 <div className="grid grid-rows-2 gap-4 pb-3 pt-3 transform">
                     {/* First row of committees */}
-                <div className={`flex gap-4 overflow-visible ${showLeftArrow || showRightArrow ? "justify-start" : "justify-center"}`}>
-                    {firstRow}
-                </div>
+                    <div
+                        className={`flex gap-4 overflow-visible ${showLeftArrow || showRightArrow ? "justify-start" : "justify-center"}`}
+                    >
+                        {firstRow}
+                    </div>
 
-                {/* Second row of committees */}
-                <div className={`flex gap-4 overflow-visible ${showLeftArrow || showRightArrow ? "justify-start" : "justify-center"}`}>
-                    {secondRow}
-                </div>
-
+                    {/* Second row of committees */}
+                    <div
+                        className={`flex gap-4 overflow-visible ${showLeftArrow || showRightArrow ? "justify-start" : "justify-center"}`}
+                    >
+                        {secondRow}
+                    </div>
                 </div>
             </div>
         </div>
