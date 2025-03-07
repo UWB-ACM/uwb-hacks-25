@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useRef } from "react";
 import MemberCard from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/MemberCard";
 import gsap from "gsap";
@@ -19,9 +17,7 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
 
     useEffect(() => {
         if (containerRef.current) {
-            const gridItems = document.querySelectorAll(
-                ".member-card-animation",
-            );
+            const gridItems = document.querySelectorAll(".member-card-animation");
             gsap.fromTo(
                 gridItems,
                 { opacity: 0, scale: 1 },
@@ -31,7 +27,7 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
                     stagger: 0.1,
                     duration: 0.5,
                     ease: "circ",
-                },
+                }
             );
         }
     }, [members]);
@@ -39,7 +35,7 @@ const TeamMembersGrid: React.FC<TeamMembersGridProps> = ({ members }) => {
     return (
         <div
             ref={containerRef}
-            className="flex flex-wrap justify-center gap-6" // Flexbox layout with wrapping
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full justify-items-center"
         >
             {members.map((member) => (
                 <MemberCard key={member.id} member={member} />
