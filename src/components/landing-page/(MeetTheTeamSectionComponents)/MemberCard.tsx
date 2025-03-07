@@ -16,7 +16,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
     const isClickable = !!member.link;
 
     const cardContent = (
-        <div className="relative flex flex-col sm:flex-row items-center sm:items-start p-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300 w-[130px] h-[180px] sm:w-[340px] sm:h-[140px] flex-shrink-0">
+        <div className="relative flex flex-col sm:flex-row items-center sm:items-start p-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300 w-[130px] h-[180px] sm:w-[340px] sm:h-[160px] flex-shrink-0">
             {/* Profile Image */}
             <Image
                 src={member.photo}
