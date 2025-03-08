@@ -132,13 +132,13 @@ export default function Page() {
 
                     <Parallax
                         speed={-30}
-                        className="absolute w-full h-full z-[-3] bottom-[40]"
+                        className="absolute w-full h-full z-[-3] bottom-[40px]"
                     >
                         <Image
                             src={BackgroundImage}
                             priority
                             alt=""
-                            className="absolute object-cover w-full h-full "
+                            className="absolute object-cover w-full h-full"
                         />
                     </Parallax>
                     <Parallax
@@ -160,7 +160,7 @@ export default function Page() {
                             src={ForegroundImage}
                             priority
                             alt=""
-                            className="absolute object-cover w-screen h-screen bottom-[-10]"
+                            className="absolute object-cover w-screen h-screen bottom-[-10px]"
                         />
                     </Parallax>
                 </div>
