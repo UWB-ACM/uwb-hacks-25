@@ -61,6 +61,30 @@ export async function getUserFromGoogle(
 }
 
 /**
+ * Gets a user from their ID.
+ * @param id - is the ID of the user's account.
+ */
+export async function getUserFromID(id: number): Promise<User | null> {
+    const data =
+        await sql`SELECT google_id, name, email, picture, balance FROM users LEFT JOIN balances ON balances.user=users.id WHERE id=${id};`;
+
+    if (data.length === 0) {
+        return null;
+    }
+
+    return {
+        id,
+        googleId: data[0].google_id,
+        name: data[0].name,
+        email: data[0].email,
+        picture: data[0].picture,
+        // Balance will be null if the user
+        // has no transactions.
+        balance: data[0].balance || 0,
+    };
+}
+
+/**
  * Gets the permission level for a user, or null
  * if the user doesn't exist.
  * @param user - is the user to look for.
