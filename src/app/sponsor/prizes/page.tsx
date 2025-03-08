@@ -1,96 +1,41 @@
-import React from "react";
+"use client";
 
+import React from "react";
+import Button from "@/src/components/Button";
 function Page() {
     return (
         <div className="flex flex-col w-screen items-center">
-            <div className="max-w-[1000px] flex flex-col">
-                <div className="text-center p-6 md:p-8 mb-2 md:mb-4 px-4 overflow-x-auto">
-                    <h1 className="font-rubik-mono-one text-4xl md:text-5xl">
-                        Prizes
+            <div className="max-w-[800px] flex flex-col">
+                <div className="text-center py-6 md:py-8 overflow-x-auto">
+                    <h1 className="font-h1 text-4xl md:text-5xl">
+                        {"Sponsor Our Grand Prizes"}
                     </h1>
-                    <p className="pb-3 pl-6 font-h3 text-sm md:text-base mt-4 md:mt-6">
-                        Compete, innovate, and win amazing prizes!
-                    </p>
-                </div>
-            </div>
-
-            {/* Pyramid Structure */}
-            <div className="flex flex-col gap-6 items-center w-full">
-                {/* Row 1 (1 Box) */}
-                <div className="flex justify-center w-full">
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-4 w-[60%] lg:w-[30%]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg">
-                            Prizes!
-                        </h2>
-                        <ul className="text-left font-h3 text-sm md:text-base list-disc pl-4">
-                            <li>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
-                            </li>
-                        </ul>
+                    <div className="w-full border-2 border-black bg-white p-3 font-h3 text-sm md:text-base mt-4 md:mt-6">
+                        <h3 className="font-rubik-mono font-bold text-xl">
+                            {"What's a Grand Prize?"}
+                        </h3>
+                        <p className="w-full p-6 font-h3 text-sm md:text-base ">
+                            A Grand Prize is the pinnacle award at a hackathon,
+                            honoring the most outstanding project. It often
+                            comes with exclusive perks or opportunities, serving
+                            as a launchpad for the winning team’s innovation
+                            journey.
+                        </p>
                     </div>
-                </div>
-
-                {/* Row 2 (2 Boxes) */}
-                <div className="flex justify-center gap-6 w-full">
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-4 w-[45%] lg:w-[25%]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg">
-                            Prizes!
-                        </h2>
-                        <ul className="text-left font-h3 text-sm md:text-base list-disc pl-4">
-                            <li>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-4 w-[45%] lg:w-[25%]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg">
-                            Prizes!
-                        </h2>
-                        <ul className="text-left font-h3 text-sm md:text-base list-disc pl-4">
-                            <li>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Row 3 (3 Boxes) */}
-                <div className="flex justify-center gap-6 w-full">
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-4 w-[30%] lg:w-[20%]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg">
-                            Prizes!
-                        </h2>
-                        <ul className="text-left font-h3 text-sm md:text-base list-disc pl-4">
-                            <li>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-4 w-[30%] lg:w-[20%]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg">
-                            Prizes!
-                        </h2>
-                        <ul className="text-left font-h3 text-sm md:text-base list-disc pl-4">
-                            <li>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-4 w-[30%] lg:w-[20%]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg">
-                            Prizes!
-                        </h2>
-                        <ul className="text-left font-h3 text-sm md:text-base list-disc pl-4">
-                            <li>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
-                            </li>
-                        </ul>
+                    <div className="w-full border-2 border-black bg-white p-3 font-h3 text-sm md:text-base mt-4 md:mt-6">
+                        <h3 className="font-rubik-mono font-bold text-xl">
+                            {"Sponsor a Grand Prize!"}
+                        </h3>
+                        <p className="w-full p-6 font-h3 text-sm md:text-base ">
+                            We invite sponsors to add excitement by offering a
+                            compelling grand prize—anything from advanced tech
+                            gear to mentorship sessions. Your contribution
+                            energizes the hackathon, showcases your support for
+                            emerging talent, and leaves a lasting impact.
+                        </p>
+                        <Button className="text-[18px]" onClick={() => {}}>
+                            Contact us here!
+                        </Button>{" "}
                     </div>
                 </div>
             </div>

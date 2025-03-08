@@ -2,13 +2,13 @@ import React from "react";
 
 function Page() {
     return (
-        <div className="flex flex-col w-screen items-center">
+        <div className="flex flex-col w-screen h-[100vh] items-center">
             <div className="max-w-[1000px] flex flex-col">
                 <div className="text-center p-6 md:p-8 mb-2 md:mb-4 px-4 overflow-x-auto">
-                    <h1 className="font-rubik-mono-one text-4xl md:text-5xl">
+                    <h1 className="font-h1 text-4xl md:text-5xl">
                         Join Us as a Judge!
                     </h1>
-                    <p className="pb-3 pl-6 font-h3 text-sm md:text-base mt-4 md:mt-6">
+                    <p className="border-2 border-black bg-white p-6 font-h3 text-sm md:text-base mt-4 md:mt-6">
                         {`We're looking for industry professionals, academics, and
                         experts who are passionate about technology and making
                         an impact. As a judge, you'll get a chance to engage
