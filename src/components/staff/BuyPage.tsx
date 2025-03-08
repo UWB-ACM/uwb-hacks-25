@@ -6,6 +6,7 @@ import PrizeCard from "@/src/components/staff/PrizeCard";
 import { Prize, TransactionType } from "@/src/util/dataTypes";
 import { SessionUser } from "@/src/util/session";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
+import Link from "next/link";
 
 export default function BuyPage({
     user,
@@ -52,7 +53,7 @@ export default function BuyPage({
         <>
             {/*
                 Header
-                
+
                 Contains:
                     - Title of Page ("Prizes")
                     - Person you're buying prizes for
@@ -75,8 +76,8 @@ export default function BuyPage({
             </div>
 
             {/*
-                Buy Prize 
-                
+                Buy Prize
+
                 Contains:
                     - Prize Cards
                     - Shopping Cart / Selected Items
@@ -108,13 +109,24 @@ export default function BuyPage({
                             ))}
                         </ul>
                     </div>
-                    {/* Complete Button */}
-                    <button
-                        className="p-4 bg-green-500 hover:bg-green-600/90 duration-300 border-[1px] border-black text-white"
-                        onClick={handleSubmit}
-                    >
-                        Complete
-                    </button>
+
+                    <div className="flex flex-col">
+                        {/* Complete Button */}
+                        <button
+                            className="p-4 bg-green-500 hover:bg-green-600/90 duration-300 border-[1px] border-black text-white"
+                            onClick={handleSubmit}
+                        >
+                            Complete
+                        </button>
+
+                        {/* exit button that returns user back to staff dashboard */}
+                        <Link
+                            className="p-4 bg-red-500 hover:bg-red-600/90 duration-300 border-[1px] border-black text-center text-white"
+                            href={`/staff/user/${user.id}`}
+                        >
+                            Exit
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

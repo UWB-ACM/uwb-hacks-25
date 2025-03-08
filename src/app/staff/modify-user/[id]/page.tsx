@@ -6,21 +6,22 @@ import {
     getTransactionsForUser,
 } from "@/src/util/db/transaction";
 import { Metadata } from "next";
+import { ensureStaffPermission, extractStaffUserData } from "@/src/util/staff";
 
 export const metadata: Metadata = {
     title: "Modify User | UWB Hacks 25",
 };
 
-export default async function Page() {
-    // TODO: Make this apply to the scanned user, not the staff member.
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
     const session = await getSession();
+    await ensureStaffPermission(session);
 
-    // The user must exist.
-    if (!session.user?.id) {
-        return <>A user must be selected first.</>;
-    }
+    const user = await extractStaffUserData((await params).id);
 
-    const user = session.user;
     const balance = await getBalanceForUser(user.id);
     const history = await getTransactionsForUser(user.id);
 
@@ -34,8 +35,7 @@ export default async function Page() {
                 <div>
                     {/* displaying name and email of user, will have to change once database integrated*/}
                     <div className="py-2">
-                        {user.name} | {user.name.toLowerCase().replace(" ", "")}
-                        @uw.edu
+                        {user.name} | {user.email}
                     </div>
                     {/* displaying number of hackeroons user has */}
                     <div className="py-2">
@@ -59,8 +59,8 @@ export default async function Page() {
                 </div>
                 {/* exit button that returns user back to staff dashboard */}
                 <Link
-                    className="py-3 rounded-lg text-center bg-green-500 text-white"
-                    href="/staff"
+                    className="py-3 rounded-lg text-center bg-red-500 text-white"
+                    href={`/staff/user/${user.id}`}
                 >
                     Exit
                 </Link>
