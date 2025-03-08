@@ -45,7 +45,7 @@ export default function BuyPage({
                 console.log(data);
             }
 
-            router.push("/staff/buy-prizes/transaction-complete");
+            router.push(`/staff/buy-prizes/${user.id}/transaction-complete`);
         }
     };
 
