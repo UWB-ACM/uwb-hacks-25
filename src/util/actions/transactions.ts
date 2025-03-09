@@ -26,19 +26,15 @@ export async function actionCreateTransaction(
 ): Promise<Transaction | null> {
     const session = await getSession();
     if (!session.user?.id) return null;
-    console.log("here1");
 
     // Ensure that the user has permisison.
     const permission = await getPermissionLevel(session.user.id);
-    console.log("here2", permission);
     if (
         permission == null ||
         !hasPermissions(permission, { has: PermissionLevel.Staff })
     ) {
         return null;
     }
-
-    console.log("here3");
 
     return await createTransaction(
         user,
