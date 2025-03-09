@@ -38,9 +38,9 @@ export const metadata: Metadata = {
         description,
         card: "summary_large_image",
         images: {
-            url: "https://uwbhacks.com/card-image.png",
-            width: 1500,
-            height: 750,
+            url: "https://uwbhacks.com/card-image.webp",
+            width: 1984,
+            height: 1208,
         },
     },
     openGraph: {
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
         description,
         locale: "en_US",
         images: {
-            url: "https://uwbhacks.com/card-image.png",
-            width: 1500,
-            height: 750,
+            url: "https://uwbhacks.com/card-image.webp",
+            width: 1984,
+            height: 1208,
         },
     },
     robots: "max-image-preview:large",
