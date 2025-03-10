@@ -6,11 +6,12 @@ import UWBBusinessImage from "@/public/sponsorsSection/uwb-business.png";
 import AvanadeImage from "@/public/sponsorsSection/avanade-logo.svg";
 import RedBullImage from "@/public/sponsorsSection/redbull-logo.svg";
 import UWBACMImage from "@/public/about/uwb-acm-logo.png";
+import AdobeImage from "@/public/sponsorsSection/adobe-logo.png";
 
 const SponsorsSection = () => {
     return (
         <>
-            <div className="h-full relative border-black py-[5rem] px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
+            <div className="h-[165vh] relative border-black py-[5rem] px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
                 {/* Background Image */}
 
                 <Image
@@ -73,21 +74,8 @@ const MobileSponsorsSection = () => {
                             alt="sponsor1"
                         ></Image>
                     </div>
-
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image src={UWBACMImage} width={175} alt="sponsor5" />
-                    </div>
-
-                    <div className="flex justify-center items-center p-6 transition">
-                        <Image src={UWBACMImage} width={175} alt="sponsor6" />
-                    </div>
-
-                    <div className="flex justify-center items-center p-6 transition">
-                        <Image src={UWBACMImage} width={175} alt="sponsor7" />
-                    </div>
-
-                    <div className="flex justify-center items-center p-6 transition">
-                        <Image src={UWBACMImage} width={175} alt="sponsor8" />
+                        <Image src={AdobeImage} width={175} alt="adobe" />
                     </div>
                 </div>
             </div>
@@ -114,7 +102,7 @@ const DesktopSponsorsSection = () => {
                     <div className="flex justify-center items-center p-6 transition">
                         <Image
                             src={AvanadeImage}
-                            width={300}
+                            width={350}
                             alt="sponsor3"
                         ></Image>
                     </div>
@@ -133,25 +121,25 @@ const DesktopSponsorsSection = () => {
                     <div className="flex justify-center items-center p-6 transition">
                         <Image
                             src={RedBullImage}
-                            width={85}
+                            width={70}
                             alt="sponsor1"
                         ></Image>
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image src={UWBACMImage} width={85} alt="sponsor5" />
+                        <Image src={AdobeImage} width={75} alt="adobe" />
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image src={UWBACMImage} width={85} alt="sponsor6" />
+                        <Image src={UWBACMImage} width={75} alt="sponsor6" />
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image src={UWBACMImage} width={85} alt="sponsor7" />
+                        <Image src={UWBACMImage} width={75} alt="sponsor7" />
                     </div>
 
                     <div className="flex justify-center items-center p-6 transition">
-                        <Image src={UWBACMImage} width={85} alt="sponsor8" />
+                        <Image src={UWBACMImage} width={75} alt="sponsor8" />
                     </div>
                 </div>
             </div>

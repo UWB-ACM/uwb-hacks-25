@@ -31,10 +31,17 @@ function SponsorInfo() {
                     Month of Hacking
                 </p>
                 <p className="text-center mt-5 mb-5 font-h3">
-                    In April, join us for a series of events to prepare for the
-                    hackathon. Earn points through our Hackeroons system,
-                    redeemable for prizes. On Demo Day, connect with industry
-                    professionals and find new talent.
+                    {`In April, we'll host a series of academic and fun activities
+                    to prepare participants for the main event, with at least 2
+                    events each week, totaling 8+ events. Some will be co-hosted
+                    by fellow clubs and the rest are open for sponsors to host.
+                    Hackeroons By participating in these events, students can
+                    prepare for the hackathon and earn points through our
+                    Hackeroons system, redeemable for prizes at the Hackeroon
+                    booth on event day. Demo Day On the final day of the
+                    hackathon, we’ll host a Demo Day alongside judging to
+                    connect students with industry professionals. As a sponsor,
+                    you will have direct access to find new talent.`}
                 </p>
                 <Button className="text-[25px]" onClick={() => {}}>
                     Learn More

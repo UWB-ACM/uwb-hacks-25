@@ -70,7 +70,7 @@ const AboutSectionDesktop: React.FC = () => (
             </p>
 
             <div className="absolute [width:20%] [bottom:calc(-50px_+_8vw)] [right:calc(35%_-_3vw)]">
-                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                <Link href="https://discord.gg/6AapzPNvRy" target="_blank">
                     <Image
                         src={DiscordFancyYellowImage}
                         alt="Discord"
@@ -160,10 +160,7 @@ const AboutSectionMobile: React.FC = () => (
             'grow [min-height:130vw] px-10 pt-10 gap-2 grid [grid-template-columns:1fr_1fr] [grid-template-rows:1fr_1fr_1fr_1fr_1fr_1fr] [grid-template-areas:"top_top"_"husky_husky"_"husky_husky"_"stats_prizes"_"acm_acm"_"acm_acm"]'
         }
         // TODO: How to represent this with tailwind?
-        style={{
-            background:
-                "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
-        }}
+        
     >
         <PolygonArea
             area="top"
@@ -203,7 +200,7 @@ const AboutSectionMobile: React.FC = () => (
             </p>
 
             <div className="absolute [width:30%] [bottom:10px] [right:10px]">
-                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
+                <Link href="https://discord.gg/6AapzPNvRy" target="_blank">
                     <Image
                         src={DiscordYellowImage}
                         alt="Discord"
