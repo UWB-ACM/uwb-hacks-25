@@ -160,7 +160,6 @@ const AboutSectionMobile: React.FC = () => (
             'grow [min-height:130vw] px-10 pt-10 gap-2 grid [grid-template-columns:1fr_1fr] [grid-template-rows:1fr_1fr_1fr_1fr_1fr_1fr] [grid-template-areas:"top_top"_"husky_husky"_"husky_husky"_"stats_prizes"_"acm_acm"_"acm_acm"]'
         }
         // TODO: How to represent this with tailwind?
-        
     >
         <PolygonArea
             area="top"

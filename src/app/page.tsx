@@ -190,7 +190,12 @@ export default function Page() {
                         <LeaderboardSection /> */}
                     </div>
                 </div>
-                <div id="tracks" className={`h-screen w-full max-w-[${minScreenSize}px]`} ref={tracksRef} style={{}}>
+                <div
+                    id="tracks"
+                    className={`h-screen w-full max-w-[${minScreenSize}px]`}
+                    ref={tracksRef}
+                    style={{}}
+                >
                     <TracksSection />
                 </div>
                 <div
@@ -209,10 +214,20 @@ export default function Page() {
                 >
                     <MeetTheTeamSection />
                 </div>
-                <div id="sponsors" ref={sponsorsRef} className="w-screen" style={{}}>
+                <div
+                    id="sponsors"
+                    ref={sponsorsRef}
+                    className="w-screen"
+                    style={{}}
+                >
                     <SponsorsSection />
                 </div>
-                <div id="faq" ref={faqRef} className={`w-full max-w-[${minScreenSize}px]`} style={{}}>
+                <div
+                    id="faq"
+                    ref={faqRef}
+                    className={`w-full max-w-[${minScreenSize}px]`}
+                    style={{}}
+                >
                     <FAQSection />
                 </div>
             </ParallaxProvider>

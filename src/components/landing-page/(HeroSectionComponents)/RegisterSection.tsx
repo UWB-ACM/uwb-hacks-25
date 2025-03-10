@@ -7,7 +7,7 @@ const RegisterSection = () => {
                 Assemble Your Squad & Answer the Call.
             </h2>
             {/* TODO: Add a link here. */}
-            <Button onClick={()=>{}} className="text-[23px]">
+            <Button onClick={() => {}} className="text-[23px]">
                 <a href="https://uwb-hacks-save-the-world.devpost.com/">
                     Register Here
                 </a>

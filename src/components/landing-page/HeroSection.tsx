@@ -11,7 +11,7 @@ const HeroSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-8 max-w-[1500px] mx-auto">
                     {/* Left Column - Logo and Volunteer */}
                     <div className="flex flex-col gap-12  max-w-md">
-                        <RegisterSection/>
+                        <RegisterSection />
                         <div className="hidden md:block">
                             <SponsorUsSection />
                         </div>
