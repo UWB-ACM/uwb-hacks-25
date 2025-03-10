@@ -1,75 +1,96 @@
+"use client";
+
 import React from "react";
+import Button from "@/src/components/Button";
+import Link from "next/link";
 
 function Sponsors() {
     return (
-        <div className="flex flex-col w-screen items-center">
+        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">
             <div className="max-w-[1200px] flex flex-col items-center">
-                <div className="text-center bg-white border-2 border-black p-6 md:p-8 m-4 md:m-4 shadow-lg px-4 overflow-x-auto w-full">
-                    <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
+                {/* Header Section */}
+                <div className="text-center w-full mb-12">
+                    <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-6">
                         Why Sponsor Us?
-                    </h2>
-                    <p className="pb-3 pl-6 md:pl-12 font-h3 text-xs md:text-base leading-6">
-                        Join us in empowering the next generation of tech
-                        leaders. UWB Hacks: Save the World brings together
-                        talented hackers for an innovation-driven event that
-                        promotes creativity, collaboration, diversity and
-                        real-world impact.
-                    </p>
+                    </h1>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                        {benefits.map((benefit, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-md rounded-xl"
+                            >
+                                <span className="text-3xl">{benefit.icon}</span>
+                                <h3 className="font-rubik-mono-one text-lg font-bold mt-2">
+                                    {benefit.text}
+                                </h3>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
-                <div className="flex flex-wrap justify-center w-full">
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-lg grow md:w-[300px]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
-                            📢 Elevate Your Brand
-                        </h2>
-                        <p className="font-h3 text-xs md:text-base leading-6">
-                            Gain visibility among students from UWB and top-tier
-                            institutions across the Puget Sound region.
-                            Sponsoring our hackathon sets your company apart as
-                            a leader in innovation and social responsibility.
-                        </p>
-                    </div>
-                    <div className="w-6"></div>
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-lg grow md:w-[300px]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
-                            🎯 Access Top Emerging Talent
-                        </h2>
-                        <p className="font-h3 text-xs md:text-base leading-6">
-                            Meet and recruit bright, motivated students who are
-                            ready to tackle real-world challenges. Our hackathon
-                            environment allows companies to connect with
-                            potential interns and hires.
-                        </p>
-                    </div>
-                </div>
-                <div className="flex flex-wrap justify-center w-full mt-6 mb-16 ">
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-lg grow md:w-[300px]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
-                            🚀 Drive Innovation & Community Impact{" "}
-                        </h2>
-                        <p className="font-h3 text-xs md:text-base leading-6">
-                            Support creative solutions to global challenges by
-                            providing mentorship, tools, and resources. Sponsors
-                            can receive real-time feedback on APIs, development
-                            tools, or products.
-                        </p>
-                    </div>
-                    <div className="w-6"></div>
-                    <div className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-lg grow md:w-[300px]">
-                        <h2 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
-                            🤝 Engage with Hackers
-                        </h2>
-                        <p className="font-h3 text-xs md:text-base leading-6">
-                            Host workshops, sponsor challenge tracks, or provide
-                            proprietary tools to guide participants in building
-                            impactful projects. Directly interact with students
-                            and help shape the future of tech.
-                        </p>
-                    </div>
+                <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8">
+                    Sponsorship Opportunities
+                </h1>
+
+                {/* Sponsorship Options */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                    {sponsorshipOptions.map((option, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col items-center text-center bg-white border-2 border-black p-8 shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300"
+                        >
+                            <h2 className="font-rubik-mono-one text-xl font-bold">
+                                {option.title}
+                            </h2>
+                            <p className="font-h3 text-base leading-6 my-4">
+                                {option.description}
+                            </p>
+                            <Link href={option.link}>
+                                <Button
+                                    onClick={() => {}}
+                                    className="text-lg px-6 py-2"
+                                >
+                                    Sponsor
+                                </Button>
+                            </Link>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
     );
 }
+
+const benefits = [
+    { icon: "🎯", text: "Access Top Talent" },
+    { icon: "🚀", text: "Drive Innovation" },
+    { icon: "🎓", text: "Impact the Community" },
+];
+
+const sponsorshipOptions = [
+    {
+        title: "Luncheon",
+        description: "Support networking opportunities over a sponsored meal.",
+        link: "/sponsor/luncheon",
+    },
+    {
+        title: "Fun Activities",
+        description:
+            "Fund engaging activities to create memorable experiences.",
+        link: "/sponsor/activities",
+    },
+    {
+        title: "Tracks",
+        description:
+            "Support hackathon participants by sponsoring challenge tracks.",
+        link: "/sponsor/tracks",
+    },
+    {
+        title: "Workshops",
+        description:
+            "Host workshops, sponsor challenge tracks, or provide mentorship.",
+        link: "/sponsor/workshops",
+    },
+];
 
 export default Sponsors;

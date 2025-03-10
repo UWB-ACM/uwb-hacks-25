@@ -7,7 +7,7 @@ const VolunteerSection = () => {
                 Be the power behind the superpowers!
             </h2>
             {/* TODO: Add a link here. */}
-            <Button>Volunteer</Button>
+            <Button onClick={() => {}}>Volunteer</Button>
         </div>
     );
 };
