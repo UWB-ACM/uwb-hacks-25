@@ -17,33 +17,28 @@ export default function RootLayout({
                 links={[
                     {
                         id: "sponsor",
-                        name: "Why Work With Us",
+                        name: "Sponsor",
                         url: "/sponsor",
                     },
                     {
-                        id: "prizes",
-                        name: "Prizes",
-                        url: "/sponsor/prizes",
+                        id: "tracks",
+                        name: "Tracks",
+                        url: "/sponsor/tracks",
                     },
                     {
-                        id: "judging",
-                        name: "Judging",
-                        url: "/sponsor/judging",
+                        id: "luncheon",
+                        name: "Luncheon",
+                        url: "/sponsor/luncheon",
                     },
                     {
-                        id: "hackeroons",
-                        name: "Hackeroons",
-                        url: "/sponsor/hackeroons",
+                        id: "activities",
+                        name: "Actvities",
+                        url: "/sponsor/activities",
                     },
                     {
                         id: "workshops",
                         name: "Workshops",
                         url: "/sponsor/workshops",
-                    },
-                    {
-                        id: "other",
-                        name: "Other",
-                        url: "/sponsor/other",
                     },
                 ]}
             />

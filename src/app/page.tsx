@@ -34,6 +34,8 @@ export default function Page() {
     const faqRef = useRef<HTMLDivElement>(null);
     const lenis = useRef<Lenis | null>(null);
 
+    const minScreenSize = 1200;
+
     const [showGoTop, setShowGoTop] = useState(false);
 
     useEffect(() => {
@@ -60,17 +62,17 @@ export default function Page() {
     const scrollToTop = () => {
         if (lenis.current) {
             lenis.current.scrollTo(0, {
-                duration: 1.5,
+                duration: 0.4,
                 easing: (t: number) => t,
             });
         }
     };
 
     return (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col items-center">
             <button
                 onClick={scrollToTop}
-                className={`fixed z-[100] w-20 h-20 bottom-4 bg-white rounded-lg right-10 scroll-up-animation ${
+                className={`fixed z-[100] w-16 h-16 bottom-4 bg-white border-black border-2 right-10 scroll-up-animation ${
                     showGoTop ? "" : "hidden"
                 }`}
             >
@@ -165,20 +167,35 @@ export default function Page() {
                     </Parallax>
                 </div>
 
-                <div id="about" ref={aboutRef} className="w-full flex">
-                    <AboutSection />
+                <div
+                    id="about"
+                    ref={aboutRef}
+                    className="w-full flex justify-center"
+                    style={{
+                        background:
+                            "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
+                    }}
+                >
+                    <div className={`w-full max-w-[${minScreenSize}px]`}>
+                        <AboutSection />
+                    </div>
                 </div>
 
                 {/* TODO - release all of these the day of the event */}
-                <div className="" style={{}}>
-                    <div className="flex w-full justify-center px-10">
+                <div className={`w-full max-w-[${minScreenSize}px]`} style={{}}>
+                    <div className="flex flex-col w-full justify-center px-10">
                         {/* TODO unlock this during the day of the hackathon */}
                         <SponsorInfo />
                         {/* <WhatsNewSection />
                         <LeaderboardSection /> */}
                     </div>
                 </div>
-                <div id="tracks" ref={tracksRef} style={{}}>
+                <div
+                    id="tracks"
+                    className={`h-screen w-full max-w-[${minScreenSize}px]`}
+                    ref={tracksRef}
+                    style={{}}
+                >
                     <TracksSection />
                 </div>
                 <div
@@ -192,15 +209,25 @@ export default function Page() {
                 <div
                     id="team"
                     ref={meetTheTeamRef}
-                    className="min-h-screen overflow-auto"
+                    className="min-h-screen overflow-auto w-full"
                     style={{}}
                 >
                     <MeetTheTeamSection />
                 </div>
-                <div id="sponsors" ref={sponsorsRef} className="" style={{}}>
+                <div
+                    id="sponsors"
+                    ref={sponsorsRef}
+                    className="w-screen"
+                    style={{}}
+                >
                     <SponsorsSection />
                 </div>
-                <div id="faq" ref={faqRef} className=" h-screen" style={{}}>
+                <div
+                    id="faq"
+                    ref={faqRef}
+                    className={`w-full max-w-[${minScreenSize}px]`}
+                    style={{}}
+                >
                     <FAQSection />
                 </div>
             </ParallaxProvider>
