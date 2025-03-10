@@ -3,6 +3,7 @@ import React from "react";
 import { Inter, Rubik_Mono_One, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "../util/lenis";
+import Footer from "../components/Footer";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -72,7 +73,10 @@ export default function RootLayout({
             <body
                 className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-screen`}
             >
-                <ReactLenis root>{children}</ReactLenis>
+                <ReactLenis root>
+                    {children}
+                    <Footer />
+                </ReactLenis>
             </body>
         </html>
     );
