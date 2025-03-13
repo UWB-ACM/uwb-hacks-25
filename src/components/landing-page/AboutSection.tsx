@@ -63,10 +63,10 @@ const AboutSectionDesktop: React.FC = () => (
             </div>
 
             <p className="text-left absolute [width:35%] [top:8%] [right:20px] font-inter [font-size:calc(0.1rem_+_0.90vw)]">
-                UWB Hacks: Saves the World! is an annual hackathon teaching students
-                computer science while preparing them for tech and business
-                careers through hands-on learning and professional networking.
-                Learn more in our Discord!
+                UWB Hacks: Saves the World! is an annual hackathon teaching
+                students computer science while preparing them for tech and
+                business careers through hands-on learning and professional
+                networking. Learn more in our Discord!
             </p>
 
             <div className="absolute [width:20%] [bottom:calc(-50px_+_8vw)] [right:calc(35%_-_3vw)]">
