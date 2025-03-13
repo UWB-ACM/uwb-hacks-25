@@ -62,7 +62,7 @@ const AboutSectionDesktop: React.FC = () => (
                 <Image src={HuskyImage} alt="Husky Mascot" />
             </div>
 
-            <p className="text-left absolute [width:35%] [top:10%] [right:20px] font-family:var(--font-rubik-mono-one)] [font-size:calc(0.1rem_+_1vw)]">
+            <p className="text-left absolute [width:35%] [top:8%] [right:20px] font-inter [font-size:calc(0.1rem_+_0.90vw)]">
                 UWB: Saves the World! is an annual hackathon teaching students
                 computer science while preparing them for tech and business
                 careers through hands-on learning and professional networking.
@@ -89,13 +89,9 @@ const AboutSectionDesktop: React.FC = () => (
         >
             <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
                 <div className="flex-grow" />
-                <p>
-                    <strong> $8,800+ </strong> in prizes
-                </p>
+                <p>$8,800+ in prizes</p>
                 <div className="flex-grow" />
-                <p>
-                    <strong> 11 </strong> Schools
-                </p>
+                <p>11 Schools</p>
                 <p className="[font-size:calc(0.1rem_+_1.25vw)]">
                     (University/College/High School)
                 </p>
@@ -111,14 +107,9 @@ const AboutSectionDesktop: React.FC = () => (
         >
             <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
                 <div className="flex-grow" />
-                <p>
-                    {" "}
-                    <strong> 350+ </strong> Hackers
-                </p>
+                <p> 350+ Hackers</p>
                 <div className="flex-grow" />
-                <p>
-                    <strong> 65 </strong> Projects
-                </p>
+                <p>65 Projects</p>
                 <div className="flex-grow" />
             </div>
         </PolygonArea>
@@ -143,11 +134,11 @@ const AboutSectionDesktop: React.FC = () => (
                 UWB Association For Computing Machinery
             </p>
 
-            <p className="text-left absolute [width:60%] [bottom:calc(1%_+_0.75vw)] [left:40px] font-family:var(--font-rubik-mono-one)] [font-size:calc(0.1rem_+_1vw)]">
+            <p className="text-left absolute [width:60%] [bottom:calc(1%_+_0.75vw)] [left:40px] font-inter [font-size:calc(0.1rem_+_1vw)]">
                 UWB ACM is a chapter of the Association of Computing Machinery
                 at UWB dedicated to creating events and providing insight into
                 academics, research, and careers related to Computer Science.
-                Learn more here.
+                Learn more in our Discord!
             </p>
 
             <div className="absolute [width:20%] [bottom:-10px] [right:calc(40px_+_0.4vw)]">
