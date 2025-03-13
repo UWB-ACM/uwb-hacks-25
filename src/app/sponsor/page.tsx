@@ -13,12 +13,12 @@ function Sponsors() {
                     Why Sponsor Us?
                 </h1>
                 {/* Why Sponsor Us? Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-content-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 place-content-center">
                     {benefits.map((benefit, index) => (
                         <div key={index} className="flex justify-center">
                             <div className="w-[70%] md:w-full flex flex-col gap-y-2 justify-between text-center bg-white border-2 border-black p-6 rounded-xl duration-300 hover:shadow-[inset_-3px_-3px_0px_0_rgba(0,0,0,0.9)] hover:-translate-x-1 hover:-translate-y-1">
                                 <span className="text-3xl">{benefit.icon}</span>
-                                <h3 className="text-xl font-bold">
+                                <h3 className="text-lg lg:text-xl">
                                     {benefit.text}
                                 </h3>
                             </div>
