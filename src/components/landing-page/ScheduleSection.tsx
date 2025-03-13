@@ -6,7 +6,7 @@ const ScheduleSection: React.FC = () => {
     return (
         <>
             <div className="self-center col-span-1 md:col-span-3 mb-4 md:mb-6">
-                <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
+                <h2 className="[color:#49B2F8] [font-family:san-marino-beach] text-5xl">
                     SCHEDULE
                 </h2>
             </div>
