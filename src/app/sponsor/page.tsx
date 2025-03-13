@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function Sponsors() {
     return (
-        <div className="px-6 md:px-12 py-12">
+        <div className="px-6 md:px-[10rem] py-12">
             {/* Why Sponsor Us? Header Section */}
             <section>
                 <h1 className="font-san-marino-beach text-5xl text-center text-[#2886c4] pb-2">
