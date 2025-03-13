@@ -4,6 +4,8 @@ import { Inter, Rubik_Mono_One, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "../util/lenis";
 import Footer from "../components/Footer";
+import { NavLinksProvider } from "../context/NavLinkContext";
+import Header from "../components/header/Header";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -73,10 +75,13 @@ export default function RootLayout({
             <body
                 className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-screen`}
             >
-                <ReactLenis root>
-                    {children}
-                    <Footer />
-                </ReactLenis>
+                <NavLinksProvider>
+                    <ReactLenis root>
+                        {/* <Header /> */}
+                        {children}
+                        <Footer />
+                    </ReactLenis>
+                </NavLinksProvider>
             </body>
         </html>
     );
