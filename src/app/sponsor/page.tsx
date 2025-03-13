@@ -6,17 +6,17 @@ import Link from "next/link";
 
 function Sponsors() {
     return (
-        <div className="px-6 md:px-[10rem] py-12">
+        <div className="px-6 md:px-[10rem] py-6">
             {/* Why Sponsor Us? Header Section */}
             <section>
-                <h1 className="font-san-marino-beach text-5xl text-center text-[#2886c4] pb-2">
+                <h1 className="font-san-marino-beach text-4xl md:text-5xl text-center text-[#2886c4] pb-2">
                     Why Sponsor Us?
                 </h1>
                 {/* Why Sponsor Us? Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-content-center">
                     {benefits.map((benefit, index) => (
                         <div key={index} className="flex justify-center">
-                            <div className="w-[70%] md:w-full flex flex-col gap-y-2 justify-around text-center bg-white border-2 border-black p-6 rounded-xl duration-300 hover:shadow-[inset_-3px_-3px_0px_0_rgba(0,0,0,0.9)] hover:-translate-x-1 hover:-translate-y-1">
+                            <div className="w-[70%] md:w-full flex flex-col gap-y-2 justify-between text-center bg-white border-2 border-black p-6 rounded-xl duration-300 hover:shadow-[inset_-3px_-3px_0px_0_rgba(0,0,0,0.9)] hover:-translate-x-1 hover:-translate-y-1">
                                 <span className="text-3xl">{benefit.icon}</span>
                                 <h3 className="text-xl font-bold">
                                     {benefit.text}
@@ -30,14 +30,14 @@ function Sponsors() {
             {/* Sponsorship Opportunities Section */}
             <section>
                 {/* Header */}
-                <h1 className="font-san-marino-beach text-5xl text-center text-[#2886c4] pb-2 mt-12">
+                <h1 className="font-san-marino-beach text-4xl md:text-5xl text-center text-[#2886c4] pb-2 mt-12">
                     Sponsorship Opportunities
                 </h1>
                 {/* Cards */}
                 <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
                     {sponsorshipOptions.map((option, index) => (
                         <div key={index} className="flex justify-center w-full">
-                            <div className="w-[75%] md:w-full flex flex-col items-center justify-center text-center bg-white border-2 border-black p-6 rounded-xl duration-300 hover:shadow-[inset_-3px_-3px_0px_0_rgba(0,0,0,0.9)] hover:-translate-x-1 hover:-translate-y-1">
+                            <div className="w-[75%] md:w-full flex flex-col items-center justify-between text-center bg-white border-2 border-black p-6 rounded-xl duration-300 hover:shadow-[inset_-3px_-3px_0px_0_rgba(0,0,0,0.9)] hover:-translate-x-1 hover:-translate-y-1">
                                 <h2 className="text-2xl font-bold">
                                     {option.title}
                                 </h2>
