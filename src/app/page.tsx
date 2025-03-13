@@ -192,7 +192,7 @@ export default function Page() {
                 </div>
                 <div
                     id="tracks"
-                    className={`h-screen w-full max-w-[${minScreenSize}px]`}
+                    className={`w-full max-w-[${minScreenSize}px]`}
                     ref={tracksRef}
                     style={{}}
                 >
@@ -201,7 +201,7 @@ export default function Page() {
                 <div
                     id="schedule"
                     ref={scheduleRef}
-                    className=" min-h-screen flex flex-col pt-10"
+                    className="flex flex-col pt-10"
                     style={{}}
                 >
                     <ScheduleSection />
@@ -209,7 +209,7 @@ export default function Page() {
                 <div
                     id="team"
                     ref={meetTheTeamRef}
-                    className="min-h-screen overflow-auto w-full"
+                    className="overflow-auto w-full"
                     style={{}}
                 >
                     <MeetTheTeamSection />
@@ -217,7 +217,7 @@ export default function Page() {
                 <div
                     id="sponsors"
                     ref={sponsorsRef}
-                    className="w-screen"
+                    className="w-screen mb-[7rem] lg:mb-[-1rem]"
                     style={{}}
                 >
                     <SponsorsSection />
