@@ -69,7 +69,7 @@ export default function Page() {
   }
 
   return (
-    <div className="flex flex-col items-center w-full overflow-hidden">
+    <div className="flex flex-col items-center w-screen overflow-hidden">
       <button
         onClick={scrollToTop}
         className={`fixed z-[100] w-12 h-12 bottom-4 bg-white border-black border-2 right-4 scroll-up-animation ${
@@ -164,17 +164,19 @@ export default function Page() {
         </div>
 
         {/* TODO - release all of these the day of the event */}
-        <div className="w-full px-4 md:px-8 lg:px-10 overflow-hidden">
-          <div className="flex flex-col w-full justify-center">
+        <div className="w-[90vw] px-4 md:px-8 lg:px-10 overflow-hidden">
+          <div className="flex flex-col justify-center">
             {/* TODO unlock this during the day of the hackathon */}
             <SponsorInfo />
             {/* <WhatsNewSection />
         <LeaderboardSection /> */}
-          </div>
-        </div>
-        <div id="tracks" className="w-full px-4 md:px-8 lg:px-10 overflow-hidden" ref={tracksRef}>
+        <div id="tracks" className="w-full overflow-hidden" ref={tracksRef}>
           <TracksSection />
         </div>
+          </div>
+
+        </div>
+        
         <div id="schedule" ref={scheduleRef} className="flex flex-col p-6 mt-[4rem] w-full overflow-hidden">
           <ScheduleSection />
         </div>
