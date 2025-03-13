@@ -11,7 +11,7 @@ import AdobeImage from "@/public/sponsorsSection/adobe-logo.png";
 const SponsorsSection = () => {
     return (
         <>
-            <div className="h-[165vh] relative border-black py-[5rem] px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
+            <div className="h-[100vh] relative border-black py-[5rem] px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
                 {/* Background Image */}
 
                 <Image
@@ -86,7 +86,7 @@ const MobileSponsorsSection = () => {
 const DesktopSponsorsSection = () => {
     return (
         <>
-            <div className="absolute flex flex-col items-center h-[8%] w-[80%] top-[30%] left-[10%]">
+            <div className="absolute flex flex-col items-center h-[8%] w-[80%] lg:top-[20%] left-[10%]">
                 {/* sponsor grid */}
                 <h2 className="justify-center items-center font-h1 text-[#49B2F8] mb-[2rem] md:text-5xl lg:text-5xl text-center">
                     UWB HACKS 2025 SPONSORS
