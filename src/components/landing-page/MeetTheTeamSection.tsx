@@ -17,9 +17,9 @@ const MeetTheTeamSection = () => {
     return (
         <div className="p-6 space-y-8">
             {/* Heading */}
-                <h2 className="[color:#49B2F8] text-center [font-family:san-marino-beach] text-5xl">
-                    MEET THE LEAGUE
-                </h2>
+            <h2 className="[color:#49B2F8] text-center [font-family:san-marino-beach] text-5xl">
+                MEET THE LEAGUE
+            </h2>
 
             {/* Tabs */}
             <CommitteeTabs
