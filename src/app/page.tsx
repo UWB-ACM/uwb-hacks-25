@@ -69,7 +69,7 @@ export default function Page() {
   }
 
   return (
-    <div className="flex flex-col items-center w-screen overflow-hidden">
+    <div className="flex flex-col items-center w-[screen] overflow-hidden">
       <button
         onClick={scrollToTop}
         className={`fixed z-[100] w-12 h-12 bottom-4 bg-white border-black border-2 right-4 scroll-up-animation ${
@@ -186,7 +186,7 @@ export default function Page() {
         <div id="sponsors" ref={sponsorsRef} className="w-full mb-[7rem] lg:mb-[-1rem] overflow-hidden">
           <SponsorsSection />
         </div>
-        <div id="faq" ref={faqRef} className="w-full overflow-hidden">
+        <div id="faq" ref={faqRef} className="w-[80vw] " >
           <FAQSection />
         </div>
       </ParallaxProvider>
