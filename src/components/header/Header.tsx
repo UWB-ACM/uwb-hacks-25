@@ -221,7 +221,7 @@ function HeaderSidebar({
 }) {
     return (
         <div
-            className={`bg-orange-300 fixed w-screen h-screen p-5 font-h1 text-3xl transition-transform [z-index:1000]`}
+            className={`md:hidden bg-orange-300 fixed w-screen h-screen p-5 font-h1 text-3xl transition-transform [z-index:1000]`}
             style={{
                 transform: sideNav ? undefined : "translate(100%, 0)",
             }}
