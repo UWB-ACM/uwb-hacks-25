@@ -21,17 +21,88 @@ import ScrollImage from "@/public/hero/scroll-top.svg";
 import BackgroundImage from "@/public/hero/background.png";
 import MidgroundImage from "@/public/hero/midground.png";
 import ForegroundImage from "@/public/hero/foreground.png";
-import "../styles/globals.css";
 import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
+import { useContext, RefObject } from "react";
+import { NavLinksContext } from "../context/NavLinkContext";
+
 export default function Page() {
+    type NavLink = {
+        label?: string;
+        id: string;
+        url: string;
+        scrollRef: RefObject<HTMLDivElement | null>;
+        dropDownLinks?: NavLink[];
+    };
+
     const mainRef = useRef<HTMLDivElement>(null);
+    const mainNavLink: NavLink = {
+        id: "main",
+        url: "/#main",
+        scrollRef: mainRef,
+    };
+
     const aboutRef = useRef<HTMLDivElement>(null);
+    const aboutNavLink: NavLink = {
+        label: "About",
+        id: "about",
+        url: "/#about",
+        scrollRef: aboutRef,
+    };
+
     const tracksRef = useRef<HTMLDivElement>(null);
+    const tracksNavLink: NavLink = {
+        label: "Tracks",
+        id: "tracks",
+        url: "/#tracks",
+        scrollRef: tracksRef,
+    };
+
     const scheduleRef = useRef<HTMLDivElement>(null);
+    const scheduleNavLink: NavLink = {
+        label: "Schedule",
+        id: "schedule",
+        url: "/#schedule",
+        scrollRef: scheduleRef,
+    };
+
     const meetTheTeamRef = useRef<HTMLDivElement>(null);
+    const meetTheTeamNavLink: NavLink = {
+        label: "Meet The Team",
+        id: "meet-the-team",
+        url: "/#meet-the-team",
+        scrollRef: meetTheTeamRef,
+    };
+
     const sponsorsRef = useRef<HTMLDivElement>(null);
+    const sponsorsNavLink: NavLink = {
+        label: "Sponsors",
+        id: "sponsors",
+        url: "/#sponsors",
+        scrollRef: sponsorsRef,
+    };
+
     const faqRef = useRef<HTMLDivElement>(null);
+    const faqNavLink: NavLink = {
+        label: "FAQ",
+        id: "faq",
+        url: "/#faq",
+        scrollRef: faqRef,
+    };
+
+    const { navLinks, setNavLinks } = useContext(NavLinksContext);
+    useEffect(() => {
+        setNavLinks([
+            mainNavLink,
+            aboutNavLink,
+            tracksNavLink,
+            scheduleNavLink,
+            meetTheTeamNavLink,
+            sponsorsNavLink,
+            faqNavLink,
+        ]);
+    }, []);
+
     const lenis = useRef<Lenis | null>(null);
 
     const minScreenSize = 1200;
