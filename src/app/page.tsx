@@ -129,7 +129,7 @@ export default function Page() {
               src={BackgroundImage || "/placeholder.svg"}
               priority
               alt=""
-              className="absolute object-cover w-full h-full"
+              className="absolute object-cover w-full h-full overflow-hidden"
             />
           </Parallax>
           <Parallax speed={-20} className="absolute w-full h-full z-[-2] bottom-[0] overflow-hidden">
@@ -186,7 +186,7 @@ export default function Page() {
         <div id="sponsors" ref={sponsorsRef} className="w-full mb-[7rem] lg:mb-[-1rem] overflow-hidden">
           <SponsorsSection />
         </div>
-        <div id="faq" ref={faqRef} className="w-[80vw] " >
+        <div id="faq" ref={faqRef} className="w-[90vw]" >
           <FAQSection />
         </div>
       </ParallaxProvider>

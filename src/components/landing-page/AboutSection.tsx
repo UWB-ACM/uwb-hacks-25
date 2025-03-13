@@ -63,7 +63,7 @@ const AboutSectionDesktop: React.FC = () => (
             </div>
 
             <p className="text-left absolute [width:35%] [top:8%] [right:20px] font-inter [font-size:calc(0.1rem_+_0.90vw)]">
-                UWB: Saves the World! is an annual hackathon teaching students
+                UWB Hacks: Saves the World! is an annual hackathon teaching students
                 computer science while preparing them for tech and business
                 careers through hands-on learning and professional networking.
                 Learn more in our Discord!
