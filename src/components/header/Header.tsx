@@ -4,6 +4,9 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 import Link from "next/link";
 import "../../styles/header.css";
 
+import { CiMenuBurger } from "react-icons/ci";
+import { IoIosClose } from "react-icons/io";
+
 export type HeaderLinkData = { id: string; name: string } & (
     | { url: string }
     | { url: string; scrollRef: React.RefObject<HTMLDivElement | null> }
@@ -65,7 +68,7 @@ function UWBHacksButton({
                 className={
                     mobile
                         ? "font-h1 text-3xl tilt-animation scale-up-animation"
-                        : "font-h1 text-5xl scale-up-animation"
+                        : "font-h1 text-4xl lg:text-5xl scale-up-animation"
                 }
             >
                 {wrapH1 ? <h1>{inner}</h1> : inner}
@@ -115,7 +118,7 @@ function HeaderDesktop({
         <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full ">
             <UWBHacksButton wrapH1={wrapH1} />
 
-            <div className="hidden md:flex gap-x-10 ">
+            <div className="hidden md:flex gap-x-6 lg:gap-x-8">
                 {links.map((link) => (
                     <HeaderLink key={link.id} link={link} />
                 ))}
@@ -145,16 +148,13 @@ function HeaderSidebarButton({
     setSideNav: Dispatch<SetStateAction<boolean>>;
 }) {
     return (
-        <>
-            <button
-                className="bg-gray-200 w-12 h-12 flex justify-center items-center"
-                onClick={() => {
-                    setSideNav(true);
-                }}
-            >
-                X
-            </button>
-        </>
+        <button
+            onClick={() => {
+                setSideNav((prev) => !prev);
+            }}
+        >
+            <CiMenuBurger className="w-[30px] h-[30px]" />
+        </button>
     );
 }
 
@@ -169,7 +169,11 @@ function HeaderSidebarLink({
 
     if ("scrollRef" in link) {
         return (
-            <Link href={link.url} scroll={false} className="text-center">
+            <Link
+                href={link.url}
+                scroll={false}
+                className="text-center w-[80%] pb-4 border-b-[1px] border-black"
+            >
                 <button
                     className={linkClassName}
                     onClick={() => {
@@ -190,7 +194,10 @@ function HeaderSidebarLink({
     }
 
     return (
-        <Link href={link.url} className="text-center">
+        <Link
+            href={link.url}
+            className="text-center w-[80%] pb-4 border-b-[1px] border-black"
+        >
             <button
                 className={linkClassName}
                 onClick={() => {
@@ -219,11 +226,13 @@ function HeaderSidebar({
                 transform: sideNav ? undefined : "translate(100%, 0)",
             }}
         >
-            <button className="" onClick={() => setSideNav(false)}>
-                X
-            </button>
-            <div className="flex flex-col gap-y-5 justify-around h-1/2 pt-[5rem]">
-                {links.map((link) => (
+            <div className="flex justify-end">
+                <button onClick={() => setSideNav((prev) => !prev)}>
+                    <IoIosClose className="w-[40px] h-[40px] m-4" />
+                </button>
+            </div>
+            <div className="flex flex-col items-center gap-y-6 pt-4">
+                {links.map((link, index) => (
                     <HeaderSidebarLink
                         key={link.id}
                         link={link}
