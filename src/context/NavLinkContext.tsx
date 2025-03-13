@@ -13,7 +13,7 @@ type NavLink = {
     label?: string;
     id: string;
     url: string;
-    scrollRef: RefObject<HTMLDivElement | null>;
+    scrollRef?: RefObject<HTMLDivElement | null>;
     dropDownLinks?: NavLink[];
 };
 

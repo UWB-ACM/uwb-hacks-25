@@ -31,7 +31,7 @@ export default function Page() {
         label?: string;
         id: string;
         url: string;
-        scrollRef: RefObject<HTMLDivElement | null>;
+        scrollRef?: RefObject<HTMLDivElement | null>;
         dropDownLinks?: NavLink[];
     };
 
@@ -40,6 +40,38 @@ export default function Page() {
         id: "main",
         url: "/#main",
         scrollRef: mainRef,
+    };
+
+    const sponsorTracksNavLink: NavLink = {
+        label: "Tracks",
+        id: "sponsor-tracks",
+        url: "/sponsor/tracks",
+    };
+    const sponsorWorkshopsNavLink: NavLink = {
+        label: "Workshops",
+        id: "sponsor-workshops",
+        url: "/sponsor/workshops",
+    };
+    const sponsorLuncheonNavLink: NavLink = {
+        label: "Luncheon",
+        id: "sponsor-luncheon",
+        url: "/sponsor/luncheon",
+    };
+    const sponsorActivitiesNavLink: NavLink = {
+        label: "Activities",
+        id: "sponsor-activities",
+        url: "/sponsor/activities",
+    };
+    const sponsorUsNavLink: NavLink = {
+        label: "Sponsor Us",
+        id: "sponsor-us",
+        url: "/sponsor",
+        dropDownLinks: [
+            sponsorTracksNavLink,
+            sponsorWorkshopsNavLink,
+            sponsorLuncheonNavLink,
+            sponsorActivitiesNavLink,
+        ],
     };
 
     const aboutRef = useRef<HTMLDivElement>(null);
