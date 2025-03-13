@@ -122,7 +122,7 @@ export default function Page() {
         scrollRef: faqRef,
     };
 
-    const { navLinks, setNavLinks } = useContext(NavLinksContext);
+    const { setNavLinks } = useContext(NavLinksContext);
     useEffect(() => {
         setNavLinks([
             mainNavLink,
@@ -193,7 +193,7 @@ export default function Page() {
                     className="w-full min-h-[100vh] bg-blue flex flex-col relative"
                 >
                     {/* Wrap H1 is used for the main page. */}
-                    <Header
+                    {/* <Header
                         links={[
                             {
                                 id: "sponsor",
@@ -231,7 +231,7 @@ export default function Page() {
                             },
                         ]}
                         wrapH1
-                    />
+                    /> */}
 
                     <HeroSection />
 

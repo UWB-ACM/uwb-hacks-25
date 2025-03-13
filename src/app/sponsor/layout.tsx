@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
     return (
         <div className={`w-screen`}>
-            <Header
+            {/* <Header
                 links={[
                     {
                         id: "sponsor",
@@ -41,7 +41,7 @@ export default function RootLayout({
                         url: "/sponsor/workshops",
                     },
                 ]}
-            />
+            /> */}
             {children}
         </div>
     );
