@@ -10,11 +10,11 @@ import {
 } from "react";
 
 type NavLink = {
-    label: string;
+    label?: string;
     id: string;
     url: string;
-    scrollRef: RefObject<HTMLDivElement> | null;
-    dropDownLinks: NavLink[] | null;
+    scrollRef: RefObject<HTMLDivElement | null>;
+    dropDownLinks?: NavLink[];
 };
 
 type NavLinksContextType = {
