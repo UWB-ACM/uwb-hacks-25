@@ -57,7 +57,7 @@ const TracksSection = () => {
     }, []);
 
     return (
-        <div className="mt-10 relative flex-col p-4 flex items-center bg-white border-[3px] border-black overflow-hidden">
+        <div className="h-screen mt-10 relative flex-col p-4 flex items-center bg-white border-[3px] border-black overflow-hidden">
             {/* Random question marks */}
             <Image
                 className="questionMark absolute top-[10%] left-[10%] -rotate-[12deg]"
