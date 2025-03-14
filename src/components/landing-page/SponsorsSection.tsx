@@ -126,7 +126,7 @@ const DesktopSponsorsSection = () => {
                         ></Image>
                     </div>
 
-                    <div className="flex justify-center items-center p-6 transition">
+                    {/* <div className="flex justify-center items-center p-6 transition">
                         <Image src={AdobeImage} width={75} alt="adobe" />
                     </div>
 
@@ -140,7 +140,7 @@ const DesktopSponsorsSection = () => {
 
                     <div className="flex justify-center items-center p-6 transition">
                         <Image src={UWBACMImage} width={75} alt="sponsor8" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
