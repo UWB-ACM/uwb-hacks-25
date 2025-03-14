@@ -11,7 +11,7 @@ import AdobeImage from "@/public/sponsorsSection/adobe-logo.png";
 const SponsorsSection = () => {
     return (
         <>
-            <div className="h-[100vh] relative border-black px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
+            <div className="h-[130vh] relative border-black px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
                 {/* Background Image */}
 
                 <Image

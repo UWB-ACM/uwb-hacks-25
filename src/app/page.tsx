@@ -22,7 +22,6 @@ import BackgroundImage from "@/public/hero/background.png";
 import MidgroundImage from "@/public/hero/midground.png";
 import ForegroundImage from "@/public/hero/foreground.png";
 import "../styles/globals.css";
-import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
 export default function Page() {
     const mainRef = useRef<HTMLDivElement>(null);
@@ -184,23 +183,6 @@ export default function Page() {
                 </div>
 
                 {/* TODO - release all of these the day of the event */}
-                <div
-                    className={`w-full max-w-[${minScreenSize}px] px-10 sm:px-4 overflow-hidden`}
-                >
-                    <div className="flex flex-col justify-center">
-                        {/* TODO unlock this during the day of the hackathon */}
-                        <SponsorInfo />
-                        {/* <WhatsNewSection />
-        <LeaderboardSection /> */}
-                    </div>
-                    <div
-                        id="tracks"
-                        className={`w-full max-w-[${minScreenSize}px] overflow-hidden`}
-                        ref={tracksRef}
-                    >
-                        <TracksSection />
-                    </div>
-                </div>
                 <div
                     id="tracks"
                     className={`min-h-screen w-full max-w-[${minScreenSize}px]`}
