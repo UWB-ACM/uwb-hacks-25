@@ -3,61 +3,94 @@
 import React from "react";
 import Button from "@/src/components/Button";
 import Link from "next/link";
-
+import Header from "@/src/components/header/Header";
 function Sponsors() {
     return (
-        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">
-            <div className="max-w-[1200px] flex flex-col items-center">
-                {/* Header Section */}
-                <div className="text-center w-full mb-12">
-                    <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-6">
-                        Why Sponsor Us?
+        <>
+            <Header
+                links={[
+                    {
+                        id: "sponsor",
+                        name: "Sponsor",
+                        url: "/sponsor",
+                    },
+                    {
+                        id: "tracks",
+                        name: "Tracks",
+                        url: "/sponsor/tracks",
+                    },
+                    {
+                        id: "luncheon",
+                        name: "Luncheon",
+                        url: "/sponsor/luncheon",
+                    },
+                    {
+                        id: "demo-day-fair",
+                        name: "Demo Fair",
+                        url: "/sponsor/demo-day-fair",
+                    },
+                    {
+                        id: "workshops",
+                        name: "Workshops",
+                        url: "/sponsor/workshops",
+                    },
+                ]}
+            />
+            <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">
+                <div className="max-w-[1200px] flex flex-col items-center">
+                    {/* Header Section */}
+                    <div className="text-center w-full mb-12">
+                        <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-6">
+                            Why Sponsor Us?
+                        </h1>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                            {benefits.map((benefit, index) => (
+                                <div
+                                    key={index}
+                                    className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-md rounded-xl"
+                                >
+                                    <span className="text-3xl">
+                                        {benefit.icon}
+                                    </span>
+                                    <h3 className="font-rubik-mono-one text-lg font-bold mt-2">
+                                        {benefit.text}
+                                    </h3>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8">
+                        Sponsorship Opportunities
                     </h1>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-                        {benefits.map((benefit, index) => (
+
+                    {/* Sponsorship Options */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                        {sponsorshipOptions.map((option, index) => (
                             <div
                                 key={index}
-                                className="flex flex-col items-center text-center bg-white border-2 border-black p-6 shadow-md rounded-xl"
+                                className="flex flex-col items-center text-center bg-white border-2 border-black p-8 shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300"
                             >
-                                <span className="text-3xl">{benefit.icon}</span>
-                                <h3 className="font-rubik-mono-one text-lg font-bold mt-2">
-                                    {benefit.text}
-                                </h3>
+                                <h2 className="font-rubik-mono-one text-xl font-bold">
+                                    {option.title}
+                                </h2>
+                                <p className="font-h3 text-base leading-6 my-4">
+                                    {option.description}
+                                </p>
+                                <Link href={option.link}>
+                                    <Button
+                                        onClick={() => {}}
+                                        className="text-lg px-6 py-2"
+                                    >
+                                        Sponsor
+                                    </Button>
+                                </Link>
                             </div>
                         ))}
                     </div>
                 </div>
-
-                <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8">
-                    Sponsorship Opportunities
-                </h1>
-
-                {/* Sponsorship Options */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-                    {sponsorshipOptions.map((option, index) => (
-                        <div
-                            key={index}
-                            className="flex flex-col items-center text-center bg-white border-2 border-black p-8 shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300"
-                        >
-                            <h2 className="font-rubik-mono-one text-xl font-bold">
-                                {option.title}
-                            </h2>
-                            <p className="font-h3 text-base leading-6 my-4">
-                                {option.description}
-                            </p>
-                            <Link href={option.link}>
-                                <Button
-                                    onClick={() => {}}
-                                    className="text-lg px-6 py-2"
-                                >
-                                    Sponsor
-                                </Button>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
             </div>
-        </div>
+        </>
     );
 }
 
