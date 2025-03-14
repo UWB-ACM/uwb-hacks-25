@@ -22,6 +22,7 @@ import BackgroundImage from "@/public/hero/background.png";
 import MidgroundImage from "@/public/hero/midground.png";
 import ForegroundImage from "@/public/hero/foreground.png";
 import "../styles/globals.css";
+import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
 export default function Page() {
     const mainRef = useRef<HTMLDivElement>(null);
@@ -179,6 +180,7 @@ export default function Page() {
                         className={`w-full max-w-[${minScreenSize}px] sm:px-4 `}
                     >
                         <AboutSection />
+                        <SponsorInfo />
                     </div>
                 </div>
 
