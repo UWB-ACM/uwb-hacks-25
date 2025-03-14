@@ -219,11 +219,15 @@ export default function Page() {
                 <div
                     id="sponsors"
                     ref={sponsorsRef}
-                    className="w-full mt-[5rem] overflow-hidden"
+                    className="w-full mt-[4rem] sm:mt-[-6rem] overflow-hidden"
                 >
                     <SponsorsSection />
                 </div>
-                <div id="faq" ref={faqRef} className="w-[90vw] mt-[5rem] sm:mt-[0rem]">
+                <div
+                    id="faq"
+                    ref={faqRef}
+                    className="w-[90vw] mt-[4rem] sm:mt-[-6rem]"
+                >
                     <FAQSection />
                 </div>
             </ParallaxProvider>
