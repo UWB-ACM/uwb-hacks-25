@@ -4,7 +4,7 @@ import Link from "next/link";
 function SponsorInfo() {
     return (
         <>
-            <div className="mt-10 grow bg-white border-[3px] border-black flex flex-col px-3 py-5 items-center">
+            <div className="mt-10 grow bg-white border-[3px] border-black flex flex-col p-4  items-center">
                 <p className="font-bold text-center font-h2 [font-size:calc(0.1rem_+_3vw)]">
                     2025 UWB Hacks: Save the World!
                 </p>
@@ -22,7 +22,7 @@ function SponsorInfo() {
                 </Button>
                 </Link>
             </div>
-            <div className="mt-10 grow bg-white border-[3px] border-black flex flex-col px-3 py-5 items-center">
+            <div className="mt-10 grow bg-white border-[3px] border-black flex flex-col p-4 items-center">
                 <p className="font-bold text-center font-h2 [font-size:calc(0.1rem_+_3vw)]">
                     Month of Hacking
                 </p>
