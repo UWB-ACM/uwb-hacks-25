@@ -11,7 +11,6 @@ import ScheduleSection from "../components/landing-page/ScheduleSection";
 import FAQSection from "../components/landing-page/FAQSection";
 import MeetTheTeamSection from "../components/landing-page/MeetTheTeamSection";
 import SponsorsSection from "../components/landing-page/SponsorsSection";
-import Header from "../components/header/Header";
 import { useEffect, useRef, useState } from "react";
 import { Parallax } from "react-scroll-parallax";
 import { ParallaxProvider } from "react-scroll-parallax";
