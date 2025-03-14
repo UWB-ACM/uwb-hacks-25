@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "@/src/app/globals.css";
 import React from "react";
-import Header from "@/src/components/header/Header";
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -26,7 +25,6 @@ export default function RootLayout({
     return (
         <div className={`${geistSans.variable} ${geistMono.variable} w-screen`}>
             {/* TODO: Implement */}
-            <Header links={[]} />
             {children}
         </div>
     );
