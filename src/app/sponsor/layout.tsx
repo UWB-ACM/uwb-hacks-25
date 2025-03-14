@@ -31,9 +31,9 @@ export default function RootLayout({
                         url: "/sponsor/luncheon",
                     },
                     {
-                        id: "activities",
-                        name: "Actvities",
-                        url: "/sponsor/activities",
+                        id: "demo-day-fair",
+                        name: "Demo Fair",
+                        url: "/sponsor/demo-day-fair",
                     },
                     {
                         id: "workshops",

@@ -17,9 +17,9 @@ function SponsorInfo() {
                     high-code solutions.
                 </p>
                 <Link href={"https://uwb-hacks-save-the-world.devpost.com"}>
-                <Button className="text-[23px]" onClick={() => {}}>
-                    Register Now
-                </Button>
+                    <Button className="text-[23px]" onClick={() => {}}>
+                        Register Now
+                    </Button>
                 </Link>
             </div>
             <div className="mt-10 grow bg-white border-[3px] border-black flex flex-col p-4 items-center">
