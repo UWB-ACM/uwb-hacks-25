@@ -24,6 +24,7 @@ import ForegroundImage from "@/public/hero/foreground.png";
 import "../styles/globals.css";
 import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
+// Sorry but this is just used to manually create deployment to main im being rushed
 export default function Page() {
     const mainRef = useRef<HTMLDivElement>(null);
     const aboutRef = useRef<HTMLDivElement>(null);
