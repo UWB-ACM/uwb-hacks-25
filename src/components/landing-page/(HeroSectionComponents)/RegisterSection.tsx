@@ -1,9 +1,7 @@
 import Button from "@/src/components/Button";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const RegisterSection = () => {
-    const router = useRouter();
     return (
         <div className="bg-white/40 rounded-lg p-6">
             <h2 className="text-xl font-bold mb-4">
