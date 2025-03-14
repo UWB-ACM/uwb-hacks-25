@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import React from "react";
 import NavLink, { NavItem } from "./NavLink";
 
 export default function HeaderDesktop({ navItems }: { navItems: NavItem[] }) {

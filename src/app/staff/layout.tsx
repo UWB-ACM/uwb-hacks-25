@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "@/src/components/header/Header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
