@@ -17,11 +17,7 @@ function Page() {
                             Sponsored Prizes
                         </h3>
                         <p className="font-h3 text-base leading-6 mt-4">
-                            {`Support our hackathon by sponsoring prizes that
-                            reward top talent in business, biotech, and
-                            entertainment. Your sponsorship inspires creativity,
-                            drives innovation, and gives participants exposure
-                            to your organization's mission.`}
+                            {`Support our hackathon by sponsoring prizes that reward top talent. Your sponsorship inspires creativity, drives innovation, and gives participants exposure to your organization's mission. We are flexible and open to discussions to tailor sponsorship opportunities to your goals.`}
                         </p>
                     </div>
 
