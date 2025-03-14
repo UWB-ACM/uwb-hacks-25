@@ -7,7 +7,10 @@ const RegisterSection = () => {
             <h2 className="text-xl font-bold mb-4">
                 Assemble Your Squad & Answer the Call!
             </h2>
-            <Link href="https://uwb-hacks-save-the-world.devpost.com/" target="_blank">
+            <Link
+                href="https://uwb-hacks-save-the-world.devpost.com/"
+                target="_blank"
+            >
                 <Button onClick={() => {}} className="text-[23px]">
                     Register Here
                 </Button>
