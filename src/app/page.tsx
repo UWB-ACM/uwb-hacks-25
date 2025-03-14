@@ -212,7 +212,7 @@ export default function Page() {
                 <div
                     id="team"
                     ref={meetTheTeamRef}
-                    className={`w-full max-w-[${minScreenSize}px] overflow-hidden`}
+                    className={`w-full max-w-[${minScreenSize}px] mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
                 >
                     <MeetTheTeamSection />
                 </div>
