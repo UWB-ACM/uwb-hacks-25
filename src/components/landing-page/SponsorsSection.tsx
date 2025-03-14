@@ -5,8 +5,8 @@ import UWBStemImage from "@/public/sponsorsSection/uwb-stem.png";
 import UWBBusinessImage from "@/public/sponsorsSection/uwb-business.png";
 import AvanadeImage from "@/public/sponsorsSection/avanade-logo.svg";
 import RedBullImage from "@/public/sponsorsSection/redbull-logo.svg";
-import UWBACMImage from "@/public/about/uwb-acm-logo.png";
-import AdobeImage from "@/public/sponsorsSection/adobe-logo.png";
+// import UWBACMImage from "@/public/about/uwb-acm-logo.png";
+// import AdobeImage from "@/public/sponsorsSection/adobe-logo.png";
 
 const SponsorsSection = () => {
     return (
