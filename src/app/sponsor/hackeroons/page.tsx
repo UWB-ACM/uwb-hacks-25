@@ -2,6 +2,7 @@
 
 import React from "react";
 import Button from "@/src/components/Button";
+import Link from "next/link";
 function Page() {
     return (
         <div className="flex flex-col w-screen items-center">
@@ -34,9 +35,15 @@ function Page() {
                             celebrates participants, and amplifies your brand’s
                             presence at our event.
                         </p>
-                        <Button className="text-[18px]" onClick={() => {}}>
-                            Contact us here!
-                        </Button>{" "}
+                        <Link
+                            href={
+                                "https://docs.google.com/forms/d/e/1FAIpQLSeE5tYU3c8GZ20H1PPZS2-yjZ89tROgPMQRtsybsJ6j10iv4A/viewform?usp=sharing"
+                            }
+                        >
+                            <Button onClick={() => {}} className="text-[18px]">
+                                Contact Us Here!
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>
