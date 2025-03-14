@@ -5,12 +5,12 @@ import AccentImage from "@/public/accent.webp";
 const ScheduleSection: React.FC = () => {
     return (
         <>
-            <div className="self-center col-span-1 md:col-span-3 mb-4 md:mb-6">
-                <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
+            <div className="self-center col-span-1 mt-[6rem] sm:mt-[8rem] md:col-span-3 ">
+                <h2 className="[color:#49B2F8] text-center [font-family:san-marino-beach] text-5xl">
                     SCHEDULE
                 </h2>
             </div>
-            <div className="bg-[#FBE4A6] p-6 md:p-10 grid gap-y-6 gap-x-6 [grid-template-columns:repeat(1,1fr)] md:[grid-template-columns:repeat(3,1fr)] mb-20">
+            <div className="bg-[#FBE4A6] p-6 md:p-6 grid gap-y-6 gap-x-6 [grid-template-columns:repeat(1,1fr)] md:[grid-template-columns:repeat(3,1fr)] mb-20">
                 <ScheduleCard
                     day="DAY 1"
                     date="4/12 FRI"
