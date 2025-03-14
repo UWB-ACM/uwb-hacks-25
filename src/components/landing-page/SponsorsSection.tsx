@@ -74,9 +74,9 @@ const MobileSponsorsSection = () => {
                             alt="sponsor1"
                         ></Image>
                     </div>
-                    <div className="flex justify-center items-center p-6 transition">
+                    {/* <div className="flex justify-center items-center p-6 transition">
                         <Image src={AdobeImage} width={175} alt="adobe" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
