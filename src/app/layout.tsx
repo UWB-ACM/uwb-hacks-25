@@ -73,11 +73,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-screen`}
+                className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} relative antialiased w-screen`}
             >
                 <NavLinksProvider>
                     <ReactLenis root>
-                        {/* <Header /> */}
+                        <Header />
                         {children}
                         <Footer />
                     </ReactLenis>

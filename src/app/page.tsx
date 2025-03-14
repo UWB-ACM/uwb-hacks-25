@@ -37,6 +37,7 @@ export default function Page() {
 
     const mainRef = useRef<HTMLDivElement>(null);
     const mainNavLink: NavLink = {
+        label: "UWB HACKS",
         id: "main",
         url: "/#main",
         scrollRef: mainRef,
@@ -63,7 +64,7 @@ export default function Page() {
         url: "/sponsor/activities",
     };
     const sponsorUsNavLink: NavLink = {
-        label: "Sponsor Us",
+        label: "Sponsor Us!",
         id: "sponsor-us",
         url: "/sponsor",
         dropDownLinks: [
@@ -126,6 +127,7 @@ export default function Page() {
     useEffect(() => {
         setNavLinks([
             mainNavLink,
+            sponsorUsNavLink,
             aboutNavLink,
             tracksNavLink,
             scheduleNavLink,
@@ -192,47 +194,6 @@ export default function Page() {
                     ref={mainRef}
                     className="w-full min-h-[100vh] bg-blue flex flex-col relative"
                 >
-                    {/* Wrap H1 is used for the main page. */}
-                    {/* <Header
-                        links={[
-                            {
-                                id: "sponsor",
-                                name: "Sponsor Us",
-                                url: "/sponsor",
-                            },
-                            {
-                                id: "about",
-                                name: "About",
-                                url: "/#about",
-                                scrollRef: aboutRef,
-                            },
-                            {
-                                id: "tracks",
-                                name: "Tracks",
-                                url: "/#tracks",
-                                scrollRef: tracksRef,
-                            },
-                            {
-                                id: "schedule",
-                                name: "Schedule",
-                                url: "/#schedule",
-                                scrollRef: scheduleRef,
-                            },
-                            {
-                                id: "faq",
-                                name: "FAQ",
-                                url: "/#faq",
-                                scrollRef: faqRef,
-                            },
-                            {
-                                id: "login",
-                                name: "Login",
-                                url: "/api/auth/google",
-                            },
-                        ]}
-                        wrapH1
-                    /> */}
-
                     <HeroSection />
 
                     <Parallax
