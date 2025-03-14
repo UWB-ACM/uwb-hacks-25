@@ -3,59 +3,93 @@
 import React from "react";
 import Button from "@/src/components/Button";
 import Link from "next/link";
+import Header from "@/src/components/header/Header";
+
 function Page() {
     return (
-        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">
-            <div className="max-w-[1000px] flex flex-col items-center text-center">
-                <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8">
-                    {"Sponsor Our Luncheon"}
-                </h1>
+        <>
+            <Header
+                links={[
+                    {
+                        id: "sponsor",
+                        name: "Sponsor",
+                        url: "/sponsor",
+                    },
+                    {
+                        id: "tracks",
+                        name: "Tracks",
+                        url: "/sponsor/tracks",
+                    },
+                    {
+                        id: "luncheon",
+                        name: "Luncheon",
+                        url: "/sponsor/luncheon",
+                    },
+                    {
+                        id: "demo-day-fair",
+                        name: "Demo Fair",
+                        url: "/sponsor/demo-day-fair",
+                    },
+                    {
+                        id: "workshops",
+                        name: "Workshops",
+                        url: "/sponsor/workshops",
+                    },
+                ]}
+            />
+            <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">
+                <div className="max-w-[1000px] flex flex-col items-center text-center">
+                    <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8">
+                        {"Sponsor Our Luncheon"}
+                    </h1>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-8">
-                    <div className="bg-white border-2 border-black px-8 py-4 shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300">
-                        <h3 className="font-rubik-mono font-bold text-2xl text-[#2886c4]">
-                            {"What's the Luncheon?"}
-                        </h3>
-                        <p className="font-h3 text-base leading-6 mt-4">
-                            On Sunday, 4/27, the last day of the hackathon,
-                            after the first round of judging, we are hosting a
-                            big lunch in the{" "}
-                            <a
-                                className="text-[blue]"
-                                href="https://maps.app.goo.gl/d76i3LhvFGN3WttQA"
-                            >
-                                Plaza
-                            </a>
-                            . This is a great opportunity for participants to
-                            network with industry professionals about their
-                            projects.
-                        </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-8">
+                        <div className="bg-white border-2 border-black px-8 py-4 shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300">
+                            <h3 className="font-rubik-mono font-bold text-2xl text-[#2886c4]">
+                                {"What's the Luncheon?"}
+                            </h3>
+                            <p className="font-h3 text-base leading-6 mt-4">
+                                On Sunday, 4/27, the last day of the hackathon,
+                                after the first round of judging, we are hosting
+                                a big lunch in the{" "}
+                                <a
+                                    className="text-[blue]"
+                                    href="https://maps.app.goo.gl/d76i3LhvFGN3WttQA"
+                                >
+                                    Plaza
+                                </a>
+                                . This is a great opportunity for participants
+                                to network with industry professionals about
+                                their projects.
+                            </p>
+                        </div>
+
+                        <div className="bg-white border-2 border-black px-8 py-4 shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300">
+                            <h3 className="font-rubik-mono font-bold text-2xl text-[#2886c4]">
+                                {"Sponsor the Luncheon!"}
+                            </h3>
+                            <p className="font-h3 text-base leading-6 mt-4">
+                                We invite sponsors to support this event by
+                                providing food, refreshments, and activities.
+                                Your contribution will enhance the networking
+                                experience and leave a lasting impression on
+                                participants.
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="bg-white border-2 border-black px-8 py-4 shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300">
-                        <h3 className="font-rubik-mono font-bold text-2xl text-[#2886c4]">
-                            {"Sponsor the Luncheon!"}
-                        </h3>
-                        <p className="font-h3 text-base leading-6 mt-4">
-                            We invite sponsors to support this event by
-                            providing food, refreshments, and activities. Your
-                            contribution will enhance the networking experience
-                            and leave a lasting impression on participants.
-                        </p>
-                    </div>
+                    <Link
+                        href={
+                            "https://docs.google.com/forms/d/e/1FAIpQLSeE5tYU3c8GZ20H1PPZS2-yjZ89tROgPMQRtsybsJ6j10iv4A/viewform?usp=sharing"
+                        }
+                    >
+                        <Button onClick={() => {}} className="text-[18px]">
+                            Contact Us Here!
+                        </Button>
+                    </Link>
                 </div>
-
-                <Link
-                    href={
-                        "https://docs.google.com/forms/d/e/1FAIpQLSeE5tYU3c8GZ20H1PPZS2-yjZ89tROgPMQRtsybsJ6j10iv4A/viewform?usp=sharing"
-                    }
-                >
-                    <Button onClick={() => {}} className="text-[18px]">
-                        Contact Us Here!
-                    </Button>
-                </Link>
             </div>
-        </div>
+        </>
     );
 }
 
