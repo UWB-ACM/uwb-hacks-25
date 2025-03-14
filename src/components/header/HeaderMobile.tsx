@@ -35,22 +35,18 @@ export default function HeaderMobile({ navItems }: { navItems: NavItem[] }) {
             >
                 {restOfNavItems.map((navItem, index) => (
                     <div
-                        key={`nav-item-${navItem.id}`}
+                        key={navItem.id}
                         className={`${index === 0 ? "border-t-2" : ""} w-[80%] p-4 border-b-2 border-white`}
                     >
                         <NavLink
-                            key={navItem.id}
                             navItem={navItem}
                             setSidebarOpen={setSidebarOpen}
                         />
                         {navItem.dropDownItems && (
-                            <div
-                                key={`dropdown-container-${navItem.id}`}
-                                className="flex flex-col gap-y-2 pt-2"
-                            >
+                            <div className="flex flex-col gap-y-2 pt-2">
                                 {navItem.dropDownItems.map((dropDownItem) => (
                                     <NavLink
-                                        key={dropDownItem.id + "-dropDown"}
+                                        key={dropDownItem.id}
                                         navItem={dropDownItem}
                                         setSidebarOpen={setSidebarOpen}
                                         isDropDownItem
@@ -67,7 +63,6 @@ export default function HeaderMobile({ navItems }: { navItems: NavItem[] }) {
                 className={`md:hidden flex z-[101] fixed top-0 w-full justify-between items-center px-[4vw] py-[4vh] duration-100 ${sidebarOpen ? "text-white" : ""}`}
             >
                 <NavLink
-                    key={logoNavItem.id}
                     navItem={logoNavItem}
                     setSidebarOpen={setSidebarOpen}
                 />
