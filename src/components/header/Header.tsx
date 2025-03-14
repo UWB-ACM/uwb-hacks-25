@@ -3,6 +3,7 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import Link from "next/link";
 import "../../styles/header.css";
+import Image from "next/image";
 
 export type HeaderLinkData = { id: string; name: string } & (
     | { url: string }
@@ -147,12 +148,17 @@ function HeaderSidebarButton({
     return (
         <>
             <button
-                className="bg-gray-200 w-12 h-12 flex justify-center items-center"
+                className="w-12 h-12 flex justify-center items-center hover:scale-[1.1] transiton duration-300"
                 onClick={() => {
                     setSideNav(true);
                 }}
             >
-                X
+                <Image
+                    src="/header/menu-icon.svg"
+                    width={35}
+                    height={35}
+                    alt="Side Nav"
+                />
             </button>
         </>
     );
@@ -219,7 +225,10 @@ function HeaderSidebar({
                 transform: sideNav ? undefined : "translate(100%, 0)",
             }}
         >
-            <button className="" onClick={() => setSideNav(false)}>
+            <button
+                className="hover:scale-[1.1] transiton duration-300"
+                onClick={() => setSideNav(false)}
+            >
                 X
             </button>
             <div className="flex flex-col gap-y-5 justify-around h-1/2 pt-[5rem]">
