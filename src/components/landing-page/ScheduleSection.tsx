@@ -15,13 +15,38 @@ const ScheduleSection: React.FC = () => {
                     day="DAY 1"
                     date="4/12 FRI"
                     events={[
-                        { time: "10:00 AM", description: "Check-In" },
-                        { time: "11:00 AM", description: "Opening Ceremony" },
-                        { time: "12:00 PM", description: "Event" },
-                        { time: "1:00 PM", description: "Event" },
-                        { time: "2:30 PM", description: "Event" },
-                        { time: "4:00 PM", description: "Event" },
-                        { time: "5:00 PM", description: "Event" },
+                        {
+                            time: "10:00 AM - 11:45 AM",
+                            description: "Check-In",
+                        },
+                        {
+                            time: "12:00 PM - 12:30 PM",
+                            description: "Opening Ceremony",
+                        },
+                        {
+                            time: "12:30 PM - 1:00 PM",
+                            description: "Guest Speaker",
+                        },
+                        {
+                            time: "1:00 PM - 1:30 PM",
+                            description: "Opening Ceremony",
+                        },
+                        {
+                            time: "1:30 PM - 2:30 PM",
+                            description: "Lunch",
+                        },
+                        {
+                            time: "2:30 PM - 4:00 PM",
+                            description: "In-Person Work Time",
+                        },
+                        {
+                            time: "4:00 PM - 5:00 PM",
+                            description: "Activity",
+                        },
+                        {
+                            time: "5:00 PM - 8:00 PM",
+                            description: "In-Person Work Time",
+                        },
                     ]}
                     accentPosition="bottom-left"
                 />
@@ -29,11 +54,26 @@ const ScheduleSection: React.FC = () => {
                     day="DAY 2"
                     date="4/13 SAT"
                     events={[
-                        { time: "10:00 AM", description: "Check-In" },
-                        { time: "12:00 PM", description: "Event" },
-                        { time: "1:00 PM", description: "Event" },
-                        { time: "4:30 PM", description: "Event" },
-                        { time: "5:00 PM", description: "Event" },
+                        {
+                            time: "10:00 AM - 11:30 AM",
+                            description: "Check-In",
+                        },
+                        {
+                            time: "12:00 PM - 12:30 PM",
+                            description: "Guest Speaker",
+                        },
+                        {
+                            time: "12:30 PM - 1:00 PM",
+                            description: "Lunch",
+                        },
+                        {
+                            time: "1:00 PM - 3:00 PM",
+                            description: "Activity",
+                        },
+                        {
+                            time: "4:00 PM - 8:00 PM",
+                            description: "In-Person Work Time",
+                        },
                     ]}
                     accentPosition="bottom-left"
                 />
@@ -41,12 +81,38 @@ const ScheduleSection: React.FC = () => {
                     day="DAY 3"
                     date="4/14 SUN"
                     events={[
-                        { time: "10:00 AM", description: "Check-In" },
-                        { time: "11:45 AM", description: "Event" },
-                        { time: "12:30 PM", description: "Event" },
-                        { time: "3:00 PM", description: "Event" },
-                        { time: "4:30 PM", description: "Event" },
-                        { time: "5:00 PM", description: "Event" },
+                        {
+                            time: "9:00 AM - 10:00 AM",
+                            description: "Check-In",
+                        },
+                        {
+                            time: "10:00 AM - 10:30 AM",
+                            description: "Closing Ceremony",
+                        },
+                        {
+                            time: "10:50 AM - 12:50 PM",
+                            description: "Judging",
+                        },
+                        {
+                            time: "1:00 PM - 2:00 PM",
+                            description: "Networking Luncheon",
+                        },
+                        {
+                            time: "2:00 PM - 2:30 PM",
+                            description: "Group Photo",
+                        },
+                        {
+                            time: "2:30 PM - 4:00 PM",
+                            description: "Finalist Presentations",
+                        },
+                        {
+                            time: "4:00 PM - 4:30 PM",
+                            description: "Final Deliberations",
+                        },
+                        {
+                            time: "4:30 PM - 5:00 PM",
+                            description: "Winners Announced",
+                        },
                     ]}
                     accentPosition="bottom-left"
                 />
