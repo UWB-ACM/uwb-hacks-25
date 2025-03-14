@@ -11,7 +11,7 @@ import AdobeImage from "@/public/sponsorsSection/adobe-logo.png";
 const SponsorsSection = () => {
     return (
         <>
-            <div className="h-[165vh] relative border-black py-[5rem] px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
+            <div className="relative border-black py-[5rem] px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
                 {/* Background Image */}
 
                 <Image
@@ -22,7 +22,7 @@ const SponsorsSection = () => {
                 />
 
                 {/* Sponsors Section */}
-                <div className="hidden md:block">
+                <div className="hidden md:block h-[165vh]">
                     <DesktopSponsorsSection />
                 </div>
                 <div className="md:hidden">

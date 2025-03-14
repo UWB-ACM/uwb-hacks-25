@@ -192,7 +192,7 @@ export default function Page() {
                 </div>
                 <div
                     id="tracks"
-                    className={`h-screen w-full max-w-[${minScreenSize}px]`}
+                    className={`min-h-screen w-full max-w-[${minScreenSize}px]`}
                     ref={tracksRef}
                     style={{}}
                 >
