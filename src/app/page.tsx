@@ -135,7 +135,7 @@ export default function Page() {
             sponsorsNavLink,
             faqNavLink,
         ]);
-    }, []);
+    });
 
     const lenis = useRef<Lenis | null>(null);
 
