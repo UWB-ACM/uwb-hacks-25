@@ -25,7 +25,7 @@ const AboutSection: React.FC = () => {
 const AboutSectionDesktop: React.FC = () => (
     <div
         className={
-            'grow [min-height:60vw] px-10 pt-10 gap-2 grid [grid-template-columns:1fr_1fr_1fr] [grid-template-rows:2fr_1fr_1fr_1fr_2fr_1fr_2fr] [grid-template-areas:"top_top_top"_"husky_husky_prizes"_"husky_husky_prizes"_"husky_husky_."_"._acm_acm"_"stats_acm_acm"_"stats_acm_acm"]'
+            'grow [min-height:60vw] gap-2 grid [grid-template-columns:1fr_1fr_1fr] [grid-template-rows:2fr_1fr_1fr_1fr_2fr_1fr_2fr] [grid-template-areas:"top_top_top"_"husky_husky_prizes"_"husky_husky_prizes"_"husky_husky_."_"._acm_acm"_"stats_acm_acm"_"stats_acm_acm"]'
         }
         // TODO: How to represent this with tailwind?
         style={{
@@ -107,7 +107,7 @@ const AboutSectionDesktop: React.FC = () => (
         >
             <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
                 <div className="flex-grow" />
-                <p> 350+ Hackers</p>
+                <p>350+ Hackers</p>
                 <div className="flex-grow" />
                 <p>65 Projects</p>
                 <div className="flex-grow" />
