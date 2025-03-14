@@ -69,10 +69,10 @@ export default function Page() {
     };
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center w-[screen] overflow-hidden">
             <button
                 onClick={scrollToTop}
-                className={`fixed z-[100] w-16 h-16 bottom-4 bg-white border-black border-2 right-10 scroll-up-animation ${
+                className={`fixed z-[100] w-12 h-12 bottom-4 bg-white border-black border-2 right-4 scroll-up-animation ${
                     showGoTop ? "" : "hidden"
                 }`}
             >
@@ -87,7 +87,7 @@ export default function Page() {
                 <div
                     id="main"
                     ref={mainRef}
-                    className="w-full min-h-[100vh] bg-blue flex flex-col relative"
+                    className="w-full min-h-[100vh] bg-blue flex flex-col relative overflow-hidden"
                 >
                     {/* Wrap H1 is used for the main page. */}
                     <Header
@@ -134,35 +134,35 @@ export default function Page() {
 
                     <Parallax
                         speed={-30}
-                        className="absolute w-full h-full z-[-3] bottom-[40px]"
+                        className="absolute w-full h-full z-[-3] bottom-[40px] overflow-hidden"
                     >
                         <Image
-                            src={BackgroundImage}
+                            src={BackgroundImage || "/placeholder.svg"}
                             priority
                             alt=""
-                            className="absolute object-cover w-full h-full"
+                            className="absolute object-cover w-full h-full overflow-hidden"
                         />
                     </Parallax>
                     <Parallax
                         speed={-20}
-                        className="absolute w-full h-full z-[-2] bottom-[0]"
+                        className="absolute w-full h-full z-[-2] bottom-[0] overflow-hidden"
                     >
                         <Image
-                            src={MidgroundImage}
+                            src={MidgroundImage || "/placeholder.svg"}
                             priority
                             alt=""
-                            className="absolute object-cover w-screen h-screen bottom-[0]"
+                            className="absolute object-cover w-full h-full bottom-[0]"
                         />
                     </Parallax>
                     <Parallax
                         speed={-5}
-                        className="absolute w-full h-full z-[-1] bottom-[0]"
+                        className="absolute w-full h-full z-[-1] bottom-[0] overflow-hidden"
                     >
                         <Image
-                            src={ForegroundImage}
+                            src={ForegroundImage || "/placeholder.svg"}
                             priority
                             alt=""
-                            className="absolute object-cover w-screen h-screen bottom-[-10px]"
+                            className="absolute object-cover w-full h-full bottom-[-10px]"
                         />
                     </Parallax>
                 </div>
@@ -170,63 +170,63 @@ export default function Page() {
                 <div
                     id="about"
                     ref={aboutRef}
-                    className="w-full flex justify-center"
+                    className="w-full flex justify-center overflow-hidden"
                     style={{
                         background:
                             "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
                     }}
                 >
-                    <div className={`w-full max-w-[${minScreenSize}px]`}>
+                    <div
+                        className={`w-full max-w-[${minScreenSize}px] sm:px-4 `}
+                    >
                         <AboutSection />
                     </div>
                 </div>
 
                 {/* TODO - release all of these the day of the event */}
-                <div className={`w-full max-w-[${minScreenSize}px]`} style={{}}>
-                    <div className="flex flex-col w-full justify-center px-10">
+                <div
+                    className={`w-full max-w-[${minScreenSize}px] px-10 sm:px-4 overflow-hidden`}
+                >
+                    <div className="flex flex-col justify-center">
                         {/* TODO unlock this during the day of the hackathon */}
                         <SponsorInfo />
                         {/* <WhatsNewSection />
-                        <LeaderboardSection /> */}
+        <LeaderboardSection /> */}
+                    </div>
+                    <div
+                        id="tracks"
+                        className={`w-full max-w-[${minScreenSize}px] overflow-hidden`}
+                        ref={tracksRef}
+                    >
+                        <TracksSection />
                     </div>
                 </div>
-                <div
-                    id="tracks"
-                    className={`h-screen w-full max-w-[${minScreenSize}px]`}
-                    ref={tracksRef}
-                    style={{}}
-                >
-                    <TracksSection />
-                </div>
+
                 <div
                     id="schedule"
                     ref={scheduleRef}
-                    className=" min-h-screen flex flex-col pt-10"
-                    style={{}}
+                    className={`w-full max-w-[${minScreenSize}px] overflow-hidden`}
                 >
                     <ScheduleSection />
                 </div>
                 <div
                     id="team"
                     ref={meetTheTeamRef}
-                    className="min-h-screen overflow-auto w-full"
-                    style={{}}
+                    className={`w-full max-w-[${minScreenSize}px] mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
                 >
                     <MeetTheTeamSection />
                 </div>
                 <div
                     id="sponsors"
                     ref={sponsorsRef}
-                    className="w-screen"
-                    style={{}}
+                    className="w-full mt-[4rem] sm:mt-[-6rem] overflow-hidden"
                 >
                     <SponsorsSection />
                 </div>
                 <div
                     id="faq"
                     ref={faqRef}
-                    className={`w-full max-w-[${minScreenSize}px]`}
-                    style={{}}
+                    className="w-[90vw] mt-[4rem] sm:mt-[-6rem]"
                 >
                     <FAQSection />
                 </div>
