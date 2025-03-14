@@ -21,9 +21,9 @@ export default function RootLayout({
                         url: "/sponsor",
                     },
                     {
-                        id: "tracks",
-                        name: "Tracks",
-                        url: "/sponsor/tracks",
+                        id: "prizes",
+                        name: "Prizes",
+                        url: "/sponsor/prizes",
                     },
                     {
                         id: "luncheon",
