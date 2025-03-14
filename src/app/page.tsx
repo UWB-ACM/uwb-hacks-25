@@ -77,7 +77,7 @@ export default function Page() {
                 }`}
             >
                 <Image
-                    src={ScrollImage || "/placeholder.svg"}
+                    src={ScrollImage}
                     className="w-full"
                     alt="Scroll to the top"
                 />
@@ -176,50 +176,54 @@ export default function Page() {
                             "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
                     }}
                 >
-                    <div className="w-full">
+                    <div
+                        className={`w-full max-w-[${minScreenSize}px] sm:px-4 `}
+                    >
                         <AboutSection />
                     </div>
                 </div>
 
                 {/* TODO - release all of these the day of the event */}
-                <div className="w-[90vw] px-4 md:px-8 lg:px-10 overflow-hidden">
+                <div
+                    className={`w-full max-w-[${minScreenSize}px] px-10 sm:px-4 overflow-hidden`}
+                >
                     <div className="flex flex-col justify-center">
                         {/* TODO unlock this during the day of the hackathon */}
                         <SponsorInfo />
                         {/* <WhatsNewSection />
         <LeaderboardSection /> */}
-                        <div
-                            id="tracks"
-                            className="w-full overflow-hidden"
-                            ref={tracksRef}
-                        >
-                            <TracksSection />
-                        </div>
+                    </div>
+                    <div
+                        id="tracks"
+                        className={`w-full max-w-[${minScreenSize}px] overflow-hidden`}
+                        ref={tracksRef}
+                    >
+                        <TracksSection />
                     </div>
                 </div>
 
                 <div
                     id="schedule"
                     ref={scheduleRef}
-                    className="flex flex-col p-6 mt-[4rem] w-full overflow-hidden"
+                    className={`w-full max-w-[${minScreenSize}px] overflow-hidden`}
                 >
                     <ScheduleSection />
                 </div>
                 <div
                     id="team"
                     ref={meetTheTeamRef}
-                    className="w-full overflow-hidden"
+                    className={`w-full max-w-[${minScreenSize}px] overflow-hidden`}
                 >
                     <MeetTheTeamSection />
                 </div>
                 <div
                     id="sponsors"
                     ref={sponsorsRef}
-                    className="w-full mb-[7rem] lg:mb-[-1rem] overflow-hidden"
+                    className="w-full mt-[5rem] overflow-hidden"
                 >
                     <SponsorsSection />
                 </div>
-                <div id="faq" ref={faqRef} className="w-[90vw]">
+                <div id="faq" ref={faqRef} className="w-[90vw] mt-[5rem] sm:mt-[0rem]">
                     <FAQSection />
                 </div>
             </ParallaxProvider>
