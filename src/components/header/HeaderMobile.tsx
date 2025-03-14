@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, RefObject } from "react";
-import NavLink from "./NavLink";
+import NavLink, { NavItem } from "./NavLink";
 
 import { CiMenuBurger } from "react-icons/ci";
 import { IoIosClose } from "react-icons/io";
@@ -14,15 +14,15 @@ type NavLink = {
     dropDownLinks?: NavLink[];
 };
 
-export default function HeaderMobile({ navLinks }: { navLinks: NavLink[] }) {
-    // This navLink will go on left, positioned next to one another
-    const logoNavLink: NavLink = navLinks.filter(
-        (link) => link.id === "main",
+export default function HeaderMobile({ navItems }: { navItems: NavItem[] }) {
+    // This navItem will go on left, positioned next to one another
+    const logoNavItem: NavItem = navItems.filter(
+        (navItem) => navItem.id === "main",
     )[0];
 
-    // The remainder of the navLinks will go in togglable sidebar
-    const restOfNavLinks: NavLink[] = navLinks.filter(
-        (link) => link.id !== "main",
+    // The remainder of the navItems will go in togglable sidebar
+    const restOfNavItems: NavItem[] = navItems.filter(
+        (navItem) => navItem.id !== "main",
     );
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -33,27 +33,27 @@ export default function HeaderMobile({ navLinks }: { navLinks: NavLink[] }) {
             <div
                 className={`md:hidden transform duration-300 ${sidebarOpen ? "translate-y-0" : "-translate-y-full"} z-[100] fixed top-0 left-0 w-full h-screen bg-orange-400 flex flex-col justify-center items-center text-white text-2xl`}
             >
-                {restOfNavLinks.map((link, index) => (
+                {restOfNavItems.map((navItem, index) => (
                     <div
-                        key={`nav-item-${link.id}`}
+                        key={`nav-item-${navItem.id}`}
                         className={`${index === 0 ? "border-t-2" : ""} w-[80%] p-4 border-b-2 border-white`}
                     >
                         <NavLink
-                            key={link.id}
-                            link={link}
+                            key={navItem.id}
+                            navItem={navItem}
                             setSidebarOpen={setSidebarOpen}
                         />
-                        {link.dropDownLinks && (
+                        {navItem.dropDownItems && (
                             <div
-                                key={`dropdown-container-${link.id}`}
+                                key={`dropdown-container-${navItem.id}`}
                                 className="flex flex-col gap-y-2 pt-2"
                             >
-                                {link.dropDownLinks.map((dropDownLink) => (
+                                {navItem.dropDownItems.map((dropDownItem) => (
                                     <NavLink
-                                        key={dropDownLink.id + "-dropDown"}
-                                        link={dropDownLink}
+                                        key={dropDownItem.id + "-dropDown"}
+                                        navItem={dropDownItem}
                                         setSidebarOpen={setSidebarOpen}
-                                        isDropDownLink
+                                        isDropDownItem
                                     />
                                 ))}
                             </div>
@@ -67,8 +67,8 @@ export default function HeaderMobile({ navLinks }: { navLinks: NavLink[] }) {
                 className={`md:hidden flex z-[101] fixed top-0 w-full justify-between items-center px-[4vw] py-[4vh] duration-100 ${sidebarOpen ? "text-white" : ""}`}
             >
                 <NavLink
-                    key={logoNavLink.id}
-                    link={logoNavLink}
+                    key={logoNavItem.id}
+                    navItem={logoNavItem}
                     setSidebarOpen={setSidebarOpen}
                 />
                 <button onClick={() => setSidebarOpen((prev) => !prev)}>

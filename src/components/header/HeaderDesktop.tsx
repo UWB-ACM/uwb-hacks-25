@@ -1,35 +1,27 @@
 import React, { RefObject } from "react";
-import NavLink from "./NavLink";
+import NavLink, { NavItem } from "./NavLink";
 
-type NavLink = {
-    label?: string;
-    id: string;
-    url: string;
-    scrollRef?: RefObject<HTMLDivElement | null>;
-    dropDownLinks?: NavLink[];
-};
-
-export default function HeaderDesktop({ navLinks }: { navLinks: NavLink[] }) {
-    // These navLinks will go on left, positioned next to one another
-    const logoAndSponsorUsNavLinks: NavLink[] = navLinks.filter(
-        (link) => link.id === "main" || link.id === "sponsor-us",
+export default function HeaderDesktop({ navItems }: { navItems: NavItem[] }) {
+    // These navItems will go on left, positioned next to one another
+    const logoAndSponsorUsNavItems: NavItem[] = navItems.filter(
+        (navItem) => navItem.id === "main" || navItem.id === "sponsor-us",
     );
 
-    // The remainder of the navLinks will go on right, positioned next to one another
-    const restOfNavLinks: NavLink[] = navLinks.filter(
-        (link) => link.id !== "main" && link.id !== "sponsor-us",
+    // The remainder of the navItems will go on right, positioned next to one another
+    const restOfNavItems: NavItem[] = navItems.filter(
+        (navItem) => navItem.id !== "main" && navItem.id !== "sponsor-us",
     );
 
     return (
         <nav className="hidden z-[100] fixed w-full md:flex justify-between items-center px-[4vw] py-[4vh]">
             <ul className="flex items-center gap-x-6 lg:gap-x-10">
-                {logoAndSponsorUsNavLinks.map((link) => (
-                    <NavLink key={link.id} link={link} />
+                {logoAndSponsorUsNavItems.map((navItem) => (
+                    <NavLink key={navItem.id} navItem={navItem} />
                 ))}
             </ul>
             <ul className="flex items-center gap-x-4 lg:gap-x-8">
-                {restOfNavLinks.map((link) => (
-                    <NavLink key={link.id} link={link} />
+                {restOfNavItems.map((navItem) => (
+                    <NavLink key={navItem.id} navItem={navItem} />
                 ))}
             </ul>
         </nav>

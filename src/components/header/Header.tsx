@@ -1,29 +1,22 @@
 "use client";
 
-import React, { RefObject } from "react";
+import React from "react";
 import "../../styles/header.css";
 
 import { useContext } from "react";
-import { NavLinksContext } from "@/src/context/NavLinkContext";
+import { NavItemsContext } from "@/src/context/NavItemsContext";
 import HeaderDesktop from "./HeaderDesktop";
 import HeaderMobile from "./HeaderMobile";
-
-type NavLink = {
-    label?: string;
-    id: string;
-    url: string;
-    scrollRef?: RefObject<HTMLDivElement | null>;
-    dropDownLinks?: NavLink[];
-};
+import { NavItem } from "@/src/components/header/NavLink";
 
 export default function Header() {
-    const { navLinks }: { navLinks: NavLink[] } = useContext(NavLinksContext);
-    if (navLinks.length == 0) return;
+    const { navItems }: { navItems: NavItem[] } = useContext(NavItemsContext);
+    if (navItems.length == 0) return;
 
     return (
         <>
-            <HeaderDesktop navLinks={navLinks} />
-            <HeaderMobile navLinks={navLinks} />
+            <HeaderDesktop navItems={navItems} />
+            <HeaderMobile navItems={navItems} />
         </>
     );
 }

@@ -22,60 +22,53 @@ import MidgroundImage from "@/public/hero/midground.png";
 import ForegroundImage from "@/public/hero/foreground.png";
 import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
-import { useContext, RefObject } from "react";
-import { NavLinksContext } from "../context/NavLinkContext";
+import { useContext } from "react";
+import { NavItem } from "@/src/components/header/NavLink";
+import { NavItemsContext } from "../context/NavItemsContext";
 
 export default function Page() {
-    type NavLink = {
-        label?: string;
-        id: string;
-        url: string;
-        scrollRef?: RefObject<HTMLDivElement | null>;
-        dropDownLinks?: NavLink[];
-    };
-
     const mainRef = useRef<HTMLDivElement>(null);
-    const mainNavLink: NavLink = {
+    const mainNavItem: NavItem = {
         label: "UWB HACKS",
         id: "main",
         url: "/#main",
         scrollRef: mainRef,
     };
 
-    const sponsorTracksNavLink: NavLink = {
+    const sponsorTracksNavItem: NavItem = {
         label: "Tracks",
         id: "sponsor-tracks",
         url: "/sponsor/tracks",
     };
-    const sponsorWorkshopsNavLink: NavLink = {
+    const sponsorWorkshopsNavItem: NavItem = {
         label: "Workshops",
         id: "sponsor-workshops",
         url: "/sponsor/workshops",
     };
-    const sponsorLuncheonNavLink: NavLink = {
+    const sponsorLuncheonNavItem: NavItem = {
         label: "Luncheon",
         id: "sponsor-luncheon",
         url: "/sponsor/luncheon",
     };
-    const sponsorActivitiesNavLink: NavLink = {
+    const sponsorActivitiesNavItem: NavItem = {
         label: "Activities",
         id: "sponsor-activities",
         url: "/sponsor/activities",
     };
-    const sponsorUsNavLink: NavLink = {
+    const sponsorUsNavItem: NavItem = {
         label: "Sponsor Us!",
         id: "sponsor-us",
         url: "/sponsor",
-        dropDownLinks: [
-            sponsorTracksNavLink,
-            sponsorWorkshopsNavLink,
-            sponsorLuncheonNavLink,
-            sponsorActivitiesNavLink,
+        dropDownItems: [
+            sponsorTracksNavItem,
+            sponsorWorkshopsNavItem,
+            sponsorLuncheonNavItem,
+            sponsorActivitiesNavItem,
         ],
     };
 
     const aboutRef = useRef<HTMLDivElement>(null);
-    const aboutNavLink: NavLink = {
+    const aboutNavItem: NavItem = {
         label: "About",
         id: "about",
         url: "/#about",
@@ -83,7 +76,7 @@ export default function Page() {
     };
 
     const tracksRef = useRef<HTMLDivElement>(null);
-    const tracksNavLink: NavLink = {
+    const tracksNavItem: NavItem = {
         label: "Tracks",
         id: "tracks",
         url: "/#tracks",
@@ -91,7 +84,7 @@ export default function Page() {
     };
 
     const scheduleRef = useRef<HTMLDivElement>(null);
-    const scheduleNavLink: NavLink = {
+    const scheduleNavItem: NavItem = {
         label: "Schedule",
         id: "schedule",
         url: "/#schedule",
@@ -99,7 +92,7 @@ export default function Page() {
     };
 
     const meetTheTeamRef = useRef<HTMLDivElement>(null);
-    const meetTheTeamNavLink: NavLink = {
+    const meetTheTeamNavItem: NavItem = {
         label: "Meet The Team",
         id: "meet-the-team",
         url: "/#meet-the-team",
@@ -107,7 +100,7 @@ export default function Page() {
     };
 
     const sponsorsRef = useRef<HTMLDivElement>(null);
-    const sponsorsNavLink: NavLink = {
+    const sponsorsNavItem: NavItem = {
         label: "Sponsors",
         id: "sponsors",
         url: "/#sponsors",
@@ -115,26 +108,26 @@ export default function Page() {
     };
 
     const faqRef = useRef<HTMLDivElement>(null);
-    const faqNavLink: NavLink = {
+    const faqNavItem: NavItem = {
         label: "FAQ",
         id: "faq",
         url: "/#faq",
         scrollRef: faqRef,
     };
 
-    const { setNavLinks } = useContext(NavLinksContext);
+    const { setNavItems } = useContext(NavItemsContext);
     useEffect(() => {
-        setNavLinks([
-            mainNavLink,
-            sponsorUsNavLink,
-            aboutNavLink,
-            tracksNavLink,
-            scheduleNavLink,
-            meetTheTeamNavLink,
-            sponsorsNavLink,
-            faqNavLink,
+        setNavItems([
+            mainNavItem,
+            sponsorUsNavItem,
+            aboutNavItem,
+            tracksNavItem,
+            scheduleNavItem,
+            meetTheTeamNavItem,
+            sponsorsNavItem,
+            faqNavItem,
         ]);
-    });
+    }, []);
 
     const lenis = useRef<Lenis | null>(null);
 

@@ -14,28 +14,28 @@ export default function RootLayout({
     return (
         <div className={`w-screen`}>
             <Header
-                links={[
-                    {
-                        id: "prizes",
-                        name: "Buy Prizes",
-                        url: "/staff/buy-prizes",
-                    },
-                    {
-                        id: "modify-user",
-                        name: "Modify User",
-                        url: "/staff/modify-user",
-                    },
-                    {
-                        id: "transfer-hackeroons",
-                        name: "Transfer Hackeroons",
-                        url: "/staff/transfer-hackeroons",
-                    },
-                    {
-                        id: "dashboard",
-                        name: "Dashboard",
-                        url: "/staff",
-                    },
-                ]}
+            // navItems={[
+            //     {
+            //         id: "prizes",
+            //         name: "Buy Prizes",
+            //         url: "/staff/buy-prizes",
+            //     },
+            //     {
+            //         id: "modify-user",
+            //         name: "Modify User",
+            //         url: "/staff/modify-user",
+            //     },
+            //     {
+            //         id: "transfer-hackeroons",
+            //         name: "Transfer Hackeroons",
+            //         url: "/staff/transfer-hackeroons",
+            //     },
+            //     {
+            //         id: "dashboard",
+            //         name: "Dashboard",
+            //         url: "/staff",
+            //     },
+            // ]}
             />
 
             {children}
