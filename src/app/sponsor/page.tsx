@@ -133,10 +133,9 @@ const sponsorshipOptions = [
         link: "/sponsor/activities",
     },
     {
-        title: "Tracks",
-        description:
-            "Support hackathon participants by sponsoring challenge tracks.",
-        link: "/sponsor/tracks",
+        title: "Prizes",
+        description: "Support hackathon participants by sponsoring prizes.",
+        link: "/sponsor/prizes",
     },
     {
         title: "Workshops",

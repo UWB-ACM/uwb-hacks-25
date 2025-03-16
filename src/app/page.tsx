@@ -21,11 +21,11 @@ import BackgroundImage from "@/public/hero/background.png";
 import MidgroundImage from "@/public/hero/midground.png";
 import ForegroundImage from "@/public/hero/foreground.png";
 import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
-
 import { useContext } from "react";
 import { NavItem } from "@/src/components/header/NavLink";
 import { NavItemsContext } from "../context/NavItemsContext";
 
+// Sorry but this is just used to manually create deployment to main im being rushed
 export default function Page() {
     const mainRef = useRef<HTMLDivElement>(null);
     const mainNavItem: NavItem = {
@@ -236,26 +236,18 @@ export default function Page() {
                         className={`w-full max-w-[${minScreenSize}px] sm:px-4 `}
                     >
                         <AboutSection />
+                        <SponsorInfo />
                     </div>
                 </div>
 
                 {/* TODO - release all of these the day of the event */}
                 <div
-                    className={`w-full max-w-[${minScreenSize}px] px-10 sm:px-4 overflow-hidden`}
+                    id="tracks"
+                    className={`min-h-screen w-full max-w-[${minScreenSize}px]`}
+                    ref={tracksRef}
+                    style={{}}
                 >
-                    <div className="flex flex-col justify-center">
-                        {/* TODO unlock this during the day of the hackathon */}
-                        <SponsorInfo />
-                        {/* <WhatsNewSection />
-        <LeaderboardSection /> */}
-                    </div>
-                    <div
-                        id="tracks"
-                        className={`w-full max-w-[${minScreenSize}px] overflow-hidden`}
-                        ref={tracksRef}
-                    >
-                        <TracksSection />
-                    </div>
+                    <TracksSection />
                 </div>
 
                 <div

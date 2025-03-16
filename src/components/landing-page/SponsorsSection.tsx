@@ -5,13 +5,13 @@ import UWBStemImage from "@/public/sponsorsSection/uwb-stem.png";
 import UWBBusinessImage from "@/public/sponsorsSection/uwb-business.png";
 import AvanadeImage from "@/public/sponsorsSection/avanade-logo.svg";
 import RedBullImage from "@/public/sponsorsSection/redbull-logo.svg";
-import UWBACMImage from "@/public/about/uwb-acm-logo.png";
-import AdobeImage from "@/public/sponsorsSection/adobe-logo.png";
+// import UWBACMImage from "@/public/about/uwb-acm-logo.png";
+// import AdobeImage from "@/public/sponsorsSection/adobe-logo.png";
 
 const SponsorsSection = () => {
     return (
         <>
-            <div className="h-[100vh] relative border-black px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
+            <div className="h-[130vh] relative border-black px-[2rem] mb-[1rem] mt-[1rem] justify-center grid sm:grid-cols-2 sm:gap-x-[5rem] sm:flex">
                 {/* Background Image */}
 
                 <Image
@@ -22,7 +22,7 @@ const SponsorsSection = () => {
                 />
 
                 {/* Sponsors Section */}
-                <div className="hidden md:block">
+                <div className="hidden md:block h-[165vh]">
                     <DesktopSponsorsSection />
                 </div>
                 <div className="md:hidden">
@@ -74,9 +74,9 @@ const MobileSponsorsSection = () => {
                             alt="sponsor1"
                         ></Image>
                     </div>
-                    <div className="flex justify-center items-center p-6 transition">
+                    {/* <div className="flex justify-center items-center p-6 transition">
                         <Image src={AdobeImage} width={175} alt="adobe" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
@@ -126,7 +126,7 @@ const DesktopSponsorsSection = () => {
                         ></Image>
                     </div>
 
-                    <div className="flex justify-center items-center p-6 transition">
+                    {/* <div className="flex justify-center items-center p-6 transition">
                         <Image src={AdobeImage} width={75} alt="adobe" />
                     </div>
 
@@ -140,7 +140,7 @@ const DesktopSponsorsSection = () => {
 
                     <div className="flex justify-center items-center p-6 transition">
                         <Image src={UWBACMImage} width={75} alt="sponsor8" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

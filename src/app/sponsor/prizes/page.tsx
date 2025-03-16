@@ -2,48 +2,48 @@
 
 import React from "react";
 import Button from "@/src/components/Button";
-
+import Link from "next/link";
 function Page() {
     return (
         <div className="flex flex-col w-full items-center px-6 md:px-12 py-6 pt-[6rem] lg:pt-[8rem]">
             <div className="max-w-[1000px] flex flex-col items-center text-center">
                 <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8">
-                    {"Sponsor Hackathon Activities"}
+                    Sponsor Prizes
                 </h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-8">
                     <div className="bg-white border-2 border-black px-8 py-4 shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300">
                         <h3 className="font-rubik-mono font-bold text-2xl text-[#2886c4]">
-                            {"Enhance the Participant Experience"}
+                            Sponsored Prizes
                         </h3>
                         <p className="font-h3 text-base leading-6 mt-4">
-                            We are looking for sponsors to support various
-                            activities that will enhance the participant
-                            experience during the hackathon. These activities
-                            include providing food and refreshments, organizing
-                            fun games, and hosting networking lounges where
-                            participants can interact with industry
-                            professionals.
+                            {`Support our hackathon by sponsoring prizes that reward top talent. Your sponsorship inspires creativity, drives innovation, and gives participants exposure to your organization's mission. We are flexible and open to discussions to tailor sponsorship opportunities to your goals.`}
                         </p>
                     </div>
 
                     <div className="bg-white border-2 border-black px-8 py-4 shadow-lg rounded-xl hover:shadow-2xl transition-shadow duration-300">
                         <h3 className="font-rubik-mono font-bold text-2xl text-[#2886c4]">
-                            {"Sponsor the Luncheon!"}
+                            Why Sponsor a Prize?
                         </h3>
                         <p className="font-h3 text-base leading-6 mt-4">
-                            By sponsoring an activity, you will help create a
-                            memorable and engaging experience for all
-                            participants. Your contribution will not only
-                            support the event but also showcase your commitment
-                            to fostering innovation and community engagement.
+                            Sponsoring a prize boosts your brand, connects you
+                            with emerging talent, and fuels groundbreaking
+                            ideas. Your support fosters competition,
+                            collaboration, and real-world impact. Let me know if
+                            you need further tweaks!
                         </p>
                     </div>
                 </div>
 
-                <Button onClick={() => {}} className="text-[18px]">
-                    Contact Us Here!
-                </Button>
+                <Link
+                    href={
+                        "https://docs.google.com/forms/d/e/1FAIpQLSeE5tYU3c8GZ20H1PPZS2-yjZ89tROgPMQRtsybsJ6j10iv4A/viewform?usp=sharing"
+                    }
+                >
+                    <Button onClick={() => {}} className="text-[18px]">
+                        Contact Us Here!
+                    </Button>
+                </Link>
             </div>
         </div>
     );

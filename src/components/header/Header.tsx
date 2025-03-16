@@ -2,7 +2,6 @@
 
 import React from "react";
 import "../../styles/header.css";
-
 import { useContext } from "react";
 import { NavItemsContext } from "@/src/context/NavItemsContext";
 import HeaderDesktop from "./HeaderDesktop";

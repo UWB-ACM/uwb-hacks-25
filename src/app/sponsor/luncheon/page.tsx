@@ -2,6 +2,7 @@
 
 import React from "react";
 import Button from "@/src/components/Button";
+import Link from "next/link";
 
 function Page() {
     return (
@@ -45,9 +46,15 @@ function Page() {
                     </div>
                 </div>
 
-                <Button onClick={() => {}} className="text-[18px]">
-                    Contact Us Here!
-                </Button>
+                <Link
+                    href={
+                        "https://docs.google.com/forms/d/e/1FAIpQLSeE5tYU3c8GZ20H1PPZS2-yjZ89tROgPMQRtsybsJ6j10iv4A/viewform?usp=sharing"
+                    }
+                >
+                    <Button onClick={() => {}} className="text-[18px]">
+                        Contact Us Here!
+                    </Button>
+                </Link>
             </div>
         </div>
     );
