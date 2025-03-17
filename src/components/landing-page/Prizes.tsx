@@ -4,7 +4,7 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card";
+} from "@/src/components/ui/Card";
 import { Trophy, Award, Gift } from "lucide-react";
 
 export default function PrizesSection() {
