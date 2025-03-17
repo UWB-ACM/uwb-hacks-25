@@ -35,7 +35,7 @@ export default function Page() {
     const faqRef = useRef<HTMLDivElement>(null);
     const lenis = useRef<Lenis | null>(null);
 
-    const minScreenSize = 1200;
+    const minScreenSize = "max-w-[1200px]";
 
     const [showGoTop, setShowGoTop] = useState(false);
 
@@ -177,9 +177,7 @@ export default function Page() {
                             "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
                     }}
                 >
-                    <div
-                        className={`w-full max-w-[${minScreenSize}px] sm:px-4 `}
-                    >
+                    <div className={`w-full ${minScreenSize} sm:px-4 `}>
                         <AboutSection />
                         <SponsorInfo />
                     </div>
@@ -188,7 +186,7 @@ export default function Page() {
                 {/* TODO - release all of these the day of the event */}
                 <div
                     id="tracks"
-                    className={`min-h-screen w-full max-w-[${minScreenSize}px]`}
+                    className={`min-h-screen w-full ${minScreenSize}`}
                     ref={tracksRef}
                     style={{}}
                 >
@@ -198,14 +196,14 @@ export default function Page() {
                 <div
                     id="schedule"
                     ref={scheduleRef}
-                    className={`w-full max-w-[${minScreenSize}px] overflow-hidden`}
+                    className={`w-full ${minScreenSize} overflow-hidden`}
                 >
                     <ScheduleSection />
                 </div>
                 <div
                     id="team"
                     ref={meetTheTeamRef}
-                    className={`w-full max-w-[${minScreenSize}px] mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
+                    className={`w-full ${minScreenSize} mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
                 >
                     <MeetTheTeamSection />
                 </div>

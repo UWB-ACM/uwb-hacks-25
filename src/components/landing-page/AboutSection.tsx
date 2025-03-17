@@ -7,6 +7,7 @@ import DiscordFancyBlueImage from "@/public/about/discord-fancy-blue.svg";
 import DiscordYellowImage from "@/public/about/discord-yellow.svg";
 import ACMLogoImage from "@/public/about/uwb-acm-logo.png";
 import PolygonArea from "../PolygonArea";
+import React from "react";
 
 const AboutSection: React.FC = () => {
     return (
@@ -157,7 +158,7 @@ const AboutSectionDesktop: React.FC = () => (
 const AboutSectionMobile: React.FC = () => (
     <div
         className={
-            'grow [min-height:130vw] px-10 pt-10 gap-2 grid [grid-template-columns:1fr_1fr] [grid-template-rows:1fr_1fr_1fr_1fr_1fr_1fr] [grid-template-areas:"top_top"_"husky_husky"_"husky_husky"_"stats_prizes"_"acm_acm"_"acm_acm"]'
+            'grow [min-height:160vw] px-[3px] pt-10 gap-2 grid [grid-template-columns:1fr_1fr] [grid-template-rows:1fr_1fr_1fr_1fr_1fr_1fr] [grid-template-areas:"top_top"_"husky_husky"_"husky_husky"_"stats_prizes"_"acm_acm"_"acm_acm"]'
         }
         // TODO: How to represent this with tailwind?
     >
@@ -169,7 +170,7 @@ const AboutSectionMobile: React.FC = () => (
             height="120%"
         >
             <div className="absolute [top:15%] [left:30px]">
-                <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
+                <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_5vw)]">
                     About
                 </h2>
             </div>
@@ -191,7 +192,7 @@ const AboutSectionMobile: React.FC = () => (
                 <Image src={HuskyImage} alt="Husky Mascot" />
             </div>
 
-            <p className="text-right absolute [width:35%] [height:60%] [top:10%] [right:20px] [font-family:h2-font] [font-size:calc(0.4rem_+_0.05vw)] [padding-top:5px]">
+            <p className="text-right absolute [width:35%] [height:60%] [top:10%] [right:20px] [font-family:h2-font] [font-size:calc(0.5rem_+_0.4vw)] [padding-top:5px]">
                 UWB: Saves the World! is an annual hackathon teaching students
                 computer science while preparing them for tech and business
                 careers through hands-on learning and professional networking.
@@ -215,12 +216,12 @@ const AboutSectionMobile: React.FC = () => (
             clipPath="100% 1.235%,0.658% 1.235%,0.658% 100%,100% 100%,100% 1.235%"
             viewBox="0 0 154 82"
         >
-            <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
+            <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.3rem_+_3vw)]">
                 <div className="flex-grow" />
                 <p>$8,800+ prizes</p>
                 <div className="flex-grow" />
                 <p>11 Schools</p>
-                <p className="[font-size:calc(0.1rem_+_1.25vw)]">
+                <p className="[font-size:calc(0.2rem_+_1.25vw)]">
                     (University/College/High School)
                 </p>
                 <div className="flex-grow" />
@@ -233,7 +234,7 @@ const AboutSectionMobile: React.FC = () => (
             clipPath="100% 1.235%,0.658% 1.235%,0.658% 100%,100% 100%,100% 1.235%"
             viewBox="0 0 154 82"
         >
-            <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
+            <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.3rem_+_3vw)]">
                 <div className="flex-grow" />
                 <p>350+ Hackers</p>
                 <div className="flex-grow" />
@@ -260,7 +261,7 @@ const AboutSectionMobile: React.FC = () => (
                 UWB Association For Computing Machinery
             </p>
 
-            <p className="text-left absolute [width:60%] [bottom:calc(1%_+_0.75vw)] [left:10px] [font-family:h2-font] [font-size:calc(0.35rem_+_0.35vw)]">
+            <p className="text-left absolute [width:60%] [bottom:calc(1%_+_0.75vw)] [left:10px] [font-family:h2-font] [font-size:calc(0.2rem_+_2vw)]">
                 UWB ACM is a chapter of the Association of Computing Machinery
                 at UWB dedicated to creating events and providing insight into
                 academics, research, and careers related to Computer Science.
