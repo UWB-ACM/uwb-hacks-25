@@ -90,7 +90,7 @@ export const committees = [
                 id: "jingyi-zhong",
                 name: "Jing Yi Zhong",
                 role: "Web Designer",
-                photo: "/MeetTheTeamPhotos/default.jpg",
+                photo: "/MeetTheTeamPhotos/jingyi-zhong.jpg",
                 link: "https://www.linkedin.com/in/zhongjy/",
             },
         ],
@@ -99,20 +99,6 @@ export const committees = [
         id: "content-design",
         name: "Content Design Champions",
         members: [
-            {
-                id: "simon-dao",
-                name: "Simon Dao",
-                role: "Content and Design Lead",
-                photo: "/MeetTheTeamPhotos/simon-dao.jpg",
-                link: "https://www.linkedin.com/in/simon-dao/",
-            },
-            {
-                id: "prarin-behdarvandian",
-                name: "Prarin (Melody) Behdarvandian",
-                role: "Content and Design Member, Marketing Member",
-                photo: "/MeetTheTeamPhotos/prarin-behdarvandian.png",
-                link: "https://www.linkedin.com/in/p-behdar/",
-            },
             {
                 id: "ruthie-lartey",
                 name: "Ruthie Lartey",
@@ -128,6 +114,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/saikanishkbathina/",
             },
             {
+                id: "prarin-behdarvandian",
+                name: "Prarin (Melody) Behdarvandian",
+                role: "Content and Design Member, Marketing Member",
+                photo: "/MeetTheTeamPhotos/prarin-behdarvandian.png",
+                link: "https://www.linkedin.com/in/p-behdar/",
+            },
+            {
                 id: "sarinna-thaiy",
                 name: "Sarinna Thaiy",
                 role: "Content and Design, Husky Artist",
@@ -138,7 +131,7 @@ export const committees = [
                 id: "jingyi-zhong",
                 name: "Jing Yi Zhong",
                 role: "Web Designer",
-                photo: "/MeetTheTeamPhotos/default.jpg",
+                photo: "/MeetTheTeamPhotos/jingyi-zhong.jpg",
                 link: "https://www.linkedin.com/in/zhongjy/",
             },
         ],
