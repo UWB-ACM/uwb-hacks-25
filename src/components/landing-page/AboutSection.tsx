@@ -8,12 +8,52 @@ import DiscordYellowImage from "@/public/about/discord-yellow.svg";
 import ACMLogoImage from "@/public/about/uwb-acm-logo.png";
 import PolygonArea from "../PolygonArea";
 import React from "react";
+import Button from "../Button";
 
 const AboutSection: React.FC = () => {
     return (
         <section className="flex flex-col gap-y-8">
             {/* UWBHacks About Container */}
-            <div className="w-full h-[30vh] bg-green-500"></div>
+            <div className="relative w-full border-black border-2 bg-[url(/about/AboutSection_Background_1.jpg)] bg-cover bg-center">
+                {/* UWBHacks About Section Header */}
+                <h2 className="z-[5] absolute top-0 left-0 font-h1 text-4xl px-6 py-3 bg-white border-black border-b-2 border-r-2">
+                    About
+                </h2>
+
+                {/* UWBHacks About Section Content */}
+                <div className="z-[5] w-full flex flex-col md:flex-row justify-center items-center gap-x-8 overflow-hidden">
+                    {/* Husky */}
+                    <Image
+                        className="md:translate-y-2 mt-4"
+                        src="/about/husky.png"
+                        alt="Husky"
+                        width={300}
+                        height={300}
+                    />
+                    {/* UWBHacks About Section Description */}
+                    <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center px-8 md:p-8">
+                        <p className="font-bold text-center md:text-left">
+                            UWB Hacks: Saves the World! is an annual hackathon
+                            teaching students computer science while preparing
+                            them for tech and business careers through hands-on
+                            learning and professional networking. Learn more in
+                            our Discord!
+                        </p>
+                        <div className="w-full flex justify-center md:justify-end">
+                            <Link
+                                href="https://discord.gg/6AapzPNvRy"
+                                target="_blank"
+                            >
+                                <Image
+                                    src={DiscordFancyYellowImage}
+                                    alt="Discord"
+                                    className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                                />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* Previous UWBHacks Fun Statistics Container */}
             <div className="w-full h-[30vh] bg-green-500"></div>
