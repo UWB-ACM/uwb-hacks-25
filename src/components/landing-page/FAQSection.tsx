@@ -7,7 +7,7 @@ const FAQSection = () => {
                 FAQ
             </h2>
 
-            <div className="relative container bg-white border-2 border-black p-4 md:p-8 my-4 md:my-8">
+            <div className="relative bg-white border-2 border-black p-4 md:p-8 my-4 md:my-8">
                 <h3 className="font-rubik-mono-one text-md md:text-lg font-stretch-condensed">
                     1. How will UWB Hacks 2025 be run?
                 </h3>
