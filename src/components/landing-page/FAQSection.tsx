@@ -2,7 +2,7 @@ import React from "react";
 
 const FAQSection = () => {
     return (
-        <div className="flex flex-col items-center md:p-10">
+        <div className="flex flex-col items-center">
             <h2 className="font-h1 text-5xl md:text-7xl text-[#49B2F8] text-center">
                 FAQ
             </h2>
