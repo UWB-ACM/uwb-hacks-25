@@ -28,11 +28,6 @@ const AboutSectionDesktop: React.FC = () => (
         className={
             'grow [min-height:60vw] gap-2 grid [grid-template-columns:1fr_1fr_1fr] [grid-template-rows:2fr_1fr_1fr_1fr_2fr_1fr_2fr] [grid-template-areas:"top_top_top"_"husky_husky_prizes"_"husky_husky_prizes"_"husky_husky_."_"._acm_acm"_"stats_acm_acm"_"stats_acm_acm"]'
         }
-        // TODO: How to represent this with tailwind?
-        style={{
-            background:
-                "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
-        }}
     >
         <PolygonArea
             area="top"

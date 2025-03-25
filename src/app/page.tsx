@@ -168,58 +168,65 @@ export default function Page() {
                     </Parallax>
                 </div>
 
+                {/* Container for remaining sections */}
                 <div
-                    id="about"
-                    ref={aboutRef}
-                    className="w-full flex justify-center overflow-hidden"
+                    className="w-full"
                     style={{
                         background:
                             "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
                     }}
                 >
-                    <div className={`w-full ${minScreenSize} sm:px-4 `}>
-                        <AboutSection />
-                        <SponsorInfo />
+                    <div className="z-[5] w-[90%] mx-auto">
+                        <div
+                            id="about"
+                            ref={aboutRef}
+                            className="w-full flex justify-center overflow-hidden"
+                        >
+                            <div className="w-full">
+                                <AboutSection />
+                                <SponsorInfo />
+                            </div>
+                        </div>
+
+                        {/* TODO - release all of these the day of the event */}
+                        <div
+                            id="tracks"
+                            className={`min-h-screen w-full ${minScreenSize}`}
+                            ref={tracksRef}
+                            style={{}}
+                        >
+                            <TracksSection />
+                        </div>
+
+                        <div
+                            id="schedule"
+                            ref={scheduleRef}
+                            className={`w-full ${minScreenSize} overflow-hidden`}
+                        >
+                            <ScheduleSection />
+                        </div>
+                        <div
+                            id="team"
+                            ref={meetTheTeamRef}
+                            className={`w-full ${minScreenSize} mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
+                        >
+                            <MeetTheTeamSection />
+                        </div>
+                        <div
+                            id="sponsors"
+                            ref={sponsorsRef}
+                            className="w-full mt-[4rem] sm:mt-[-6rem] overflow-hidden"
+                        >
+                            <SponsorsSection />
+                        </div>
+                        <div
+                            id="faq"
+                            ref={faqRef}
+                            className="w-[90vw] mt-[4rem] sm:mt-[-6rem]"
+                        >
+                            <FAQSection />
+                        </div>
                     </div>
-                </div>
-
-                {/* TODO - release all of these the day of the event */}
-                <div
-                    id="tracks"
-                    className={`min-h-screen w-full ${minScreenSize}`}
-                    ref={tracksRef}
-                    style={{}}
-                >
-                    <TracksSection />
-                </div>
-
-                <div
-                    id="schedule"
-                    ref={scheduleRef}
-                    className={`w-full ${minScreenSize} overflow-hidden`}
-                >
-                    <ScheduleSection />
-                </div>
-                <div
-                    id="team"
-                    ref={meetTheTeamRef}
-                    className={`w-full ${minScreenSize} mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
-                >
-                    <MeetTheTeamSection />
-                </div>
-                <div
-                    id="sponsors"
-                    ref={sponsorsRef}
-                    className="w-full mt-[4rem] sm:mt-[-6rem] overflow-hidden"
-                >
-                    <SponsorsSection />
-                </div>
-                <div
-                    id="faq"
-                    ref={faqRef}
-                    className="w-[90vw] mt-[4rem] sm:mt-[-6rem]"
-                >
-                    <FAQSection />
                 </div>
             </ParallaxProvider>
         </div>
