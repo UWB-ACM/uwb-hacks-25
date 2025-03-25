@@ -11,15 +11,25 @@ import React from "react";
 
 const AboutSection: React.FC = () => {
     return (
-        <>
-            <div className="[display:none] md:[display:initial] w-full">
-                <AboutSectionDesktop />
-            </div>
+        <section className="flex flex-col gap-y-8">
+            {/* UWBHacks About Container */}
+            <div className="w-full h-[30vh] bg-green-500"></div>
 
-            <div className="[display:initial] md:[display:none] w-full">
-                <AboutSectionMobile />
+            {/* Previous UWBHacks Fun Statistics Container */}
+            <div className="w-full h-[30vh] bg-green-500"></div>
+
+            {/* UWB ACM Description Container */}
+            <div className="w-full h-[30vh] bg-green-500"></div>
+
+            {/* "UWBHacks Save the World" & "Month of Hacking" Container */}
+            <div className="w-full flex gap-x-8">
+                {/* UWBHacks Save the World */}
+                <div className="w-1/2 h-[30vh] bg-green-500"></div>
+
+                {/* Month of Hacking */}
+                <div className="w-1/2 h-[30vh] bg-green-500"></div>
             </div>
-        </>
+        </section>
     );
 };
 
