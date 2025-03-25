@@ -180,12 +180,10 @@ export default function Page() {
                         <div
                             id="about"
                             ref={aboutRef}
-                            className="w-full flex justify-center overflow-hidden"
+                            className="w-full my-[2rem] md:my-[4rem] overflow-hidden"
                         >
-                            <div className="w-full">
-                                <AboutSection />
-                                <SponsorInfo />
-                            </div>
+                            <AboutSection />
+                            <SponsorInfo />
                         </div>
 
                         {/* TODO - release all of these the day of the event */}
