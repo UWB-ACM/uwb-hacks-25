@@ -31,7 +31,7 @@ const AboutSection: React.FC = () => {
                         height={300}
                     />
                     {/* UWBHacks About Section Description */}
-                    <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center px-8 md:p-8">
+                    <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center gap-y-2 px-8 md:p-8">
                         <p className="font-bold text-center md:text-left">
                             UWB Hacks: Saves the World! is an annual hackathon
                             teaching students computer science while preparing
@@ -39,7 +39,19 @@ const AboutSection: React.FC = () => {
                             learning and professional networking. Learn more in
                             our Discord!
                         </p>
-                        <div className="w-full flex justify-center md:justify-end">
+                        <div className="w-full flex items-center justify-center gap-x-8">
+                            <Link
+                                href={
+                                    "https://uwb-hacks-save-the-world.devpost.com"
+                                }
+                            >
+                                <Button
+                                    className="text-[23px]"
+                                    onClick={() => {}}
+                                >
+                                    Register Now
+                                </Button>
+                            </Link>
                             <Link
                                 href="https://discord.gg/6AapzPNvRy"
                                 target="_blank"
@@ -73,9 +85,9 @@ const AboutSection: React.FC = () => {
             {/* UWB ACM Description Container */}
             <div className="relative w-full flex flex-col gap-y-4 border-black border-2 bg-[url(/about/AboutSection_Background_2.jpg)] bg-cover bg-center pb-6 overflow-hidden">
                 {/* UWBHacks ACM Description Header */}
-                <h2 className="z-[5] w-full lg:w-fit font-bold text-center md:text-left text-lg md:text-xl lg:text-2xl px-6 py-3 bg-white border-black border-b-2 md:border-r-2 flex justify-center gap-x-3">
+                <h3 className="z-[5] w-3/4 md:w-1/2 font-bold text-center text-lg md:text-xl lg:text-2xl px-6 py-3 bg-white border-black border-b-2 border-r-2 flex justify-center gap-x-3">
                     UWB Association for Computing Machinery
-                </h2>
+                </h3>
 
                 {/* UWB ACM Description Content */}
                 <div className="z-[5] w-4/5 md:w-3/4 lg:w-1/2 flex flex-col self-center p-4 bg-white border-2 border-black">
@@ -110,12 +122,48 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* "UWBHacks Save the World" & "Month of Hacking" Container */}
-            <div className="w-full flex gap-x-8">
-                {/* UWBHacks Save the World */}
-                <div className="w-1/2 h-[30vh] bg-green-500"></div>
-
+            <div className="w-full grid md:grid-cols-2 gap-8">
                 {/* Month of Hacking */}
-                <div className="w-1/2 h-[30vh] bg-green-500"></div>
+                <div className="flex flex-col gap-y-6 border-2 border-black pb-4 bg-[url(/about/AboutSection_Background_3.jpg)] bg-cover bg-center">
+                    <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
+                        Month of Hacking
+                    </h3>
+                    <p className="px-6 text-center font-bold">
+                        In April, we'll host a series of academic and fun
+                        activities to prepare participants for the main event,
+                        with at least 2 events each week, totaling 8+ events.
+                        Some will be co-hosted by fellow clubs and the rest are
+                        open for sponsors to host.
+                    </p>
+                    <div className="px-6 w-full flex justify-end">
+                        <Link href={"/month-of-hacking"}>
+                            <Button className="text-[25px]" onClick={() => {}}>
+                                Learn More
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Hackeroons */}
+                <div className="flex flex-col gap-y-6 border-2 border-black pb-4 bg-[url(/about/AboutSection_Background_4.jpg)] bg-cover bg-center">
+                    <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
+                        Hackeroons
+                    </h3>
+                </div>
+
+                {/* Last Year's Winners */}
+                <div className="flex flex-col gap-y-6 border-2 border-black pb-4 bg-blue-200">
+                    <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
+                        Last Year's Winners
+                    </h3>
+                </div>
+
+                {/* Leaderboard */}
+                <div className="flex flex-col gap-y-6 border-2 border-black pb-4 bg-yellow-300/90">
+                    <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
+                        Leaderboard
+                    </h3>
+                </div>
             </div>
         </section>
     );
