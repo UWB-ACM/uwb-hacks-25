@@ -12,9 +12,9 @@ import Button from "../Button";
 
 const AboutSection: React.FC = () => {
     return (
-        <section className="flex flex-col gap-y-8">
+        <section className="flex flex-col gap-y-[2rem] md:gap-y-[4rem]">
             {/* UWBHacks About Container */}
-            <div className="relative w-full border-black border-2 bg-[url(/about/AboutSection_Background_1.jpg)] bg-cover bg-center">
+            <div className="relative w-full border-black border-2 bg-[url(/about/AboutSection_Background_1.jpg)] bg-cover bg-center mt-[2rem] md:mt-[4rem]">
                 {/* UWBHacks About Section Header */}
                 <h2 className="z-[5] absolute top-0 left-0 font-h1 text-4xl px-6 py-3 bg-white border-black border-b-2 border-r-2">
                     About
@@ -56,10 +56,32 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* Previous UWBHacks Fun Statistics Container */}
-            <div className="w-full h-[30vh] bg-green-500"></div>
+            <div className="w-full grid gap-4 md:gap-8 md:grid-cols-4 text-center font-bold text-xl lg:text-2xl">
+                <p className="flex justify-center items-center">
+                    $8,800+ in Prizes
+                </p>
+                <div className="flex flex-col justify-center items-center">
+                    <p>11 Schools</p>
+                    <p className="text-base">
+                        (University/College/High School)
+                    </p>
+                </div>
+                <p className="flex justify-center items-center">350+ Hackers</p>
+                <p className="flex justify-center items-center">65 Projects</p>
+            </div>
 
             {/* UWB ACM Description Container */}
-            <div className="w-full h-[30vh] bg-green-500"></div>
+            <div className="relative w-full border-black border-2 h-[30vh] bg-[url(/about/AboutSection_Background_2.jpg)] bg-cover bg-center">
+                {/* UWBHacks ACM Description Header */}
+                <h2 className="z-[5] absolute top-0 left-0 w-full md:w-fit font-bold text-center md:text-left text-lg md:text-xl lg:text-2xl px-6 py-3 bg-white border-black border-b-2 md:border-r-2">
+                    UWB Association for Computing Machinery
+                </h2>
+
+                {/* UWB ACM Description Content */}
+                
+
+                {/* UWB ACM Logo */}
+            </div>
 
             {/* "UWBHacks Save the World" & "Month of Hacking" Container */}
             <div className="w-full flex gap-x-8">

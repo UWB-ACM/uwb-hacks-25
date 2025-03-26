@@ -180,7 +180,7 @@ export default function Page() {
                         <div
                             id="about"
                             ref={aboutRef}
-                            className="w-full overflow-hidden my-[2rem] md:my-[4rem]"
+                            className="w-full overflow-hidden"
                         >
                             <AboutSection />
                             <SponsorInfo />
