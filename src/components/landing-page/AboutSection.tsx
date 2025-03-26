@@ -56,7 +56,7 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* Previous UWBHacks Fun Statistics Container */}
-            <div className="w-full grid gap-4 md:gap-8 md:grid-cols-4 text-center font-bold text-xl lg:text-2xl">
+            <div className="w-full grid gap-4 md:gap-8 md:grid-cols-4 text-center text-slate-100 text-xl lg:text-2xl">
                 <p className="flex justify-center items-center">
                     $8,800+ in Prizes
                 </p>
@@ -71,16 +71,42 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* UWB ACM Description Container */}
-            <div className="relative w-full border-black border-2 h-[30vh] bg-[url(/about/AboutSection_Background_2.jpg)] bg-cover bg-center">
+            <div className="relative w-full flex flex-col gap-y-4 border-black border-2 bg-[url(/about/AboutSection_Background_2.jpg)] bg-cover bg-center pb-6 overflow-hidden">
                 {/* UWBHacks ACM Description Header */}
-                <h2 className="z-[5] absolute top-0 left-0 w-full md:w-fit font-bold text-center md:text-left text-lg md:text-xl lg:text-2xl px-6 py-3 bg-white border-black border-b-2 md:border-r-2">
+                <h2 className="z-[5] w-full lg:w-fit font-bold text-center md:text-left text-lg md:text-xl lg:text-2xl px-6 py-3 bg-white border-black border-b-2 md:border-r-2 flex justify-center gap-x-3">
                     UWB Association for Computing Machinery
                 </h2>
 
                 {/* UWB ACM Description Content */}
-                
+                <div className="z-[5] w-4/5 md:w-3/4 lg:w-1/2 flex flex-col self-center p-4 bg-white border-2 border-black">
+                    <p className="font-bold text-center md:text-left">
+                        UWB ACM is a chapter of the Association of Computing
+                        Machinery at UWB dedicated to creating events and
+                        providing insight into academics, research, and careers
+                        related to Computer Science. Learn more in our Discord!
+                    </p>
+                    <div className="w-full flex justify-center md:justify-end">
+                        <Link
+                            href="https://discord.gg/DzWEhESsZw"
+                            target="_blank"
+                        >
+                            <Image
+                                src={DiscordFancyBlueImage}
+                                alt="Discord"
+                                className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                            />
+                        </Link>
+                    </div>
+                </div>
 
                 {/* UWB ACM Logo */}
+                <Image
+                    className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-[2vw]"
+                    src="/about/uwb-acm-logo.png"
+                    alt="ACM Logo"
+                    width={200}
+                    height={200}
+                />
             </div>
 
             {/* "UWBHacks Save the World" & "Month of Hacking" Container */}
