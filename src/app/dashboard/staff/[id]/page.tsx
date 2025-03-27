@@ -1,7 +1,7 @@
 import React from "react";
 import { getPrizes } from "@/src/util/db/prize";
 import { getSession } from "@/src/util/session";
-import BuyPage from "@/src/components/staff/BuyPage";
+import BuyPage from "@/src/components/dashboards/staff/BuyPage";
 import { getBalanceForUser } from "@/src/util/db/transaction";
 import { Metadata } from "next";
 import {

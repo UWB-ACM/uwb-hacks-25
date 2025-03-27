@@ -8,6 +8,7 @@ import AdminActions from "@/src/components/dashboards/AdminActions";
 import StaffActions from "@/src/components/dashboards/StaffActions";
 import AdminActionsUser from "@/src/components/dashboards/AdminActionsUser";
 import StaffActionsUser from "@/src/components/dashboards/StaffActionsUser";
+import StaffQRScanner from "@/src/components/dashboards/staff/StaffQRScanner";
 
 export default async function DashboardPage({
     selectedID,
@@ -54,6 +55,11 @@ export default async function DashboardPage({
                                 ? "No User Selected."
                                 : `Currently Modifying User: ${selectedUser.name} (${selectedUser.email} / ${selectedUser.id})`}
                         </h3>
+                        <div className="w-full flex flex-row justify-center">
+                            <div className="max-w-[200px]">
+                                <StaffQRScanner />
+                            </div>
+                        </div>
                         {/* Container for Buttons */}
                         {selectedUser != null && (
                             <div className="w-[95vw] flex flex-col items-center md:flex-row gap-y-4 md:gap-x-4 justify-center mt-6 flex-wrap">

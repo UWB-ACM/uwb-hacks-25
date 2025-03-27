@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import PrizeCard from "@/src/components/staff/PrizeCard";
+import PrizeCard from "@/src/components/dashboards/staff/PrizeCard";
 import { Prize, TransactionType, User } from "@/src/util/dataTypes";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
 import Link from "next/link";
