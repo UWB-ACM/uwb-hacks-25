@@ -60,7 +60,7 @@ export default async function Page({
                 {/* exit button that returns user back to staff dashboard */}
                 <Link
                     className="py-3 rounded-lg text-center bg-red-500 text-white"
-                    href={`/staff/user/${user.id}`}
+                    href={`/dashboard/`}
                 >
                     Exit
                 </Link>

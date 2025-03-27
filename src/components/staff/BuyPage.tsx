@@ -45,7 +45,9 @@ export default function BuyPage({
                 console.log(data);
             }
 
-            router.push(`/staff/buy-prizes/${user.id}/transaction-complete`);
+            router.push(
+                `/dashboard/buy-prizes/${user.id}/transaction-complete`,
+            );
         }
     };
 
@@ -122,7 +124,7 @@ export default function BuyPage({
                         {/* exit button that returns user back to staff dashboard */}
                         <Link
                             className="p-4 bg-red-500 hover:bg-red-600/90 duration-300 border-[1px] border-black text-center text-white"
-                            href={`/staff/user/${user.id}`}
+                            href={`/dashboard/`}
                         >
                             Exit
                         </Link>
