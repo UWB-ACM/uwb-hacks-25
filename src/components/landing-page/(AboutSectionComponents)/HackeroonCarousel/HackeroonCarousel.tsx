@@ -2,12 +2,13 @@
 
 import React, { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import gsap from "gsap";
+import CarouselControls from "./CarouselControls";
+import HackeroonItemCard from "./HackeroonItemCard";
 
 export default function HackeroonCarousel() {
     const [currIdx, setCurrIdx] = useState(0);
-    const cardRef = useRef(null);
+    const cardRef = useRef<HTMLDivElement | null>(null);
     const [isAnimating, setIsAnimating] = useState(false);
 
     const hackeroonPrizes = [
@@ -91,52 +92,22 @@ export default function HackeroonCarousel() {
     return (
         <div className="w-full p-[3%] flex justify-between overflow-hidden">
             {/* Prev Button */}
-            <div className="z-[5] w-[15%] flex justify-center items-center">
-                <button
-                    onClick={handlePrev}
-                    className="w-full md:w-[75%] lg:w-full xl:w-[80%] aspect-square bg-black rounded-lg"
-                >
-                    <ChevronLeft className="w-full h-full text-white" />
-                </button>
-            </div>
+            <CarouselControls onClick={handlePrev}>
+                <ChevronLeft className="w-full h-full text-white" />
+            </CarouselControls>
 
             {/* Hackeroon Item Card Container */}
             <div className="w-[70%] flex justify-center items-center min-h-[300px]">
-                {/* Hackeroon Item Card */}
-                <div
-                    // key={currIdx}
-                    ref={cardRef}
-                    className="item-card w-[80%] p-4 rounded-lg bg-[#FFCA3A]"
-                >
-                    {/* Prize Name */}
-                    <p className="text-center font-bold text-lg md:text-xl lg:text-2xl">
-                        {hackeroonPrizes[currIdx].name}
-                    </p>
-                    {/* Prize Image */}
-                    <div className="w-full p-4 mt-2 bg-gray-200 flex justify-center rounded-md border border-black">
-                        <Image
-                            src={hackeroonPrizes[currIdx].image}
-                            alt={"Image of " + hackeroonPrizes[currIdx].name}
-                            width={100}
-                            height={100}
-                        />
-                    </div>
-                    {/* Prize Prize */}
-                    <p className="text-center mt-2">
-                        {hackeroonPrizes[currIdx].price} Hackeroons
-                    </p>
-                </div>
+                <HackeroonItemCard
+                    cardRef={cardRef}
+                    hackeroonPrize={hackeroonPrizes[currIdx]}
+                />
             </div>
 
             {/* Next Button */}
-            <div className="z-[5] w-[15%] flex justify-center items-center">
-                <button
-                    onClick={handleNext}
-                    className="w-full md:w-[75%] lg:w-full xl:w-[80%] aspect-square bg-black text-white rounded-lg"
-                >
-                    <ChevronRight className="w-full h-full text-white " />
-                </button>
-            </div>
+            <CarouselControls onClick={handleNext}>
+                <ChevronRight className="w-full h-full text-white " />
+            </CarouselControls>
         </div>
     );
 }

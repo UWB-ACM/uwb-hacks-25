@@ -5,7 +5,7 @@ import DiscordFancyBlueImage from "@/public/about/discord-fancy-blue.svg";
 import React from "react";
 import Button from "../Button";
 import Panel from "./(AboutSectionComponents)/Panel";
-import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel";
+import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/HackeroonCarousel";
 
 const AboutSection: React.FC = () => {
     return (
