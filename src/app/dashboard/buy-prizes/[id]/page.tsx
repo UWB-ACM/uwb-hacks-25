@@ -4,7 +4,10 @@ import { getSession } from "@/src/util/session";
 import BuyPage from "@/src/components/staff/BuyPage";
 import { getBalanceForUser } from "@/src/util/db/transaction";
 import { Metadata } from "next";
-import { ensureStaffPermission, extractStaffUserData } from "@/src/util/staff";
+import {
+    ensureStaffPermission,
+    extractDashboardUserData,
+} from "@/src/util/staff";
 
 export const metadata: Metadata = {
     title: "Buy Prizes | UWB Hacks 25",
@@ -20,7 +23,7 @@ export default async function Page({
 
     const [prizes, { user, balance }] = await Promise.all([
         getPrizes(),
-        extractStaffUserData((await params).id).then((user) =>
+        extractDashboardUserData((await params).id).then((user) =>
             getBalanceForUser(user.id).then((balance) => ({
                 user,
                 balance,
