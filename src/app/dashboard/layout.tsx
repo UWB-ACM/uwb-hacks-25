@@ -2,6 +2,7 @@ import React from "react";
 import Header from "@/src/components/header/Header";
 import { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { logoutUser } from "@/src/util/logout";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
                         id: "logout",
                         name: "Logout",
                         url: "/dashboard",
+                        customOnClick: logoutUser,
                     },
                 ]}
             />
