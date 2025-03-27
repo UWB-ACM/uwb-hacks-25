@@ -1,8 +1,17 @@
 import React from "react";
+import { FaGift } from "react-icons/fa6";
+import DashboardButton from "@/src/components/dashboards/DashboardButton";
 
 function StaffActions() {
-    // TODO: Are there any places where staff need to do something that isn't user-related?
-    return <></>;
+    // TODO: Make these actual actions.
+    return (
+        <>
+            <DashboardButton href="#">
+                <FaGift className="h-[30px] w-[30px]" />
+                Create Check-In Code
+            </DashboardButton>
+        </>
+    );
 }
 
 export default StaffActions;
