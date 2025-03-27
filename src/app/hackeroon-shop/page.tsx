@@ -1,0 +1,72 @@
+import PrizeCard from "@/src/components/dashboards/staff/PrizeCard";
+import React from "react";
+import { getPrizes } from "@/src/util/db/prize";
+import { Metadata } from "next";
+import Header from "@/src/components/header/Header";
+
+export const metadata: Metadata = {
+    title: "Hackeroon Shop | UWB Hacks 25",
+};
+
+export default async function PrizesPage() {
+    const prizes = await getPrizes();
+
+    return (
+        <div className="w-full h-full flex flex-col">
+            <Header
+                links={[
+                    {
+                        id: "sponsor",
+                        name: "Sponsor Us",
+                        url: "/sponsor",
+                    },
+                    {
+                        id: "about",
+                        name: "About",
+                        url: "/#about",
+                    },
+                    {
+                        id: "tracks",
+                        name: "Tracks",
+                        url: "/#tracks",
+                    },
+                    {
+                        id: "schedule",
+                        name: "Schedule",
+                        url: "/#schedule",
+                    },
+                    {
+                        id: "faq",
+                        name: "FAQ",
+                        url: "/#faq",
+                    },
+                    {
+                        id: "dashboard",
+                        name: "Dashboard",
+                        url: "/dashboard",
+                    },
+                ]}
+            />
+
+            <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8 text-center">
+                Hackeroon Shop
+            </h1>
+
+            {/* TODO: Update actual prizes and remove the "DEMO" text below. */}
+            {/* TODO: Insert prize stand location below. */}
+
+            <p className="self-center text-center max-w-[80%] md:max-w-[50%] text-lg">
+                DEMO-ONLY: THE ITEMS LISTED HERE ARE FOR TESTING PURPOSES AND
+                WILL NOT BE OFFERED DURING THE EVENT. Check out what your
+                hackeroons can buy! Prizes are offered on a
+                first-come-first-serve basis, and can be purchased at our prize
+                stand in-person [INSERT LOCATION].
+            </p>
+            <div className="w-full flex-grow p-8 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {prizes.map((prize, index) => (
+                    <PrizeCard key={index} prize={prize} />
+                ))}
+            </div>
+        </div>
+    );
+}
