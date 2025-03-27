@@ -22,7 +22,7 @@ export default function HackeroonItemCard({
             className="item-card w-[80%] p-4 rounded-lg bg-[#FFCA3A]"
         >
             {/* Prize Name */}
-            <p className="text-center font-bold text-lg md:text-xl lg:text-2xl">
+            <p className="text-center text-lg md:text-xl lg:text-2xl">
                 {hackeroonPrize.name}
             </p>
             {/* Prize Image */}

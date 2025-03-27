@@ -29,7 +29,7 @@ const AboutSection: React.FC = () => {
                     />
                     {/* UWBHacks About Section Description */}
                     <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center gap-y-2 px-8 md:p-8">
-                        <p className="font-bold text-center md:text-left">
+                        <p className="text-center md:text-left text-white text-lg md:text-xl">
                             UWB Hacks: Saves the World! is an annual hackathon
                             teaching students computer science while preparing
                             them for tech and business careers through hands-on
@@ -65,7 +65,7 @@ const AboutSection: React.FC = () => {
             </Panel>
 
             {/* Previous UWBHacks Fun Statistics Container */}
-            <Panel className="border-none grid gap-4 md:gap-8 md:grid-cols-4 text-center text-slate-100 text-xl lg:text-2xl">
+            <Panel className="border-none grid gap-4 md:gap-8 md:grid-cols-4 text-center text-white font-bold text-xl lg:text-2xl">
                 <p className="flex justify-center items-center">
                     $8,800+ in Prizes
                 </p>
@@ -128,7 +128,7 @@ const AboutSection: React.FC = () => {
                     <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
                         Month of Hacking
                     </h3>
-                    <p className="px-6 text-center font-bold">
+                    <p className="px-6 py-3 text-center font-bold">
                         In April, we'll host a series of academic and fun
                         activities to prepare participants for the main event,
                         with at least 2 events each week, totaling 8+ events.
@@ -180,10 +180,10 @@ const AboutSection: React.FC = () => {
 
                 {/* Last Year's Winners */}
                 <Panel className="" panelColor="#BFDBFE">
-                    <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
+                    <h3 className="px-6 pt-3 font-bold text-center italic text-blue-500 text-lg md:text-xl lg:text-2xl">
                         Last Year's Winners
                     </h3>
-                    <p className="p-6">
+                    <p className="p-6 pt-2">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Ut enim ad minim veniam, quis nostrud
