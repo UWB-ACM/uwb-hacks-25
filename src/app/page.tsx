@@ -183,7 +183,6 @@ export default function Page() {
                             className="w-full overflow-hidden"
                         >
                             <AboutSection />
-                            <SponsorInfo />
                         </div>
 
                         {/* TODO - release all of these the day of the event */}
