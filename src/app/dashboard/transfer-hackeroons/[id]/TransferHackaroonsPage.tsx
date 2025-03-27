@@ -89,7 +89,7 @@ export default function TransferHackaroonsPage({
                         {/* exit button that returns user back to staff dashboard */}
                         <Link
                             className="mt-4 py-3 bg-red-500 hover:bg-red-600 duration-200 rounded-md border-[1px] border-black text-white text-center cursor-pointer"
-                            href={`/staff/user/${user.id}`}
+                            href={`/dashboard/`}
                         >
                             Exit
                         </Link>
