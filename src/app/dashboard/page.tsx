@@ -15,7 +15,7 @@ export default async function UserPage({}: {
         return <div>Not logged in</div>;
     }
     const permission = await getPermissionLevel(session?.user.id);
-    
+
     let content = <div>Something went wrong</div>;
 
     if (permission === null) {
@@ -27,7 +27,7 @@ export default async function UserPage({}: {
     } else if (permission === PermissionLevel.Staff) {
         content = <StaffDashboard user={session.user} />;
     } else if (permission === PermissionLevel.User) {
-        content = <UserDashboard user={session.user}/>;
+        content = <UserDashboard user={session.user} />;
     }
 
     return content;

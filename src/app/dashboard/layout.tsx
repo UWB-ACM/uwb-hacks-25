@@ -19,7 +19,7 @@ export default function RootLayout({
                         id: "logout",
                         name: "Logout",
                         url: "/dashboard",
-                    }
+                    },
                 ]}
             />
 
