@@ -155,8 +155,8 @@ const AboutSection: React.FC = () => {
                 </Panel>
 
                 {/* Leaderboard */}
-                <Panel panelColor={"#F9D446"}>
-                    <h3 className="px-6 py-3 font-bold text-center italic text-orange-400 text-lg md:text-xl lg:text-2xl">
+                <Panel panelColor={"#FFF49F"}>
+                    <h3 className="px-6 py-3 font-bold text-center italic text-[#FFCA3A] text-lg md:text-xl lg:text-2xl">
                         Leaderboard
                     </h3>
                     <div className="px-[10%] md:px-[15%] pb-[5%] flex flex-col gap-y-8 md:text-lg">
