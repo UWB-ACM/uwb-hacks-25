@@ -123,7 +123,7 @@ export default function Page() {
                                 scrollRef: faqRef,
                             },
                             {
-                                id: "Dashboard",
+                                id: "dashboard",
                                 name: "Dashboard",
                                 url: "/dashboard",
                             },

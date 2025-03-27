@@ -28,18 +28,18 @@ export async function ensureStaffPermission(
  * - Extracts the user data for the user in the user parameter and returns it.
  * @param userID - is the ID of the user being requested (not the requester).
  */
-export async function extractStaffUserData(
+export async function extractDashboardUserData(
     userID: string,
 ): Promise<User | never> {
     const id = parseInt(userID);
 
     if (isNaN(id)) {
-        return redirect("/staff");
+        return redirect("/dashboard");
     }
 
     const requestedUser = await getUserFromID(id);
     if (requestedUser == null) {
-        return redirect("/staff");
+        return redirect("/dashboard");
     }
 
     return requestedUser;

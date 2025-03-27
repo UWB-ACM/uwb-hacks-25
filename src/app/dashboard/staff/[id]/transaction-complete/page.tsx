@@ -2,7 +2,10 @@ import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 import { getSession } from "@/src/util/session";
-import { ensureStaffPermission, extractStaffUserData } from "@/src/util/staff";
+import {
+    ensureStaffPermission,
+    extractDashboardUserData,
+} from "@/src/util/staff";
 
 export const metadata: Metadata = {
     title: "Transaction Complete | UWB Hacks 25",
@@ -16,7 +19,7 @@ export default async function Page({
     const session = await getSession();
     await ensureStaffPermission(session);
 
-    const user = await extractStaffUserData((await params).id);
+    const user = await extractDashboardUserData((await params).id);
 
     return (
         <div className="h-screen w-full grid place-content-center">
@@ -25,7 +28,7 @@ export default async function Page({
                     Transaction Complete!
                 </h1>
                 <div className="h-[30%] text-2xl text-white grid place-content-center">
-                    <Link href={`/staff/user/${user.id}`}>
+                    <Link href={`/dashboard/${user.id}`}>
                         <button className="bg-green-500 border-[1px] border-black rounded-xl p-4">
                             Return to User Management
                         </button>

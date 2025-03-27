@@ -2,16 +2,11 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { SessionUser } from "@/src/util/session";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
-import { TransactionType } from "@/src/util/dataTypes";
+import { TransactionType, User } from "@/src/util/dataTypes";
 import Link from "next/link";
 
-export default function TransferHackaroonsPage({
-    user,
-}: {
-    user: SessionUser;
-}) {
+export default function TransferHackaroonsPage({ user }: { user: User }) {
     const router = useRouter();
 
     const [amount, setAmount] = useState(0);
@@ -37,7 +32,7 @@ export default function TransferHackaroonsPage({
         // TODO: Track when this fails.
         console.log(data);
 
-        router.push("/staff");
+        router.push(`/dashboard/${user.id}`);
     };
 
     return (
@@ -89,7 +84,7 @@ export default function TransferHackaroonsPage({
                         {/* exit button that returns user back to staff dashboard */}
                         <Link
                             className="mt-4 py-3 bg-red-500 hover:bg-red-600 duration-200 rounded-md border-[1px] border-black text-white text-center cursor-pointer"
-                            href={`/dashboard/`}
+                            href={`/dashboard/${user.id}`}
                         >
                             Exit
                         </Link>
