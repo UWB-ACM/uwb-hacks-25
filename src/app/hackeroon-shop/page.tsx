@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 };
 
 export default async function PrizesPage() {
-    const prizes = await getPrizes();
+    // The catch is to let this work in builds without databases.
+    const prizes = await getPrizes().catch((e) => {
+        console.error(e);
+        return [];
+    });
 
     return (
         <div className="w-full h-full flex flex-col">
