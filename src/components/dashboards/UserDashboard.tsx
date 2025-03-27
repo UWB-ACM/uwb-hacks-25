@@ -1,23 +1,45 @@
-import React from "react";
-import Link from "next/link";
-import { FaUserEdit } from "react-icons/fa";
+import React, { Suspense } from "react";
 import { SessionUser } from "@/src/util/session";
+import {
+    getBalanceForUser,
+    getTransactionsForUser,
+} from "@/src/util/db/transaction";
+import QRCode from "react-qr-code";
 
-function UserDashboard({ user }: { user: SessionUser }) {
+async function UserDashboard({ user }: { user: SessionUser }) {
     return (
-        <div className="w-screen py-4 px-8 grid place-content-center">
-            <h1 className="text-4xl text-center">User Management</h1>
-            <h2 className="text-xl text-center pt-2">
-                Currently Modifying User: {user.name} ({user.email} / {user.id})
-            </h2>
-            {/* Container for Buttons */}
-            <div className="w-[95vw] flex flex-col items-center md:flex-row gap-y-4 md:gap-x-4 justify-between mt-6">
-                <Link href={`/dashboard/modify-user/${user.id}`}>
-                    <button className="h-[20vh] w-[70vw] md:h-[50vh] md:w-[30vw] bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 grid place-content-center place-items-center gap-y-2 hover:bg-neutral-200 duration-300">
-                        <FaUserEdit className="h-[30px] w-[30px]" />
-                        Modify User Account
-                    </button>
-                </Link>
+        <div className="pt-20 px-[5%]">
+            <div className="flex pb-10">
+                {/* Profile heading */}
+                <div className="rounded-full w-20 h-20 bg-[lightgray] text-center">
+                    pfp
+                </div>
+                <div className="ml-4 pr-24">
+                    <div className="mb-1">{user.name}</div>
+                    <div>Hackeroons: {await getBalanceForUser(user.id)}</div>
+                </div>
+                {/* QR code */}
+                <div>
+                    <Suspense>
+                        <QRCode
+                            size={64}
+                            value={`https://uwbhacks.com/dashboard/${user.id}`}
+                            viewBox={`0 0 256 256`}
+                        />
+                    </Suspense>
+                </div>
+            </div>
+
+            {/* Hackeroon history */}
+            <div>
+                <div>Transaction History</div>
+                {(await getTransactionsForUser(user.id)).map((transaction) => (
+                    <div key={transaction.id}>
+                        [{transaction.type}] H${transaction.amount}{" "}
+                        {transaction.event} {transaction.prize}{" "}
+                        {transaction.time.toString()}
+                    </div>
+                ))}
             </div>
         </div>
     );

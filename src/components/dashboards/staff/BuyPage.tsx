@@ -2,9 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import PrizeCard from "@/src/components/staff/PrizeCard";
-import { Prize, TransactionType } from "@/src/util/dataTypes";
-import { SessionUser } from "@/src/util/session";
+import PrizeCard from "@/src/components/dashboards/staff/PrizeCard";
+import { Prize, TransactionType, User } from "@/src/util/dataTypes";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
 import Link from "next/link";
 
@@ -13,7 +12,7 @@ export default function BuyPage({
     balance,
     prizes,
 }: {
-    user: SessionUser;
+    user: User;
     balance: number;
     prizes: Prize[];
 }) {
@@ -124,7 +123,7 @@ export default function BuyPage({
                         {/* exit button that returns user back to staff dashboard */}
                         <Link
                             className="p-4 bg-red-500 hover:bg-red-600/90 duration-300 border-[1px] border-black text-center text-white"
-                            href={`/dashboard/`}
+                            href={`/dashboard/${user.id}`}
                         >
                             Exit
                         </Link>
