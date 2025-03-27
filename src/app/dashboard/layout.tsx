@@ -1,10 +1,20 @@
 import React from "react";
-import Header from "@/src/components/header/Header";
+import Header, { handleLogout } from "@/src/components/header/Header";
 import { Metadata } from "next";
-import { logoutUser } from "@/src/util/logout";
+import { Geist, Geist_Mono } from "next/font/google";
+
+const geistSans = Geist({
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-    title: "Staff Dashboard | UWB Hacks 25",
+    title: "Dashboard | UWB Hacks 25",
 };
 
 export default function RootLayout({
@@ -13,14 +23,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className={`w-screen`}>
+        <div className={`${geistSans.variable} ${geistMono.variable} w-screen`}>
             <Header
                 links={[
                     {
                         id: "logout",
                         name: "Logout",
-                        url: "/dashboard",
-                        customOnClick: logoutUser,
+                        customOnClick: handleLogout,
                     },
                 ]}
             />

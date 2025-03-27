@@ -8,7 +8,7 @@ import Image from "next/image";
 export type HeaderLinkData = { id: string; name: string } & (
     | { url: string }
     | { url: string; scrollRef: React.RefObject<HTMLDivElement | null> }
-    | { url: string; customOnClick: () => void }
+    | { customOnClick: () => void }
 );
 
 /**
@@ -78,7 +78,6 @@ function UWBHacksButton({
 
 function HeaderLink({ link }: { link: HeaderLinkData }) {
     const linkClassName = "font-h3 font-medium text-lg scale-up-animation";
-    console.log(link);
     if ("customOnClick" in link) {
         return (
             <button className={linkClassName} onClick={link.customOnClick}>
@@ -182,6 +181,14 @@ function HeaderSidebarLink({
 }) {
     const linkClassName = "text-white font-h1 text-3xl";
 
+    if ("customOnClick" in link) {
+        return (
+            <button className={linkClassName} onClick={link.customOnClick}>
+                {link.name}
+            </button>
+        );
+    }
+
     if ("scrollRef" in link) {
         return (
             <Link href={link.url} scroll={false} className="text-center">
@@ -253,7 +260,7 @@ function HeaderSidebar({
     );
 }
 
-async function handleLogout() {
+export async function handleLogout() {
     try {
         const response = await fetch("/api/logout", { method: "POST" });
         if (response.ok) {
@@ -265,14 +272,3 @@ async function handleLogout() {
         console.error("Error during logout:", error);
     }
 }
-
-<Header
-    links={[
-        {
-            id: "logout",
-            name: "Logout",
-            url: "/dashboard",
-            customOnClick: handleLogout, // Updated to use the new handler
-        },
-    ]}
-/>;

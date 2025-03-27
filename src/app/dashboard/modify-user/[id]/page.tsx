@@ -6,7 +6,10 @@ import {
     getTransactionsForUser,
 } from "@/src/util/db/transaction";
 import { Metadata } from "next";
-import { ensureStaffPermission, extractStaffUserData } from "@/src/util/staff";
+import {
+    ensureStaffPermission,
+    extractDashboardUserData,
+} from "@/src/util/staff";
 
 export const metadata: Metadata = {
     title: "Modify User | UWB Hacks 25",
@@ -20,7 +23,7 @@ export default async function Page({
     const session = await getSession();
     await ensureStaffPermission(session);
 
-    const user = await extractStaffUserData((await params).id);
+    const user = await extractDashboardUserData((await params).id);
 
     const balance = await getBalanceForUser(user.id);
     const history = await getTransactionsForUser(user.id);
@@ -60,7 +63,7 @@ export default async function Page({
                 {/* exit button that returns user back to staff dashboard */}
                 <Link
                     className="py-3 rounded-lg text-center bg-red-500 text-white"
-                    href={`/dashboard/`}
+                    href={`/dashboard/${user.id}`}
                 >
                     Exit
                 </Link>
