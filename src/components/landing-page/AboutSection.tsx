@@ -121,10 +121,10 @@ const AboutSection: React.FC = () => {
                 />
             </Panel>
 
-            {/* "UWBHacks Save the World" & "Month of Hacking" Container */}
+            {/* "Month of Hacking", "Hackeroons", "Leaderboard", & "Last Year's Winners" Container */}
             <div className="w-full grid md:grid-cols-2 gap-8">
                 {/* Month of Hacking */}
-                <div className="flex flex-col gap-y-6 border-2 border-black pb-4 bg-[url(/about/AboutSection_Background_3.jpg)] bg-cover bg-center">
+                <div className="flex flex-col justify-between border-2 border-black pb-4 bg-[url(/about/AboutSection_Background_3.jpg)] bg-cover bg-center">
                     <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
                         Month of Hacking
                     </h3>
