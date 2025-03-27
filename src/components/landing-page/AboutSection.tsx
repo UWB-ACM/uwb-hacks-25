@@ -151,18 +151,46 @@ const AboutSection: React.FC = () => {
                     </h3>
                 </div>
 
+                {/* Leaderboard */}
+                <div className="flex flex-col gap-y-2 border-2 border-black pb-6 bg-yellow-300/90">
+                    <h3 className="px-6 py-3 w-fit font-bold self-center italic text-orange-400 text-lg md:text-xl lg:text-2xl">
+                        Leaderboard
+                    </h3>
+                    <div className="px-[10%] flex flex-col gap-y-8 md:text-lg">
+                        <div className="flex justify-between items-center">
+                            <div className="w-[50px] h-[50px] bg-gray-400 rounded-full" />
+                            <p>Name</p>
+                            <p>Hackeroon_Amount</p>
+                        </div>
+                        <div className="flex justify-between items-center">
+                            <div className="w-[50px] h-[50px] bg-gray-400 rounded-full" />
+                            <p>Name</p>
+                            <p>Hackeroon_Amount</p>
+                        </div>
+                        <div className="flex justify-between items-center">
+                            <div className="w-[50px] h-[50px] bg-gray-400 rounded-full" />
+                            <p>Name</p>
+                            <p>Hackeroon_Amount</p>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Last Year's Winners */}
                 <div className="flex flex-col gap-y-6 border-2 border-black pb-4 bg-blue-200">
                     <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
                         Last Year's Winners
                     </h3>
-                </div>
-
-                {/* Leaderboard */}
-                <div className="flex flex-col gap-y-6 border-2 border-black pb-4 bg-yellow-300/90">
-                    <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
-                        Leaderboard
-                    </h3>
+                    <p className="px-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum.
+                    </p>
                 </div>
             </div>
         </section>
