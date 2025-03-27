@@ -21,7 +21,7 @@ export default function RootLayout({
                         name: "Logout",
                         url: "/dashboard",
                         customOnClick: logoutUser,
-                    }
+                    },
                 ]}
             />
 
