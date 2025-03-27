@@ -78,9 +78,13 @@ function UWBHacksButton({
 
 function HeaderLink({ link }: { link: HeaderLinkData }) {
     const linkClassName = "font-h3 font-medium text-lg scale-up-animation";
-    console.log(link)
-    if("customOnClick" in link) {
-        return <button className={linkClassName} onClick={link.customOnClick}>{link.name}</button>
+    console.log(link);
+    if ("customOnClick" in link) {
+        return (
+            <button className={linkClassName} onClick={link.customOnClick}>
+                {link.name}
+            </button>
+        );
     }
 
     if ("scrollRef" in link) {
@@ -269,6 +273,6 @@ async function handleLogout() {
             name: "Logout",
             url: "/dashboard",
             customOnClick: handleLogout, // Updated to use the new handler
-        }
+        },
     ]}
-/>
+/>;
