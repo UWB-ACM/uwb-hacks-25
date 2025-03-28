@@ -42,8 +42,8 @@ export default function HackeroonCarousel() {
 
         gsap.to(cardRef.current, {
             x: "-200%",
-            duration: 0.5,
-            ease: "back.inOut",
+            duration: 0.25,
+            ease: "power3.inOut",
             onComplete: () => {
                 if (currIdx == hackeroonPrizes.length - 1) {
                     setCurrIdx(0);
@@ -55,8 +55,8 @@ export default function HackeroonCarousel() {
 
                 gsap.to(cardRef.current, {
                     x: 0,
-                    duration: 0.5,
-                    ease: "back.inOut",
+                    duration: 0.25,
+                    ease: "power3.inOut",
                     onComplete: () => setIsAnimating(false),
                 });
             },
@@ -69,8 +69,8 @@ export default function HackeroonCarousel() {
 
         gsap.to(cardRef.current, {
             x: "200%",
-            duration: 0.5,
-            ease: "back.inOut",
+            duration: 0.25,
+            ease: "power3.inOut",
             onComplete: () => {
                 if (currIdx == 0) {
                     setCurrIdx(hackeroonPrizes.length - 1);
@@ -81,8 +81,8 @@ export default function HackeroonCarousel() {
                 gsap.set(cardRef.current, { x: "-200%" });
                 gsap.to(cardRef.current, {
                     x: 0,
-                    duration: 0.5,
-                    ease: "back.inOut",
+                    duration: 0.25,
+                    ease: "power3.inOut",
                     onComplete: () => setIsAnimating(false),
                 });
             },
