@@ -83,9 +83,9 @@ export default function BuyPage({
                     - Prize Cards
                     - Shopping Cart / Selected Items
             */}
-            <div className="h-[85vh] flex">
+            <div className="flex">
                 {/* Prize Cards */}
-                <div className="h-[85vh] w-[70vw] md:w-[80vw] lg:w-[85vw] p-8 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="w-[70vw] md:w-[80vw] lg:w-[85vw] p-8 overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {prizes.map((prize, index) => (
                         <PrizeCard
                             key={index}
@@ -98,7 +98,7 @@ export default function BuyPage({
                 </div>
 
                 {/* Shopping Cart / Selected Items */}
-                <div className="h-[85vh] w-[30vw] md:w-[20vw] flex flex-col justify-between bg-neutral-100 border-l-[1px] border-black">
+                <div className="h-screen w-[30vw] md:w-[20vw] lg:w-[15vw] flex flex-col justify-between bg-neutral-100 border-l-[1px] border-black sticky top-0">
                     {/* Selected Items */}
                     <div className="p-4">
                         <h2 className="text-center text-xl md:text-2xl">
