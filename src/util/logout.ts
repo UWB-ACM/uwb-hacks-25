@@ -9,7 +9,7 @@ import { buildKey } from "@/src/util/redis";
  */
 export async function logoutUser() {
     const cookieStore = await cookies();
-    const sessionCookie = (cookieStore).get("session-uwbh25");
+    const sessionCookie = cookieStore.get("session-uwbh25");
 
     if (sessionCookie?.value) {
         await redis.del(buildKey("session", sessionCookie.value));
