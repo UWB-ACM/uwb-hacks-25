@@ -177,12 +177,7 @@ export default function Page() {
                         </div>
 
                         {/* TODO - release all of these the day of the event */}
-                        <div
-                            id="tracks"
-                            className={`min-h-screen w-full `}
-                            ref={tracksRef}
-                            style={{}}
-                        >
+                        <div id="tracks" ref={tracksRef} className="w-full">
                             <TracksSection />
                         </div>
 
