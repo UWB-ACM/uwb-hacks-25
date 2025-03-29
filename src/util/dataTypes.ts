@@ -48,9 +48,10 @@ export interface User {
     email: string;
 
     /**
-     * A URL to the user's picture, if it exists.
+     * A URL to the user's picture, or a Gravatar URL
+     * if it doesn't exist.
      */
-    picture: string | null;
+    picture: string;
 
     /**
      * The user's balance.
