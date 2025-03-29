@@ -1,10 +1,25 @@
 "use server";
 
+import { cookies } from "next/headers";
+import { redis } from "@/src/util/redis";
+import { buildKey } from "@/src/util/redis";
+
+/** 
+ * Function to log out a user by deleting their session from Redis and clearing their session cookie
+*/
 export async function logoutUser() {
-    // Also note that this code runs server-side, so you'll only see outputs in the terminal rather than in inspect element.
-    // this is my guess for the logout function
-    // I think if we clear the session cookie it will automatically log the user out
-    // and redirect them to the login page. This is a bit of a hack, but it works.
-    // checkout /src/app/api/auth/google/route.ts for more info
-    console.log("Logging out...");
+    const cookieStore = cookies();
+    const sessionCookie = (await cookieStore).get("session-uwbh25");
+
+    if (sessionCookie?.value) {
+        await redis.del(buildKey("session", sessionCookie.value));
+
+        (await cookieStore).set({
+            name: "session-uwbh25",
+            value: "",
+            expires: new Date(0),
+        });
+
+        console.log("User logged out successfully.");
+    }
 }
