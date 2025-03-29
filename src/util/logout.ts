@@ -12,13 +12,8 @@ export async function logoutUser() {
     const sessionCookie = (cookieStore).get("session-uwbh25");
 
     if (sessionCookie?.value) {
-        redis.del(buildKey("session", sessionCookie.value));
-
-        (await cookieStore).set({
-            name: "session-uwbh25",
-            value: "",
-            expires: new Date(0),
-        });
+        await redis.del(buildKey("session", sessionCookie.value));
+        await cookieStore.delete("session-uwbh25");
 
         console.log("User logged out successfully.");
     }
