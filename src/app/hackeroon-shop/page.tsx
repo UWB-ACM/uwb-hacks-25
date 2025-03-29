@@ -16,7 +16,7 @@ export default async function PrizesPage() {
     });
 
     return (
-        <div className="w-full h-full flex flex-col">
+        <div className="w-full min-h-full flex flex-col">
             <Header
                 links={[
                     {
