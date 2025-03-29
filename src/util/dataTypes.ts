@@ -1,8 +1,3 @@
-export interface TestRecord {
-    id: number;
-    created_at: string;
-}
-
 /**
  * A user and balance in the database.
  */

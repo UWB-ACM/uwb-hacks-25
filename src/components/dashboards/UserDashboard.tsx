@@ -5,24 +5,40 @@ import {
     getTransactionsForUser,
 } from "@/src/util/db/transaction";
 import QRCode from "react-qr-code";
+import SupportSection from "@/src/components/dashboards/userdashboard/SupportSection";
+import MarketPlaceLink from "@/src/components/dashboards/userdashboard/MarketPlaceLink";
+import CheckInInput from "./userdashboard/CheckInInput";
+import TempCodeGenerator from "@/src/components/dashboards/userdashboard/tempCodeGenerator";
 
 async function UserDashboard({ user }: { user: SessionUser }) {
     return (
-        <div className="pt-20 px-[5%]">
-            <div className="flex pb-10">
-                {/* Profile heading */}
+        <div className="w-screen w-max-[1000px] flex flex-col items-center pt-20 px-[5%]">
+            <TempCodeGenerator id={user.id} />
+
+            {/* User Info */}
+            <div className="flex flex-col justify-center items-center bg-green-300">
                 <div className="rounded-full w-20 h-20 bg-[lightgray] text-center">
                     pfp
                 </div>
-                <div className="ml-4 pr-24">
+                <div className="flex">
                     <div className="mb-1">{user.name}</div>
-                    <div>Hackeroons: {await getBalanceForUser(user.id)}</div>
+                    <div className="mb-1">{user.id}</div>
+                </div>
+                <div>Hackeroons: {await getBalanceForUser(user.id)}</div>
+            </div>
+
+            <div className="flex">
+                <div className="w-[200px] h-[200px] bg-red-500 flex justify-center items-center flex flex-col">
+                    <h1 className="">User QR Code</h1>
+                    <CheckInInput />
                 </div>
                 {/* QR code */}
-                <div>
+                <div className="bg-orange-300 flex justify-center flex flex-col">
+                    <h1>User QR Code</h1>
                     <Suspense>
                         <QRCode
-                            size={64}
+                            size={200}
+                            style={{ width: "200px" }}
                             value={`https://uwbhacks.com/dashboard/${user.id}`}
                             viewBox={`0 0 256 256`}
                         />
@@ -30,8 +46,16 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                 </div>
             </div>
 
+            <div className="flex">
+                {/* Marketplace link */}
+                <MarketPlaceLink />
+
+                {/* Get support button */}
+                <SupportSection />
+            </div>
+
             {/* Hackeroon history */}
-            <div>
+            <div className="overflow-y-scroll">
                 <div>Transaction History</div>
                 {(await getTransactionsForUser(user.id)).map((transaction) => (
                     <div key={transaction.id}>
