@@ -4,9 +4,9 @@ import { cookies } from "next/headers";
 import { redis } from "@/src/util/redis";
 import { buildKey } from "@/src/util/redis";
 
-/** 
+/**
  * Function to log out a user by deleting their session from Redis and clearing their session cookie. Redirection handled in handleLogout().
-*/
+ */
 export async function logoutUser() {
     const cookieStore = cookies();
     const sessionCookie = (await cookieStore).get("session-uwbh25");
