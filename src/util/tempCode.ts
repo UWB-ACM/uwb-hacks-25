@@ -1,4 +1,5 @@
-import { buildKey, redis } from "@/src/util/redis";
+import { redis } from "@/src/util/redis";
+import { CheckInInfo } from "./dataTypes";
 
 //create a code
 function createCode(digits : number) {
@@ -15,18 +16,27 @@ function createCode(digits : number) {
 
 /**
  * 
- * @param duration The duration the code remains valid for in seconds 
+ * @param duration The duration the code remains valid for in seconds
+ * @param createdBy The code creator's user id 
  * 
  * Creates a code and adds it to the database. It also returns the code for future deletion
  */
-export async function addCode(duration : number) {
-    const newCode = createCode(6);
-    const currentTime = new Date().toISOString();
-    const key = buildKey(newCode, currentTime);
+export async function addCode(duration : number, body : CheckInInfo) {
+   
+    let code = createCode(6);
+    
+    // Keep generating a new code if there is a duplicate in redis
+    let exists = await codeExists(code);
+    
 
-    await redis.set(key, "Active", { ex: duration })
+    while(exists) {
+        code = createCode(6)
+        exists = await codeExists(code);
+    } 
+    
+    await redis.set(code, JSON.stringify(body), { ex: duration })
 
-    return [newCode, currentTime]
+    return code
 } 
 
 /**
@@ -37,4 +47,14 @@ export async function addCode(duration : number) {
  */
 export async function removeCode(code : string) {
     await redis.del(code)
+}
+
+/**
+ * 
+ * @param code The randomly generated code for the user
+ * @returns true if the code is valid, false otherwise
+ */
+export async function codeExists(code : string) {
+    const res = await redis.exists(code);
+    return res == 1
 }

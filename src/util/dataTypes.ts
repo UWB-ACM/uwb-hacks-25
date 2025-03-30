@@ -203,6 +203,18 @@ export interface Transaction {
 }
 
 /**
+ * A request body used to check in users for events.
+ * It contains all the info needed to have a user check in
+ */
+export interface CheckInInfo {
+    duration: number;
+    currentCode: string;
+    authorized_by: number | null;
+    amount: number;
+    event: number | null;
+}
+
+/**
  * The reason for a transaction.
  */
 export enum TransactionType {

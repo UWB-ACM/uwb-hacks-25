@@ -1,18 +1,21 @@
 // src/app/api/temp-code/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { addCode, removeCode } from '@/src/util/tempCode';
-import { buildKey } from '@/src/util/redis';
+import { CheckInInfo } from '@/src/util/dataTypes';
 
-export async function POST(req: NextRequest) : Promise<NextResponse<{key: string, timestamp: string}>> {
-    const { duration, currentCode } = await req.json();
+export async function POST(req: NextRequest) : Promise<NextResponse<{code: string}>> {
+    const body : CheckInInfo = await req.json();
+
+    console.log("body", body)
 
     //if the old code is not null, remove it from the database
-    if (currentCode !== "null") {
-        await removeCode(currentCode);
+    if (body.currentCode !== "undefined") {
+        await removeCode(body.currentCode);
     }
 
-    const [code, timestamp] = await addCode(duration);
-    const key = buildKey(code, timestamp);
+    const code = await addCode(body.duration, body);
+    
+    console.log("code", code)
 
-    return NextResponse.json({ key, timestamp });
+    return NextResponse.json({ code });
 }

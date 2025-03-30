@@ -13,7 +13,7 @@ import TempCodeGenerator from "@/src/components/dashboards/userdashboard/tempCod
 async function UserDashboard({ user }: { user: SessionUser }) {
     return (
         <div className="w-screen w-max-[1000px] flex flex-col items-center pt-20 px-[5%]">
-            <TempCodeGenerator />
+            <TempCodeGenerator user={user} />
 
             {/* User Info */}
             <div className="flex flex-col justify-center items-center bg-green-300">
