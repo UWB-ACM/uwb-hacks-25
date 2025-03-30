@@ -121,7 +121,7 @@ function HeaderDesktop({
     wrapH1?: boolean;
 }) {
     return (
-        <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full ">
+        <nav className="fixed z-[999] top-0 flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full bg-white/25 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
             <UWBHacksButton wrapH1={wrapH1} />
 
             <div className="hidden md:flex gap-x-10 ">

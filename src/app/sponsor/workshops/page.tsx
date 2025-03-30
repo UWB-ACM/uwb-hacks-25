@@ -5,7 +5,7 @@ import Button from "@/src/components/Button";
 import Link from "next/link";
 function Page() {
     return (
-        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">
+        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12 sm:mt-[10rem]">
             <div className="max-w-[1000px] flex flex-col items-center text-center">
                 <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8">
                     Sponsor a Workshop
