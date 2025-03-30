@@ -54,13 +54,13 @@ async function UserDashboard({ user }: { user: SessionUser }) {
             {/* General User Information */}
             <div className="w-full flex flex-col gap-y-8 md:flex-row justify-around items-center md:px-14 lg:px-20">
                 {/* User PFP, First and Last Name, & Hackeroon Amount */}
-                <div className="flex gap-x-8">
+                <div className="w-full flex gap-x-8">
                     <Image
                         src={user.picture || Husky}
                         alt={"User profile photo"}
                         width={150}
                         height={150}
-                        className="rounded-full"
+                        className="w-full sm:max-w-[150px] rounded-full border-black border-2"
                     />
                     <div className="flex flex-col justify-around py-2">
                         <div>
