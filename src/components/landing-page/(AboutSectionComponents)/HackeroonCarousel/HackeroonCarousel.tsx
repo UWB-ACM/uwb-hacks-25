@@ -1,40 +1,22 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+
+// For carousel
+import hackeroon_prizes_data from "./hackeroonPrizes.json";
 import gsap from "gsap";
 import CarouselControls from "./CarouselControls";
 import HackeroonItemCard from "./HackeroonItemCard";
+
+// For carousel controls
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function HackeroonCarousel() {
     const [currIdx, setCurrIdx] = useState(0);
     const cardRef = useRef<HTMLDivElement | null>(null);
     const [isAnimating, setIsAnimating] = useState(false);
 
-    const hackeroonPrizes = [
-        {
-            name: "Adidas Fleece Hoodie",
-            price: 200,
-            image: "/about/uwb-acm-logo.png",
-        },
-        {
-            name: "Wireless Bank Charger",
-            price: 200,
-            image: "/about/uwb-acm-logo.png",
-        },
-        { name: "Backpack", price: 200, image: "/about/uwb-acm-logo.png" },
-        { name: "Lap Desk", price: 200, image: "/about/uwb-acm-logo.png" },
-        {
-            name: "Pickleball Set",
-            price: 200,
-            image: "/about/uwb-acm-logo.png",
-        },
-        {
-            name: "Dual Handle Lunch Bag",
-            price: 200,
-            image: "/about/uwb-acm-logo.png",
-        },
-    ];
+    const hackeroonPrizes = hackeroon_prizes_data["hackeroon_prizes"];
 
     const handleNext = () => {
         if (isAnimating) return;
