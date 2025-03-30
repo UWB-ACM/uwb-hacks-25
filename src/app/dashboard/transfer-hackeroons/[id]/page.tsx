@@ -1,8 +1,11 @@
 import { getSession } from "@/src/util/session";
 import React from "react";
-import TransferHackaroonsPage from "@/src/app/staff/transfer-hackeroons/[id]/TransferHackaroonsPage";
+import TransferHackaroonsPage from "./TransferHackaroonsPage";
 import { Metadata } from "next";
-import { ensureStaffPermission, extractStaffUserData } from "@/src/util/staff";
+import {
+    ensureStaffPermission,
+    extractDashboardUserData,
+} from "@/src/util/staff";
 
 export const metadata: Metadata = {
     title: "Transfer Hackaroons | UWB Hacks 25",
@@ -16,7 +19,7 @@ export default async function Page({
     const session = await getSession();
     await ensureStaffPermission(session);
 
-    const user = await extractStaffUserData((await params).id);
+    const user = await extractDashboardUserData((await params).id);
 
     return <TransferHackaroonsPage user={user} />;
 }
