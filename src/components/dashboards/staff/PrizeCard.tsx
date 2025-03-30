@@ -1,12 +1,14 @@
+"use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { Prize } from "@/src/util/dataTypes";
 
 export interface CardProps {
     prize: Prize;
-    hackeroonAmount: number;
-    setHackeroonAmount: React.Dispatch<React.SetStateAction<number>>;
-    setSelectedItems: React.Dispatch<React.SetStateAction<Prize[]>>;
+    hackeroonAmount?: number;
+    setHackeroonAmount?: React.Dispatch<React.SetStateAction<number>>;
+    setSelectedItems?: React.Dispatch<React.SetStateAction<Prize[]>>;
 }
 
 export default function PrizeCard({
@@ -15,10 +17,17 @@ export default function PrizeCard({
     setHackeroonAmount,
     setSelectedItems,
 }: CardProps) {
+    const enablePurchasing =
+        hackeroonAmount != null &&
+        setHackeroonAmount != null &&
+        setSelectedItems != null;
+
     const [isItemBought, setIsItemBought] = useState(false);
     const [prizeStock, setPrizeStock] = useState(prize.stock);
 
     const buyItem = (itemPrice: number) => {
+        if (!enablePurchasing) return;
+
         if (
             !isItemBought &&
             hackeroonAmount - itemPrice >= 0 &&
@@ -68,14 +77,16 @@ export default function PrizeCard({
             </div>
             {/* Description */}
             <h3 className="text-center">{prize.description}</h3>
-            <button
-                className={`py-4 mt-4 rounded-md text-white border-[1px] border-black ${isItemBought ? "bg-red-500" : "bg-green-500"}`}
-                onClick={() => {
-                    buyItem(prize.price);
-                }}
-            >
-                {isItemBought ? "Remove" : "Buy"}
-            </button>
+            {enablePurchasing && (
+                <button
+                    className={`py-4 mt-4 rounded-md text-white border-[1px] border-black ${isItemBought ? "bg-red-500" : "bg-green-500"}`}
+                    onClick={() => {
+                        buyItem(prize.price);
+                    }}
+                >
+                    {isItemBought ? "Remove" : "Buy"}
+                </button>
+            )}
         </div>
     );
 }

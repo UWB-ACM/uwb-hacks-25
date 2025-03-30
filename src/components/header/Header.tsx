@@ -8,6 +8,7 @@ import Image from "next/image";
 export type HeaderLinkData = { id: string; name: string } & (
     | { url: string }
     | { url: string; scrollRef: React.RefObject<HTMLDivElement | null> }
+    | { customOnClick: () => void }
 );
 
 /**
@@ -77,6 +78,13 @@ function UWBHacksButton({
 
 function HeaderLink({ link }: { link: HeaderLinkData }) {
     const linkClassName = "font-h3 font-medium text-lg scale-up-animation";
+    if ("customOnClick" in link) {
+        return (
+            <button className={linkClassName} onClick={link.customOnClick}>
+                {link.name}
+            </button>
+        );
+    }
 
     if ("scrollRef" in link) {
         return (
@@ -173,6 +181,14 @@ function HeaderSidebarLink({
 }) {
     const linkClassName = "text-white font-h1 text-3xl";
 
+    if ("customOnClick" in link) {
+        return (
+            <button className={linkClassName} onClick={link.customOnClick}>
+                {link.name}
+            </button>
+        );
+    }
+
     if ("scrollRef" in link) {
         return (
             <Link href={link.url} scroll={false} className="text-center">
@@ -242,4 +258,17 @@ function HeaderSidebar({
             </div>
         </div>
     );
+}
+
+export async function handleLogout() {
+    try {
+        const response = await fetch("/api/logout", { method: "POST" });
+        if (response.ok) {
+            window.location.href = "/"; // Redirect to the main page after logout
+        } else {
+            console.error("Failed to log out");
+        }
+    } catch (error) {
+        console.error("Error during logout:", error);
+    }
 }
