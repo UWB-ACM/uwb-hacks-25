@@ -15,7 +15,5 @@ export async function POST(req: NextRequest) : Promise<NextResponse<{code: strin
 
     const code = await addCode(body.duration, body);
     
-    console.log("code", code)
-
     return NextResponse.json({ code });
 }

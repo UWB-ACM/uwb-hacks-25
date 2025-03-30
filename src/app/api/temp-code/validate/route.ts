@@ -1,18 +1,12 @@
 // src/app/api/temp-code/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { addCode, removeCode } from '@/src/util/tempCode';
-import { buildKey } from '@/src/util/redis';
 import { codeExists } from '@/src/util/tempCode';
 
-export async function GET(req: NextRequest) : Promise<NextResponse<{valid: boolean}>> {
-    const { key } = await req.json();
+export async function POST(req: NextRequest) : Promise<NextResponse<{valid: boolean}>> {
+    const { code } = await req.json();
 
-    let valid = false
-
-    const res = await codeExists(buildKey(currentCode, duration.toString())); 
-
-    if(res && ) {
-    }
+    // TODO there is a small chance a user will guess another 6 digit code that exists on the redis database
+    const valid = await codeExists(code); 
 
     return NextResponse.json({ valid });
 }
