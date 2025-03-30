@@ -6,7 +6,7 @@ import React, { useState, useRef } from "react";
 import hackeroon_prizes_data from "./hackeroonPrizes.json";
 import gsap from "gsap";
 import CarouselControls from "./CarouselControls";
-import HackeroonItemCard from "./HackeroonItemCard";
+import HackeroonItemCard from "./Card";
 
 // For carousel controls
 import { ChevronLeft, ChevronRight } from "lucide-react";
