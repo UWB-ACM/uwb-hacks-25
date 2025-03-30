@@ -12,6 +12,7 @@ function StaffUserSelector({ users }: { users: Promise<User[]> }) {
         <Selector
             items={users}
             buttonName="Select User"
+            dialogName="User Selector"
             id={(user) => user.id}
             title={(user) => user.name + " / " + user.id}
             description={(user) => user.email}

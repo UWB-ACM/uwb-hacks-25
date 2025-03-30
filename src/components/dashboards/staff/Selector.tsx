@@ -10,6 +10,7 @@ import {
 export interface SelectorProps<T> {
     items: Promise<T[]>;
     buttonName: string;
+    dialogName: string;
     id: ((value: T) => number) | ((value: T) => string);
     title: (value: T) => string;
     description: (value: T) => string;
@@ -26,7 +27,7 @@ export default function Selector<T>(props: SelectorProps<T>) {
             </DialogTrigger>
             <DialogContent className="max-h-[80%] overflow-hidden flex flex-col">
                 <DialogHeader>
-                    <DialogTitle>{props.buttonName}</DialogTitle>
+                    <DialogTitle>{props.dialogName}</DialogTitle>
                 </DialogHeader>
 
                 <Suspense fallback={<div>Please wait.</div>}>
