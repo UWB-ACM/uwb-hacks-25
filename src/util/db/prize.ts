@@ -24,7 +24,7 @@ export async function createPrize(
     price: number,
 ): Promise<Prize | null> {
     const data =
-        await sql`INSERT into prizes ("name", "description", "initial_stock", "price") VALUES (${name}, ${description}, ${initial_stock}, ${price}) RETURNING *`;
+        await sql`INSERT into prizes ("name", "description", "initial_stock", "price") VALUES (${name}, ${description}, ${initial_stock}, ${price}) RETURNING id`;
 
     if (data.length === 0) return null;
 
@@ -32,7 +32,7 @@ export async function createPrize(
         id: data[0].id,
         name,
         description,
-        stock: data[0].initial_stock,
+        stock: initial_stock,
         price,
     };
 }
