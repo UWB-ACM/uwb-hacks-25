@@ -9,13 +9,25 @@ import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Caro
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
 import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
 
+import AboutHeader from "@/public/about/comic-bubbles/comic-bubble1.svg";
+import HackeroonsHeader from "@/public/about/comic-bubbles/comic-bubble2.svg";
+import MonthOfHackingHeader from "@/public/about/comic-bubbles/comic-bubble3.svg";
+import LeaderboardHeader from "@/public/about/comic-bubbles/comic-bubble4.svg";
+import UWBACMHeader from "@/public/about/comic-bubbles/comic-bubble4.svg";
+
 const AboutSection: React.FC = () => {
     return (
         <section className="flex flex-col gap-y-[2rem] md:gap-y-[4rem] mt-[2rem] md:mt-[4rem]">
             {/* UWBHacks About Container */}
-            <Panel panelBackground={"/about/AboutSection_Background_1.jpg"}>
+            <Panel
+                panelBackground={
+                    "/about/backgrounds/AboutSection_Background_1.jpg"
+                }
+            >
                 {/* UWBHacks About Section Header */}
-                <PanelHeader>Header</PanelHeader>
+                <PanelHeader>
+                    <Image src={AboutHeader} alt="About Header" width={300} />
+                </PanelHeader>
 
                 {/* UWBHacks About Section Content */}
                 <div className="z-[5] w-full flex flex-col md:flex-row justify-center items-center gap-x-8 overflow-hidden">
@@ -81,13 +93,17 @@ const AboutSection: React.FC = () => {
 
             {/* UWB ACM Description Container */}
             <Panel
-                className="flex flex-col gap-y-4 pb-6 overflow-hidden"
-                panelBackground="/about/AboutSection_Background_2.jpg"
+                className="flex flex-col gap-y-4 pb-6"
+                panelBackground="/about/backgrounds/AboutSection_Background_2.jpg"
             >
                 {/* UWBHacks ACM Description Header */}
-                <h3 className="z-[5] w-3/4 md:w-1/2 font-bold text-center text-lg md:text-xl lg:text-2xl px-6 py-3 bg-white border-black border-b-2 border-r-2 flex justify-center gap-x-3">
-                    UWB Association for Computing Machinery
-                </h3>
+                <PanelHeader>
+                    <Image
+                        src={UWBACMHeader}
+                        alt="UWB ACM Header"
+                        width={300}
+                    />
+                </PanelHeader>
 
                 {/* UWB ACM Description Content */}
                 <div className="z-[5] w-4/5 md:w-3/4 lg:w-1/2 flex flex-col self-center p-4 bg-white border-2 border-black">
@@ -124,10 +140,19 @@ const AboutSection: React.FC = () => {
             {/* "Month of Hacking", "Hackeroons", "Leaderboard", & "Last Year's Winners" Container */}
             <div className="w-full grid md:grid-cols-2 gap-8">
                 {/* Month of Hacking */}
-                <div className="flex flex-col justify-between border-2 border-black pb-4 bg-[url(/about/AboutSection_Background_3.jpg)] bg-cover bg-center">
-                    <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
-                        Month of Hacking
-                    </h3>
+                <Panel
+                    panelBackground={
+                        "/about/backgrounds/AboutSection_Background_3.jpg"
+                    }
+                    className="flex flex-col justify-between pb-4"
+                >
+                    <PanelHeader>
+                        <Image
+                            src={MonthOfHackingHeader}
+                            alt="Month Of Hacking Header"
+                            width={275}
+                        />
+                    </PanelHeader>
                     <p className="px-6 py-3 text-center font-bold">
                         In April, we'll host a series of academic and fun
                         activities to prepare participants for the main event,
@@ -142,18 +167,22 @@ const AboutSection: React.FC = () => {
                             </Button>
                         </Link>
                     </div>
-                </div>
+                </Panel>
 
                 {/* Hackeroons */}
-                <Panel panelBackground="/about/AboutSection_Background_4.jpg">
+                <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
                     Last Years Projects ???
                 </Panel>
 
                 {/* Hackeroons */}
-                <Panel panelBackground="/about/AboutSection_Background_4.jpg">
-                    <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
-                        Hackeroons
-                    </h3>
+                <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
+                    <PanelHeader>
+                        <Image
+                            src={HackeroonsHeader}
+                            alt="Hackeroons Header"
+                            width={300}
+                        />
+                    </PanelHeader>
 
                     {/* Hackeroon Prizes Carousel */}
                     <HackeroonCarousel />
@@ -161,9 +190,13 @@ const AboutSection: React.FC = () => {
 
                 {/* Leaderboard */}
                 <Panel panelColor={"#FFF49F"}>
-                    <h3 className="px-6 py-3 font-bold text-center italic text-[#FFCA3A] text-lg md:text-xl lg:text-2xl">
-                        Leaderboard
-                    </h3>
+                    <PanelHeader>
+                        <Image
+                            src={LeaderboardHeader}
+                            alt="Leaderboard Header"
+                            width={300}
+                        />
+                    </PanelHeader>
                     <div className="px-[10%] md:px-[15%] pb-[5%] flex flex-col gap-y-8 md:text-lg">
                         <div className="flex justify-between items-center">
                             <div className="w-[50px] h-[50px] bg-gray-400 rounded-full" />

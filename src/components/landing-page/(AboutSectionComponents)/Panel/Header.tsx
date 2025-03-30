@@ -14,7 +14,7 @@ export default function PanelHeader({ children }: PanelHeaderProps) {
         if (!headerRef.current) return;
 
         setHeaderWidth(
-            Math.floor(headerRef.current.getBoundingClientRect().width / 2),
+            Math.floor(headerRef.current.getBoundingClientRect().width / 2.5),
         );
         setHeaderHeight(
             Math.floor(headerRef.current.getBoundingClientRect().height / 2),
@@ -24,7 +24,7 @@ export default function PanelHeader({ children }: PanelHeaderProps) {
     return (
         <div
             ref={headerRef}
-            className="z-[5] absolute"
+            className="z-[10] absolute"
             style={{ top: -headerHeight, left: -headerWidth }}
         >
             {children}
