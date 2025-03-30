@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -9,7 +9,9 @@ function MarketPlaceLink() {
 
     return (
         <Link href={"/marketplace"}>
-            <Button onClick={() => {}} className="text-[1rem]">Marketplace</Button>
+            <Button onClick={() => {}} className="text-[1rem]">
+                Marketplace
+            </Button>
         </Link>
     );
 }

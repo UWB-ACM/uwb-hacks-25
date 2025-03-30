@@ -15,7 +15,6 @@ async function UserDashboard({ user }: { user: SessionUser }) {
 
     return (
         <div className="w-full max-w-screen-lg mx-auto px-4 py-10 flex flex-col gap-6">
-
             {/* User Info Section */}
             <div className="bg-neutral-100 border-2 py-5 rounded-xl border-black/60 shadow-xl flex flex-col items-center text-center">
                 <div className="rounded-full w-20 h-20 bg-gray-300 flex items-center justify-center text-lg font-semibold">
@@ -39,7 +38,11 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                     <Suspense>
                         <QRCode
                             size={200}
-                            style={{ width: "100%", maxWidth: "200px", height: "auto" }}
+                            style={{
+                                width: "100%",
+                                maxWidth: "200px",
+                                height: "auto",
+                            }}
                             value={`https://uwbhacks.com/dashboard/${user.id}`}
                             viewBox={`0 0 256 256`}
                         />
@@ -55,7 +58,9 @@ async function UserDashboard({ user }: { user: SessionUser }) {
 
             {/* Transaction History */}
             <div className="bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 overflow-y-auto max-h-96">
-                <h2 className="text-lg font-semibold mb-4">Transaction History</h2>
+                <h2 className="text-lg font-semibold mb-4">
+                    Transaction History
+                </h2>
                 <div className="space-y-2 text-sm">
                     {transactions.map((transaction) => (
                         <div
@@ -63,7 +68,8 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                             className="border-b pb-2 last:border-b-0 last:pb-0"
                         >
                             <div>
-                                <strong>[{transaction.type}]</strong> H${transaction.amount}
+                                <strong>[{transaction.type}]</strong> H$
+                                {transaction.amount}
                             </div>
                             <div className="text-gray-600">
                                 {transaction.event} {transaction.prize}
