@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { SessionUser } from "@/src/util/session";
 import { CheckInInfo } from "@/src/util/dataTypes";
 
-export default function TempCodeGenerator({ user }: { user: SessionUser }) {
+export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
     const [duration, setDuration] = useState(0);
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null); // Ref to store the interval ID
