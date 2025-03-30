@@ -16,3 +16,23 @@ export async function getPrizes(): Promise<Prize[]> {
         price: row.price,
     }));
 }
+
+export async function createPrize(
+    name: string,
+    description: string,
+    initial_stock: number,
+    price: number,
+): Promise<Prize | null> {
+    const data =
+        await sql`INSERT into prizes ("name", "description", "initial_stock", "price") VALUES (${name}, ${description}, ${initial_stock}, ${price}) RETURNING *`;
+
+    if (data.length === 0) return null;
+
+    return {
+        id: data[0].id,
+        name,
+        description,
+        stock: data[0].initial_stock,
+        price,
+    };
+}

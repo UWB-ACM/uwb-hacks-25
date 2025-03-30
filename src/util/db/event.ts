@@ -16,7 +16,7 @@ export async function createEvent(
     // and valid start and end times (start time happens before end time)
     
     const data = 
-        await sql`INSERT INTO events ("name", "description", "start", "end") VALUES (${name}, ${description}, ${start}, ${end}) RETURNING *`;
+        await sql`INSERT INTO events ("name", "description", "start", "end") VALUES (${name}, ${description}, ${start}, ${end}) RETURNING id`;
     
     if (data.length === 0) return null;
     return {
