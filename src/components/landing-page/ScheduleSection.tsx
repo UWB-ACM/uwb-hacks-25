@@ -13,7 +13,7 @@ const ScheduleSection: React.FC = () => {
             <div className="bg-[#FBE4A6] p-6 md:p-6 grid gap-y-6 gap-x-6 [grid-template-columns:repeat(1,1fr)] md:[grid-template-columns:repeat(3,1fr)] mb-20">
                 <ScheduleCard
                     day="DAY 1"
-                    date="4/12 FRI"
+                    date="4/25 FRI"
                     events={[
                         {
                             time: "10:00 AM - 11:45 AM",
@@ -52,7 +52,7 @@ const ScheduleSection: React.FC = () => {
                 />
                 <ScheduleCard
                     day="DAY 2"
-                    date="4/13 SAT"
+                    date="4/26 SAT"
                     events={[
                         {
                             time: "10:00 AM - 11:30 AM",
@@ -79,7 +79,7 @@ const ScheduleSection: React.FC = () => {
                 />
                 <ScheduleCard
                     day="DAY 3"
-                    date="4/14 SUN"
+                    date="4/27 SUN"
                     events={[
                         {
                             time: "9:00 AM - 10:00 AM",
