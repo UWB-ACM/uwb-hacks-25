@@ -1,0 +1,25 @@
+"use client";
+
+import React from "react";
+import { useRouter } from "next/navigation";
+import { User } from "@/src/util/dataTypes";
+import Selector from "@/src/components/dashboards/staff/Selector";
+
+function StaffUserSelector({ users }: { users: Promise<User[]> }) {
+    const router = useRouter();
+
+    return (
+        <Selector
+            items={users}
+            buttonName="Select User"
+            id={(user) => user.id}
+            title={(user) => user.name + " / " + user.id}
+            description={(user) => user.email}
+            onClick={(user) => {
+                router.push("/dashboard/" + user.id);
+            }}
+        />
+    );
+}
+
+export default StaffUserSelector;
