@@ -12,9 +12,13 @@ function CheckInInput() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ value }),
+            body: JSON.stringify({ value })
         });
-    
+        
+        const data = await res.json();
+        if (data.valid === 1) {
+            alert("Check-in successful!");
+        }
     }
 
     return (

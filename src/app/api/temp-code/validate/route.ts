@@ -2,17 +2,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { addCode, removeCode } from '@/src/util/tempCode';
 import { buildKey } from '@/src/util/redis';
+import { codeExists } from '@/src/util/tempCode';
 
-export async function POST(req: NextRequest) : Promise<NextResponse<{key: string}>> {
-    const { duration, currentCode } = await req.json();
+export async function GET(req: NextRequest) : Promise<NextResponse<{valid: boolean}>> {
+    const { key } = await req.json();
 
-    //if the old code is not null, remove it from the database
-    if (currentCode !== "null") {
-        await removeCode(currentCode);
+    let valid = false
+
+    const res = await codeExists(buildKey(currentCode, duration.toString())); 
+
+    if(res && ) {
     }
 
-    const [code, timestamp] = await addCode(duration);
-    const key = buildKey(code, timestamp);
-
-    return NextResponse.json({ key });
+    return NextResponse.json({ valid });
 }
