@@ -10,7 +10,7 @@ function AdminActions() {
                 <FaGift className="h-[30px] w-[30px]" />
                 View Transactions
             </DashboardButton>
-            <DashboardButton href="#">
+            <DashboardButton href="/dashboard/create-event">
                 <FaGift className="h-[30px] w-[30px]" />
                 Create Event
             </DashboardButton>
