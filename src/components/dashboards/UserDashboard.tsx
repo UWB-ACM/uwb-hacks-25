@@ -12,7 +12,6 @@ import {
     TableBody,
     TableCaption,
     TableCell,
-    TableFooter,
     TableHead,
     TableHeader,
     TableRow,
@@ -21,35 +20,9 @@ import {
 async function UserDashboard({ user }: { user: SessionUser }) {
     const transactions = await getTransactionsForUser(user.id);
 
-    const dummyTransactions = [
-        {
-            id: 1,
-            type: 0,
-            amount: 100,
-            event: "ai workshop",
-            prize: "pat on the head",
-            time: "4/27/2025",
-        },
-        {
-            id: 2,
-            type: 0,
-            amount: 100,
-            event: "ai workshop",
-            prize: "pat on the head",
-            time: "4/27/2025",
-        },
-        {
-            id: 3,
-            type: 0,
-            amount: 100,
-            event: "ai workshop",
-            prize: "pat on the head",
-            time: "4/27/2025",
-        },
-    ];
     return (
         // User Dashboard Container
-        <div className="w-[90%] mx-auto rounded-md">
+        <div className="w-[90%] mx-auto rounded-md sm:mt-[10rem]">
             {/* General User Information */}
             <div className="w-full flex flex-col gap-y-8 md:flex-row justify-around items-center md:px-14 lg:px-20">
                 {/* User PFP, First and Last Name, & Hackeroon Amount */}
