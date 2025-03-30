@@ -86,6 +86,27 @@ export async function getUserFromID(id: number): Promise<User | null> {
 }
 
 /**
+ * Retrieves the list of every user from the database.
+ */
+export async function getAllUsers(): Promise<User[]> {
+    const data =
+        await sql`SELECT id, google_id, name, email, picture, balance FROM users LEFT JOIN balances ON balances.user=users.id;`;
+
+    return await Promise.all(
+        data.map(async (entry) => ({
+            id: entry.id,
+            googleId: entry.google_id,
+            name: entry.name,
+            email: entry.email,
+            picture: entry.picture || (await gravatarFromEmail(entry.email)),
+            // Balance will be null if the user
+            // has no transactions.
+            balance: entry.balance || 0,
+        })),
+    );
+}
+
+/**
  * Gets the permission level for a user, or null
  * if the user doesn't exist.
  * @param user - is the user to look for.
