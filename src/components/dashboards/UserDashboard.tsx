@@ -59,7 +59,7 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                         alt={"User profile photo"}
                         width={150}
                         height={150}
-                        className="w-full sm:max-w-[150px] rounded-full border-black border-2"
+                        className="w-full sm:max-w-[150px] rounded-full bg-white border-black border-2"
                     />
                     <div className="flex flex-col justify-around py-2">
                         <div>
