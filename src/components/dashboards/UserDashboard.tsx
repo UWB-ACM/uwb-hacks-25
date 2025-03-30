@@ -19,7 +19,6 @@ import {
 } from "../ui/table";
 
 async function UserDashboard({ user }: { user: SessionUser }) {
-
     const transactions = await getTransactionsForUser(user.id);
 
     const dummyTransactions = [
