@@ -4,7 +4,6 @@ import AccentImage from "@/public/accent.webp";
 import Panel from "./(AboutSectionComponents)/Panel";
 
 const ScheduleSection: React.FC = () => {
-
     return (
         <Panel panelColor="white" className="mt-10 mb-20">
             <div className="self-center col-span-1 mt-[2rem] sm:mt-[4rem] md:col-span-3 ">
