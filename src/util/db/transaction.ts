@@ -137,6 +137,7 @@ export async function getTransactionsForUser(
     const data =
         await sql`SELECT id, type, amount, authorized_by, event, prize, time FROM transactions WHERE "user"=${user};`;
     
+
     for (const row of data) {
         const eventName =
             await sql`SELECT name FROM events WHERE "id"=${row.event}`;
