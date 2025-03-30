@@ -146,6 +146,11 @@ const AboutSection: React.FC = () => {
 
                 {/* Hackeroons */}
                 <Panel panelBackground="/about/AboutSection_Background_4.jpg">
+                    Last Years Projects ???
+                </Panel>
+
+                {/* Hackeroons */}
+                <Panel panelBackground="/about/AboutSection_Background_4.jpg">
                     <h3 className="px-6 py-3 w-fit bg-white border-black border-b-2 border-r-2 font-bold text-lg md:text-xl lg:text-2xl">
                         Hackeroons
                     </h3>
@@ -176,24 +181,6 @@ const AboutSection: React.FC = () => {
                             <p>Hackeroon_Amount</p>
                         </div>
                     </div>
-                </Panel>
-
-                {/* Last Year's Winners */}
-                <Panel className="" panelColor="#BFDBFE">
-                    <h3 className="px-6 pt-3 font-bold text-center italic text-blue-500 text-lg md:text-xl lg:text-2xl">
-                        Last Year's Winners
-                    </h3>
-                    <p className="p-6 pt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
-                    </p>
                 </Panel>
             </div>
         </section>
