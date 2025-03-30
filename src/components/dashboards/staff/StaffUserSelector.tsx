@@ -16,6 +16,7 @@ function StaffUserSelector({ users }: { users: Promise<User[]> }) {
             id={(user) => user.id}
             title={(user) => user.name + " / " + user.id}
             description={(user) => user.email}
+            imageURL={(user) => user.picture}
             onClick={(user) => {
                 router.push("/dashboard/" + user.id);
             }}
