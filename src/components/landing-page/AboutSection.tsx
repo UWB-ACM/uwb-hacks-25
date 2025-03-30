@@ -4,8 +4,10 @@ import DiscordFancyYellowImage from "@/public/about/discord-fancy-yellow.svg";
 import DiscordFancyBlueImage from "@/public/about/discord-fancy-blue.svg";
 import React from "react";
 import Button from "../Button";
-import Panel from "./(AboutSectionComponents)/Panel";
-import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/HackeroonCarousel";
+import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Carousel";
+
+import Panel from "./(AboutSectionComponents)/Panel/Panel";
+import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
 
 const AboutSection: React.FC = () => {
     return (
@@ -13,9 +15,7 @@ const AboutSection: React.FC = () => {
             {/* UWBHacks About Container */}
             <Panel panelBackground={"/about/AboutSection_Background_1.jpg"}>
                 {/* UWBHacks About Section Header */}
-                <h2 className="z-[5] absolute top-0 left-0 font-h1 text-4xl px-6 py-3 bg-white border-black border-b-2 border-r-2">
-                    About
-                </h2>
+                <PanelHeader>Header</PanelHeader>
 
                 {/* UWBHacks About Section Content */}
                 <div className="z-[5] w-full flex flex-col md:flex-row justify-center items-center gap-x-8 overflow-hidden">

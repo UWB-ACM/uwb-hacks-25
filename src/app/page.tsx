@@ -177,11 +177,7 @@ export default function Page() {
                     }}
                 >
                     <div className="z-[5] w-[90%] mx-auto">
-                        <div
-                            id="about"
-                            ref={aboutRef}
-                            className="w-full overflow-hidden"
-                        >
+                        <div id="about" ref={aboutRef} className="w-full">
                             <AboutSection />
                         </div>
 
