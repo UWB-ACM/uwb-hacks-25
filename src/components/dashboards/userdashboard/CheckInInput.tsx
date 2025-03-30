@@ -8,15 +8,15 @@ function CheckInInput() {
     async function validateCheckIn() {
 
         const res = await fetch("/api/temp-code/validate", {
-            method: "GET",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ value })
+            body: JSON.stringify({ code:value })
         });
         
         const data = await res.json();
-        if (data.valid === 1) {
+        if (data.valid) {
             alert("Check-in successful!");
         }
     }
@@ -28,6 +28,7 @@ function CheckInInput() {
                 className="w-20 h-10 "
                 name=""
                 id=""
+                onChange={(e) => setValue(e.target.value)}
                 onPaste={(e) => {
                     e.preventDefault();
                 }}
