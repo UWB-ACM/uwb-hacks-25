@@ -18,7 +18,7 @@ function AdminActions() {
                 <FaGift className="h-[30px] w-[30px]" />
                 Modify Event
             </DashboardButton>
-            <DashboardButton href="#">
+            <DashboardButton href="/dashboard/create-prize">
                 <FaGift className="h-[30px] w-[30px]" />
                 Create Prize
             </DashboardButton>
