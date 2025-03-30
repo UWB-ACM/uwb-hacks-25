@@ -136,6 +136,14 @@ export async function getTransactionsForUser(
 ): Promise<Transaction[]> {
     const data =
         await sql`SELECT id, type, amount, authorized_by, event, prize, time FROM transactions WHERE "user"=${user};`;
+    
+    for (const row of data) {
+        const eventName =
+            await sql`SELECT name FROM events WHERE "id"=${row.event}`;
+        const prizeName = await sql`SELECT name FROM prizes WHERE "id"=${row.prize}`
+        row.event = eventName[0]?.name ?? null;
+        row.prize = prizeName[0]?.name ?? null;
+    }
 
     return data.map((row) => ({
         id: row.id,
