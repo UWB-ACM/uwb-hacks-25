@@ -6,7 +6,7 @@ function StaffActions() {
     // TODO: Make these actual actions.
     return (
         <>
-            <DashboardButton href="/dashboard/create-checkin-code">
+            <DashboardButton href="/dashboard/create-check-in-code">
                 <FaGift className="h-[30px] w-[30px]" />
                 Create Check-In Code
             </DashboardButton>
