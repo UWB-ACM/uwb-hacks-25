@@ -13,7 +13,7 @@ import TempCodeGenerator from "@/src/components/dashboards/userdashboard/tempCod
 async function UserDashboard({ user }: { user: SessionUser }) {
     return (
         <div className="w-screen w-max-[1000px] flex flex-col items-center pt-20 px-[5%]">
-            <TempCodeGenerator id={user.id} />
+            <TempCodeGenerator />
 
             {/* User Info */}
             <div className="flex flex-col justify-center items-center bg-green-300">
@@ -28,12 +28,12 @@ async function UserDashboard({ user }: { user: SessionUser }) {
             </div>
 
             <div className="flex">
-                <div className="w-[200px] h-[200px] bg-red-500 flex justify-center items-center flex flex-col">
+                <div className="w-[200px] h-[200px] bg-red-500 flex justify-center items-center flex-col">
                     <h1 className="">User QR Code</h1>
                     <CheckInInput />
                 </div>
                 {/* QR code */}
-                <div className="bg-orange-300 flex justify-center flex flex-col">
+                <div className="bg-orange-300 flex justify-center flex-col">
                     <h1>User QR Code</h1>
                     <Suspense>
                         <QRCode
