@@ -2,13 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { getSession } from "@/src/util/session";
 import { Metadata } from "next";
-import {
-    ensureStaffPermission,
-} from "@/src/util/staff";
+import { ensureStaffPermission } from "@/src/util/staff";
 import CheckInCodeGenerator from "@/src/components/dashboards/userdashboard/CheckInCodeGenerator";
 
 export const metadata: Metadata = {
-    title: "Modify User | UWB Hacks 25",
+    title: "Create Check-In Code | UWB Hacks 25",
 };
 
 export default async function Page() {
@@ -23,10 +21,8 @@ export default async function Page() {
             <div className="h-[80vh] w-[90vw] md:w-[60vw] lg:w-[40vw] bg-neutral-100 p-5 flex flex-col justify-between rounded-md border-2 border-black shadow-lg">
                 {/* main content of the user, separate from the exit button */}
                 <div>
-                    {session.user ? (
+                    {session.user && (
                         <CheckInCodeGenerator user={session.user} />
-                    ) : (
-                        "User not logged in"
                     )}
                 </div>
                 {/* exit button that returns user back to staff dashboard */}

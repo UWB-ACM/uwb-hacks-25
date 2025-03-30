@@ -9,9 +9,8 @@ export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null); // Ref to store the interval ID
 
-    const cachedCode =
-            sessionStorage.getItem("currentCode");
-    const [currentCode, setCode] = useState<string>(cachedCode || "undefined");
+    const cachedCode = sessionStorage.getItem("currentCode");
+    const [currentCode, setCode] = useState<string>(cachedCode || "null");
     const [loading, setLoading] = useState(false);
 
     const cachedTimestamp =
