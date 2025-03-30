@@ -8,37 +8,38 @@ import QRCode from "react-qr-code";
 import SupportSection from "@/src/components/dashboards/userdashboard/SupportSection";
 import MarketPlaceLink from "@/src/components/dashboards/userdashboard/MarketPlaceLink";
 import CheckInInput from "./userdashboard/CheckInInput";
-import TempCodeGenerator from "@/src/components/dashboards/userdashboard/tempCodeGenerator";
 
 async function UserDashboard({ user }: { user: SessionUser }) {
-    return (
-        <div className="w-screen w-max-[1000px] flex flex-col items-center pt-20 px-[5%]">
-            <TempCodeGenerator user={user} />
+    const balance = await getBalanceForUser(user.id);
+    const transactions = await getTransactionsForUser(user.id);
 
-            {/* User Info */}
-            <div className="flex flex-col justify-center items-center bg-green-300">
-                <div className="rounded-full w-20 h-20 bg-[lightgray] text-center">
-                    pfp
+    return (
+        <div className="w-full max-w-screen-lg mx-auto px-4 py-10 flex flex-col gap-6">
+
+            {/* User Info Section */}
+            <div className="bg-neutral-100 border-2 py-5 rounded-xl border-black/60 shadow-xl flex flex-col items-center text-center">
+                <div className="rounded-full w-20 h-20 bg-gray-300 flex items-center justify-center text-lg font-semibold">
+                    PFP
                 </div>
-                <div className="flex">
-                    <div className="mb-1">{user.name}</div>
-                    <div className="mb-1">{user.id}</div>
+                <div className="mt-2 text-xl font-bold">{user.name}</div>
+                <div className="text-sm text-gray-600">ID: {user.id}</div>
+                <div className="mt-2 text-lg">
+                    Hackeroons: <span className="font-semibold">{balance}</span>
                 </div>
-                <div>Hackeroons: {await getBalanceForUser(user.id)}</div>
             </div>
 
-            <div className="flex">
-                <div className="w-[200px] h-[200px] bg-red-500 flex justify-center items-center flex-col">
-                    <h1 className="">User QR Code</h1>
+            {/* QR Code and Check-In */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 flex flex-col items-center ">
+                    <h2 className="text-lg font-semibold mb-2">Check-In</h2>
                     <CheckInInput />
                 </div>
-                {/* QR code */}
-                <div className="bg-orange-300 flex justify-center flex-col">
-                    <h1>User QR Code</h1>
+                <div className="bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 flex flex-col items-center ">
+                    <h2 className="text-lg font-semibold mb-2">Your QR Code</h2>
                     <Suspense>
                         <QRCode
                             size={200}
-                            style={{ width: "200px" }}
+                            style={{ width: "100%", maxWidth: "200px", height: "auto" }}
                             value={`https://uwbhacks.com/dashboard/${user.id}`}
                             viewBox={`0 0 256 256`}
                         />
@@ -46,24 +47,33 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                 </div>
             </div>
 
-            <div className="flex">
-                {/* Marketplace link */}
+            {/* Actions Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <MarketPlaceLink />
-
-                {/* Get support button */}
                 <SupportSection />
             </div>
 
-            {/* Hackeroon history */}
-            <div className="overflow-y-scroll">
-                <div>Transaction History</div>
-                {(await getTransactionsForUser(user.id)).map((transaction) => (
-                    <div key={transaction.id}>
-                        [{transaction.type}] H${transaction.amount}{" "}
-                        {transaction.event} {transaction.prize}{" "}
-                        {transaction.time.toString()}
-                    </div>
-                ))}
+            {/* Transaction History */}
+            <div className="bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 overflow-y-auto max-h-96">
+                <h2 className="text-lg font-semibold mb-4">Transaction History</h2>
+                <div className="space-y-2 text-sm">
+                    {transactions.map((transaction) => (
+                        <div
+                            key={transaction.id}
+                            className="border-b pb-2 last:border-b-0 last:pb-0"
+                        >
+                            <div>
+                                <strong>[{transaction.type}]</strong> H${transaction.amount}
+                            </div>
+                            <div className="text-gray-600">
+                                {transaction.event} {transaction.prize}
+                            </div>
+                            <div className="text-gray-400 text-xs">
+                                {transaction.time.toLocaleString()}
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

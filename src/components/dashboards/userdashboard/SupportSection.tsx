@@ -4,7 +4,7 @@ import React from 'react'
 
 function SupportSection() {
   return (
-    <Button onClick={() => {}} className="text-[1rem]">Contact Support</Button>
+    <Button onClick={() => {}} className="text-[1.1rem] w-[170px]">Contact Support</Button>
   )
 }
 
