@@ -136,7 +136,7 @@ export async function getTransactionsForUser(
 ): Promise<Transaction[]> {
     const data =
         await sql`SELECT transactions.id, type, amount, authorized_by, event, prize, time, prizes.name AS prize_name, events.name AS event_name FROM transactions LEFT JOIN prizes ON prizes.id=transactions.prize LEFT JOIN events ON events.id=transactions.event WHERE "user"=${user};`;
-        
+
     return data.map((row) => ({
         id: row.id,
         user,
@@ -145,7 +145,7 @@ export async function getTransactionsForUser(
         authorized_by: row.authorized_by,
         event: row.event,
         prize: row.prize,
-        eventName: row.event_name, 
+        eventName: row.event_name,
         prizeName: row.prize_name,
         time: row.time,
     }));

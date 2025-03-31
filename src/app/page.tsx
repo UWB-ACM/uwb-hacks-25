@@ -131,7 +131,7 @@ export default function Page() {
                         wrapH1
                     />
 
-                    <HeroSection/>
+                    <HeroSection />
 
                     <Parallax
                         speed={-30}
