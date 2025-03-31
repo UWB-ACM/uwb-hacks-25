@@ -8,12 +8,13 @@ export async function getEvents(): Promise<Event[]> {
     const data =
         await sql`SELECT id, name, description, start, "end" FROM events`;
 
+    console.log(data);
     return data.map((row) => ({
         id: row.id,
         name: row.name,
         description: row.description,
-        start: data[0].start,
-        end: data[0].end,
+        start: row.start,
+        end: row.end,
     }));
 }
 
@@ -70,9 +71,6 @@ export async function updateEvent(
     start: Date,
     end: Date | null,
 ) {
-    // save original name so we know what we're updating
-    const original_name = name;
-
     // update event
     const data =
         await sql`UPDATE events SET name=${name}, description=${description}, start=${start}, "end"=${end} WHERE id=${id}`;
