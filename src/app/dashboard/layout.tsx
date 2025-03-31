@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
-import "@/src/app/globals.css";
 import React from "react";
-import Header from "@/src/components/header/Header";
+import Header, { handleLogout } from "@/src/components/header/Header";
+import { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -15,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Participant Dashboard | UWB Hacks 25",
+    title: "Dashboard | UWB Hacks 25",
 };
 
 export default function RootLayout({
@@ -25,8 +24,16 @@ export default function RootLayout({
 }>) {
     return (
         <div className={`${geistSans.variable} ${geistMono.variable} w-screen`}>
-            {/* TODO: Implement */}
-            <Header links={[]} />
+            <Header
+                links={[
+                    {
+                        id: "logout",
+                        name: "Logout",
+                        customOnClick: handleLogout,
+                    },
+                ]}
+            />
+
             {children}
         </div>
     );

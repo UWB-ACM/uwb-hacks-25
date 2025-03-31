@@ -8,6 +8,7 @@ import Image from "next/image";
 export type HeaderLinkData = { id: string; name: string } & (
     | { url: string }
     | { url: string; scrollRef: React.RefObject<HTMLDivElement | null> }
+    | { customOnClick: () => void }
 );
 
 /**
@@ -77,6 +78,13 @@ function UWBHacksButton({
 
 function HeaderLink({ link }: { link: HeaderLinkData }) {
     const linkClassName = "font-h3 font-medium text-lg scale-up-animation";
+    if ("customOnClick" in link) {
+        return (
+            <button className={linkClassName} onClick={link.customOnClick}>
+                {link.name}
+            </button>
+        );
+    }
 
     if ("scrollRef" in link) {
         return (
@@ -113,7 +121,7 @@ function HeaderDesktop({
     wrapH1?: boolean;
 }) {
     return (
-        <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full ">
+        <nav className="fixed z-[999] top-0 flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full bg-white/25 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
             <UWBHacksButton wrapH1={wrapH1} />
 
             <div className="hidden md:flex gap-x-10 ">
@@ -172,6 +180,14 @@ function HeaderSidebarLink({
     setSideNav: Dispatch<SetStateAction<boolean>>;
 }) {
     const linkClassName = "text-white font-h1 text-3xl";
+
+    if ("customOnClick" in link) {
+        return (
+            <button className={linkClassName} onClick={link.customOnClick}>
+                {link.name}
+            </button>
+        );
+    }
 
     if ("scrollRef" in link) {
         return (
@@ -242,4 +258,17 @@ function HeaderSidebar({
             </div>
         </div>
     );
+}
+
+export async function handleLogout() {
+    try {
+        const response = await fetch("/api/logout", { method: "POST" });
+        if (response.ok) {
+            window.location.href = "/"; // Redirect to the main page after logout
+        } else {
+            console.error("Failed to log out");
+        }
+    } catch (error) {
+        console.error("Error during logout:", error);
+    }
 }

@@ -121,9 +121,9 @@ export default function Page() {
                                 scrollRef: faqRef,
                             },
                             {
-                                id: "login",
-                                name: "Login",
-                                url: "/api/auth/google",
+                                id: "dashboard",
+                                name: "Dashboard",
+                                url: "/dashboard",
                             },
                         ]}
                         wrapH1
