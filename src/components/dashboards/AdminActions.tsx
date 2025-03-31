@@ -22,7 +22,7 @@ function AdminActions() {
                 <FaGift className="h-[30px] w-[30px]" />
                 Create Prize
             </DashboardButton>
-            <DashboardButton href="#">
+            <DashboardButton href="/dashboard/modify-prize">
                 <FaGift className="h-[30px] w-[30px]" />
                 Modify Prize
             </DashboardButton>
