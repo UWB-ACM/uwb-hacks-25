@@ -63,9 +63,6 @@ export async function updatePrize(
     initial_stock: number,
     price: number,
 ) {
-    // save original name so we know what we're updating
-    const original_name = name;
-
     // update prize
     const data =
         await sql`UPDATE prizes SET name=${name}, description=${description}, initial_stock=${initial_stock}, price=${price} WHERE id=${id}`;
