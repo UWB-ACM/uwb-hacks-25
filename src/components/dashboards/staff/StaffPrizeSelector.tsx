@@ -1,14 +1,18 @@
 "use client";
 
 import React, { Dispatch, SetStateAction } from "react";
-import { Prize } from "@/src/util/dataTypes";
 import Selector from "@/src/components/dashboards/staff/Selector";
+import { Prize } from "@/src/util/dataTypes";
 
-type StaffPrizeSelector = {
+type StaffPrizeSelectorProps = {
     prizes: Promise<Prize[]>;
+    setPrizeId: Dispatch<SetStateAction<number | null>>;
 };
 
-function StaffPrizeSelector({ prizes }: StaffPrizeSelector) {
+export default function StaffPrizeSelector({
+    prizes,
+    setPrizeId,
+}: StaffPrizeSelectorProps) {
     return (
         <Selector
             items={prizes}
@@ -16,11 +20,9 @@ function StaffPrizeSelector({ prizes }: StaffPrizeSelector) {
             id={(prize) => prize.id}
             title={(prize) => prize.name}
             description={(prize) => prize.description || "Prize description"}
-            onClick={() => {
-                console.log("clicked");
+            onClick={(prize) => {
+                setPrizeId(prize.id);
             }}
         />
     );
 }
-
-export default StaffPrizeSelector;

@@ -8,7 +8,7 @@ import {
 } from "@/src/util/dataTypes";
 import { getSession } from "@/src/util/session";
 import { getPermissionLevel } from "@/src/util/db/user";
-import { createPrize, updatePrize } from "@/src/util/db/prize";
+import { createPrize, updatePrize, getPrizeById } from "@/src/util/db/prize";
 
 export async function actionCreatePrize(
     name: string,
@@ -27,7 +27,12 @@ export async function actionCreatePrize(
     return await createPrize(name, description, initial_stock, price);
 }
 
+export async function fetchPrizeById(id: number) {
+    return await getPrizeById(id);
+}
+
 export async function actionUpdatePrize(
+    id: number,
     name: string,
     description: string,
     initial_stock: number,
@@ -41,5 +46,5 @@ export async function actionUpdatePrize(
         return null;
     }
 
-    return await updatePrize(name, description, initial_stock, price);
+    return await updatePrize(id, name, description, initial_stock, price);
 }

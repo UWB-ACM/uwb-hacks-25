@@ -1,19 +1,52 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import { useRouter } from "next/navigation";
 import { actionUpdatePrize } from "@/src/util/actions/prize";
+import { Prize } from "@/src/util/dataTypes";
+import { fetchPrizeById } from "@/src/util/actions/prize";
 
-export default function ModifyPrizeForm() {
+type ModifyPrizeFormProps = {
+    prizeId: number | null;
+    setPrizeId: Dispatch<SetStateAction<number | null>>;
+};
+
+export default function ModifyPrizeForm({
+    prizeId,
+    setPrizeId,
+}: ModifyPrizeFormProps) {
+    const [prize, setPrize] = useState<Prize | null>(null);
     const router = useRouter();
-
-    const [error, setError] = useState("");
+    const [error, setError] = useState<string | null>(null);
 
     // Prize information
     const [prizeName, setPrizeName] = useState<string>("");
     const [prizeDescription, setPrizeDescription] = useState<string>("");
-    const [prizeInitialStock, setPrizeInitialStock] = useState<number>(0);
-    const [prizePrice, setPrizePrice] = useState<number>(0);
+    const [prizeInitialStock, setPrizeInitialStock] = useState<string>("");
+    const [prizePrice, setPrizePrice] = useState<string>("");
+
+    // Fetch prize data whenver prizeId changes
+    useEffect(() => {
+        async function loadPrize() {
+            if (prizeId === null) return;
+
+            const prize = await fetchPrizeById(prizeId);
+
+            setPrize(prize);
+        }
+
+        loadPrize();
+    }, [prizeId]);
+
+    // Update form fields when prize data changes
+    useEffect(() => {
+        if (prize) {
+            setPrizeName(prize.name);
+            setPrizeDescription(prize.description || "Prize Description");
+            setPrizeInitialStock(prize.stock.toString());
+            setPrizePrice(prize.price.toString());
+        }
+    }, [prize]);
 
     const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -24,30 +57,49 @@ export default function ModifyPrizeForm() {
             2. Prizes should not have a negative price
             */
 
-        if (prizeInitialStock < 0 || Number.isNaN(prizeInitialStock)) {
-            setError("Prizes must have an initial stock!");
+        if (isNaN(Number(prizeInitialStock)) || isNaN(Number(prizePrice))) {
+            setError("Initial stock and price must be a valid number!");
             return;
-        } else {
-            setError("");
         }
 
-        if (prizePrice < 0 || Number.isNaN(prizePrice)) {
-            setError("Prizes must have a price above 0 hackaroons!");
+        if (Number(prizeInitialStock) < 0) {
+            setError("Prizes must have a non-negative initial stock");
             return;
-        } else {
-            setError("");
         }
+
+        if (Number(prizePrice) < 0) {
+            setError("Prizes must have a non-negative price");
+            return;
+        }
+
+        if (prize === null) {
+            setError("Prize not found");
+            return;
+        }
+        
+        setError(null);
 
         // useless unless we add a confirmation page that the prize has been updated (good idea!!)
         const data = await actionUpdatePrize(
+            prize.id,
             prizeName,
             prizeDescription,
-            prizeInitialStock,
-            prizePrice,
+            Number(prizeInitialStock),
+            Number(prizePrice),
         );
 
         router.push("/dashboard");
     };
+
+    if (prize === null || prizeId === null) {
+        return (
+            <div className="mt-4 w-full grid place-content-center">
+                <div className="p-4 border-black border rounded-lg bg-white">
+                    You must select a prize first!
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="mt-4 w-full grid place-content-center">
@@ -103,12 +155,9 @@ export default function ModifyPrizeForm() {
                         </label>
                         <input
                             id="prizeInitialStock"
-                            value={prizeInitialStock || 0}
-                            type="number"
-                            step={10}
-                            min={0}
+                            value={prizeInitialStock}
                             onChange={(e) => {
-                                setPrizeInitialStock(parseInt(e.target.value));
+                                setPrizeInitialStock(e.target.value);
                             }}
                             required
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
@@ -123,12 +172,9 @@ export default function ModifyPrizeForm() {
                         </label>
                         <input
                             id="prizePrice"
-                            value={prizePrice || 0}
-                            type="number"
-                            step={10}
-                            min={0}
+                            value={prizePrice}
                             onChange={(e) => {
-                                setPrizePrice(parseInt(e.target.value));
+                                setPrizePrice(e.target.value);
                             }}
                             required
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
