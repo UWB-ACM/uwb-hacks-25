@@ -5,11 +5,13 @@ import { redirect } from "next/navigation";
 
 /**
  * This validates that the requesting user has Staff level permissions.
+ * If the user does not meet these requirements, they will be redirected.
  * @param session - is the session of the requester.
+ * @returns the user's permissions.
  */
 export async function ensureStaffPermission(
     session: Session,
-): Promise<void | never> {
+): Promise<PermissionLevel | never> {
     if (!session.user?.id) return redirect("/");
 
     // Ensure that the user has permission.
@@ -20,6 +22,8 @@ export async function ensureStaffPermission(
     ) {
         return redirect("/");
     }
+
+    return permission;
 }
 
 /**

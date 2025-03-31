@@ -205,6 +205,13 @@ export interface Transaction {
      * The time at which the transaction occurred.
      */
     time: Date;
+
+    /**
+     * Has the transaction been reverted?
+     * If true, it no longer counts towards the
+     * user's balance.
+     */
+    reverted: boolean;
 }
 
 /**
