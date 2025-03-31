@@ -21,7 +21,8 @@ export async function getPrizes(): Promise<Prize[]> {
  * Gets prize through passed in ID
  */
 export async function getPrizeById(id: number): Promise<Prize | null> {
-    const data = await sql`SELECT id, name, description, initial_stock, price FROM prizes WHERE id=${id}`
+    const data =
+        await sql`SELECT id, name, description, initial_stock, price FROM prizes WHERE id=${id}`;
 
     // if there's no prize with given id, return null
     if (data.length === 0) return null;
@@ -33,7 +34,7 @@ export async function getPrizeById(id: number): Promise<Prize | null> {
         description: data[0].description,
         stock: data[0].initial_stock,
         price: data[0].price,
-    }
+    };
 }
 
 export async function createPrize(
