@@ -176,5 +176,61 @@ export async function getTransactionsForUser(
         eventName: row.event_name,
         prizeName: row.prize_name,
         time: row.time,
+        reverted: row.reverted,
     }));
+}
+
+/**
+ * Sets the reverted status of the given transaction.
+ * @param id - is the ID of the transaction to modify.
+ * @param reverted - should the transaction be reverted.
+ * @returns whether the transaction was reverted.
+ */
+export async function setTransactionReverted(
+    id: number,
+    reverted: boolean,
+): Promise<boolean> {
+    // A user's balance must never go below zero, and this
+    // needs to be enforced here.
+    // To avoid issues with concurrency, we'll lock
+    // the user's account record, although any row unique
+    // to the user would work.
+    // We don't care about the result of that lock, however, so just
+    // retrieve the result of the insert query.
+    const data = await sql.begin((sql) => [
+        sql`SELECT 1 FROM users WHERE id=(SELECT "user" FROM transactions WHERE id=${id}) FOR UPDATE;`,
+        sql`UPDATE transactions SET reverted=${reverted} WHERE id=${id} AND COALESCE((SELECT balance FROM balances WHERE "user"=transactions."user"), 0) + CASE WHEN ${reverted} THEN -transactions.amount ELSE transactions.amount END >= 0 RETURNING id;`,
+    ]);
+
+    // If it worked, we'll get the ID back.
+    return data[1].length === 1;
+}
+
+/**
+ * Sets the reverted status of the given transaction if the
+ * issuer is the user who made the transaction.
+ * @param id - is the ID of the transaction to modify.
+ * @param issuerID - is the ID of the user who issued the transaction.
+ * @param reverted - should the transaction be reverted.
+ * @returns whether the transaction was reverted.
+ */
+export async function setTransactionRevertedIfIssuer(
+    id: number,
+    issuerID: number,
+    reverted: boolean,
+): Promise<boolean> {
+    // A user's balance must never go below zero, and this
+    // needs to be enforced here.
+    // To avoid issues with concurrency, we'll lock
+    // the user's account record, although any row unique
+    // to the user would work.
+    // We don't care about the result of that lock, however, so just
+    // retrieve the result of the insert query.
+    const data = await sql.begin((sql) => [
+        sql`SELECT 1 FROM users WHERE id=(SELECT "user" FROM transactions WHERE id=${id}) FOR UPDATE;`,
+        sql`UPDATE transactions SET reverted=${reverted} WHERE id=${id} AND authorized_by=${issuerID} AND COALESCE((SELECT balance FROM balances WHERE "user"=transactions."user"), 0) + CASE WHEN ${reverted} THEN -transactions.amount ELSE transactions.amount END >= 0 RETURNING id;`,
+    ]);
+
+    // If it worked, we'll get the ID back.
+    return data[1].length === 1;
 }
