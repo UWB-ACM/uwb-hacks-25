@@ -16,14 +16,13 @@ export default function EventClientWrapper({
 
     return (
         <>
-            {eventId === null && (
-                <div className="w-full flex justify-center">
-                    <StaffEventSelector
-                        events={events}
-                        setEventId={(id) => setEventId(id)}
-                    />
-                </div>
-            )}
+            <div className="w-full flex justify-center">
+                <StaffEventSelector
+                    events={events}
+                    setEventId={(id) => setEventId(id)}
+                />
+            </div>
+
             <ModifyEventForm eventId={eventId} setEventId={setEventId} />
         </>
     );

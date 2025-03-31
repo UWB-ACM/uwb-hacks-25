@@ -16,14 +16,12 @@ export default function PrizeClientWrapper({
 
     return (
         <>
-            {prizeId === null && (
-                <div className="w-full flex justify-center">
-                    <StaffPrizeSelector
-                        prizes={prizes}
-                        setPrizeId={(id) => setPrizeId(id)}
-                    />
-                </div>
-            )}
+            <div className="w-full flex justify-center">
+                <StaffPrizeSelector
+                    prizes={prizes}
+                    setPrizeId={(id) => setPrizeId(id)}
+                />
+            </div>
             <ModifyPrizeForm prizeId={prizeId} setPrizeId={setPrizeId} />
         </>
     );
