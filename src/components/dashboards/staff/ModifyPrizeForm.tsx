@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { actionUpdatePrize } from "@/src/util/actions/prize";
 import { Prize } from "@/src/util/dataTypes";
