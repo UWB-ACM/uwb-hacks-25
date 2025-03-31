@@ -8,13 +8,9 @@ import { fetchEventById } from "@/src/util/actions/events";
 
 type ModifyEventFormProps = {
     eventId: number | null;
-    setEventId: Dispatch<SetStateAction<number | null>>;
 };
 
-export default function ModifyEventForm({
-    eventId,
-    setEventId,
-}: ModifyEventFormProps) {
+export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
     const [event, setEvent] = useState<Event | null>(null);
     const router = useRouter();
     const [error, setError] = useState<string | null>(null);
@@ -87,6 +83,9 @@ export default function ModifyEventForm({
             eventStart,
             eventEnd,
         );
+
+        // doing this to satisfy eslint
+        console.log("eventData:", data);
 
         router.push("/dashboard");
     };

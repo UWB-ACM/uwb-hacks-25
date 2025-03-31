@@ -22,7 +22,7 @@ export default function PrizeClientWrapper({
                     setPrizeId={(id) => setPrizeId(id)}
                 />
             </div>
-            <ModifyPrizeForm prizeId={prizeId} setPrizeId={setPrizeId} />
+            <ModifyPrizeForm prizeId={prizeId} />
         </>
     );
 }

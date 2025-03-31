@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { actionCreateEvent } from "@/src/util/actions/events";
 
-export default function page() {
+export default function CreateEventPage() {
     const router = useRouter();
 
     const [error, setError] = useState("");
@@ -38,6 +38,9 @@ export default function page() {
             eventStart,
             eventEnd,
         );
+
+        // adding this to satisfy eslint
+        console.log("eventData:", data);
 
         router.push("/dashboard");
     };

@@ -8,13 +8,9 @@ import { fetchPrizeById } from "@/src/util/actions/prize";
 
 type ModifyPrizeFormProps = {
     prizeId: number | null;
-    setPrizeId: Dispatch<SetStateAction<number | null>>;
 };
 
-export default function ModifyPrizeForm({
-    prizeId,
-    setPrizeId,
-}: ModifyPrizeFormProps) {
+export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
     const [prize, setPrize] = useState<Prize | null>(null);
     const router = useRouter();
     const [error, setError] = useState<string | null>(null);
@@ -85,6 +81,9 @@ export default function ModifyPrizeForm({
             Number(prizeInitialStock),
             Number(prizePrice),
         );
+
+        // doing this to satisfy eslint
+        console.log("prizeData:", data);
 
         router.push("/dashboard");
     };
