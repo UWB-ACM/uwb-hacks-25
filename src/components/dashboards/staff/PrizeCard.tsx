@@ -50,7 +50,9 @@ export default function PrizeCard({
     return (
         <div className="flex flex-col items-center p-6 bg-neutral-200 rounded-lg border-[4px] border-black shadow-comic">
             {/* Product Name */}
-            <h2 className="text-center text-2xl font-comic text-black mb-4">{prize.name}</h2>
+            <h2 className="text-center text-2xl font-comic text-black mb-4">
+                {prize.name}
+            </h2>
 
             {/* Image Section */}
             <div className="w-full h-[200px] flex justify-center items-center bg-neutral-100 rounded-md border-[2px] border-black mb-4">
@@ -85,7 +87,9 @@ export default function PrizeCard({
             {enablePurchasing && (
                 <button
                     className={`py-2 px-6 rounded-md text-white font-comic border-[2px] border-black ${
-                        isItemBought ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600"
+                        isItemBought
+                            ? "bg-red-500 hover:bg-red-600"
+                            : "bg-green-500 hover:bg-green-600"
                     }`}
                     onClick={() => {
                         buyItem(prize.price);
