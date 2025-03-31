@@ -1,7 +1,5 @@
 "use client";
 
-// Removed duplicate import of globals.css
-
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
 // import WhatsNewSection from "../components/landing-page/WhatsNewSection";
