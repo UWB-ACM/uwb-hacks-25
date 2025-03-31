@@ -11,7 +11,7 @@ const ScheduleSection: React.FC = () => {
                     SCHEDULE
                 </h2>
             </div>
-            <div className=" p-6 md:p-6 grid gap-y-6 gap-x-6 [grid-template-columns:repeat(1,1fr)] md:[grid-template-columns:repeat(3,1fr)] mb-[3rem]">
+            <div className="p-6 md:p-6 grid gap-y-6 gap-x-6 [grid-template-columns:repeat(1,1fr)] md:[grid-template-columns:repeat(3,1fr)] mb-[3rem]">
                 <ScheduleCard
                     day="DAY 1"
                     date="4/25 FRI"
@@ -136,11 +136,11 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
     accentPosition,
 }) => {
     return (
-        <div className="relative border-2 border-black bg-white p-4 md:p-6 flex flex-col min-h-[300px] md:min-h-[400px] overflow-hidden schedule-card transition-transform hover:scale-105 hover:border-yellow-500 hover:bg-[#fdf4c5]">
+        <div className="relative border-2 border-black bg-white p-4 md:p-5 flex flex-col min-h-[300px] md:min-h-[400px] overflow-hidden schedule-card transition-transform hover:scale-105 hover:border-yellow-500 hover:bg-[#fdf4c5]">
             <Image
-                src={AccentImage}
+                src={AccentImage || "/placeholder.svg"}
                 alt=""
-                className={`w-[80px] h-[70px] absolute rotate-180 ${
+                className={`w-[40px] h-[30px] absolute rotate-180 ${
                     accentPosition === "bottom-left"
                         ? "bottom-0 left-0"
                         : accentPosition === "bottom-right"
@@ -167,10 +167,10 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
             <div className="border-t border-black mb-4"></div>
 
             {events.length > 0 ? (
-                <div className="flex-grow">
+                <div className="flex-grow space-y-2">
                     {events.map((event, index) => (
-                        <div key={index} className="flex justify-between">
-                            <span className="text-sm md:text-base text-black">
+                        <div key={index} className="flex">
+                            <span className="text-sm md:text-base text-black w-[45%] pr-2 flex-shrink-0">
                                 {event.time}
                             </span>
                             <span className="text-sm md:text-base text-black">
