@@ -1,8 +1,3 @@
-export interface TestRecord {
-    id: number;
-    created_at: string;
-}
-
 /**
  * A user and balance in the database.
  */
@@ -206,6 +201,25 @@ export interface Transaction {
      * The time at which the transaction occurred.
      */
     time: Date;
+
+    /**
+     * Has the transaction been reverted?
+     * If true, it no longer counts towards the
+     * user's balance.
+     */
+    reverted: boolean;
+}
+
+/**
+ * A request body used to check in users for events.
+ * It contains all the info needed to have a user check in
+ */
+export interface CheckInInfo {
+    duration: number;
+    currentCode: string | null;
+    authorized_by: number | null;
+    amount: number;
+    event: number | null;
 }
 
 /**
