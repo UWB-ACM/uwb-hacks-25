@@ -14,7 +14,7 @@ export async function POST(
     await ensureStaffPermission(session);
 
     // If the old code is not null, remove it from the database
-    if (body.currentCode !== "null") {
+    if (body.currentCode != null) {
         await removeCode(body.currentCode);
     }
 
