@@ -8,12 +8,7 @@ import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Caro
 
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
 import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
-
-import AboutHeader from "@/public/about/comic-bubbles/comic-bubble1.svg";
-import HackeroonsHeader from "@/public/about/comic-bubbles/comic-bubble2.svg";
-import MonthOfHackingHeader from "@/public/about/comic-bubbles/comic-bubble3.svg";
-import LeaderboardHeader from "@/public/about/comic-bubbles/comic-bubble4.svg";
-import UWBACMHeader from "@/public/about/comic-bubbles/comic-bubble4.svg";
+import PanelContent from "./(AboutSectionComponents)/Panel/Content";
 
 const AboutSection: React.FC = () => {
     return (
@@ -25,55 +20,73 @@ const AboutSection: React.FC = () => {
                 }
             >
                 {/* UWBHacks About Section Header */}
-                <PanelHeader>
-                    <Image src={AboutHeader} alt="About Header" width={300} />
+                <PanelHeader isSectionHeader className="lg:absolute">
+                    <h2>About</h2>
                 </PanelHeader>
 
                 {/* UWBHacks About Section Content */}
-                <div className="z-[5] w-full flex flex-col md:flex-row justify-center items-center gap-x-8 overflow-hidden">
+                <PanelContent className="z-[5] flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 overflow-hidden">
                     {/* Husky */}
                     <Image
-                        className="md:translate-y-2 mt-4"
                         src="/about/husky.png"
                         alt="Husky"
-                        width={300}
-                        height={300}
+                        width={350}
+                        height={350}
                     />
+
                     {/* UWBHacks About Section Description */}
-                    <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center gap-y-2 px-8 md:p-8">
+                    <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center md:items-start gap-y-4">
                         <p className="text-center md:text-left text-white text-lg md:text-xl">
-                            UWB Hacks: Saves the World! is an annual hackathon
-                            teaching students computer science while preparing
-                            them for tech and business careers through hands-on
-                            learning and professional networking. Learn more in
-                            our Discord!
+                            <span className="font-h1 md:text-xl text-2xl">
+                                UWB Hacks: Save the World!
+                            </span>{" "}
+                            is an annual hackathon teaching students computer
+                            science while preparing them for tech and business
+                            careers through hands-on learning and professional
+                            networking.
                         </p>
-                        <div className="w-full flex items-center justify-center gap-x-8">
-                            <Link
-                                href={
-                                    "https://uwb-hacks-save-the-world.devpost.com"
-                                }
-                            >
-                                <Button
-                                    className="text-[23px]"
-                                    onClick={() => {}}
-                                >
-                                    Register Now
-                                </Button>
-                            </Link>
-                            <Link
-                                href="https://discord.gg/6AapzPNvRy"
-                                target="_blank"
-                            >
+                        <div className="w-full flex items-center justify-around gap-x-8">
+                            <div className="flex flex-col items-center">
+                                <p className="text-white md:text-lg text-center">
+                                    Register for UWB Hacks!
+                                </p>
                                 <Image
-                                    src={DiscordFancyYellowImage}
-                                    alt="Discord"
-                                    className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                                    src="/about/buttons/buttonYellow.svg"
+                                    alt=""
+                                    width={200}
+                                    height={0}
                                 />
-                            </Link>
+                                <Link
+                                    href={
+                                        "https://uwb-hacks-save-the-world.devpost.com"
+                                    }
+                                >
+                                    <Button
+                                        className="text-[23px]"
+                                        onClick={() => {}}
+                                    >
+                                        Register Now
+                                    </Button>
+                                </Link>
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <p className="text-white md:text-lg text-center">
+                                    Learn more in our Discord!
+                                </p>
+                                <Link
+                                    href="https://discord.gg/6AapzPNvRy"
+                                    target="_blank"
+                                >
+                                    <Image
+                                        src={DiscordFancyYellowImage}
+                                        alt="Discord"
+                                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
+                                    />
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </PanelContent>
             </Panel>
 
             {/* Previous UWBHacks Fun Statistics Container */}
@@ -98,11 +111,7 @@ const AboutSection: React.FC = () => {
             >
                 {/* UWBHacks ACM Description Header */}
                 <PanelHeader>
-                    <Image
-                        src={UWBACMHeader}
-                        alt="UWB ACM Header"
-                        width={300}
-                    />
+                    UWB Association for Computing Machinery
                 </PanelHeader>
 
                 {/* UWB ACM Description Content */}
@@ -146,13 +155,7 @@ const AboutSection: React.FC = () => {
                     }
                     className="flex flex-col justify-between pb-4"
                 >
-                    <PanelHeader>
-                        <Image
-                            src={MonthOfHackingHeader}
-                            alt="Month Of Hacking Header"
-                            width={275}
-                        />
-                    </PanelHeader>
+                    <PanelHeader>Month of Hacking</PanelHeader>
                     <p className="px-6 py-3 text-center font-bold">
                         In April, we'll host a series of academic and fun
                         activities to prepare participants for the main event,
@@ -176,13 +179,7 @@ const AboutSection: React.FC = () => {
 
                 {/* Hackeroons */}
                 <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
-                    <PanelHeader>
-                        <Image
-                            src={HackeroonsHeader}
-                            alt="Hackeroons Header"
-                            width={300}
-                        />
-                    </PanelHeader>
+                    <PanelHeader>Hackeroons</PanelHeader>
 
                     {/* Hackeroon Prizes Carousel */}
                     <HackeroonCarousel />
@@ -190,13 +187,7 @@ const AboutSection: React.FC = () => {
 
                 {/* Leaderboard */}
                 <Panel panelColor={"#FFF49F"}>
-                    <PanelHeader>
-                        <Image
-                            src={LeaderboardHeader}
-                            alt="Leaderboard Header"
-                            width={300}
-                        />
-                    </PanelHeader>
+                    <PanelHeader>Leaderboard</PanelHeader>
                     <div className="px-[10%] md:px-[15%] pb-[5%] flex flex-col gap-y-8 md:text-lg">
                         <div className="flex justify-between items-center">
                             <div className="w-[50px] h-[50px] bg-gray-400 rounded-full" />
