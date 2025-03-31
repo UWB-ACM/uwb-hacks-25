@@ -33,22 +33,14 @@ export default function PrizeCard({
             hackeroonAmount - itemPrice >= 0 &&
             prizeStock > 0
         ) {
-            // If we can buy it, and we haven't already, then do so.
-
             setHackeroonAmount((prev) => prev - itemPrice);
             setIsItemBought(true);
-            // Remove from stock
             setPrizeStock((prev) => prev - 1);
-            // Add item to selected items
             setSelectedItems((prev) => [...prev, prize]);
         } else if (isItemBought) {
-            // If item is bought, unbuy item and refund hackeroons
-
             setHackeroonAmount((prev) => prev + itemPrice);
             setIsItemBought(false);
-            // Restore Stock
             setPrizeStock((prev) => prev + 1);
-            // Remove item from selected items
             setSelectedItems((prev) =>
                 prev.filter((item) => item.id !== prize.id),
             );
@@ -56,10 +48,14 @@ export default function PrizeCard({
     };
 
     return (
-        <div className="flex flex-col justify-between p-8 h-min-[500px] bg-neutral-200 rounded-lg border-2 border-neutral-400 shadow-md">
-            {/* Image */}
-            <div className="h-[100px] flex justify-center py-4 my-4 bg-neutral-100 rounded-md">
-                {/* TODO: Fix this image */}
+        <div className="flex flex-col items-center p-6 bg-neutral-200 rounded-lg border-[4px] border-black shadow-comic">
+            {/* Product Name */}
+            <h2 className="text-center text-2xl font-comic text-black mb-4">
+                {prize.name}
+            </h2>
+
+            {/* Image Section */}
+            <div className="w-full h-[200px] flex justify-center items-center bg-neutral-100 rounded-md border-[2px] border-black mb-4">
                 <Image
                     src={"/globe.svg"}
                     height={200}
@@ -68,18 +64,33 @@ export default function PrizeCard({
                     className="object-contain"
                 />
             </div>
-            {/* Name */}
-            <h2 className="text-center text-2xl">{prize.name}</h2>
-            {/* Stock and Price */}
-            <div className="flex flex-col lg:flex-row text-center justify-around py-2">
-                <p>{`${prizeStock} Left!`}</p>
-                <p>{`${prize.price} Hackeroons`}</p>
+
+            {/* Stock and Price Row */}
+            <div className="flex w-full mb-2 space-x-2">
+                {/* Stock */}
+                <div className="flex items-center justify-center bg-green-300 text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
+                    <p className="text-sm">{`${prizeStock} Left!`}</p>
+                </div>
+
+                {/* Price */}
+                <div className="flex items-center justify-center bg-blue-300 text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
+                    <p className="text-sm">{`${prize.price} Hackeroons`}</p>
+                </div>
             </div>
-            {/* Description */}
-            <h3 className="text-center">{prize.description}</h3>
+
+            {/* Description Row */}
+            <div className="w-full mb-4 bg-yellow-300 text-black font-comic rounded-md p-2 border-[2px] border-black">
+                <p className="text-sm text-center">{prize.description}</p>
+            </div>
+
+            {/* Buy/Remove Button */}
             {enablePurchasing && (
                 <button
-                    className={`py-4 mt-4 rounded-md text-white border-[1px] border-black ${isItemBought ? "bg-red-500" : "bg-green-500"}`}
+                    className={`py-2 px-6 rounded-md text-white font-comic border-[2px] border-black ${
+                        isItemBought
+                            ? "bg-red-500 hover:bg-red-600"
+                            : "bg-green-500 hover:bg-green-600"
+                    }`}
                     onClick={() => {
                         buyItem(prize.price);
                     }}
