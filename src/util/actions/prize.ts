@@ -1,11 +1,7 @@
 "use server";
 import "server-only";
 
-import {
-    hasPermissions,
-    PermissionLevel,
-    Prize,
-} from "@/src/util/dataTypes";
+import { hasPermissions, PermissionLevel, Prize } from "@/src/util/dataTypes";
 import { getSession } from "@/src/util/session";
 import { getPermissionLevel } from "@/src/util/db/user";
 import { createPrize, updatePrize, getPrizeById } from "@/src/util/db/prize";
@@ -20,7 +16,10 @@ export async function actionCreatePrize(
     if (!session.user?.id) return null;
 
     const permission = await getPermissionLevel(session.user.id);
-    if (permission == null || !hasPermissions(permission, { has: PermissionLevel.Admin })) {
+    if (
+        permission == null ||
+        !hasPermissions(permission, { has: PermissionLevel.Admin })
+    ) {
         return null;
     }
 
@@ -42,7 +41,10 @@ export async function actionUpdatePrize(
     if (!session.user?.id) return null;
 
     const permission = await getPermissionLevel(session.user.id);
-    if (permission == null || !hasPermissions(permission, { has: PermissionLevel.Admin })) {
+    if (
+        permission == null ||
+        !hasPermissions(permission, { has: PermissionLevel.Admin })
+    ) {
         return null;
     }
 

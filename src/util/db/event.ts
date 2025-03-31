@@ -22,7 +22,8 @@ export async function getEvents(): Promise<Event[]> {
  * Gets event through passed in ID
  */
 export async function getEventById(id: number): Promise<Event | null> {
-    const data = await sql`SELECT id, name, description, start, "end" FROM events WHERE id=${id}`
+    const data =
+        await sql`SELECT id, name, description, start, "end" FROM events WHERE id=${id}`;
 
     // if there's no event with given id, return null
     if (data.length === 0) return null;
@@ -34,7 +35,7 @@ export async function getEventById(id: number): Promise<Event | null> {
         description: data[0].description,
         start: data[0].start,
         end: data[0].end,
-    }
+    };
 }
 
 // add comments later
@@ -45,7 +46,6 @@ export async function createEvent(
     start: Date,
     end: Date | null,
 ): Promise<Event | null> {
-
     // Simply insert all required data into events table in database
     // All data validation will likely be done on frontend
     // i.e. non-null name and description,
