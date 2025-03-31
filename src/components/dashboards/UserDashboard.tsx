@@ -32,7 +32,7 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                 <div className="w-full flex gap-x-8">
                     <Image
                         src={user.picture || Husky}
-                        alt={"User profile photo"}
+                        alt={"Your profile photo"}
                         width={150}
                         height={150}
                         className="w-full sm:max-w-[150px] rounded-full bg-white border-black border-2"
@@ -73,7 +73,7 @@ async function UserDashboard({ user }: { user: SessionUser }) {
             </div>
 
             {/* Actions and Check-In */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-5">
                 <div className="bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 flex flex-col items-center ">
                     <h2 className="text-lg font-semibold mb-2">Check-In</h2>
                     <CheckInInput />
@@ -82,8 +82,10 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                     <h2 className="text-lg font-semibold mb-2">
                         Quick Actions
                     </h2>
-                    <MarketPlaceLink />
-                    <SupportSection />
+                    <div className="flex flex-col md:flex-row gap-5">
+                        <MarketPlaceLink />
+                        <SupportSection />
+                    </div>
                 </div>
             </div>
 

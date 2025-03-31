@@ -8,7 +8,7 @@ function MarketPlaceLink() {
     //TODO THE LINK TO THE MARKETPLACE PAGE COULD CHANGE, BEWARE OF THIS
 
     return (
-        <Link href={"/marketplace"}>
+        <Link href={"/hackeroon-shop"}>
             <Button onClick={() => {}} className="text-[1rem]">
                 Marketplace
             </Button>
