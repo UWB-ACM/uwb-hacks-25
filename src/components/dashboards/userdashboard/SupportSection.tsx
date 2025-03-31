@@ -1,12 +1,17 @@
 "use client";
 import Button from "@/src/components/Button";
 import React from "react";
+import Link from "next/link";
 
 function SupportSection() {
+    // TODO: Add in URL.
+
     return (
-        <Button onClick={() => {}} className="text-[1.1rem] w-[170px]">
-            Contact Support
-        </Button>
+        <Link href="#">
+            <Button onClick={() => {}} className="text-[1rem]">
+                Contact Support
+            </Button>
+        </Link>
     );
 }
 
