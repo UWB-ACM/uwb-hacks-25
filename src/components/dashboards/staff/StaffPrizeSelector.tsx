@@ -17,6 +17,7 @@ export default function StaffPrizeSelector({
         <Selector
             items={prizes}
             buttonName="Select Prize"
+            dialogName="Prize Selector"
             id={(prize) => prize.id}
             title={(prize) => prize.name}
             description={(prize) => prize.description || "Prize description"}

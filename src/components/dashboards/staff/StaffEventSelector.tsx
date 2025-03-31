@@ -17,6 +17,7 @@ export default function StaffEventSelector({
         <Selector
             items={events}
             buttonName="Select Event"
+            dialogName="Event Selector"
             id={(event) => event.id}
             title={(event) => event.name}
             description={(event) => event.description || "event description"}
