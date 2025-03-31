@@ -37,7 +37,7 @@ export default function page() {
         } else {
             setError("");
         }
-        
+
         // useless unless we add a confirmation page that the prize has been added (good idea!!)
         const data = await actionCreatePrize(
             prizeName,
@@ -99,7 +99,9 @@ export default function page() {
                         type="number"
                         step={10}
                         min={0}
-                        onChange={(e) => {setPrizeInitialStock(parseInt(e.target.value))}}
+                        onChange={(e) => {
+                            setPrizeInitialStock(parseInt(e.target.value));
+                        }}
                         required
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
@@ -117,7 +119,9 @@ export default function page() {
                         type="number"
                         step={10}
                         min={0}
-                        onChange={(e) => {setPrizePrice(parseInt(e.target.value))}}
+                        onChange={(e) => {
+                            setPrizePrice(parseInt(e.target.value));
+                        }}
                         required
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
@@ -127,7 +131,7 @@ export default function page() {
                 )}
                 <button
                     type="submit"
-                    className="mt-4 py-2 px-4 rounded-md bg-white border-black border-[1px]"
+                    className="mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 border-black border-[1px]"
                 >
                     Submit
                 </button>
