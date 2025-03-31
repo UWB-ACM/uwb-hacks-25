@@ -171,7 +171,7 @@ export async function setTransactionReverted(
     // retrieve the result of the insert query.
     const data = await sql.begin((sql) => [
         sql`SELECT 1 FROM users WHERE id=(SELECT "user" FROM transactions WHERE id=${id}) FOR UPDATE;`,
-        sql`UPDATE transactions SET reverted=${reverted} WHERE id=${id} AND COALESCE((SELECT balance FROM balances WHERE "user"=transactions."user"), 0) - transactions.amount >= 0 RETURNING id;`,
+        sql`UPDATE transactions SET reverted=${reverted} WHERE id=${id} AND COALESCE((SELECT balance FROM balances WHERE "user"=transactions."user"), 0) + CASE WHEN ${reverted} THEN -transactions.amount ELSE transactions.amount END >= 0 RETURNING id;`,
     ]);
 
     // If it worked, we'll get the ID back.
@@ -200,7 +200,7 @@ export async function setTransactionRevertedIfIssuer(
     // retrieve the result of the insert query.
     const data = await sql.begin((sql) => [
         sql`SELECT 1 FROM users WHERE id=(SELECT "user" FROM transactions WHERE id=${id}) FOR UPDATE;`,
-        sql`UPDATE transactions SET reverted=${reverted} WHERE id=${id} AND authorized_by=${issuerID} AND COALESCE((SELECT balance FROM balances WHERE "user"=transactions."user"), 0) - transactions.amount >= 0 RETURNING id;`,
+        sql`UPDATE transactions SET reverted=${reverted} WHERE id=${id} AND authorized_by=${issuerID} AND COALESCE((SELECT balance FROM balances WHERE "user"=transactions."user"), 0) + CASE WHEN ${reverted} THEN -transactions.amount ELSE transactions.amount END >= 0 RETURNING id;`,
     ]);
 
     // If it worked, we'll get the ID back.
