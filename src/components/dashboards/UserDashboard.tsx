@@ -25,7 +25,7 @@ async function UserDashboard({ user }: { user: SessionUser }) {
 
     return (
         // User Dashboard Container
-        <div className="w-[90%] mx-auto rounded-md sm:mt-[10rem]">
+        <div className="w-[90%] mx-auto rounded-md sm:mt-[3rem]">
             {/* General User Information */}
             <div className="w-full flex flex-col gap-y-8 md:flex-row justify-around items-center md:px-14 lg:px-20">
                 {/* User PFP, First and Last Name, & Hackeroon Amount */}
