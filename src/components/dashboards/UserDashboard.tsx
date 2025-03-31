@@ -16,6 +16,9 @@ import {
     TableHeader,
     TableRow,
 } from "../ui/table";
+import CheckInInput from "@/src/components/dashboards/userdashboard/CheckInInput";
+import MarketPlaceLink from "@/src/components/dashboards/userdashboard/MarketPlaceLink";
+import SupportSection from "@/src/components/dashboards/userdashboard/SupportSection";
 
 async function UserDashboard({ user }: { user: SessionUser }) {
     const transactions = await getTransactionsForUser(user.id);
@@ -66,6 +69,21 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                         />
                     </Suspense>
                     <h3 className="text-center text-lg mt-2">Your QR Code</h3>
+                </div>
+            </div>
+
+            {/* Actions and Check-In */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 flex flex-col items-center ">
+                    <h2 className="text-lg font-semibold mb-2">Check-In</h2>
+                    <CheckInInput />
+                </div>
+                <div className="bg-neutral-100 border-2 border-black/60 shadow-xl rounded-xl p-4 flex flex-col items-center ">
+                    <h2 className="text-lg font-semibold mb-2">
+                        Quick Actions
+                    </h2>
+                    <MarketPlaceLink />
+                    <SupportSection />
                 </div>
             </div>
 
