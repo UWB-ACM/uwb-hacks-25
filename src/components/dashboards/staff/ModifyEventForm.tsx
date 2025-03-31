@@ -46,20 +46,18 @@ export default function ModifyEventForm({
             const event = await fetchEventById(eventId);
 
             setEvent(event);
+
+            // Update form fields when event data changes
+            if (event) {
+                setEventName(event.name);
+                setEventDescription(event.description || "Event Description");
+                setEventStart(event.start);
+                setEventEnd(event.end);
+            }
         }
 
         loadEvent();
     }, [eventId]);
-
-    // Update form fields when prize data changes
-    useEffect(() => {
-        if (event) {
-            setEventName(event.name);
-            setEventDescription(event.description || "Event Description");
-            setEventStart(event.start);
-            setEventEnd(event.end);
-        }
-    }, [event]);
 
     const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -188,7 +186,7 @@ export default function ModifyEventForm({
                     )}
                     <button
                         type="submit"
-                        className="mt-4 py-2 px-4 rounded-md bg-white border-black border-[1px]"
+                        className="mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 duration-200 border-black border-[1px]"
                     >
                         Submit
                     </button>

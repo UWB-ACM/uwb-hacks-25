@@ -33,20 +33,18 @@ export default function ModifyPrizeForm({
             const prize = await fetchPrizeById(prizeId);
 
             setPrize(prize);
+
+            // Update form fields when prize data changes
+            if (prize) {
+                setPrizeName(prize.name);
+                setPrizeDescription(prize.description || "Prize Description");
+                setPrizeInitialStock(prize.stock.toString());
+                setPrizePrice(prize.price.toString());
+            }
         }
 
         loadPrize();
     }, [prizeId]);
-
-    // Update form fields when prize data changes
-    useEffect(() => {
-        if (prize) {
-            setPrizeName(prize.name);
-            setPrizeDescription(prize.description || "Prize Description");
-            setPrizeInitialStock(prize.stock.toString());
-            setPrizePrice(prize.price.toString());
-        }
-    }, [prize]);
 
     const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -76,7 +74,7 @@ export default function ModifyPrizeForm({
             setError("Prize not found");
             return;
         }
-        
+
         setError(null);
 
         // useless unless we add a confirmation page that the prize has been updated (good idea!!)
@@ -185,7 +183,7 @@ export default function ModifyPrizeForm({
                     )}
                     <button
                         type="submit"
-                        className="mt-4 py-2 px-4 rounded-md bg-white border-black border-[1px]"
+                        className="mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 duration-200 border-black border-[1px]"
                     >
                         Submit
                     </button>
