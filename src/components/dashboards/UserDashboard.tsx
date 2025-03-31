@@ -125,13 +125,13 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                                         {transaction.amount}
                                     </TableCell>
                                     <TableCell className="px-4 py-2 border border-gray-300">
-                                        {transaction.event !== null
-                                            ? transaction.event
+                                        {transaction.eventName !== null
+                                            ? transaction.eventName
                                             : "No event associated with this transaction"}
                                     </TableCell>
                                     <TableCell className="px-4 py-2 border border-gray-300">
-                                        {transaction.prize !== null
-                                            ? transaction.prize
+                                        {transaction.prizeName !== null
+                                            ? transaction.prizeName
                                             : "No prize associated with this transaction"}
                                     </TableCell>
                                     <TableCell className="px-4 py-2 border border-gray-300">
