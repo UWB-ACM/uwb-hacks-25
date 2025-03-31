@@ -8,7 +8,7 @@ import {
 } from "@/src/util/dataTypes";
 import { getSession } from "@/src/util/session";
 import { getPermissionLevel } from "@/src/util/db/user";
-import { createPrize } from "@/src/util/db/prize";
+import { createPrize, updatePrize } from "@/src/util/db/prize";
 
 export async function actionCreatePrize(
     name: string,
@@ -20,9 +20,26 @@ export async function actionCreatePrize(
     if (!session.user?.id) return null;
 
     const permission = await getPermissionLevel(session.user.id);
-    if (permission == null || !hasPermissions(permission, { has: PermissionLevel.Admin})) {
+    if (permission == null || !hasPermissions(permission, { has: PermissionLevel.Admin })) {
         return null;
     }
 
     return await createPrize(name, description, initial_stock, price);
+}
+
+export async function actionUpdatePrize(
+    name: string,
+    description: string,
+    initial_stock: number,
+    price: number,
+) {
+    const session = await getSession();
+    if (!session.user?.id) return null;
+
+    const permission = await getPermissionLevel(session.user.id);
+    if (permission == null || !hasPermissions(permission, { has: PermissionLevel.Admin })) {
+        return null;
+    }
+
+    return await updatePrize(name, description, initial_stock, price);
 }
