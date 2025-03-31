@@ -202,12 +202,12 @@ export interface Transaction {
     prize: number | null;
 
     /**
-     * If this transaction was related to an event, this is the ID of that event.
+     * If this transaction was related to an event, this is the name of that event.
      */
     eventName: string | null;
 
     /**
-     * If this transaction was related to a prize, this is the ID of that prize.
+     * If this transaction was related to a prize, this is the name of that prize.
      */
     prizeName: string | null;
 
