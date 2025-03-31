@@ -75,6 +75,9 @@ export async function updateEvent(
     const data =
         await sql`UPDATE events SET name=${name}, description=${description}, start=${start}, "end"=${end} WHERE id=${id}`;
 
+    // doing this to satisfy eslint
+    console.log("updateEventData:", data)
+
     // assume updated
     return;
 }

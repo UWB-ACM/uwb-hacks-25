@@ -23,7 +23,7 @@ export default function EventClientWrapper({
                 />
             </div>
 
-            <ModifyEventForm eventId={eventId} setEventId={setEventId} />
+            <ModifyEventForm eventId={eventId} />
         </>
     );
 }

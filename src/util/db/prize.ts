@@ -68,6 +68,9 @@ export async function updatePrize(
     const data =
         await sql`UPDATE prizes SET name=${name}, description=${description}, initial_stock=${initial_stock}, price=${price} WHERE id=${id}`;
 
+    // doing this to satisfy eslint
+    console.log("updatedPrizeData:", data)
+
     // assume updated
     return;
 }

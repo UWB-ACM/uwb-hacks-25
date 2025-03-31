@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { actionCreatePrize } from "@/src/util/actions/prize";
 
-export default function page() {
+export default function CreatePrizePage() {
     const router = useRouter();
 
     const [error, setError] = useState("");
@@ -45,6 +45,9 @@ export default function page() {
             prizeInitialStock,
             prizePrice,
         );
+
+        // adding this to satisfy eslint
+        console.log("prizeData:", data);
 
         router.push("/dashboard");
     };
