@@ -157,6 +157,13 @@ const AboutSection: React.FC = () => {
 
                     {/* Hackeroon Prizes Carousel */}
                     <HackeroonCarousel />
+                    <div className="px-6 w-full flex justify-end">
+                        <Link href={"/hackeroon-shop"}>
+                            <Button className="text-[25px]" onClick={() => {}}>
+                                Go to Shop
+                            </Button>
+                        </Link>
+                    </div>
                 </Panel>
 
                 {/* Leaderboard */}
