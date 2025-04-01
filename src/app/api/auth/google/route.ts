@@ -23,7 +23,6 @@ export async function GET() {
             include_granted_scopes: true,
             state,
         });
-
         return NextResponse.redirect(authorizeUrl);
     } catch (error) {
         console.error(error);

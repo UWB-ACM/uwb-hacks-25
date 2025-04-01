@@ -5,11 +5,13 @@ import { redirect } from "next/navigation";
 
 /**
  * This validates that the requesting user has Staff level permissions.
+ * If the user does not meet these requirements, they will be redirected.
  * @param session - is the session of the requester.
+ * @returns the user's permissions.
  */
 export async function ensureStaffPermission(
     session: Session,
-): Promise<void | never> {
+): Promise<PermissionLevel | never> {
     if (!session.user?.id) return redirect("/");
 
     // Ensure that the user has permission.
@@ -20,6 +22,8 @@ export async function ensureStaffPermission(
     ) {
         return redirect("/");
     }
+
+    return permission;
 }
 
 /**
@@ -28,18 +32,18 @@ export async function ensureStaffPermission(
  * - Extracts the user data for the user in the user parameter and returns it.
  * @param userID - is the ID of the user being requested (not the requester).
  */
-export async function extractStaffUserData(
+export async function extractDashboardUserData(
     userID: string,
 ): Promise<User | never> {
     const id = parseInt(userID);
 
     if (isNaN(id)) {
-        return redirect("/staff");
+        return redirect("/dashboard");
     }
 
     const requestedUser = await getUserFromID(id);
     if (requestedUser == null) {
-        return redirect("/staff");
+        return redirect("/dashboard");
     }
 
     return requestedUser;
