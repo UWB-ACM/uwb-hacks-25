@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { actionUpdateEvent } from "@/src/util/actions/events";
 import { Event } from "@/src/util/dataTypes";
 import { fetchEventById } from "@/src/util/actions/events";
+import { datetimeLocalToDate, dateToDatetimeLocal } from "@/src/util/date";
 
 type ModifyEventFormProps = {
     eventId: number | null;
@@ -24,14 +25,14 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
     // Format Date as YYYY-MM-DDThh:mm
     const formatDateForInput = (date: Date | null): string => {
         if (!date) return "";
-        return date.toISOString().slice(0, 16);
+        return dateToDatetimeLocal(date);
     };
 
     const handleDateChange = (
         value: string,
         setter: React.Dispatch<React.SetStateAction<Date | null>>,
     ) => {
-        setter(value ? new Date(value) : null);
+        setter(value ? datetimeLocalToDate(value) : null);
     };
 
     // Fetch event data whenver eventId changes
@@ -59,7 +60,7 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
         e.preventDefault();
 
         // Error handling:
-        /* 
+        /*
             1. Event end time should not happen before event start time
             */
 
@@ -102,7 +103,7 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
 
     return (
         <div className="mt-4 w-full grid place-content-center">
-            {/* Modal Container, will extract into separate component 
+            {/* Modal Container, will extract into separate component
                 This just stores the form that the user would enter new prize info into */}
             <div>
                 <form
