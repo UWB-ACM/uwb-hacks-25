@@ -20,7 +20,6 @@ import BackgroundImage from "@/public/hero/background.png";
 import MidgroundImage from "@/public/hero/midground.png";
 import ForegroundImage from "@/public/hero/foreground.png";
 import "../styles/globals.css";
-import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
 // Sorry but this is just used to manually create deployment to main im being rushed
 export default function Page() {
@@ -32,8 +31,6 @@ export default function Page() {
     const sponsorsRef = useRef<HTMLDivElement>(null);
     const faqRef = useRef<HTMLDivElement>(null);
     const lenis = useRef<Lenis | null>(null);
-
-    const minScreenSize = "max-w-[1200px]";
 
     const [showGoTop, setShowGoTop] = useState(false);
 
