@@ -1,7 +1,5 @@
 "use client";
 
-import "../styles/globals.css";
-
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
 // import WhatsNewSection from "../components/landing-page/WhatsNewSection";
@@ -123,9 +121,9 @@ export default function Page() {
                                 scrollRef: faqRef,
                             },
                             {
-                                id: "login",
-                                name: "Login",
-                                url: "/api/auth/google",
+                                id: "dashboard",
+                                name: "Dashboard",
+                                url: "/dashboard",
                             },
                         ]}
                         wrapH1
@@ -184,7 +182,7 @@ export default function Page() {
                         {/* TODO - release all of these the day of the event */}
                         <div
                             id="tracks"
-                            className={`min-h-screen w-full ${minScreenSize}`}
+                            className={`min-h-screen w-full `}
                             ref={tracksRef}
                             style={{}}
                         >
@@ -194,14 +192,14 @@ export default function Page() {
                         <div
                             id="schedule"
                             ref={scheduleRef}
-                            className={`w-full ${minScreenSize} overflow-hidden`}
+                            className={`w-full overflow-hidden`}
                         >
                             <ScheduleSection />
                         </div>
                         <div
                             id="team"
                             ref={meetTheTeamRef}
-                            className={`w-full ${minScreenSize} mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
+                            className={`w-full mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
                         >
                             <MeetTheTeamSection />
                         </div>
