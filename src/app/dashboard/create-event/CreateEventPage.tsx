@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { actionCreateEvent } from "@/src/util/actions/events";
+import { datetimeLocalToDate, dateToDatetimeLocal } from "@/src/util/date";
 
 export default function CreateEventPage() {
     const router = useRouter();
@@ -93,12 +94,10 @@ export default function CreateEventPage() {
                         id="eventStart"
                         type="datetime-local"
                         value={
-                            eventStart
-                                ? eventStart.toISOString().slice(0, 16)
-                                : ""
+                            eventStart ? dateToDatetimeLocal(eventStart) : ""
                         }
                         onChange={(e) => {
-                            const date = new Date(e.target.value);
+                            const date = datetimeLocalToDate(e.target.value);
                             setEventStart(date);
                         }}
                         required
@@ -115,12 +114,10 @@ export default function CreateEventPage() {
                     <input
                         id="eventEnd"
                         type="datetime-local"
-                        value={
-                            eventEnd ? eventEnd.toISOString().slice(0, 16) : ""
-                        }
+                        value={eventEnd ? dateToDatetimeLocal(eventEnd) : ""}
                         onChange={(e) => {
                             const date = e.target.value
-                                ? new Date(e.target.value)
+                                ? datetimeLocalToDate(e.target.value)
                                 : null;
                             setEventEnd(date);
                         }}
