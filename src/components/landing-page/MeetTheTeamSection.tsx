@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { committees } from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/Committees";
 import CommitteeTabs from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/CommitteeTabs";
 import MembersGrid from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/MembersGrid";
-import Panel from "./(AboutSectionComponents)/Panel";
+import Panel from "./(AboutSectionComponents)/Panel/Panel";
 
 const MeetTheTeamSection = () => {
     const [activeCommitteeId, setActiveCommitteeId] = useState(
