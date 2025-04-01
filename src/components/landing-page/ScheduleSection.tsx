@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import AccentImage from "@/public/accent.webp";
-import Panel from "./(AboutSectionComponents)/Panel";
+import Panel from "./(AboutSectionComponents)/Panel/Panel";
 
 const ScheduleSection: React.FC = () => {
     return (
