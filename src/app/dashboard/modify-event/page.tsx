@@ -1,8 +1,13 @@
 import React from "react";
 import { getEvents } from "@/src/util/db/event";
 import EventClientWrapper from "./EventClientWrapper";
+import { getSession } from "@/src/util/session";
+import { ensureStaffPermission } from "@/src/util/staff";
 
-export default function ModifyPrizePage() {
+export default async function ModifyPrizePage() {
+    const session = await getSession();
+    await ensureStaffPermission(session);
+
     const events = getEvents();
 
     return (
