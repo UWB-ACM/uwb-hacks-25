@@ -3,11 +3,15 @@ import gsap from "gsap";
 
 type ButtonProps = {
     children: React.ReactNode;
-    color: "blue" | "yellow";
-    fontSize: number;
+    color?: "blue" | "yellow";
+    fontSize?: number;
 };
 
-export default function Button({ children, color, fontSize }: ButtonProps) {
+export default function Button({
+    children,
+    color = "blue",
+    fontSize = 13,
+}: ButtonProps) {
     const svgRef = useRef<SVGSVGElement>(null);
 
     const buttonBlueRef = useRef<SVGSVGElement>(null);
