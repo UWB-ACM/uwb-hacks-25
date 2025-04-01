@@ -10,19 +10,19 @@ function AdminActions() {
                 <FaGift className="h-[30px] w-[30px]" />
                 View Transactions
             </DashboardButton>
-            <DashboardButton href="#">
+            <DashboardButton href="/dashboard/create-event">
                 <FaGift className="h-[30px] w-[30px]" />
                 Create Event
             </DashboardButton>
-            <DashboardButton href="#">
+            <DashboardButton href="/dashboard/modify-event">
                 <FaGift className="h-[30px] w-[30px]" />
                 Modify Event
             </DashboardButton>
-            <DashboardButton href="#">
+            <DashboardButton href="/dashboard/create-prize">
                 <FaGift className="h-[30px] w-[30px]" />
                 Create Prize
             </DashboardButton>
-            <DashboardButton href="#">
+            <DashboardButton href="/dashboard/modify-prize">
                 <FaGift className="h-[30px] w-[30px]" />
                 Modify Prize
             </DashboardButton>

@@ -73,7 +73,7 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                                 onChange={(e) => setReason(e.target.value)}
                             >
                                 {/* TODO: Add event and prize with their own dropdowns for event/prize ID */}
-                                <option value="unkown">Unknown</option>
+                                <option value="unknown">Unknown</option>
                             </select>
                         </div>
                         <input
