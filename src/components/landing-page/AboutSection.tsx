@@ -33,7 +33,6 @@ const AboutSection: React.FC = () => {
                 <div className="z-[5] w-full flex flex-col md:flex-row justify-center items-center gap-x-8 overflow-hidden">
                     {/* Husky */}
                     <Image
-                        className="md:translate-y-2 mt-4"
                         src="/about/husky.png"
                         alt="Husky"
                         width={300}
@@ -154,7 +153,7 @@ const AboutSection: React.FC = () => {
                         />
                     </PanelHeader>
                     <p className="px-6 py-3 text-center font-bold">
-                        In April, we'll host a series of academic and fun
+                        In April, we&apos;ll host a series of academic and fun
                         activities to prepare participants for the main event,
                         with at least 2 events each week, totaling 8+ events.
                         Some will be co-hosted by fellow clubs and the rest are
