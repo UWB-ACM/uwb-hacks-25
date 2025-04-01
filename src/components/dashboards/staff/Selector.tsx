@@ -1,4 +1,10 @@
-import React, { Suspense, use, useState } from "react";
+import React, {
+    Dispatch,
+    SetStateAction,
+    Suspense,
+    use,
+    useState,
+} from "react";
 import {
     Dialog,
     DialogContent,
@@ -33,14 +39,16 @@ export default function Selector<T>(props: SelectorProps<T>) {
                 </DialogHeader>
 
                 <Suspense fallback={<div>Please wait.</div>}>
-                    <Cards {...props} />
+                    <Cards {...props} setIsOpen={setIsOpen} />
                 </Suspense>
             </DialogContent>
         </Dialog>
     );
 }
 
-function Cards<T>(props: SelectorProps<T>) {
+function Cards<T>(
+    props: SelectorProps<T> & { setIsOpen: Dispatch<SetStateAction<boolean>> },
+) {
     const itemList = use(props.items);
 
     return (
@@ -52,7 +60,12 @@ function Cards<T>(props: SelectorProps<T>) {
     );
 }
 
-function Card<T>(props: SelectorProps<T> & { item: T }) {
+function Card<T>(
+    props: SelectorProps<T> & {
+        setIsOpen: Dispatch<SetStateAction<boolean>>;
+        item: T;
+    },
+) {
     return (
         <div className="flex flex-row justify-between p-5 min-h-[150px] max-h-[150px] bg-neutral-200 rounded-lg border-2 border-neutral-400 shadow-md">
             <div className="flex flex-row gap-3">
@@ -82,7 +95,10 @@ function Card<T>(props: SelectorProps<T> & { item: T }) {
 
             <button
                 className="bg-blue-500 border-[1px] border-black rounded-xl p-4 h-min my-auto"
-                onClick={() => props.onClick(props.item)}
+                onClick={() => {
+                    props.onClick(props.item);
+                    props.setIsOpen(false);
+                }}
             >
                 Select
             </button>
