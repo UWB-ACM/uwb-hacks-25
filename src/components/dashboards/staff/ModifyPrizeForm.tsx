@@ -46,7 +46,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
         e.preventDefault();
 
         // Error handling:
-        /* 
+        /*
             1. Prizes should not have a negative stock
             2. Prizes should not have a negative price
             */
@@ -100,7 +100,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
 
     return (
         <div className="mt-4 w-full grid place-content-center">
-            {/* Modal Container, will extract into separate component 
+            {/* Modal Container, will extract into separate component
                 This just stores the form that the user would enter new prize info into */}
             <div>
                 <form
@@ -153,6 +153,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                         <input
                             id="prizeInitialStock"
                             value={prizeInitialStock}
+                            min={0}
                             onChange={(e) => {
                                 setPrizeInitialStock(e.target.value);
                             }}
@@ -170,6 +171,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                         <input
                             id="prizePrice"
                             value={prizePrice}
+                            min={0}
                             onChange={(e) => {
                                 setPrizePrice(e.target.value);
                             }}

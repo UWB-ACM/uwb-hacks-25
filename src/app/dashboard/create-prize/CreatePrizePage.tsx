@@ -100,7 +100,6 @@ export function CreatePrizePage() {
                         id="prizeInitialStock"
                         value={prizeInitialStock || 0}
                         type="number"
-                        step={10}
                         min={0}
                         onChange={(e) => {
                             setPrizeInitialStock(parseInt(e.target.value));
@@ -120,7 +119,6 @@ export function CreatePrizePage() {
                         id="prizePrice"
                         value={prizePrice || 0}
                         type="number"
-                        step={10}
                         min={0}
                         onChange={(e) => {
                             setPrizePrice(parseInt(e.target.value));
