@@ -51,7 +51,7 @@ const AboutSection: React.FC = () => {
                             careers through hands-on learning and professional
                             networking.
                         </p>
-                        <div className="w-full flex flex-col md:flex-row items-center justify-around gap-x-8">
+                        <div className="w-full flex flex-col md:flex-row items-center justify-end gap-x-4 gap-y-2">
                             <Link
                                 href={
                                     "https://uwb-hacks-save-the-world.devpost.com"
@@ -109,11 +109,7 @@ const AboutSection: React.FC = () => {
                             href="https://discord.gg/DzWEhESsZw"
                             target="_blank"
                         >
-                            <Image
-                                src={DiscordFancyBlueImage}
-                                alt="Discord"
-                                className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
-                            />
+                            <Button fontSize={14}>Discord</Button>
                         </Link>
                     </div>
                 </div>
