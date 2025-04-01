@@ -1,11 +1,17 @@
+import DiscordFancyBlueImage from "@/public/about/discord-fancy-blue.svg";
+
+// General imports
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import DiscordFancyYellowImage from "@/public/about/discord-fancy-yellow.svg";
-import DiscordFancyBlueImage from "@/public/about/discord-fancy-blue.svg";
-import React from "react";
+
+// Buttons
 import Button from "../Button";
+
+// For Hackeroons Panel
 import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Carousel";
 
+// Panel components
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
 import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
 import PanelContent from "./(AboutSectionComponents)/Panel/Content";
@@ -45,45 +51,21 @@ const AboutSection: React.FC = () => {
                             careers through hands-on learning and professional
                             networking.
                         </p>
-                        <div className="w-full flex items-center justify-around gap-x-8">
-                            <div className="flex flex-col items-center">
-                                <p className="text-white md:text-lg text-center">
+                        <div className="w-full flex flex-col md:flex-row items-center justify-around gap-x-8">
+                            <Link
+                                href={
+                                    "https://uwb-hacks-save-the-world.devpost.com"
+                                }
+                            >
+                                <Button color="blue" fontSize={13}>
                                     Register for UWB Hacks!
-                                </p>
-                                <Image
-                                    src="/about/buttons/buttonYellow.svg"
-                                    alt=""
-                                    width={200}
-                                    height={0}
-                                />
-                                <Link
-                                    href={
-                                        "https://uwb-hacks-save-the-world.devpost.com"
-                                    }
-                                >
-                                    <Button
-                                        className="text-[23px]"
-                                        onClick={() => {}}
-                                    >
-                                        Register Now
-                                    </Button>
-                                </Link>
-                            </div>
-                            <div className="flex flex-col items-center">
-                                <p className="text-white md:text-lg text-center">
-                                    Learn more in our Discord!
-                                </p>
-                                <Link
-                                    href="https://discord.gg/6AapzPNvRy"
-                                    target="_blank"
-                                >
-                                    <Image
-                                        src={DiscordFancyYellowImage}
-                                        alt="Discord"
-                                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
-                                    />
-                                </Link>
-                            </div>
+                                </Button>
+                            </Link>
+                            <Link href={"https://discord.gg/6AapzPNvRy"}>
+                                <Button color="yellow" fontSize={12.5}>
+                                    Learn more on our Discord!
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </PanelContent>
