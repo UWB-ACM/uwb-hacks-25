@@ -147,9 +147,7 @@ const AboutSection: React.FC = () => {
                     </p>
                     <div className="px-6 w-full flex justify-end">
                         <Link href={"/month-of-hacking"}>
-                            <Button className="text-[25px]" onClick={() => {}}>
-                                Learn More
-                            </Button>
+                            <Button>Learn More</Button>
                         </Link>
                     </div>
                 </Panel>
