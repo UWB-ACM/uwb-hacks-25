@@ -99,6 +99,7 @@ export default function Button({
                         fontSize={fontSize}
                         fontFamily="Arial"
                         fill="black"
+                        className="font-bold"
                     >
                         {children}
                     </text>
