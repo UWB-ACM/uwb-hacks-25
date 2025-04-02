@@ -15,10 +15,13 @@ import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
 import PanelContent from "./(AboutSectionComponents)/Panel/Content";
 
 const AboutSection: React.FC = () => {
+    const panelMargin = "mt-12 md:mt-16";
+
     return (
-        <section className="flex flex-col gap-y-[2rem] md:gap-y-[4rem] mt-[2rem] md:mt-[4rem]">
+        <section>
             {/* UWBHacks About Container */}
             <Panel
+                className={`${panelMargin}`}
                 panelBackground={
                     "/about/backgrounds/AboutSection_Background_1.jpg"
                 }
@@ -70,23 +73,58 @@ const AboutSection: React.FC = () => {
             </Panel>
 
             {/* Previous UWBHacks Fun Statistics Container */}
-            <Panel className="border-none grid gap-4 md:gap-8 md:grid-cols-4 text-center text-white font-bold text-xl lg:text-2xl">
-                <p className="flex justify-center items-center">
-                    $8,800+ in Prizes
-                </p>
-                <div className="flex flex-col justify-center items-center">
-                    <p>11 Schools</p>
-                    <p className="text-base">
-                        (University/College/High School)
-                    </p>
+            <Panel
+                className={`w-full border-none grid grid-cols-2 lg:grid-cols-4 gap-4 items-center ${panelMargin}`}
+            >
+                <div className="w-full relative">
+                    <Image
+                        className="w-full h-auto"
+                        src="/about/comic-bubbles/comic-bubble1.svg"
+                        alt="Prize total at 2024 UWB Hacks"
+                        width={0}
+                        height={0}
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        style={{ width: "100%", height: "auto" }}
+                    />
                 </div>
-                <p className="flex justify-center items-center">350+ Hackers</p>
-                <p className="flex justify-center items-center">65 Projects</p>
+                <div className="w-full relative">
+                    <Image
+                        className="w-full h-auto"
+                        src="/about/comic-bubbles/comic-bubble2.svg"
+                        alt="Prize total at 2024 UWB Hacks"
+                        width={0}
+                        height={0}
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        style={{ width: "100%", height: "auto" }}
+                    />
+                </div>
+                <div className="w-full relative">
+                    <Image
+                        className="w-full h-auto"
+                        src="/about/comic-bubbles/comic-bubble3.svg"
+                        alt="Prize total at 2024 UWB Hacks"
+                        width={0}
+                        height={0}
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        style={{ width: "100%", height: "auto" }}
+                    />
+                </div>
+                <div className="w-full relative">
+                    <Image
+                        className="w-full h-auto"
+                        src="/about/comic-bubbles/comic-bubble4.svg"
+                        alt="Prize total at 2024 UWB Hacks"
+                        width={0}
+                        height={0}
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                        style={{ width: "100%", height: "auto" }}
+                    />
+                </div>
             </Panel>
 
             {/* UWB ACM Description Container */}
             <Panel
-                className="flex flex-col gap-y-4 pb-6"
+                className={`flex flex-col gap-y-4 pb-6 mt-12 md:mt-16 ${panelMargin}`}
                 panelBackground="/about/backgrounds/AboutSection_Background_2.jpg"
             >
                 {/* UWBHacks ACM Description Header */}
@@ -123,7 +161,7 @@ const AboutSection: React.FC = () => {
             </Panel>
 
             {/* "Month of Hacking", "Hackeroons", "Leaderboard", & "Last Year's Winners" Container */}
-            <div className="w-full grid md:grid-cols-2 gap-8">
+            <div className={`w-full grid md:grid-cols-2 gap-8 ${panelMargin}`}>
                 {/* Month of Hacking */}
                 <Panel
                     panelBackground={
