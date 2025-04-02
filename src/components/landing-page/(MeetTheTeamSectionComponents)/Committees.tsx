@@ -150,7 +150,7 @@ export const committees = [
             {
                 id: "jonah-uellenberg",
                 name: "Jonah Uellenberg",
-                role: "Developer",
+                role: "Digital Experience Co-lead, Developer",
                 photo: "/MeetTheTeamPhotos/jonah-uellenberg.jpg",
                 link: "https://www.linkedin.com/in/uellenberg",
             },
