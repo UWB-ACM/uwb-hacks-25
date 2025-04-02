@@ -12,6 +12,7 @@ export async function actionCreateEvent(
     start: Date,
     end: Date | null,
     location: string | null,
+    attendanceAmount: number,
 ): Promise<Event | null> {
     const session = await getSession();
     if (!session.user?.id) return null;
@@ -24,7 +25,14 @@ export async function actionCreateEvent(
         return null;
     }
 
-    return await createEvent(name, description, start, end, location);
+    return await createEvent(
+        name,
+        description,
+        start,
+        end,
+        location,
+        attendanceAmount,
+    );
 }
 
 // TODOOOOOOOOOOOOOOOOOOOOOO
@@ -39,6 +47,7 @@ export async function actionUpdateEvent(
     start: Date,
     end: Date | null,
     location: string | null,
+    attendanceAmount: number,
 ) {
     const session = await getSession();
     if (!session.user?.id) return null;
@@ -51,5 +60,13 @@ export async function actionUpdateEvent(
         return null;
     }
 
-    return await updateEvent(id, name, description, start, end, location);
+    return await updateEvent(
+        id,
+        name,
+        description,
+        start,
+        end,
+        location,
+        attendanceAmount,
+    );
 }

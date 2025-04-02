@@ -22,6 +22,8 @@ export default function CreateEventPage() {
     });
     const [eventEnd, setEventEnd] = useState<Date | null>(null);
     const [eventLocation, setEventLocation] = useState<string | null>(null);
+    const [eventAttendanceAmount, setEventAttendanceAmount] =
+        useState<number>(0);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -40,6 +42,7 @@ export default function CreateEventPage() {
             eventStart,
             eventEnd,
             eventLocation,
+            eventAttendanceAmount,
         );
 
         // adding this to satisfy eslint
@@ -137,6 +140,25 @@ export default function CreateEventPage() {
                         id="eventLocation"
                         value={eventLocation || ""}
                         onChange={(e) => setEventLocation(e.target.value)}
+                        required
+                        className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
+                    />
+
+                    {/* Event Attendance Amount */}
+                    <label
+                        htmlFor="eventAttendanceAmount"
+                        className="flex items-center mt-4 md:mt-0"
+                    >
+                        Attendance Amount (H$)
+                    </label>
+                    <input
+                        id="eventAttendanceAmount"
+                        value={eventAttendanceAmount || 0}
+                        type="number"
+                        min={0}
+                        onChange={(e) => {
+                            setEventAttendanceAmount(parseInt(e.target.value));
+                        }}
                         required
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
