@@ -1,7 +1,5 @@
 "use client";
 
-import "../styles/globals.css";
-
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
 // import WhatsNewSection from "../components/landing-page/WhatsNewSection";
@@ -22,7 +20,6 @@ import BackgroundImage from "@/public/hero/background.png";
 import MidgroundImage from "@/public/hero/midground.png";
 import ForegroundImage from "@/public/hero/foreground.png";
 import "../styles/globals.css";
-import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
 // Sorry but this is just used to manually create deployment to main im being rushed
 export default function Page() {
@@ -34,8 +31,6 @@ export default function Page() {
     const sponsorsRef = useRef<HTMLDivElement>(null);
     const faqRef = useRef<HTMLDivElement>(null);
     const lenis = useRef<Lenis | null>(null);
-
-    const minScreenSize = "max-w-[1200px]";
 
     const [showGoTop, setShowGoTop] = useState(false);
 
@@ -123,9 +118,9 @@ export default function Page() {
                                 scrollRef: faqRef,
                             },
                             {
-                                id: "login",
-                                name: "Login",
-                                url: "/api/auth/google",
+                                id: "dashboard",
+                                name: "Dashboard",
+                                url: "/dashboard",
                             },
                         ]}
                         wrapH1
@@ -184,7 +179,7 @@ export default function Page() {
                         {/* TODO - release all of these the day of the event */}
                         <div
                             id="tracks"
-                            className={`min-h-screen w-full ${minScreenSize}`}
+                            className={`min-h-screen w-full `}
                             ref={tracksRef}
                             style={{}}
                         >
@@ -194,14 +189,14 @@ export default function Page() {
                         <div
                             id="schedule"
                             ref={scheduleRef}
-                            className={`w-full ${minScreenSize} overflow-hidden`}
+                            className={`w-full overflow-hidden`}
                         >
                             <ScheduleSection />
                         </div>
                         <div
                             id="team"
                             ref={meetTheTeamRef}
-                            className={`w-full ${minScreenSize} mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
+                            className={`w-full mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
                         >
                             <MeetTheTeamSection />
                         </div>

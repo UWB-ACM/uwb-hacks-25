@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function Sponsors() {
     return (
-        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">
+        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12 sm:mt-[3rem]">
             <div className="max-w-[1200px] flex flex-col items-center">
                 {/* Header Section */}
                 <div className="text-center w-full mb-12">
