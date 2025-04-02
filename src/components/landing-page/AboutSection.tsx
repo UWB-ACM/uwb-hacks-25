@@ -124,12 +124,12 @@ const AboutSection: React.FC = () => {
                         related to Computer Science. Learn more in our Discord!
                     </p>
                     <div className="w-full flex justify-center md:justify-end">
-                        <Link
-                            href="https://discord.gg/DzWEhESsZw"
-                            target="_blank"
+                        <Button
+                            href={"https://discord.gg/DzWEhESsZw"}
+                            fontSize={14}
                         >
-                            <Button fontSize={14}>Discord</Button>
-                        </Link>
+                            Discord
+                        </Button>
                     </div>
                 </div>
 
@@ -161,9 +161,7 @@ const AboutSection: React.FC = () => {
                         open for sponsors to host.
                     </p>
                     <div className="px-6 w-full flex justify-end">
-                        <Link href={"/month-of-hacking"}>
-                            <Button>Learn More</Button>
-                        </Link>
+                        <Button href={"/month-of-hacking"}>Learn More</Button>
                     </div>
                 </Panel>
 
