@@ -135,7 +135,7 @@ const AboutSection: React.FC = () => {
                 >
                     <PanelHeader>Month of Hacking</PanelHeader>
                     <p className="px-6 py-3 text-center font-bold">
-                        In April, we'll host a series of academic and fun
+                        In April, we&apos;ll host a series of academic and fun
                         activities to prepare participants for the main event,
                         with at least 2 events each week, totaling 8+ events.
                         Some will be co-hosted by fellow clubs and the rest are
@@ -159,6 +159,13 @@ const AboutSection: React.FC = () => {
 
                     {/* Hackeroon Prizes Carousel */}
                     <HackeroonCarousel />
+                    <div className="px-6 w-full flex justify-end">
+                        <Link href={"/hackeroon-shop"}>
+                            <Button className="text-[25px]" onClick={() => {}}>
+                                Go to Shop
+                            </Button>
+                        </Link>
+                    </div>
                 </Panel>
 
                 {/* Leaderboard */}

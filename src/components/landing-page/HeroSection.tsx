@@ -6,7 +6,7 @@ import RegisterSection from "./(HeroSectionComponents)/RegisterSection";
 
 const HeroSection = () => {
     return (
-        <div className="flex w-full justify-center bg-cover bg-center">
+        <div className="flex w-full justify-center bg-cover bg-center sm:mt-[10rem]">
             <div className="relative z-10 container px-4 py-8 w-full max-w-[90vw] sm:max-w-[70vw]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-8 mx-auto">
                     {/* Left Column - Logo and Volunteer */}
