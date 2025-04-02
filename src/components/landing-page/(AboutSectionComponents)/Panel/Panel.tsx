@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 type PanelProps = {
     children: React.ReactNode;
@@ -20,9 +21,11 @@ export default function Panel({
 
     return (
         <div
-            className={clsx(
-                "relative w-full border-black border-2 bg-cover bg-center",
-                className,
+            className={twMerge(
+                clsx(
+                    "relative w-full border-black border-2 bg-cover bg-center overflow-hidden",
+                    className,
+                ),
             )}
             style={background}
         >
