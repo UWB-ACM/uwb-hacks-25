@@ -15,8 +15,10 @@ import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
 import PanelContent from "./(AboutSectionComponents)/Panel/Content";
 
 // For fun stats section
-import FunFactsContainer from "./(AboutSectionComponents)/Panel/FunFacts/FunFactsContainer";
-import FunFact from "./(AboutSectionComponents)/Panel/FunFacts/FunFact";
+import FunFactsContainer from "./(AboutSectionComponents)/FunFacts/FunFactsContainer";
+import FunFact from "./(AboutSectionComponents)/FunFacts/FunFact";
+
+import FlyingHusky from "./(AboutSectionComponents)/FlyingHusky";
 
 const AboutSection: React.FC = () => {
     const panelMargin = "mt-12 md:mt-16";
@@ -37,13 +39,7 @@ const AboutSection: React.FC = () => {
 
                 {/* UWBHacks About Section Content */}
                 <PanelContent className="z-[5] flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 overflow-hidden">
-                    {/* Husky */}
-                    <Image
-                        src="/about/husky.png"
-                        alt="Husky"
-                        width={350}
-                        height={350}
-                    />
+                    <FlyingHusky />
 
                     {/* UWBHacks About Section Description */}
                     <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center md:items-start gap-y-2">
