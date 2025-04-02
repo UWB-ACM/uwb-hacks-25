@@ -65,6 +65,12 @@ export async function createTransaction(
 
             data = (
                 await sql.begin((sql) => [
+                    // This needs to be locked for concurrency, to prevent
+                    // check-ins from occurring in parallel and having an
+                    // outdated amount.
+                    // We can use a shared lock here, since parallel check-ins
+                    // are allowed.
+                    sql`SELECT 1 FROM events WHERE id=${event} FOR SHARE;`,
                     sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
                     sql`INSERT INTO transactions ("user", type, amount, authorized_by, event) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${event} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0) RETURNING id, time;`,
                 ])

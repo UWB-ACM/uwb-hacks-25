@@ -9,9 +9,13 @@ export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null); // Ref to store the interval ID
 
-    const cachedCode = sessionStorage.getItem("currentCode");
-    const [currentCode, setCode] = useState<string | null>(cachedCode || null);
+    const [currentCode, setCode] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+
+    // Load the cached code once we're on the browser.
+    useEffect(() => {
+        setCode(sessionStorage.getItem("currentCode"));
+    }, []);
 
     const cachedTimestamp =
         typeof window !== "undefined"
@@ -30,13 +34,13 @@ export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
         setDuration(parseInt(e.target.value));
     };
 
-    //TODO RIGHT NOW THE TRANSACTION AMOUNT IS UNKNOWN WE HAVE TO SET IT OURSELVES
+    // TODO: CheckInInfo needs to be generated server-side so authorized_by can't be spoofed.
+    // TODO: Add event selector.
     const body: CheckInInfo = {
         duration,
         currentCode,
         authorized_by: user.id,
-        amount: 100,
-        event: null,
+        event: 10,
     };
 
     async function onClick() {
