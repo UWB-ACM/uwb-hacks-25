@@ -46,12 +46,7 @@ function Sponsors() {
                                 {option.description}
                             </p>
                             <Link href={option.link}>
-                                <Button
-                                    onClick={() => {}}
-                                    className="text-lg px-6 py-2"
-                                >
-                                    Sponsor
-                                </Button>
+                                <Button>Sponsor</Button>
                             </Link>
                         </div>
                     ))}
