@@ -14,6 +14,10 @@ import Panel from "./(AboutSectionComponents)/Panel/Panel";
 import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
 import PanelContent from "./(AboutSectionComponents)/Panel/Content";
 
+// For fun stats section
+import FunFactsContainer from "./(AboutSectionComponents)/Panel/FunFacts/FunFactsContainer";
+import FunFact from "./(AboutSectionComponents)/Panel/FunFacts/FunFact";
+
 const AboutSection: React.FC = () => {
     const panelMargin = "mt-12 md:mt-16";
 
@@ -28,7 +32,7 @@ const AboutSection: React.FC = () => {
             >
                 {/* UWBHacks About Section Header */}
                 <PanelHeader isSectionHeader className="lg:absolute">
-                    <h2>About</h2>
+                    About
                 </PanelHeader>
 
                 {/* UWBHacks About Section Content */}
@@ -73,53 +77,33 @@ const AboutSection: React.FC = () => {
             </Panel>
 
             {/* Previous UWBHacks Fun Statistics Container */}
-            <Panel
-                className={`w-full border-none grid grid-cols-2 lg:grid-cols-4 gap-4 items-center ${panelMargin}`}
-            >
-                <div className="w-full relative">
-                    <Image
-                        className="w-full h-auto"
-                        src="/about/comic-bubbles/comic-bubble1.svg"
-                        alt="Prize total at 2024 UWB Hacks"
-                        width={0}
-                        height={0}
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        style={{ width: "100%", height: "auto" }}
-                    />
+            <Panel className={`w-full border-none ${panelMargin}`}>
+                <div className="flex justify-center">
+                    <PanelHeader className="font-h1 text-white bg-transparent border-none p-0">
+                        Statistics from our previous hackathon <br /> UWB Hacks
+                        AI 2024 !
+                    </PanelHeader>
                 </div>
-                <div className="w-full relative">
-                    <Image
-                        className="w-full h-auto"
-                        src="/about/comic-bubbles/comic-bubble2.svg"
-                        alt="Prize total at 2024 UWB Hacks"
-                        width={0}
-                        height={0}
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        style={{ width: "100%", height: "auto" }}
+                <FunFactsContainer>
+                    <FunFact
+                        src={"/about/comic-bubbles/comic-bubble1.svg"}
+                        alt={"Prize total at UWB Hacks AI 2024"}
                     />
-                </div>
-                <div className="w-full relative">
-                    <Image
-                        className="w-full h-auto"
-                        src="/about/comic-bubbles/comic-bubble3.svg"
-                        alt="Prize total at 2024 UWB Hacks"
-                        width={0}
-                        height={0}
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        style={{ width: "100%", height: "auto" }}
+                    <FunFact
+                        src={"/about/comic-bubbles/comic-bubble2.svg"}
+                        alt={"Schools participated at UWB Hacks AI 2024"}
                     />
-                </div>
-                <div className="w-full relative">
-                    <Image
-                        className="w-full h-auto"
-                        src="/about/comic-bubbles/comic-bubble4.svg"
-                        alt="Prize total at 2024 UWB Hacks"
-                        width={0}
-                        height={0}
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                        style={{ width: "100%", height: "auto" }}
+                    <FunFact
+                        src={"/about/comic-bubbles/comic-bubble3.svg"}
+                        alt={"Number of hackers at UWB Hacks AI 2024"}
                     />
-                </div>
+                    <FunFact
+                        src={"/about/comic-bubbles/comic-bubble4.svg"}
+                        alt={
+                            "Number of submitted projects at UWB Hacks AI 2024"
+                        }
+                    />
+                </FunFactsContainer>
             </Panel>
 
             {/* UWB ACM Description Container */}
