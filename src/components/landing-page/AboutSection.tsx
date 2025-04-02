@@ -1,5 +1,3 @@
-import DiscordFancyBlueImage from "@/public/about/discord-fancy-blue.svg";
-
 // General imports
 import React from "react";
 import Image from "next/image";
@@ -41,7 +39,7 @@ const AboutSection: React.FC = () => {
                     />
 
                     {/* UWBHacks About Section Description */}
-                    <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center md:items-start gap-y-4">
+                    <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center md:items-start gap-y-2">
                         <p className="text-center md:text-left text-white text-lg md:text-xl">
                             <span className="font-h1 md:text-xl text-2xl">
                                 UWB Hacks: Save the World!
@@ -51,7 +49,7 @@ const AboutSection: React.FC = () => {
                             careers through hands-on learning and professional
                             networking.
                         </p>
-                        <div className="w-full flex flex-col md:flex-row items-center justify-end gap-x-4 gap-y-2">
+                        <div className="w-full flex flex-col md:flex-row items-center justify-around gap-x-4 gap-y-2">
                             <Link
                                 href={
                                     "https://uwb-hacks-save-the-world.devpost.com"
@@ -62,7 +60,7 @@ const AboutSection: React.FC = () => {
                                 </Button>
                             </Link>
                             <Link href={"https://discord.gg/6AapzPNvRy"}>
-                                <Button color="yellow" fontSize={12.5}>
+                                <Button color="yellow" fontSize={12}>
                                     Learn more on our Discord!
                                 </Button>
                             </Link>
