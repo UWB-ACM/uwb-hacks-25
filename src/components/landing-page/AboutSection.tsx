@@ -6,19 +6,23 @@ import Link from "next/link";
 // Buttons
 import Button from "../Button";
 
-// For Hackeroons Panel
-import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Carousel";
-
 // Panel components
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
 import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
 import PanelContent from "./(AboutSectionComponents)/Panel/Content";
 
-// For fun stats section
+// For about panel
+import FlyingHusky from "./(AboutSectionComponents)/FlyingHusky";
+
+// For fun stats panel
 import FunFactsContainer from "./(AboutSectionComponents)/FunFacts/FunFactsContainer";
 import FunFact from "./(AboutSectionComponents)/FunFacts/FunFact";
 
-import FlyingHusky from "./(AboutSectionComponents)/FlyingHusky";
+// For Hackeroons Panel
+import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Carousel";
+
+// for Leaderboard panel
+import LeaderboardRecord from "./(AboutSectionComponents)/LeaderboardRecord";
 
 const AboutSection: React.FC = () => {
     const panelMargin = "mt-12 md:mt-16";
@@ -153,19 +157,23 @@ const AboutSection: React.FC = () => {
                     panelBackground={
                         "/about/backgrounds/AboutSection_Background_3.jpg"
                     }
-                    className="flex flex-col justify-between pb-4"
+                    className="flex flex-col justify-between"
                 >
                     <PanelHeader>Month of Hacking</PanelHeader>
-                    <p className="px-6 py-3 text-center font-bold">
-                        In April, we&apos;ll host a series of academic and fun
-                        activities to prepare participants for the main event,
-                        with at least 2 events each week, totaling 8+ events.
-                        Some will be co-hosted by fellow clubs and the rest are
-                        open for sponsors to host.
-                    </p>
-                    <div className="px-6 w-full flex justify-end">
-                        <Button href={"/month-of-hacking"}>Learn More</Button>
-                    </div>
+                    <PanelContent>
+                        <p className="px-6 py-3 text-center font-bold">
+                            In April, we'll host a series of academic and fun
+                            activities to prepare participants for the main
+                            event, with at least 2 events each week, totaling 8+
+                            events. Some will be co-hosted by fellow clubs and
+                            the rest are open for sponsors to host.
+                        </p>
+                        <div className="px-6 w-full flex justify-end">
+                            <Button href={"/month-of-hacking"}>
+                                Learn More
+                            </Button>
+                        </div>
+                    </PanelContent>
                 </Panel>
 
                 {/* Hackeroons */}
@@ -177,37 +185,26 @@ const AboutSection: React.FC = () => {
                 <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
                     <PanelHeader>Hackeroons</PanelHeader>
 
-                    {/* Hackeroon Prizes Carousel */}
-                    <HackeroonCarousel />
-                    <div className="px-6 w-full flex justify-end">
-                        <Link href={"/hackeroon-shop"}>
-                            <Button className="text-[25px]" onClick={() => {}}>
-                                Go to Shop
-                            </Button>
-                        </Link>
-                    </div>
+                    <PanelContent>
+                        {/* Hackeroon Prizes Carousel */}
+                        <HackeroonCarousel />
+                    </PanelContent>
                 </Panel>
 
                 {/* Leaderboard */}
-                <Panel panelColor={"#FFF49F"}>
+                <Panel panelColor={"#f5be58"}>
                     <PanelHeader>Leaderboard</PanelHeader>
-                    <div className="px-[10%] md:px-[15%] pb-[5%] flex flex-col gap-y-8 md:text-lg">
-                        <div className="flex justify-between items-center">
-                            <div className="w-[50px] h-[50px] bg-gray-400 rounded-full" />
-                            <p>Name</p>
-                            <p>Hackeroon_Amount</p>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <div className="w-[50px] h-[50px] bg-gray-400 rounded-full" />
-                            <p>Name</p>
-                            <p>Hackeroon_Amount</p>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <div className="w-[50px] h-[50px] bg-gray-400 rounded-full" />
-                            <p>Name</p>
-                            <p>Hackeroon_Amount</p>
-                        </div>
-                    </div>
+                    <PanelContent className="px-2 md:px-8 flex flex-col gap-y-8 md:text-lg text-white">
+                        <LeaderboardRecord
+                            name={"Name1"}
+                            hackeroonAmount={99999}
+                        />
+                        <LeaderboardRecord
+                            name={"Name2"}
+                            hackeroonAmount={345}
+                        />
+                        <LeaderboardRecord name={"Name3"} hackeroonAmount={1} />
+                    </PanelContent>
                 </Panel>
             </div>
         </section>
