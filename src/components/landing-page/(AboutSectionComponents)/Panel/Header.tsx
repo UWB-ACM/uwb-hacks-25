@@ -26,13 +26,12 @@ export default function PanelHeader({
             gsap.set(header, { y: "-100%" });
 
             const animation = gsap.to(header, {
-                duration: 0.3,
-                ease: "bounce",
+                duration: 0.4,
+                ease: "power2.out",
                 y: 0,
                 scrollTrigger: {
                     trigger: header,
-                    start: "top 60%",
-                    markers: true,
+                    start: "bottom 65%",
                 },
             });
 
