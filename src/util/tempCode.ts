@@ -35,14 +35,15 @@ export async function addCode(data: CheckInInfo) {
 
         if (res === "OK") {
             // Successfully set.
-            break;
+            return code;
         } else {
             // Try again.
             code = createCode(CHECK_IN_CODE_LENGTH);
         }
     }
 
-    return code;
+    // Failure.
+    return null;
 }
 
 /**
