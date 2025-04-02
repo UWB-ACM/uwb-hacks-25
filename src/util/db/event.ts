@@ -6,7 +6,7 @@ import sql from "@/src/util/database";
  */
 export async function getEvents(): Promise<Event[]> {
     const data =
-        await sql`SELECT id, name, description, start, "end", location FROM events`;
+        await sql`SELECT id, name, description, start, "end", location, attendance_amount FROM events`;
 
     console.log(data);
     return data.map((row) => ({
@@ -16,6 +16,7 @@ export async function getEvents(): Promise<Event[]> {
         start: row.start,
         end: row.end,
         location: row.location,
+        attendanceAmount: row.event_attendance,
     }));
 }
 
@@ -24,7 +25,7 @@ export async function getEvents(): Promise<Event[]> {
  */
 export async function getEventById(id: number): Promise<Event | null> {
     const data =
-        await sql`SELECT id, name, description, start, "end", location FROM events WHERE id=${id}`;
+        await sql`SELECT id, name, description, start, "end", location, attendance_amount FROM events WHERE id=${id}`;
 
     // if there's no event with given id, return null
     if (data.length === 0) return null;
@@ -37,6 +38,7 @@ export async function getEventById(id: number): Promise<Event | null> {
         start: data[0].start,
         end: data[0].end,
         location: data[0].location,
+        attendanceAmount: data[0].attendance_amount,
     };
 }
 
@@ -48,6 +50,7 @@ export async function createEvent(
     start: Date,
     end: Date | null,
     location: string | null,
+    attendanceAmount: number,
 ): Promise<Event | null> {
     // Simply insert all required data into events table in database
     // All data validation will likely be done on frontend
@@ -55,7 +58,7 @@ export async function createEvent(
     // and valid start and end times (start time happens before end time)
 
     const data =
-        await sql`INSERT INTO events ("name", "description", "start", "end", "location") VALUES (${name}, ${description}, ${start}, ${end}, ${location}) RETURNING id`;
+        await sql`INSERT INTO events ("name", "description", "start", "end", "location", "attendance_amount") VALUES (${name}, ${description}, ${start}, ${end}, ${location}, ${attendanceAmount}) RETURNING id`;
 
     if (data.length === 0) return null;
     return {
@@ -65,6 +68,7 @@ export async function createEvent(
         start,
         end,
         location,
+        attendanceAmount,
     };
 }
 
@@ -75,10 +79,11 @@ export async function updateEvent(
     start: Date,
     end: Date | null,
     location: string | null,
+    attendanceAmount: number,
 ) {
     // update event
     const data =
-        await sql`UPDATE events SET name=${name}, description=${description}, start=${start}, "end"=${end}, location=${location} WHERE id=${id}`;
+        await sql`UPDATE events SET name=${name}, description=${description}, start=${start}, "end"=${end}, location=${location}, attendance_amount=${attendanceAmount} WHERE id=${id}`;
 
     // doing this to satisfy eslint
     console.log("updateEventData:", data);

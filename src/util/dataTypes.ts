@@ -125,6 +125,12 @@ export interface Event {
      * The physical or virtual location for an event (if it exists).
      */
     location: string | null;
+
+    /**
+     * The number of hackeroons that should be awarded
+     * for attending this event.
+     */
+    attendanceAmount: number;
 }
 
 /**
