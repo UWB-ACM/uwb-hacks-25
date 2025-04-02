@@ -21,6 +21,9 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
     const [eventDescription, setEventDescription] = useState<string>("");
     const [eventStart, setEventStart] = useState<Date | null>(null);
     const [eventEnd, setEventEnd] = useState<Date | null>(null);
+    const [eventLocation, setEventLocation] = useState<string | null>(null);
+    const [eventAttendanceAmount, setEventAttendanceAmount] =
+        useState<number>(0);
 
     // Format Date as YYYY-MM-DDThh:mm
     const formatDateForInput = (date: Date | null): string => {
@@ -50,6 +53,8 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
                 setEventDescription(event.description || "Event Description");
                 setEventStart(event.start);
                 setEventEnd(event.end);
+                setEventLocation(event.location);
+                setEventAttendanceAmount(event.attendanceAmount);
             }
         }
 
@@ -83,6 +88,8 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
             eventDescription,
             eventStart,
             eventEnd,
+            eventLocation,
+            eventAttendanceAmount,
         );
 
         // doing this to satisfy eslint
@@ -178,6 +185,41 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
                             onChange={(e) => {
                                 handleDateChange(e.target.value, setEventEnd);
                             }}
+                            className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
+                        />
+
+                        {/* Event Location */}
+                        <label
+                            htmlFor="eventLocation"
+                            className="flex items-center mt-4 md:mt-0"
+                        >
+                            Event Location
+                        </label>
+                        <input
+                            id="eventLocation"
+                            value={eventLocation || ""}
+                            onChange={(e) => setEventLocation(e.target.value)}
+                            className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
+                        />
+
+                        {/* Event Attendance Amount */}
+                        <label
+                            htmlFor="eventAttendanceAmount"
+                            className="flex items-center mt-4 md:mt-0"
+                        >
+                            Attendance Amount (H$)
+                        </label>
+                        <input
+                            id="eventAttendanceAmount"
+                            value={eventAttendanceAmount || 0}
+                            type="number"
+                            min={0}
+                            onChange={(e) => {
+                                setEventAttendanceAmount(
+                                    parseInt(e.target.value),
+                                );
+                            }}
+                            required
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                         />
                     </div>
