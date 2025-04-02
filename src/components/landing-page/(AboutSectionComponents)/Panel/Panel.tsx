@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type PanelProps = {
     children: React.ReactNode;
@@ -18,6 +22,14 @@ export default function Panel({
     const background = panelBackground
         ? { backgroundImage: `url(${panelBackground})` }
         : { backgroundColor: panelColor };
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 100);
+
+        return () => clearTimeout(timeout);
+    }, []);
 
     return (
         <div
