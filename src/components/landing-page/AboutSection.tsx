@@ -42,17 +42,18 @@ const AboutSection: React.FC = () => {
                     <FlyingHusky />
 
                     {/* UWBHacks About Section Description */}
-                    <div className="z-[5] w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center md:items-start gap-y-2">
-                        <p className="text-center md:text-left text-white text-lg md:text-xl">
-                            <span className="font-h1 md:text-xl text-2xl">
-                                UWB Hacks: Save the World!
-                            </span>{" "}
-                            is an annual hackathon teaching students computer
-                            science while preparing them for tech and business
-                            careers through hands-on learning and professional
-                            networking.
+                    <div className="z-[5] w-full md:w-1/2 lg:w-1/3">
+                        <p className="font-h1 text-xl lg:text-2xl text-center md:text-left text-blue-500">
+                            UWB Hacks: Save the World!
                         </p>
-                        <div className="w-full flex flex-col md:flex-row items-center justify-around gap-x-4 gap-y-2">
+                        <p className="text-center md:text-left text-white text-lg">
+                            This exciting annual hackathon teaches students
+                            computer science through hands-on challenges while
+                            building valuable industry connections and
+                            professional skills that launch successful tech and
+                            business careers.
+                        </p>
+                        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-x-4 gap-y-2 mt-2 md:mt-0 lg:mt-2">
                             <Link
                                 href={
                                     "https://uwb-hacks-save-the-world.devpost.com"
