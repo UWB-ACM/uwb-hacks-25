@@ -35,7 +35,7 @@ export default function Panel({
         <div
             className={twMerge(
                 clsx(
-                    "relative w-full border-black border-2 bg-cover bg-center overflow-hidden",
+                    "relative w-full border-black border-[3px] bg-cover bg-center overflow-hidden",
                     className,
                 ),
             )}

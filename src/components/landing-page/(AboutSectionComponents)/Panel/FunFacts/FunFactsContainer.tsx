@@ -30,7 +30,7 @@ export default function FunFactsContainer({
         <div
             id="funFactsContainer"
             className={clsx(
-                `mt-4 md:m-4 grid gap-4 items-center ${cols === 4 && "grid-cols-4"} ${cols === 2 && "grid-cols-2"}`,
+                `mt-4 md:m-4 grid items-center ${cols === 4 && "grid-cols-4"} ${cols === 2 && "grid-cols-2"}`,
             )}
         >
             {children}

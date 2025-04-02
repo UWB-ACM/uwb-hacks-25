@@ -15,7 +15,7 @@ export default function FunFact({ src, alt }: FunFactProps) {
         gsap.set(".funFact", { scale: 0, rotate: 0 });
 
         gsap.to(".funFact", {
-            delay: 0.5,
+            delay: 0.7,
             stagger: 0.3,
             duration: 0.35,
             ease: "bounce",
