@@ -161,14 +161,14 @@ const AboutSection: React.FC = () => {
                 >
                     <PanelHeader>Month of Hacking</PanelHeader>
                     <PanelContent>
-                        <p className="px-6 py-3 text-center font-bold">
+                        <p className="text-center font-bold">
                             In April, we'll host a series of academic and fun
                             activities to prepare participants for the main
                             event, with at least 2 events each week, totaling 8+
                             events. Some will be co-hosted by fellow clubs and
                             the rest are open for sponsors to host.
                         </p>
-                        <div className="px-6 w-full flex justify-center md:justify-end">
+                        <div className="w-full flex justify-center md:justify-end mt-2">
                             <Button href={"/month-of-hacking"}>
                                 Learn More
                             </Button>
