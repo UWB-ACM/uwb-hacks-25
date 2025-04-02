@@ -168,7 +168,7 @@ const AboutSection: React.FC = () => {
                             events. Some will be co-hosted by fellow clubs and
                             the rest are open for sponsors to host.
                         </p>
-                        <div className="px-6 w-full flex justify-end">
+                        <div className="px-6 w-full flex justify-center md:justify-end">
                             <Button href={"/month-of-hacking"}>
                                 Learn More
                             </Button>
@@ -178,7 +178,38 @@ const AboutSection: React.FC = () => {
 
                 {/* Hackeroons */}
                 <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
-                    Last Years Projects ???
+                    <PanelHeader>Last Year's Projects</PanelHeader>
+                    <PanelContent>
+                        <div className="flex flex-col md:flex-row gap-x-4 justify-around items-center">
+                            <p className="text-center text-lg lg:text-xl font-h1">
+                                LoveStorying
+                            </p>
+                            <div className="flex justify-center lg:justify-end">
+                                <Button
+                                    href={
+                                        "https://www.linkedin.com/posts/uwb-hacks-series_uwbhackssavetheworld-uwbhacksai-uwbhacks-activity-7304282072141963265-0b8u/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
+                                    }
+                                >
+                                    Learn more!
+                                </Button>
+                            </div>
+                        </div>
+                        <div className="flex flex-col md:flex-row gap-x-4 justify-around items-center mt-4">
+                            <p className="text-center text-lg lg:text-xl font-h1">
+                                Freakquency
+                            </p>
+                            <div className="flex justify-center lg:justify-end">
+                                <Button
+                                    color={"yellow"}
+                                    href={
+                                        "https://www.linkedin.com/posts/uwb-hacks-series_uwbhacks-uwbhackssavetheworld-uwbhacks2025-activity-7306907475134361600-iK_5/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
+                                    }
+                                >
+                                    Learn more!
+                                </Button>
+                            </div>
+                        </div>
+                    </PanelContent>
                 </Panel>
 
                 {/* Hackeroons */}
