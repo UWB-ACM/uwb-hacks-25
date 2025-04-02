@@ -16,21 +16,19 @@ function createCode(digits: number) {
 }
 
 /**
- *
- * @param duration The duration the code remains valid for in seconds
- * @param createdBy The code creator's user id
- *
- * Creates a code and adds it to the database. It also returns the code for future deletion
+ * Creates a code and adds it to the database.
+ * The code that was generated is returned.
+ * @param data - is the data associated with the code to save in the database.
  */
-export async function addCode(duration: number, body: CheckInInfo) {
+export async function addCode(data: CheckInInfo) {
     let code = createCode(CHECK_IN_CODE_LENGTH);
 
     // Keep generating a new code if there is a duplicate in redis.
     // This uses an arbitrary number for the maximum number of tries
     // to avoid an infinite loop.
     for (let i = 0; i < 1000; i++) {
-        const res = await redis.set(PREFIX + code, JSON.stringify(body), {
-            ex: duration,
+        const res = await redis.set(PREFIX + code, JSON.stringify(data), {
+            ex: data.duration,
             // If the code already exists, don't override it.
             nx: true,
         });
