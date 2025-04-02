@@ -72,7 +72,7 @@ export default function HackeroonCarousel() {
     };
 
     return (
-        <div className="w-full p-[3%] flex justify-between overflow-hidden">
+        <div className="w-full flex justify-between overflow-hidden">
             {/* Prev Button */}
             <CarouselControls onClick={handlePrev}>
                 <ChevronLeft className="w-full h-full text-white" />
