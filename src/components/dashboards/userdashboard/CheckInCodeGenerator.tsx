@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { SessionUser } from "@/src/util/session";
-import { CheckInInfo } from "@/src/util/dataTypes";
+import {
+    actionGenerateCheckinCode,
+    actionInvalidateCode,
+} from "@/src/util/actions/checkIn";
 
-export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
+export default function CheckInCodeGenerator() {
     const [duration, setDuration] = useState(0);
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null); // Ref to store the interval ID
@@ -17,45 +19,50 @@ export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
         setCode(sessionStorage.getItem("currentCode"));
     }, []);
 
+    const timestampToRemainingSeconds = (time: string): number =>
+        Math.max(Math.floor((Date.parse(time) - Date.now()) / 1000), 0);
+
     const cachedTimestamp =
         typeof window !== "undefined"
             ? sessionStorage.getItem("startingTimestamp")
             : null;
     const [countdown, setCountdown] = useState<number>(
-        cachedTimestamp
-            ? Math.max(
-                  Math.floor((Date.parse(cachedTimestamp) - Date.now()) / 1000),
-                  0,
-              )
-            : 0,
+        cachedTimestamp ? timestampToRemainingSeconds(cachedTimestamp) : 0,
     );
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDuration(parseInt(e.target.value));
     };
 
-    // TODO: CheckInInfo needs to be generated server-side so authorized_by can't be spoofed.
     // TODO: Add event selector.
-    const body: CheckInInfo = {
-        duration,
-        currentCode,
-        authorized_by: user.id,
-        event: 10,
-    };
+    const eventID = 10;
 
     async function onClick() {
         if (loading) return; // Prevent multiple clicks while loading
         setLoading(true);
-        const res = await fetch("/api/temp-code/generate", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body),
-        });
-        const data = await res.json();
+
+        // Invalidate the previous code, if it exists and
+        // is still active.
+        if (
+            currentCode &&
+            cachedTimestamp &&
+            timestampToRemainingSeconds(cachedTimestamp) > 0
+        ) {
+            await actionInvalidateCode(currentCode);
+
+            sessionStorage.removeItem("startingTimestamp");
+            sessionStorage.removeItem("currentCode");
+
+            setCode(null);
+            setCountdown(0);
+        }
+
+        const data = await actionGenerateCheckinCode(eventID, duration);
         setLoading(false);
-        setCode(data.code);
+
+        if (!data) return;
+
+        setCode(data);
         setCountdown(duration); // Set the countdown to the duration
 
         // Store the timestamp and code in session storage
@@ -63,7 +70,7 @@ export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
             Date.now() + duration * 1000,
         ).toISOString();
         sessionStorage.setItem("startingTimestamp", newTimestamp);
-        sessionStorage.setItem("currentCode", data.code);
+        sessionStorage.setItem("currentCode", data);
     }
 
     useEffect(() => {
