@@ -229,7 +229,6 @@ export interface CheckInInfo {
     duration: number;
     currentCode: string | null;
     authorized_by: number | null;
-    amount: number;
     event: number | null;
 }
 

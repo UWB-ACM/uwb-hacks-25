@@ -25,15 +25,24 @@ function createCode(digits: number) {
 export async function addCode(duration: number, body: CheckInInfo) {
     let code = createCode(CHECK_IN_CODE_LENGTH);
 
-    // Keep generating a new code if there is a duplicate in redis
-    let exists = await codeExists(code);
+    // Keep generating a new code if there is a duplicate in redis.
+    // This uses an arbitrary number for the maximum number of tries
+    // to avoid an infinite loop.
+    for (let i = 0; i < 1000; i++) {
+        const res = await redis.set(PREFIX + code, JSON.stringify(body), {
+            ex: duration,
+            // If the code already exists, don't override it.
+            nx: true,
+        });
 
-    while (exists) {
-        code = createCode(CHECK_IN_CODE_LENGTH);
-        exists = await codeExists(code);
+        if (res === "OK") {
+            // Successfully set.
+            break;
+        } else {
+            // Try again.
+            code = createCode(CHECK_IN_CODE_LENGTH);
+        }
     }
-
-    await redis.set(PREFIX + code, JSON.stringify(body), { ex: duration });
 
     return code;
 }
@@ -48,12 +57,10 @@ export async function removeCode(code: string) {
 }
 
 /**
- *
+ * Retrieves the data associated with the given check-in code.
  * @param code The randomly generated code for the user
- * @returns true if the code is valid, false otherwise
+ * @returns The data, if it exists, or else null.
  */
-export async function codeExists(code: string) {
-    // Exists function returns 1 for true and 0 as false
-    const res = await redis.exists(PREFIX + code);
-    return res === 1;
+export async function getCodeData(code: string): Promise<CheckInInfo | null> {
+    return await redis.get(PREFIX + code);
 }
