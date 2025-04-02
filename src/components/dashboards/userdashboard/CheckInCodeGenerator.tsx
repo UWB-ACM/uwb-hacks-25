@@ -5,9 +5,16 @@ import {
     actionGenerateCheckinCode,
     actionInvalidateCode,
 } from "@/src/util/actions/checkIn";
+import StaffEventSelector from "@/src/components/dashboards/staff/StaffEventSelector";
+import { Event } from "@/src/util/dataTypes";
 
-export default function CheckInCodeGenerator() {
+export default function CheckInCodeGenerator({
+    events,
+}: {
+    events: Promise<Event[]>;
+}) {
     const [duration, setDuration] = useState(0);
+    const [eventId, setEventId] = useState<number | null>(null);
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null); // Ref to store the interval ID
 
@@ -34,10 +41,9 @@ export default function CheckInCodeGenerator() {
         setDuration(parseInt(e.target.value));
     };
 
-    // TODO: Add event selector.
-    const eventID = 10;
-
     async function onClick() {
+        if (!eventId || !duration) return;
+
         if (loading) return; // Prevent multiple clicks while loading
         setLoading(true);
 
@@ -57,7 +63,7 @@ export default function CheckInCodeGenerator() {
             setCountdown(0);
         }
 
-        const data = await actionGenerateCheckinCode(eventID, duration);
+        const data = await actionGenerateCheckinCode(eventId, duration);
         setLoading(false);
 
         if (!data) return;
@@ -96,6 +102,13 @@ export default function CheckInCodeGenerator() {
 
     return (
         <div>
+            <div className="w-full flex justify-center">
+                <StaffEventSelector
+                    events={events}
+                    setEventId={(id) => setEventId(id)}
+                />
+            </div>
+
             <input
                 type="number"
                 value={duration.toString()}
