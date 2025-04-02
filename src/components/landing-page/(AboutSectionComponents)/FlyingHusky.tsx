@@ -7,30 +7,55 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function FlyingHusky() {
     useEffect(() => {
-        gsap.set(".flyingHusky", { y: "-125%" });
+        gsap.set(".flyingHusky", {
+            x: "-100vw",
+            y: "50vh",
+            rotation: "-30deg",
+            scale: 0.7,
+        });
 
         gsap.to(".flyingHusky", {
-            keyframes: {
-                y: ["-150%", "-100%", "-50%", "0"],
-                x: ["-25%", "-50%", "-25%", "0"],
+            duration: 2,
+            x: 0,
+            y: 0,
+            rotation: 0,
+            scale: 1,
+            ease: "power1.inOut",
+            motionPath: {
+                path: [
+                    { x: "-80vw", y: "25vh", rotation: "-20deg", scale: 0.75 },
+                    { x: "-40vw", y: "-30vh", rotation: "10deg", scale: 0.85 },
+                    { x: "-20vw", y: "-20vh", rotation: "5deg", scale: 0.9 },
+                    { x: "-10vw", y: "-10vh", rotation: "0deg", scale: 0.95 },
+                    { x: 0, y: 0, rotation: 0, scale: 1 },
+                ],
+                curviness: 1.5,
+                autoRotate: true,
             },
-            delay: 1,
-            duration: 0.5,
             scrollTrigger: {
-                trigger: ".flyingHusky",
-                start: "bottom 40%",
+                trigger: ".aboutSectionContainer",
+                start: "60% 90%",
                 markers: true,
             },
+        });
+
+        gsap.to(".flyingHusky", {
+            repeat: -1,
+            duration: 2.5,
+            ease: "power1.out",
+            keyframes: { y: [0, "-15px", 0] },
         });
     }, []);
 
     return (
-        <Image
-            className="flyingHusky"
-            src="/about/husky.png"
-            alt="Husky"
-            width={350}
-            height={350}
-        />
+        <div className="relative">
+            <Image
+                className="flyingHusky"
+                src="/about/husky.png"
+                alt="Husky"
+                width={350}
+                height={350}
+            />
+        </div>
     );
 }

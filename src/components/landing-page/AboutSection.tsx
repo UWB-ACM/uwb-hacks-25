@@ -27,7 +27,7 @@ const AboutSection: React.FC = () => {
         <section>
             {/* UWBHacks About Container */}
             <Panel
-                className={`${panelMargin}`}
+                className={`${panelMargin} aboutSectionContainer`}
                 panelBackground={
                     "/about/backgrounds/AboutSection_Background_1.jpg"
                 }
