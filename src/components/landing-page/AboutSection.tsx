@@ -54,20 +54,22 @@ const AboutSection: React.FC = () => {
                             business careers.
                         </p>
                         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-x-4 gap-y-2 mt-2 md:mt-0 lg:mt-2">
-                            <Link
+                            <Button
                                 href={
                                     "https://uwb-hacks-save-the-world.devpost.com"
                                 }
+                                color="blue"
+                                fontSize={13}
                             >
-                                <Button color="blue" fontSize={13}>
-                                    Register for UWB Hacks!
-                                </Button>
-                            </Link>
-                            <Link href={"https://discord.gg/6AapzPNvRy"}>
-                                <Button color="yellow" fontSize={12}>
-                                    Learn more on our Discord!
-                                </Button>
-                            </Link>
+                                Register for UWB Hacks!
+                            </Button>
+                            <Button
+                                href={"https://discord.gg/6AapzPNvRy"}
+                                color="yellow"
+                                fontSize={12}
+                            >
+                                Learn more on our Discord!
+                            </Button>
                         </div>
                     </div>
                 </PanelContent>
