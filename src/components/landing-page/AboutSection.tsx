@@ -42,7 +42,7 @@ const AboutSection: React.FC = () => {
                     <FlyingHusky />
 
                     {/* UWBHacks About Section Description */}
-                    <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center md:items-start gap-y-2">
+                    <div className="z-[5] w-full md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center md:items-start gap-y-2">
                         <p className="text-center md:text-left text-white text-lg md:text-xl">
                             <span className="font-h1 md:text-xl text-2xl">
                                 UWB Hacks: Save the World!

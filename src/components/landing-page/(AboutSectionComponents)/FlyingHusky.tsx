@@ -23,10 +23,10 @@ export default function FlyingHusky() {
             ease: "power1.inOut",
             motionPath: {
                 path: [
-                    { x: "-80vw", y: "25vh", rotation: "-20deg", scale: 0.75 },
+                    { x: "-80vw", y: "40vh", rotation: "-20deg", scale: 0.75 },
                     { x: "-40vw", y: "-30vh", rotation: "10deg", scale: 0.85 },
                     { x: "-20vw", y: "-20vh", rotation: "5deg", scale: 0.9 },
-                    { x: "-10vw", y: "-10vh", rotation: "0deg", scale: 0.95 },
+                    { x: "-10vw", y: "-10vh", rotation: 0, scale: 0.95 },
                     { x: 0, y: 0, rotation: 0, scale: 1 },
                 ],
                 curviness: 1.5,
@@ -35,14 +35,14 @@ export default function FlyingHusky() {
             scrollTrigger: {
                 trigger: ".aboutSectionContainer",
                 start: "60% 90%",
-                markers: true,
             },
         });
 
         gsap.to(".flyingHusky", {
+            delay: 2,
             repeat: -1,
-            duration: 2.5,
-            ease: "power1.out",
+            duration: 2.25,
+            ease: "linear",
             keyframes: { y: [0, "-15px", 0] },
         });
     }, []);
