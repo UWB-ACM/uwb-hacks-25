@@ -2,7 +2,7 @@
 
 import React from "react";
 import Button from "@/src/components/Button";
-import Link from "next/link";
+
 function Page() {
     return (
         <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">

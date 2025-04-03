@@ -2,7 +2,7 @@
 
 import React from "react";
 import Button from "@/src/components/Button";
-import Link from "next/link";
+
 function Page() {
     return (
         <div className="flex flex-col w-full items-center px-6 md:px-12 py-12 sm:mt-[3rem]">
@@ -19,7 +19,7 @@ function Page() {
                         <p className="font-h3 text-base leading-6 mt-4">
                             Sponsoring a workshop allows you to interact with
                             participants, share expertise, and provide hands-on
-                            guidance. Whether it’s a technical deep dive, a
+                            guidance. Whether it&apos;s a technical deep dive, a
                             business case study, or an interactive demo, your
                             workshop will help shape the next generation of
                             innovators.
