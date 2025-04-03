@@ -193,7 +193,7 @@ const AboutSection: React.FC = () => {
                     className="flex flex-col"
                     panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
                 >
-                    <PanelHeader>Last Year's Projects</PanelHeader>
+                    <PanelHeader>Last Year&apos;s Projects</PanelHeader>
                     <PanelContent className="h-full flex flex-col justify-around gap-y-4">
                         <LastYearsWinnersRecord
                             name={"LoveStorying"}
