@@ -16,7 +16,7 @@ export default function LastYearsWinnersRecord({
         <div className="flex flex-col lg:flex-row justify-around items-center">
             <p className="text-center text-lg lg:text-xl font-h1">{name}</p>
             <div className="flex justify-center lg:justify-end">
-                <Button href={linkedInPost} target="_" color={buttonColor}>
+                <Button href={linkedInPost} target="_" color={buttonColor} fontSize={18}>
                     Learn more!
                 </Button>
             </div>

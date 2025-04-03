@@ -138,7 +138,7 @@ const AboutSection: React.FC = () => {
                             <Button
                                 href={"https://discord.gg/DzWEhESsZw"}
                                 target="_"
-                                fontSize={14}
+                                fontSize={18}
                                 color="yellow"
                             >
                                 Discord
@@ -182,8 +182,8 @@ const AboutSection: React.FC = () => {
                             available for sponsor-led sessions.
                         </p>
                         <div className="w-full flex justify-center md:justify-end mt-4">
-                            <Button href={"/month-of-hacking"}>
-                                Learn More
+                            <Button href={"/month-of-hacking"} fontSize={18}>
+                                Learn More!
                             </Button>
                         </div>
                     </PanelContent>
