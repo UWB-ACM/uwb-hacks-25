@@ -37,7 +37,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
             </div>
 
             {/* LinkedIn Logo */}
-            <div>
+            <div className="pl-8">
                 {isClickable && (
                     <Image
                         src={LinkedInImage}
