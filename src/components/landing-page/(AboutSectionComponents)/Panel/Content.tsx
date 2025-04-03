@@ -26,11 +26,11 @@ export default function PanelContent({
         gsap.to(panelContent, {
             delay: 0.4,
             scale: 1,
-            duration: 0.8,
-            ease: "bounce",
+            duration: 0.6,
+            ease: "bounce.out",
             scrollTrigger: {
                 trigger: panelContent,
-                start: "70% 80%",
+                start: "70% 90%",
             },
         });
     }, []);
