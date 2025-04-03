@@ -34,7 +34,7 @@ export default function FlyingHusky() {
             },
             scrollTrigger: {
                 trigger: ".aboutSectionContainer",
-                start: "60% 90%",
+                start: "top 80%",
             },
         });
 
