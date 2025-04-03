@@ -37,7 +37,7 @@ const AboutSection: React.FC = () => {
                 }
             >
                 {/* UWBHacks About Section Header */}
-                <PanelHeader isSectionHeader className="lg:absolute">
+                <PanelHeader isSectionHeader className="z-[5] lg:absolute">
                     About
                 </PanelHeader>
 
