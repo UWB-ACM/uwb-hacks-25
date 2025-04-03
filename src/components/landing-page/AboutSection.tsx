@@ -139,6 +139,7 @@ const AboutSection: React.FC = () => {
                                 href={"https://discord.gg/DzWEhESsZw"}
                                 target="_"
                                 fontSize={14}
+                                color="yellow"
                             >
                                 Discord
                             </Button>
@@ -167,14 +168,20 @@ const AboutSection: React.FC = () => {
                 >
                     <PanelHeader>Month of Hacking</PanelHeader>
                     <PanelContent>
-                        <p className="text-center font-bold">
-                            In April, we'll host a series of academic and fun
-                            activities to prepare participants for the main
-                            event, with at least 2 events each week, totaling 8+
-                            events. Some will be co-hosted by fellow clubs and
-                            the rest are open for sponsors to host.
+                        <p className="text-center font-bold md:text-lg">
+                            In{" "}
+                            <span className="font-h1 text-blue-700 tracking-wider px-[2px] text-xl md:text-2xl">
+                                April
+                            </span>
+                            , we will host a comprehensive series of academic
+                            workshops to prepare participants for the main
+                            event, with a minimum of two sessions scheduled
+                            weekly, totaling 8+ events. <br /> <br /> Select
+                            workshops will be collaboratively organized with
+                            partner clubs, while additional opportunities remain
+                            available for sponsor-led sessions.
                         </p>
-                        <div className="w-full flex justify-center md:justify-end mt-2">
+                        <div className="w-full flex justify-center md:justify-end mt-4">
                             <Button href={"/month-of-hacking"}>
                                 Learn More
                             </Button>
@@ -183,9 +190,12 @@ const AboutSection: React.FC = () => {
                 </Panel>
 
                 {/* Hackeroons */}
-                <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
+                <Panel
+                    className="flex flex-col"
+                    panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
+                >
                     <PanelHeader>Last Year's Projects</PanelHeader>
-                    <PanelContent className="grid gap-y-4">
+                    <PanelContent className="h-full flex flex-col justify-around gap-y-4">
                         <LastYearsWinnersRecord
                             name={"LoveStorying"}
                             linkedInPost={
@@ -214,9 +224,9 @@ const AboutSection: React.FC = () => {
                 </Panel>
 
                 {/* Leaderboard */}
-                <Panel panelColor={"#f5be58"}>
+                <Panel panelColor={"#f5be58"} className="flex flex-col">
                     <PanelHeader>Leaderboard</PanelHeader>
-                    <PanelContent className="px-2 md:px-8 flex flex-col gap-y-8 md:text-lg text-white">
+                    <PanelContent className="h-full px-2 md:px-8 flex flex-col justify-between gap-y-8 md:text-lg text-white">
                         <LeaderboardRecord
                             name={"Name1"}
                             hackeroonAmount={99999}
