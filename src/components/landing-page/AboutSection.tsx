@@ -24,6 +24,9 @@ import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Caro
 // for Leaderboard panel
 import LeaderboardRecord from "./(AboutSectionComponents)/LeaderboardRecord";
 
+// For Last Years Winners panel
+import LastYearsWinnersRecord from "./(AboutSectionComponents)/LastYearsWinnersRecord";
+
 const AboutSection: React.FC = () => {
     const panelMargin = "mt-12 md:mt-16";
 
@@ -182,38 +185,21 @@ const AboutSection: React.FC = () => {
                 {/* Hackeroons */}
                 <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
                     <PanelHeader>Last Year's Projects</PanelHeader>
-                    <PanelContent>
-                        <div className="flex flex-col md:flex-row gap-x-4 justify-around items-center">
-                            <p className="text-center text-lg lg:text-xl font-h1">
-                                LoveStorying
-                            </p>
-                            <div className="flex justify-center lg:justify-end">
-                                <Button
-                                    href={
-                                        "https://www.linkedin.com/posts/uwb-hacks-series_uwbhackssavetheworld-uwbhacksai-uwbhacks-activity-7304282072141963265-0b8u/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
-                                    }
-                                    target="_"
-                                >
-                                    Learn more!
-                                </Button>
-                            </div>
-                        </div>
-                        <div className="flex flex-col md:flex-row gap-x-4 justify-around items-center mt-4">
-                            <p className="text-center text-lg lg:text-xl font-h1">
-                                Freakquency
-                            </p>
-                            <div className="flex justify-center lg:justify-end">
-                                <Button
-                                    color={"yellow"}
-                                    href={
-                                        "https://www.linkedin.com/posts/uwb-hacks-series_uwbhacks-uwbhackssavetheworld-uwbhacks2025-activity-7306907475134361600-iK_5/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
-                                    }
-                                    target="_"
-                                >
-                                    Learn more!
-                                </Button>
-                            </div>
-                        </div>
+                    <PanelContent className="grid gap-y-4">
+                        <LastYearsWinnersRecord
+                            name={"LoveStorying"}
+                            linkedInPost={
+                                "https://www.linkedin.com/posts/uwb-hacks-series_uwbhackssavetheworld-uwbhacksai-uwbhacks-activity-7304282072141963265-0b8u/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
+                            }
+                            buttonColor="blue"
+                        />
+                        <LastYearsWinnersRecord
+                            name={"Freakquency"}
+                            linkedInPost={
+                                "https://www.linkedin.com/posts/uwb-hacks-series_uwbhacks-uwbhackssavetheworld-uwbhacks2025-activity-7306907475134361600-iK_5/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
+                            }
+                            buttonColor="yellow"
+                        />
                     </PanelContent>
                 </Panel>
 
