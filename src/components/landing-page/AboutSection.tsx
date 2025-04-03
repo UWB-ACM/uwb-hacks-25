@@ -62,6 +62,7 @@ const AboutSection: React.FC = () => {
                                 href={
                                     "https://uwb-hacks-save-the-world.devpost.com"
                                 }
+                                target="_"
                                 color="blue"
                                 fontSize={13}
                             >
@@ -69,6 +70,7 @@ const AboutSection: React.FC = () => {
                             </Button>
                             <Button
                                 href={"https://discord.gg/6AapzPNvRy"}
+                                target="_"
                                 color="yellow"
                                 fontSize={12}
                             >
@@ -132,6 +134,7 @@ const AboutSection: React.FC = () => {
                         <div className="w-full flex justify-center md:justify-end mt-2">
                             <Button
                                 href={"https://discord.gg/DzWEhESsZw"}
+                                target="_"
                                 fontSize={14}
                             >
                                 Discord
@@ -189,6 +192,7 @@ const AboutSection: React.FC = () => {
                                     href={
                                         "https://www.linkedin.com/posts/uwb-hacks-series_uwbhackssavetheworld-uwbhacksai-uwbhacks-activity-7304282072141963265-0b8u/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
                                     }
+                                    target="_"
                                 >
                                     Learn more!
                                 </Button>
@@ -204,6 +208,7 @@ const AboutSection: React.FC = () => {
                                     href={
                                         "https://www.linkedin.com/posts/uwb-hacks-series_uwbhacks-uwbhackssavetheworld-uwbhacks2025-activity-7306907475134361600-iK_5/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
                                     }
+                                    target="_"
                                 >
                                     Learn more!
                                 </Button>

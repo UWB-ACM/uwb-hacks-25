@@ -9,6 +9,7 @@ const RegisterSection = () => {
             <div className="flex justify-start">
                 <Button
                     href={"https://uwb-hacks-save-the-world.devpost.com/"}
+                    target="_"
                     fontSize={15}
                 >
                     Register Here!
