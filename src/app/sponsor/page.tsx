@@ -45,9 +45,7 @@ function Sponsors() {
                             <p className="font-h3 text-base leading-6 my-4">
                                 {option.description}
                             </p>
-                            <Link href={option.link}>
-                                <Button>Sponsor</Button>
-                            </Link>
+                            <Button href={option.link}>Sponsor</Button>
                         </div>
                     ))}
                 </div>

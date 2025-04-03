@@ -35,15 +35,15 @@ function Page() {
                             celebrates participants, and amplifies your brand’s
                             presence at our event.
                         </p>
-                        <Link
+                        <Button
                             href={
                                 "https://docs.google.com/forms/d/e/1FAIpQLSeE5tYU3c8GZ20H1PPZS2-yjZ89tROgPMQRtsybsJ6j10iv4A/viewform?usp=sharing"
                             }
+                            target="_"
+                            fontSize={18}
                         >
-                            <Button onClick={() => {}} className="text-[18px]">
-                                Contact Us Here!
-                            </Button>
-                        </Link>
+                            Contact Us Here!
+                        </Button>
                     </div>
                 </div>
             </div>
