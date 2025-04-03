@@ -121,6 +121,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/p-behdar/",
             },
             {
+                id: "sai-rasajna-kolusu",
+                name: "Sai Rasajna Kolusu",
+                role: "Content and Design Member, Marketing Member, Web Designer",
+                photo: "/MeetTheTeamPhotos/sai-rasajna-kolusu.jpg",
+                link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319"
+            },
+            {
                 id: "sarinna-thaiy",
                 name: "Sarinna Thaiy",
                 role: "Content and Design, Husky Artist",
@@ -174,6 +181,13 @@ export const committees = [
                 role: "Developer, Sponsorships Outreach Member",
                 photo: "/MeetTheTeamPhotos/khushnain-gobindpuri.png",
                 link: "https://www.linkedin.com/in/khushnain-gobindpuri/",
+            },
+            {
+                id: "sai-rasajna-kolusu",
+                name: "Sai Rasajna Kolusu",
+                role: "Content and Design Member, Marketing Member, Web Designer",
+                photo: "/MeetTheTeamPhotos/sai-rasajna-kolusu.jpg",
+                link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319"
             },
             {
                 id: "sam-park",
@@ -319,6 +333,13 @@ export const committees = [
                 role: "Content and Design Co-lead, Marketing Member",
                 photo: "/MeetTheTeamPhotos/ruthie-lartey.jpg",
                 link: "https://www.linkedin.com/in/ruthie-lartey/",
+            },
+            {
+                id: "sai-rasajna-kolusu",
+                name: "Sai Rasajna Kolusu",
+                role: "Content and Design Member, Marketing Member, Web Designer",
+                photo: "/MeetTheTeamPhotos/sai-rasajna-kolusu.jpg",
+                link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319"
             },
             {
                 id: "tarang-jammalamadaka",
