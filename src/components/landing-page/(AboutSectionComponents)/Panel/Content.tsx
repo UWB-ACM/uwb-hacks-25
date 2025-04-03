@@ -31,7 +31,6 @@ export default function PanelContent({
             scrollTrigger: {
                 trigger: panelContent,
                 start: "70% 80%",
-                markers: true,
             },
         });
     }, []);
