@@ -120,6 +120,17 @@ export interface Event {
      * The data/time when the event will end (if it exists).
      */
     end: Date | null;
+
+    /**
+     * The physical or virtual location for an event (if it exists).
+     */
+    location: string | null;
+
+    /**
+     * The number of hackeroons that should be awarded
+     * for attending this event.
+     */
+    attendanceAmount: number;
 }
 
 /**
