@@ -39,7 +39,11 @@ const AboutSection: React.FC = () => {
                 }
             >
                 {/* UWBHacks About Section Header */}
-                <PanelHeader isSectionHeader className="z-[5] lg:absolute">
+                <PanelHeader
+                    as="h2"
+                    isSectionHeader
+                    className="z-[5] lg:absolute"
+                >
                     About
                 </PanelHeader>
 
@@ -49,9 +53,9 @@ const AboutSection: React.FC = () => {
 
                     {/* UWBHacks About Section Description */}
                     <div className="z-[5] w-full md:w-1/2 lg:w-1/3">
-                        <p className="font-h1 text-xl lg:text-2xl text-center md:text-left text-blue-500">
+                        <h3 className="font-h1 text-xl lg:text-2xl text-center md:text-left text-blue-500">
                             UWB Hacks: Save the World!
-                        </p>
+                        </h3>
                         <p className="text-center md:text-left text-white text-lg">
                             This exciting annual hackathon teaches students
                             computer science through hands-on challenges while
@@ -86,7 +90,10 @@ const AboutSection: React.FC = () => {
             {/* Previous UWBHacks Fun Statistics Container */}
             <Panel className={`w-full border-none ${panelMargin}`}>
                 <div className="flex justify-center">
-                    <PanelHeader className="font-h1 text-white bg-transparent border-none p-0">
+                    <PanelHeader
+                        as="h2"
+                        className="font-h1 text-white bg-transparent border-none p-0"
+                    >
                         Statistics from our previous hackathon <br /> UWB Hacks
                         AI 2024 !
                     </PanelHeader>
@@ -119,7 +126,7 @@ const AboutSection: React.FC = () => {
                 panelBackground="/about/backgrounds/AboutSection_Background_2.jpg"
             >
                 {/* UWBHacks ACM Description Header */}
-                <PanelHeader>
+                <PanelHeader as="h2">
                     UWB Association for Computing Machinery
                 </PanelHeader>
 
@@ -165,7 +172,7 @@ const AboutSection: React.FC = () => {
                     }
                     className="flex flex-col justify-between"
                 >
-                    <PanelHeader>Month of Hacking</PanelHeader>
+                    <PanelHeader as="h2">Month of Hacking</PanelHeader>
                     <PanelContent>
                         <p className="text-center font-bold md:text-lg">
                             In{" "}
@@ -193,7 +200,7 @@ const AboutSection: React.FC = () => {
                     className="flex flex-col"
                     panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
                 >
-                    <PanelHeader>Last Year&apos;s Projects</PanelHeader>
+                    <PanelHeader as="h2">Last Year&apos;s Projects</PanelHeader>
                     <PanelContent className="h-full flex flex-col justify-around gap-y-4">
                         <LastYearsWinnersRecord
                             name={"LoveStorying"}
@@ -214,7 +221,7 @@ const AboutSection: React.FC = () => {
 
                 {/* Hackeroons */}
                 <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
-                    <PanelHeader>Hackeroons</PanelHeader>
+                    <PanelHeader as="h2">Hackeroons</PanelHeader>
 
                     <PanelContent>
                         {/* Hackeroon Prizes Carousel */}
@@ -224,7 +231,7 @@ const AboutSection: React.FC = () => {
 
                 {/* Leaderboard */}
                 <Panel panelColor={"#f5be58"} className="flex flex-col">
-                    <PanelHeader>Leaderboard</PanelHeader>
+                    <PanelHeader as="h2">Leaderboard</PanelHeader>
                     <PanelContent className="h-full px-2 md:px-8 flex flex-col justify-between gap-y-8 md:text-lg text-white">
                         <LeaderboardRecord
                             name={"Name1"}
