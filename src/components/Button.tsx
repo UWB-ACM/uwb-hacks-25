@@ -5,7 +5,7 @@ import Link from "next/link";
 type ButtonProps = {
     children: React.ReactNode;
     href: string;
-    target?: "_" | undefined;
+    target?: "_blank" | undefined;
     color?: "blue" | "yellow";
     fontSize?: number;
 };
@@ -53,7 +53,7 @@ export default function Button({
     };
 
     return (
-        <Link href={href} target={target || ""}>
+        <Link href={href} target={target}>
             <svg
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeaveAndUp}
