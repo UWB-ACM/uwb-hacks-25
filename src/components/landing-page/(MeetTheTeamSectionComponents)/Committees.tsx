@@ -336,7 +336,7 @@ export const committees = [
             },
             {
                 id: "sai-rasajna-kolusu",
-                name: "Sai Rasajna Kolusu",
+                name: "Rasajna Kolusu",
                 role: "Content and Design Member, Marketing Member, Web Designer",
                 photo: "/MeetTheTeamPhotos/sai-rasajna-kolusu.jpg",
                 link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319"
