@@ -64,7 +64,7 @@ const AboutSection: React.FC = () => {
                                 href={
                                     "https://uwb-hacks-save-the-world.devpost.com"
                                 }
-                                target="_"
+                                target="_blank"
                                 color="blue"
                                 fontSize={13}
                             >
@@ -72,7 +72,7 @@ const AboutSection: React.FC = () => {
                             </Button>
                             <Button
                                 href={"https://discord.gg/6AapzPNvRy"}
-                                target="_"
+                                target="_blank"
                                 color="yellow"
                                 fontSize={12}
                             >
@@ -136,7 +136,7 @@ const AboutSection: React.FC = () => {
                         <div className="w-full flex justify-center md:justify-end mt-2">
                             <Button
                                 href={"https://discord.gg/DzWEhESsZw"}
-                                target="_"
+                                target="_blank"
                                 fontSize={18}
                                 color="yellow"
                             >
