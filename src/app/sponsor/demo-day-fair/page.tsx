@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
 import Button from "@/src/components/Button";
 
 function Page() {
     return (
-        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">
+        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12 sm:mt-[3rem]">
             <div className="max-w-[1000px] flex flex-col items-center text-center">
                 <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8">
                     {"Sponsor The Demo Day Fair"}
@@ -39,15 +38,15 @@ function Page() {
                     </div>
                 </div>
 
-                <Link
+                <Button
                     href={
                         "https://docs.google.com/forms/d/e/1FAIpQLSeE5tYU3c8GZ20H1PPZS2-yjZ89tROgPMQRtsybsJ6j10iv4A/viewform?usp=sharing"
                     }
+                    target="_blank"
+                    fontSize={18}
                 >
-                    <Button onClick={() => {}} className="text-[18px]">
-                        Contact Us Here!
-                    </Button>
-                </Link>
+                    Contact Us Here!
+                </Button>
             </div>
         </div>
     );

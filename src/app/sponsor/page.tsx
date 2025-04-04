@@ -2,11 +2,10 @@
 
 import React from "react";
 import Button from "@/src/components/Button";
-import Link from "next/link";
 
 function Sponsors() {
     return (
-        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12">
+        <div className="flex flex-col w-full items-center px-6 md:px-12 py-12 sm:mt-[3rem]">
             <div className="max-w-[1200px] flex flex-col items-center">
                 {/* Header Section */}
                 <div className="text-center w-full mb-12">
@@ -45,14 +44,7 @@ function Sponsors() {
                             <p className="font-h3 text-base leading-6 my-4">
                                 {option.description}
                             </p>
-                            <Link href={option.link}>
-                                <Button
-                                    onClick={() => {}}
-                                    className="text-lg px-6 py-2"
-                                >
-                                    Sponsor
-                                </Button>
-                            </Link>
+                            <Button href={option.link}>Sponsor</Button>
                         </div>
                     ))}
                 </div>

@@ -1,7 +1,5 @@
 "use client";
 
-import "../styles/globals.css";
-
 import HeroSection from "@/src/components/landing-page/HeroSection";
 import AboutSection from "@/src/components/landing-page/AboutSection";
 // import WhatsNewSection from "../components/landing-page/WhatsNewSection";
@@ -22,7 +20,6 @@ import BackgroundImage from "@/public/hero/background.png";
 import MidgroundImage from "@/public/hero/midground.png";
 import ForegroundImage from "@/public/hero/foreground.png";
 import "../styles/globals.css";
-import SponsorInfo from "../components/landing-page/(AboutSectionComponents)/SponsorInfo";
 
 // Sorry but this is just used to manually create deployment to main im being rushed
 export default function Page() {
@@ -34,8 +31,6 @@ export default function Page() {
     const sponsorsRef = useRef<HTMLDivElement>(null);
     const faqRef = useRef<HTMLDivElement>(null);
     const lenis = useRef<Lenis | null>(null);
-
-    const minScreenSize = "max-w-[1200px]";
 
     const [showGoTop, setShowGoTop] = useState(false);
 
@@ -168,58 +163,53 @@ export default function Page() {
                     </Parallax>
                 </div>
 
+                {/* Container for remaining sections */}
                 <div
-                    id="about"
-                    ref={aboutRef}
-                    className="w-full flex justify-center overflow-hidden"
+                    className="w-full"
                     style={{
                         background:
                             "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
                     }}
                 >
-                    <div className={`w-full ${minScreenSize} sm:px-4 `}>
-                        <AboutSection />
-                        <SponsorInfo />
+                    <div className="z-[5] w-[90%] mx-auto">
+                        <div id="about" ref={aboutRef} className="w-full">
+                            <AboutSection />
+                        </div>
+
+                        {/* TODO - release all of these the day of the event */}
+                        <div id="tracks" ref={tracksRef} className="w-full">
+                            <TracksSection />
+                        </div>
+
+                        <div
+                            id="schedule"
+                            ref={scheduleRef}
+                            className={`w-full overflow-hidden`}
+                        >
+                            <ScheduleSection />
+                        </div>
+                        <div
+                            id="team"
+                            ref={meetTheTeamRef}
+                            className={`w-full mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
+                        >
+                            <MeetTheTeamSection />
+                        </div>
+                        <div
+                            id="sponsors"
+                            ref={sponsorsRef}
+                            className="w-full mt-[4rem] sm:mt-[-6rem] overflow-hidden"
+                        >
+                            <SponsorsSection />
+                        </div>
+                        <div
+                            id="faq"
+                            ref={faqRef}
+                            className="w-full mt-[4rem] sm:mt-[-6rem]"
+                        >
+                            <FAQSection />
+                        </div>
                     </div>
-                </div>
-
-                {/* TODO - release all of these the day of the event */}
-                <div
-                    id="tracks"
-                    className={`min-h-screen w-full ${minScreenSize}`}
-                    ref={tracksRef}
-                    style={{}}
-                >
-                    <TracksSection />
-                </div>
-
-                <div
-                    id="schedule"
-                    ref={scheduleRef}
-                    className={`w-full ${minScreenSize} overflow-hidden`}
-                >
-                    <ScheduleSection />
-                </div>
-                <div
-                    id="team"
-                    ref={meetTheTeamRef}
-                    className={`w-full ${minScreenSize} mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
-                >
-                    <MeetTheTeamSection />
-                </div>
-                <div
-                    id="sponsors"
-                    ref={sponsorsRef}
-                    className="w-full mt-[4rem] sm:mt-[-6rem] overflow-hidden"
-                >
-                    <SponsorsSection />
-                </div>
-                <div
-                    id="faq"
-                    ref={faqRef}
-                    className="w-[90vw] mt-[4rem] sm:mt-[-6rem]"
-                >
-                    <FAQSection />
                 </div>
             </ParallaxProvider>
         </div>
