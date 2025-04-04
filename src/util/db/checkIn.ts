@@ -19,7 +19,7 @@ export async function checkInUser(
     try {
         await sql.begin((sql) => [
             // This needs to be locked for concurrency, to prevent
-            // check-ins from occurring in parallel and having an
+            // check-ins from occurring in parallel with event edits and having an
             // outdated amount.
             // We can use a shared lock here, since parallel check-ins
             // are allowed.
