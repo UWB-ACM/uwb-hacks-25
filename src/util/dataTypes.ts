@@ -232,15 +232,23 @@ export interface Transaction {
 }
 
 /**
- * A request body used to check in users for events.
- * It contains all the info needed to have a user check in
+ * Data stored in Redis that a check-in code maps to.
  */
 export interface CheckInInfo {
+    /**
+     * Is the duration of the code in seconds.
+     */
     duration: number;
-    currentCode: string | null;
+
+    /**
+     * Is the staff member who created by the code (if they exist).
+     */
     authorized_by: number | null;
-    amount: number;
-    event: number | null;
+
+    /**
+     * Is the ID of the event which the code corresponds to.
+     */
+    event: number;
 }
 
 /**

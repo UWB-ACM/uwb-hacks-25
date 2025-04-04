@@ -1,21 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import { actionValidateCheckin } from "@/src/util/actions/checkIn";
 
 function CheckInInput() {
-    const [value, setValue] = useState<string>("");
+    const [code, setCode] = useState<string>("");
 
     async function validateCheckIn() {
-        const res = await fetch("/api/temp-code/validate", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ code: value }),
-        });
-
-        const data = await res.json();
-        if (data.valid) {
+        const valid = await actionValidateCheckin(code);
+        if (valid) {
             alert("Check-in successful!");
         }
     }
@@ -25,7 +18,7 @@ function CheckInInput() {
             <input
                 type="text"
                 className="min-w-20 min-h-10 "
-                onChange={(e) => setValue(e.target.value)}
+                onChange={(e) => setCode(e.target.value)}
                 onPaste={(e) => {
                     e.preventDefault();
                 }}

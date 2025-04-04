@@ -1,4 +1,4 @@
-import { Event } from "@/src/util/dataTypes";
+import { Event, TransactionType } from "@/src/util/dataTypes";
 import sql from "@/src/util/database";
 
 /**
@@ -81,12 +81,17 @@ export async function updateEvent(
     location: string | null,
     attendanceAmount: number,
 ) {
-    // update event
-    const data =
-        await sql`UPDATE events SET name=${name}, description=${description}, start=${start}, "end"=${end}, location=${location}, attendance_amount=${attendanceAmount} WHERE id=${id}`;
+    // This will retroactively modify all event checkin transactions
+    // to match the new amount, in order to ensure consistency.
 
-    // doing this to satisfy eslint
-    console.log("updateEventData:", data);
+    await sql.begin((sql) => [
+        // This needs to be locked for concurrency, to prevent
+        // check-ins from occurring in parallel and having an
+        // outdated amount.
+        sql`SELECT 1 FROM events WHERE id=${id} FOR UPDATE;`,
+        sql`UPDATE transactions SET amount=${attendanceAmount} WHERE type=${TransactionType.EventAttendance} AND event=${id};`,
+        sql`UPDATE events SET name=${name}, description=${description}, start=${start}, "end"=${end}, location=${location}, attendance_amount=${attendanceAmount} WHERE id=${id}`,
+    ]);
 
     // assume updated
     return;

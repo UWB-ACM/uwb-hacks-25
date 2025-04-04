@@ -1,57 +1,74 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { SessionUser } from "@/src/util/session";
-import { CheckInInfo } from "@/src/util/dataTypes";
+import {
+    actionGenerateCheckinCode,
+    actionInvalidateCode,
+} from "@/src/util/actions/checkIn";
+import StaffEventSelector from "@/src/components/dashboards/staff/StaffEventSelector";
+import { Event } from "@/src/util/dataTypes";
 
-export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
+export default function CheckInCodeGenerator({
+    events,
+}: {
+    events: Promise<Event[]>;
+}) {
     const [duration, setDuration] = useState(0);
+    const [eventId, setEventId] = useState<number | null>(null);
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null); // Ref to store the interval ID
 
-    const cachedCode = sessionStorage.getItem("currentCode");
-    const [currentCode, setCode] = useState<string | null>(cachedCode || null);
+    const [currentCode, setCode] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+
+    // Load the cached code once we're on the browser.
+    useEffect(() => {
+        setCode(sessionStorage.getItem("currentCode"));
+    }, []);
+
+    const timestampToRemainingSeconds = (time: string): number =>
+        Math.max(Math.floor((Date.parse(time) - Date.now()) / 1000), 0);
 
     const cachedTimestamp =
         typeof window !== "undefined"
             ? sessionStorage.getItem("startingTimestamp")
             : null;
     const [countdown, setCountdown] = useState<number>(
-        cachedTimestamp
-            ? Math.max(
-                  Math.floor((Date.parse(cachedTimestamp) - Date.now()) / 1000),
-                  0,
-              )
-            : 0,
+        cachedTimestamp ? timestampToRemainingSeconds(cachedTimestamp) : 0,
     );
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDuration(parseInt(e.target.value));
     };
 
-    //TODO RIGHT NOW THE TRANSACTION AMOUNT IS UNKNOWN WE HAVE TO SET IT OURSELVES
-    const body: CheckInInfo = {
-        duration,
-        currentCode,
-        authorized_by: user.id,
-        amount: 100,
-        event: null,
-    };
-
     async function onClick() {
+        if (!eventId || !duration) return;
+
         if (loading) return; // Prevent multiple clicks while loading
         setLoading(true);
-        const res = await fetch("/api/temp-code/generate", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body),
-        });
-        const data = await res.json();
+
+        // Invalidate the previous code, if it exists and
+        // is still active.
+        if (
+            currentCode &&
+            cachedTimestamp &&
+            timestampToRemainingSeconds(cachedTimestamp) > 0
+        ) {
+            await actionInvalidateCode(currentCode);
+
+            sessionStorage.removeItem("startingTimestamp");
+            sessionStorage.removeItem("currentCode");
+
+            setCode(null);
+            setCountdown(0);
+        }
+
+        const data = await actionGenerateCheckinCode(eventId, duration);
         setLoading(false);
-        setCode(data.code);
+
+        if (!data) return;
+
+        setCode(data);
         setCountdown(duration); // Set the countdown to the duration
 
         // Store the timestamp and code in session storage
@@ -59,7 +76,7 @@ export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
             Date.now() + duration * 1000,
         ).toISOString();
         sessionStorage.setItem("startingTimestamp", newTimestamp);
-        sessionStorage.setItem("currentCode", data.code);
+        sessionStorage.setItem("currentCode", data);
     }
 
     useEffect(() => {
@@ -85,6 +102,13 @@ export default function CheckInCodeGenerator({ user }: { user: SessionUser }) {
 
     return (
         <div>
+            <div className="w-full flex justify-center">
+                <StaffEventSelector
+                    events={events}
+                    setEventId={(id) => setEventId(id)}
+                />
+            </div>
+
             <input
                 type="number"
                 value={duration.toString()}
