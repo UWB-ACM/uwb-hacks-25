@@ -125,7 +125,7 @@ export const committees = [
                 name: "Rasajna Kolusu",
                 role: "Content and Design Member, Marketing Member, Web Designer",
                 photo: "/MeetTheTeamPhotos/sai-rasajna-kolusu.jpg",
-                link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319"
+                link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319",
             },
             {
                 id: "sarinna-thaiy",
@@ -187,7 +187,7 @@ export const committees = [
                 name: "Rasajna Kolusu",
                 role: "Content and Design Member, Marketing Member, Web Designer",
                 photo: "/MeetTheTeamPhotos/sai-rasajna-kolusu.jpg",
-                link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319"
+                link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319",
             },
             {
                 id: "sam-park",
@@ -339,7 +339,7 @@ export const committees = [
                 name: "Rasajna Kolusu",
                 role: "Content and Design Member, Marketing Member, Web Designer",
                 photo: "/MeetTheTeamPhotos/sai-rasajna-kolusu.jpg",
-                link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319"
+                link: "www.linkedin.com/in/sai-rasajna-kolusu-091792319",
             },
             {
                 id: "tarang-jammalamadaka",
