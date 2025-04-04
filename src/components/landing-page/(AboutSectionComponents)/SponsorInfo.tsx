@@ -18,6 +18,7 @@ function SponsorInfo() {
                 </p>
                 <Button
                     href={"https://uwb-hacks-save-the-world.devpost.com"}
+                    target="_blank"
                     fontSize={23}
                 >
                     Register Now
