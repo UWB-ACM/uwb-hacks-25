@@ -25,7 +25,7 @@ export async function createTransaction(
     event: number | null,
     prize: number | null,
 ): Promise<Transaction | null> {
-    let data;
+    let data: Record<string, unknown>[];
 
     switch (type) {
         case TransactionType.Unknown: {
@@ -63,6 +63,14 @@ export async function createTransaction(
                 );
             }
 
+            const eventName =
+                await sql`SELECT name FROM events WHERE id=${event};`;
+            if (eventName.length !== 1 || !eventName[0]["name"]) {
+                throw new Error(
+                    "EventAttendance transactions must have a valid event!",
+                );
+            }
+
             data = (
                 await sql.begin((sql) => [
                     // This needs to be locked for concurrency, to prevent
@@ -75,6 +83,11 @@ export async function createTransaction(
                     sql`INSERT INTO transactions ("user", type, amount, authorized_by, event) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${event} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0) RETURNING id, time;`,
                 ])
             )[1];
+
+            if (data.length !== 0) {
+                data[0]["event_name"] = eventName;
+            }
+
             break;
         }
         case TransactionType.PrizePurchase: {
@@ -90,6 +103,14 @@ export async function createTransaction(
                 );
             }
 
+            const prizeName =
+                await sql`SELECT name FROM prizes WHERE id=${prize};`;
+            if (prizeName.length !== 1 || !prizeName[0]["name"]) {
+                throw new Error(
+                    "PrizePurchase transactions must have a valid prize!",
+                );
+            }
+
             // To ensure that we don't give the same prize to two people,
             // this locks the prizes row before performing the write.
             data = (
@@ -99,6 +120,11 @@ export async function createTransaction(
                     sql`INSERT INTO transactions ("user", type, amount, authorized_by, prize) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${prize} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0 AND (SELECT Count(*) FROM transactions WHERE transactions.prize=${prize}) < (SELECT initial_stock FROM prizes WHERE id=${prize})) RETURNING id, time;`,
                 ])
             )[1];
+
+            if (data.length !== 0) {
+                data[0]["prize_name"] = prizeName;
+            }
+
             break;
         }
         default: {
@@ -108,14 +134,16 @@ export async function createTransaction(
 
     if (data.length === 0) return null;
     return {
-        id: data[0].id,
+        id: data[0].id as number,
         user,
         type,
         amount,
         authorized_by,
         event,
         prize,
-        time: data[0].time,
+        eventName: data[0].event_name as string | null,
+        prizeName: data[0].prize_name as string | null,
+        time: data[0].time as Date,
         // We just made the transaction.
         reverted: false,
     };
@@ -143,7 +171,7 @@ export async function getTransactionsForUser(
     user: number,
 ): Promise<Transaction[]> {
     const data =
-        await sql`SELECT id, type, amount, authorized_by, event, prize, time, reverted FROM transactions WHERE "user"=${user} ORDER BY time DESC;`;
+        await sql`SELECT transactions.id, type, amount, authorized_by, event, prize, time, reverted, prizes.name AS prize_name, events.name AS event_name FROM transactions LEFT JOIN prizes ON prizes.id=transactions.prize LEFT JOIN events ON events.id=transactions.event WHERE "user"=${user} ORDER BY transactions.time DESC;`;
 
     return data.map((row) => ({
         id: row.id,
@@ -153,6 +181,8 @@ export async function getTransactionsForUser(
         authorized_by: row.authorized_by,
         event: row.event,
         prize: row.prize,
+        eventName: row.event_name,
+        prizeName: row.prize_name,
         time: row.time,
         reverted: row.reverted,
     }));

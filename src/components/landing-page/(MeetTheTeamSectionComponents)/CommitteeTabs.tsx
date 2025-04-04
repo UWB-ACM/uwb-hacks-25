@@ -89,8 +89,8 @@ const CommitteeTabs: React.FC<CommitteeTabsProps> = ({
 
     return (
         <div
-            className={`relative bg-white p-6 border-4 border-black ${
-                isScrollable ? "w-full" : "w-fit mx-auto"
+            className={`relative bg-white p-6 border-4 border-black mx-auto ${
+                isScrollable ? " w-[90%]" : "w-fit"
             }`}
         >
             {/* Scroll arrows */}

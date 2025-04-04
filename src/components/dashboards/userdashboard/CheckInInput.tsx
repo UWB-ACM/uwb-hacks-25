@@ -17,9 +17,7 @@ function CheckInInput() {
         <div className="flex">
             <input
                 type="text"
-                className="w-20 h-10 "
-                name=""
-                id=""
+                className="min-w-20 min-h-10 "
                 onChange={(e) => setCode(e.target.value)}
                 onPaste={(e) => {
                     e.preventDefault();
@@ -27,7 +25,7 @@ function CheckInInput() {
             />
             <button
                 onClick={validateCheckIn}
-                className="w-20 h-10 bg-blue-500 text-white"
+                className="min-w-20 min-h-10 bg-blue-500 text-white"
             >
                 Check In
             </button>
