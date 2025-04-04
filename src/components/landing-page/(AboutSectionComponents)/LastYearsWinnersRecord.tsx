@@ -18,7 +18,7 @@ export default function LastYearsWinnersRecord({
             <div className="flex justify-center lg:justify-end">
                 <Button
                     href={linkedInPost}
-                    target="_"
+                    target="_blank"
                     color={buttonColor}
                     fontSize={18}
                 >
