@@ -1,0 +1,34 @@
+{
+    "hackeroon_prizes": [
+        {
+            "name": "Adidas Fleece Hoodie",
+            "price": 200,
+            "image": "/about/uwb-acm-logo.png"
+        },
+        {
+            "name": "Wireless Bank Charger",
+            "price": 200,
+            "image": "/about/uwb-acm-logo.png"
+        },
+        {
+            "name": "Backpack",
+            "price": 200,
+            "image": "/about/uwb-acm-logo.png"
+        },
+        {
+            "name": "Lap Desk",
+            "price": 200,
+            "image": "/about/uwb-acm-logo.png"
+        },
+        {
+            "name": "Pickleball Set",
+            "price": 200,
+            "image": "/about/uwb-acm-logo.png"
+        },
+        {
+            "name": "Dual Handle Lunch Bag",
+            "price": 200,
+            "image": "/about/uwb-acm-logo.png"
+        }
+    ]
+}

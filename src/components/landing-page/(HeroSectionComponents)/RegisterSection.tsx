@@ -1,5 +1,4 @@
 import Button from "@/src/components/Button";
-import Link from "next/link";
 
 const RegisterSection = () => {
     return (
@@ -7,14 +6,15 @@ const RegisterSection = () => {
             <h2 className="text-xl font-bold mb-4">
                 Assemble Your Squad & Answer the Call!
             </h2>
-            <Link
-                href="https://uwb-hacks-save-the-world.devpost.com/"
-                target="_blank"
-            >
-                <Button onClick={() => {}} className="text-[23px]">
-                    Register Here
+            <div className="flex justify-start">
+                <Button
+                    href={"https://uwb-hacks-save-the-world.devpost.com/"}
+                    target="_blank"
+                    fontSize={15}
+                >
+                    Register Here!
                 </Button>
-            </Link>
+            </div>
         </div>
     );
 };

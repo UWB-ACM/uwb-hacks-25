@@ -1,284 +1,252 @@
-import Image from "next/image";
-import Link from "next/link";
-import AccentImage from "@/public/accent.webp";
-import HuskyImage from "@/public/about/husky.png";
-import DiscordFancyYellowImage from "@/public/about/discord-fancy-yellow.svg";
-import DiscordFancyBlueImage from "@/public/about/discord-fancy-blue.svg";
-import DiscordYellowImage from "@/public/about/discord-yellow.svg";
-import ACMLogoImage from "@/public/about/uwb-acm-logo.png";
-import PolygonArea from "../PolygonArea";
+// General imports
 import React from "react";
+import Image from "next/image";
+
+// Buttons
+import Button from "../Button";
+
+// Panel components
+import Panel from "./(AboutSectionComponents)/Panel/Panel";
+import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
+import PanelContent from "./(AboutSectionComponents)/Panel/Content";
+
+// For about panel
+import FlyingHusky from "./(AboutSectionComponents)/FlyingHusky";
+
+// For fun stats panel
+import FunFactsContainer from "./(AboutSectionComponents)/FunFacts/FunFactsContainer";
+import FunFact from "./(AboutSectionComponents)/FunFacts/FunFact";
+
+// For Hackeroons Panel
+import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Carousel";
+
+// for Leaderboard panel
+import LeaderboardRecord from "./(AboutSectionComponents)/LeaderboardRecord";
+
+// For Last Years Winners panel
+import LastYearsWinnersRecord from "./(AboutSectionComponents)/LastYearsWinnersRecord";
 
 const AboutSection: React.FC = () => {
-    return (
-        <>
-            <div className="[display:none] md:[display:initial] w-full">
-                <AboutSectionDesktop />
-            </div>
+    const panelMargin = "mt-12 md:mt-16";
 
-            <div className="[display:initial] md:[display:none] w-full">
-                <AboutSectionMobile />
+    return (
+        <section>
+            {/* UWBHacks About Container */}
+            <Panel
+                className={`${panelMargin} aboutSectionContainer`}
+                panelBackground={
+                    "/about/backgrounds/AboutSection_Background_1.jpg"
+                }
+            >
+                {/* UWBHacks About Section Header */}
+                <PanelHeader
+                    as="h2"
+                    isSectionHeader
+                    className="z-[5] lg:absolute"
+                >
+                    About
+                </PanelHeader>
+
+                {/* UWBHacks About Section Content */}
+                <PanelContent className="z-[5] flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 overflow-hidden">
+                    <FlyingHusky />
+
+                    {/* UWBHacks About Section Description */}
+                    <div className="z-[5] w-full md:w-1/2 lg:w-1/3">
+                        <h3 className="font-h1 text-xl lg:text-2xl text-center md:text-left text-blue-500">
+                            UWB Hacks: Save the World!
+                        </h3>
+                        <p className="text-center md:text-left text-white text-lg">
+                            This exciting annual hackathon teaches students
+                            computer science through hands-on challenges while
+                            building valuable industry connections and
+                            professional skills that launch successful tech and
+                            business careers.
+                        </p>
+                        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-x-4 gap-y-2 mt-2 md:mt-0 lg:mt-2">
+                            <Button
+                                href={
+                                    "https://uwb-hacks-save-the-world.devpost.com"
+                                }
+                                target="_blank"
+                                color="blue"
+                                fontSize={13}
+                            >
+                                Register for UWB Hacks!
+                            </Button>
+                            <Button
+                                href={"https://discord.gg/6AapzPNvRy"}
+                                target="_blank"
+                                color="yellow"
+                                fontSize={12}
+                            >
+                                Learn more on our Discord!
+                            </Button>
+                        </div>
+                    </div>
+                </PanelContent>
+            </Panel>
+
+            {/* Previous UWBHacks Fun Statistics Container */}
+            <Panel className={`w-full border-none ${panelMargin}`}>
+                <div className="flex justify-center">
+                    <PanelHeader
+                        as="h2"
+                        className="font-h1 text-white bg-transparent border-none p-0"
+                    >
+                        Statistics from our previous hackathon <br /> UWB Hacks
+                        AI 2024 !
+                    </PanelHeader>
+                </div>
+                <FunFactsContainer>
+                    <FunFact
+                        src={"/about/comic-bubbles/comic-bubble1.svg"}
+                        alt={"Prize total at UWB Hacks AI 2024"}
+                    />
+                    <FunFact
+                        src={"/about/comic-bubbles/comic-bubble2.svg"}
+                        alt={"Schools participated at UWB Hacks AI 2024"}
+                    />
+                    <FunFact
+                        src={"/about/comic-bubbles/comic-bubble3.svg"}
+                        alt={"Number of hackers at UWB Hacks AI 2024"}
+                    />
+                    <FunFact
+                        src={"/about/comic-bubbles/comic-bubble4.svg"}
+                        alt={
+                            "Number of submitted projects at UWB Hacks AI 2024"
+                        }
+                    />
+                </FunFactsContainer>
+            </Panel>
+
+            {/* UWB ACM Description Container */}
+            <Panel
+                className={`mt-12 md:mt-16 ${panelMargin}`}
+                panelBackground="/about/backgrounds/AboutSection_Background_2.jpg"
+            >
+                {/* UWBHacks ACM Description Header */}
+                <PanelHeader as="h2">
+                    UWB Association for Computing Machinery
+                </PanelHeader>
+
+                {/* UWB ACM Description Content */}
+                <PanelContent className="flex justify-center items-center">
+                    <div className="z-[5] w-4/5 md:w-3/4 lg:w-3/5 flex flex-col self-center p-4 bg-white border-2 border-black">
+                        <p className="font-semibold text-center md:text-left">
+                            UWB ACM is a chapter of the Association of Computing
+                            Machinery at UWB dedicated to creating events and
+                            providing insight into academics, research, and
+                            careers related to Computer Science. Learn more in
+                            our Discord!
+                        </p>
+                        <div className="w-full flex justify-center md:justify-end mt-2">
+                            <Button
+                                href={"https://discord.gg/DzWEhESsZw"}
+                                target="_blank"
+                                fontSize={18}
+                                color="yellow"
+                            >
+                                Discord
+                            </Button>
+                        </div>
+                    </div>
+                </PanelContent>
+
+                {/* UWB ACM Logo */}
+                <Image
+                    className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-[2vw]"
+                    src="/about/uwb-acm-logo.png"
+                    alt="ACM Logo"
+                    width={200}
+                    height={200}
+                />
+            </Panel>
+
+            {/* "Month of Hacking", "Hackeroons", "Leaderboard", & "Last Year's Winners" Container */}
+            <div className={`w-full grid md:grid-cols-2 gap-8 ${panelMargin}`}>
+                {/* Month of Hacking */}
+                <Panel
+                    panelBackground={
+                        "/about/backgrounds/AboutSection_Background_3.jpg"
+                    }
+                    className="flex flex-col justify-between"
+                >
+                    <PanelHeader as="h2">Month of Hacking</PanelHeader>
+                    <PanelContent>
+                        <p className="text-center font-bold md:text-lg">
+                            In{" "}
+                            <span className="font-h1 text-blue-700 tracking-wider px-[2px] text-xl md:text-2xl">
+                                April
+                            </span>
+                            , we will host a comprehensive series of academic
+                            workshops to prepare participants for the main
+                            event, with a minimum of two sessions scheduled
+                            weekly, totaling 8+ events. <br /> <br /> Select
+                            workshops will be collaboratively organized with
+                            partner clubs, while additional opportunities remain
+                            available for sponsor-led sessions.
+                        </p>
+                        <div className="w-full flex justify-center md:justify-end mt-4">
+                            <Button href={"/month-of-hacking"} fontSize={18}>
+                                Learn More!
+                            </Button>
+                        </div>
+                    </PanelContent>
+                </Panel>
+
+                {/* Hackeroons */}
+                <Panel
+                    className="flex flex-col"
+                    panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
+                >
+                    <PanelHeader as="h2">Last Year&apos;s Projects</PanelHeader>
+                    <PanelContent className="h-full flex flex-col justify-around gap-y-4">
+                        <LastYearsWinnersRecord
+                            name={"LoveStorying"}
+                            linkedInPost={
+                                "https://www.linkedin.com/posts/uwb-hacks-series_uwbhackssavetheworld-uwbhacksai-uwbhacks-activity-7304282072141963265-0b8u/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
+                            }
+                            buttonColor="blue"
+                        />
+                        <LastYearsWinnersRecord
+                            name={"Freakquency"}
+                            linkedInPost={
+                                "https://www.linkedin.com/posts/uwb-hacks-series_uwbhacks-uwbhackssavetheworld-uwbhacks2025-activity-7306907475134361600-iK_5/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAERRpbABkbd7JlcrDDWNJTcPBzpftyc4lwQ"
+                            }
+                            buttonColor="yellow"
+                        />
+                    </PanelContent>
+                </Panel>
+
+                {/* Hackeroons */}
+                <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
+                    <PanelHeader as="h2">Hackeroons</PanelHeader>
+
+                    <PanelContent>
+                        {/* Hackeroon Prizes Carousel */}
+                        <HackeroonCarousel />
+                    </PanelContent>
+                </Panel>
+
+                {/* Leaderboard */}
+                <Panel panelColor={"#f5be58"} className="flex flex-col">
+                    <PanelHeader as="h2">Leaderboard</PanelHeader>
+                    <PanelContent className="h-full px-2 md:px-8 flex flex-col justify-between gap-y-8 md:text-lg text-white">
+                        <LeaderboardRecord
+                            name={"Name1"}
+                            hackeroonAmount={99999}
+                        />
+                        <LeaderboardRecord
+                            name={"Name2"}
+                            hackeroonAmount={345}
+                        />
+                        <LeaderboardRecord name={"Name3"} hackeroonAmount={1} />
+                    </PanelContent>
+                </Panel>
             </div>
-        </>
+        </section>
     );
 };
-
-const AboutSectionDesktop: React.FC = () => (
-    <div
-        className={
-            'grow [min-height:60vw] gap-2 grid [grid-template-columns:1fr_1fr_1fr] [grid-template-rows:2fr_1fr_1fr_1fr_2fr_1fr_2fr] [grid-template-areas:"top_top_top"_"husky_husky_prizes"_"husky_husky_prizes"_"husky_husky_."_"._acm_acm"_"stats_acm_acm"_"stats_acm_acm"]'
-        }
-        // TODO: How to represent this with tailwind?
-        style={{
-            background:
-                "linear-gradient(180deg, rgba(198,61,23,1) 0%, rgba(255,230,162,1) 100%)",
-        }}
-    >
-        <PolygonArea
-            area="top"
-            path="M1.5 1.5H1333.5V74.5562L1.5 125.442V1.5Z"
-            clipPath="0.112% 1.196%,100% 1.196%,100% 59.435%,0.112% 100%,0.112% 1.196%"
-            viewBox="0 0 1335 127"
-        >
-            <div className="absolute [top:10%] lg:[top:20%] [left:50px]">
-                <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_3vw)]">
-                    About
-                </h2>
-            </div>
-        </PolygonArea>
-
-        <PolygonArea
-            area="husky"
-            path="M1.5 469.5V48.4192L846.5 1.58544V302.542L486.279 469.5H1.5Z"
-            clipPath="0.177% 100%,0.177% 10.313%,100% 0.338%,100% 64.439%,57.446% 100%,0.177% 100%"
-            viewBox="0 0 848 471"
-            width="90%"
-            height="150%"
-        >
-            <div className="absolute [width:35%] [bottom:-20px] [left:-20px] [transform:rotate(180deg)]">
-                <Image src={AccentImage} alt="" />
-            </div>
-
-            <div className="absolute [width:50%] [bottom:-10%] [left:10px]">
-                <Image src={HuskyImage} alt="Husky Mascot" />
-            </div>
-
-            <p className="text-left absolute [width:35%] [top:8%] [right:20px] font-inter [font-size:calc(0.1rem_+_0.90vw)]">
-                UWB Hacks: Saves the World! is an annual hackathon teaching
-                students computer science while preparing them for tech and
-                business careers through hands-on learning and professional
-                networking. Learn more in our Discord!
-            </p>
-
-            <div className="absolute [width:20%] [bottom:calc(-50px_+_8vw)] [right:calc(35%_-_3vw)]">
-                <Link href="https://discord.gg/6AapzPNvRy" target="_blank">
-                    <Image
-                        src={DiscordFancyYellowImage}
-                        alt="Discord"
-                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
-                    />
-                </Link>
-            </div>
-        </PolygonArea>
-
-        <PolygonArea
-            area="prizes"
-            path="M1.5 314.5V13.5198L430.5 1.54246V314.5H1.5Z"
-            clipPath="0.348% 100%,0.348% 4.299%,100% 0.49%,100% 100%,0.348% 100%"
-            viewBox="0 0 432 316"
-            height="140%"
-        >
-            <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
-                <div className="flex-grow" />
-                <p>$8,800+ in prizes</p>
-                <div className="flex-grow" />
-                <p>11 Schools</p>
-                <p className="[font-size:calc(0.1rem_+_1.25vw)]">
-                    (University/College/High School)
-                </p>
-                <div className="flex-grow" />
-            </div>
-        </PolygonArea>
-
-        <PolygonArea
-            area="stats"
-            path="M456.5 1.5H1.5V252.5H456.5V1.5Z"
-            clipPath="100% 0.594%,0.329% 0.594%,0.329% 100%,100% 100%,100% 0.594%"
-            viewBox="0 0 458 254"
-        >
-            <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.1rem_+_3vw)]">
-                <div className="flex-grow" />
-                <p>350+ Hackers</p>
-                <div className="flex-grow" />
-                <p>65 Projects</p>
-                <div className="flex-grow" />
-            </div>
-        </PolygonArea>
-
-        <PolygonArea
-            area="acm"
-            path="M829.5 430H1.5V179.974L401.819 1.5H829.5V430Z"
-            clipPath="100% 100%,0.181% 100%,0.181% 41.854%,48.441% 0.349%,100% 0.349%,100% 100%"
-            viewBox="0 0 831 432"
-            width="95%"
-            style={{ marginLeft: "auto" }}
-        >
-            <div className="absolute [width:30%] [right:-20px] [top:-20px]">
-                <Image src={AccentImage} alt="" />
-            </div>
-
-            <div className="absolute [width:30%] [top:5%] [right:20px]">
-                <Image src={ACMLogoImage} alt="ACM at UWB Logo" />
-            </div>
-
-            <p className="absolute [right:35%] [top:20%] [width:40%] [min-width:min-content] text-right [line-height:85%] [font-size:calc(0.1rem_+_2.25vw)] [font-family:var(--font-rubik-mono-one)] [color:#49B2F8]">
-                UWB Association For Computing Machinery
-            </p>
-
-            <p className="text-left absolute [width:60%] [bottom:calc(1%_+_0.75vw)] [left:40px] font-inter [font-size:calc(0.1rem_+_1vw)]">
-                UWB ACM is a chapter of the Association of Computing Machinery
-                at UWB dedicated to creating events and providing insight into
-                academics, research, and careers related to Computer Science.
-                Learn more in our Discord!
-            </p>
-
-            <div className="absolute [width:20%] [bottom:-10px] [right:calc(40px_+_0.4vw)]">
-                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
-                    <Image
-                        src={DiscordFancyBlueImage}
-                        alt="Discord"
-                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
-                    />
-                </Link>
-            </div>
-        </PolygonArea>
-    </div>
-);
-
-const AboutSectionMobile: React.FC = () => (
-    <div
-        className={
-            'grow [min-height:160vw] px-[3px] pt-10 gap-2 grid [grid-template-columns:1fr_1fr] [grid-template-rows:1fr_1fr_1fr_1fr_1fr_1fr] [grid-template-areas:"top_top"_"husky_husky"_"husky_husky"_"stats_prizes"_"acm_acm"_"acm_acm"]'
-        }
-        // TODO: How to represent this with tailwind?
-    >
-        <PolygonArea
-            area="top"
-            path="M1 1H322V54.7625L1 91.8777V1Z"
-            clipPath="0.311% 1.088%,100% 1.088%,100% 59.604%,0.311% 100%,0.311% 1.088%"
-            viewBox="0 0 323 93"
-            height="120%"
-        >
-            <div className="absolute [top:15%] [left:30px]">
-                <h2 className="[color:#49B2F8] [font-family:san-marino-beach] [font-size:calc(1rem_+_5vw)]">
-                    About
-                </h2>
-            </div>
-        </PolygonArea>
-
-        <PolygonArea
-            area="husky"
-            path="M1 180.5V38.8909L323 1.62241V180.5H183H1Z"
-            clipPath="0.31% 100%,0.31% 21.546%,100% 0.899%,100% 100%,56.656% 100%,0.31% 100%"
-            viewBox="0 0 324 182"
-            height="110%"
-            style={{ bottom: "10%" }}
-        >
-            <div className="absolute [width:35%] [bottom:-20px] [left:-20px] [transform:rotate(180deg)]">
-                <Image src={AccentImage} alt="" />
-            </div>
-
-            <div className="absolute [width:50%] [bottom:-10%] [left:10px]">
-                <Image src={HuskyImage} alt="Husky Mascot" />
-            </div>
-
-            <p className="text-right absolute [width:35%] [height:60%] [top:10%] [right:20px] [font-family:h2-font] [font-size:calc(0.5rem_+_0.4vw)] [padding-top:5px]">
-                UWB: Saves the World! is an annual hackathon teaching students
-                computer science while preparing them for tech and business
-                careers through hands-on learning and professional networking.
-                Learn more here!
-            </p>
-
-            <div className="absolute [width:30%] [bottom:10px] [right:10px]">
-                <Link href="https://discord.gg/6AapzPNvRy" target="_blank">
-                    <Image
-                        src={DiscordYellowImage}
-                        alt="Discord"
-                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
-                    />
-                </Link>
-            </div>
-        </PolygonArea>
-
-        <PolygonArea
-            area="prizes"
-            path="M152 1H1.00009V81H152V1Z"
-            clipPath="100% 1.235%,0.658% 1.235%,0.658% 100%,100% 100%,100% 1.235%"
-            viewBox="0 0 154 82"
-        >
-            <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.3rem_+_3vw)]">
-                <div className="flex-grow" />
-                <p>$8,800+ prizes</p>
-                <div className="flex-grow" />
-                <p>11 Schools</p>
-                <p className="[font-size:calc(0.2rem_+_1.25vw)]">
-                    (University/College/High School)
-                </p>
-                <div className="flex-grow" />
-            </div>
-        </PolygonArea>
-
-        <PolygonArea
-            area="stats"
-            path="M152 1H1.00009V81H152V1Z"
-            clipPath="100% 1.235%,0.658% 1.235%,0.658% 100%,100% 100%,100% 1.235%"
-            viewBox="0 0 154 82"
-        >
-            <div className="flex flex-col [width:100%] [height:100%] [padding-left:20px] lg:[padding-left:50px] [font-size:calc(0.3rem_+_3vw)]">
-                <div className="flex-grow" />
-                <p>350+ Hackers</p>
-                <div className="flex-grow" />
-                <p>65 Projects</p>
-                <div className="flex-grow" />
-            </div>
-        </PolygonArea>
-
-        <PolygonArea
-            area="acm"
-            path="M322 168H1V1H156.058H322V168Z"
-            clipPath="100% 100%,0.311% 100%,0.311% 0.595%,48.465% 0.595%,100% 0.595%,100% 100%"
-            viewBox="0 0 323 169"
-        >
-            <div className="absolute [width:30%] [right:-20px] [top:-20px]">
-                <Image src={AccentImage} alt="" />
-            </div>
-
-            <div className="absolute [width:30%] [top:5%] [right:20px]">
-                <Image src={ACMLogoImage} alt="ACM at UWB Logo" />
-            </div>
-
-            <p className="absolute [left:10px] [top:10px] [width:40%] [min-width:min-content] text-left [line-height:85%] [font-size:calc(0.8rem_+_0.4vw)] [font-family:var(--font-rubik-mono-one)] [color:#49B2F8]">
-                UWB Association For Computing Machinery
-            </p>
-
-            <p className="text-left absolute [width:60%] [bottom:calc(1%_+_0.75vw)] [left:10px] [font-family:h2-font] [font-size:calc(0.2rem_+_2vw)]">
-                UWB ACM is a chapter of the Association of Computing Machinery
-                at UWB dedicated to creating events and providing insight into
-                academics, research, and careers related to Computer Science.
-                Learn more here.
-            </p>
-
-            <div className="absolute [width:25%] [bottom:5px] [right:20px]">
-                <Link href="https://discord.gg/DzWEhESsZw" target="_blank">
-                    <Image
-                        src={DiscordYellowImage}
-                        alt="Discord"
-                        className="hover:[transform:scale(110%)] active:[transform:scale(80%)] transition-transform"
-                    />
-                </Link>
-            </div>
-        </PolygonArea>
-    </div>
-);
 
 export default AboutSection;
