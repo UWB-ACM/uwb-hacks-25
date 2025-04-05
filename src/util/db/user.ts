@@ -30,8 +30,10 @@ export async function createUser(
         name,
         email,
         picture: picture || (await gravatarFromEmail(email)),
-        // The user has no balance since we just made them.
+        // Default values.
         balance: 0,
+        terms: 0,
+        leaderboardConsent: false,
     };
 }
 
@@ -43,7 +45,7 @@ export async function getUserFromGoogle(
     googleId: string,
 ): Promise<User | null> {
     const data =
-        await sql`SELECT id, name, email, picture, balance FROM users LEFT JOIN balances ON balances.user=users.id WHERE google_id=${googleId};`;
+        await sql`SELECT id, name, email, picture, balance, terms, leaderboard_consent FROM users LEFT JOIN balances ON balances.user=users.id WHERE google_id=${googleId};`;
 
     if (data.length === 0) {
         return null;
@@ -58,6 +60,8 @@ export async function getUserFromGoogle(
         // Balance will be null if the user
         // has no transactions.
         balance: data[0].balance || 0,
+        terms: data[0].terms,
+        leaderboardConsent: data[0].leaderboard_consent,
     };
 }
 
@@ -67,7 +71,7 @@ export async function getUserFromGoogle(
  */
 export async function getUserFromID(id: number): Promise<User | null> {
     const data =
-        await sql`SELECT google_id, name, email, picture, balance FROM users LEFT JOIN balances ON balances.user=users.id WHERE id=${id};`;
+        await sql`SELECT google_id, name, email, picture, balance, terms, leaderboard_consent FROM users LEFT JOIN balances ON balances.user=users.id WHERE id=${id};`;
 
     if (data.length === 0) {
         return null;
@@ -82,6 +86,8 @@ export async function getUserFromID(id: number): Promise<User | null> {
         // Balance will be null if the user
         // has no transactions.
         balance: data[0].balance || 0,
+        terms: data[0].terms,
+        leaderboardConsent: data[0].leaderboardConsent,
     };
 }
 
@@ -90,7 +96,7 @@ export async function getUserFromID(id: number): Promise<User | null> {
  */
 export async function getAllUsers(): Promise<User[]> {
     const data =
-        await sql`SELECT id, google_id, name, email, picture, balance FROM users LEFT JOIN balances ON balances.user=users.id;`;
+        await sql`SELECT id, google_id, name, email, picture, balance, terms, leaderboard_consent FROM users LEFT JOIN balances ON balances.user=users.id;`;
 
     return await Promise.all(
         data.map(async (entry) => ({
@@ -102,6 +108,8 @@ export async function getAllUsers(): Promise<User[]> {
             // Balance will be null if the user
             // has no transactions.
             balance: entry.balance || 0,
+            terms: entry.terms,
+            leaderboardConsent: entry.leaderboard_consent,
         })),
     );
 }
@@ -118,6 +126,51 @@ export async function getPermissionLevel(
 
     if (data.length === 0) return null;
     return data[0].permission;
+}
+
+/**
+ * Marks the user as consenting to the terms level.
+ * @param id - is the ID of the user to modify.
+ * @param terms - is the terms level to set.
+ */
+export async function setUserTermsLevel(
+    id: number,
+    terms: number,
+): Promise<void> {
+    await sql`UPDATE users SET terms=${terms} WHERE id=${id};`;
+}
+
+/**
+ * Sets whether the user consents to having their details
+ * shown on the leaderboard.
+ * @param id - is the ID of the user to modify.
+ * @param leaderboardConsent - has consent been given?
+ */
+export async function setUserLeaderboardConsent(
+    id: number,
+    leaderboardConsent: boolean,
+): Promise<void> {
+    await sql`UPDATE users SET leaderboard_consent=${leaderboardConsent} WHERE id=${id};`;
+}
+
+/**
+ * Retrieves the user's various consent fields.
+ * @param id - is the user's ID.
+ */
+export async function getUserConsent(
+    id: number,
+): Promise<Pick<User, "terms" | "leaderboardConsent"> | null> {
+    const data =
+        await sql`SELECT terms, leaderboard_consent FROM users WHERE id=${id};`;
+
+    if (data.length === 0) {
+        return null;
+    }
+
+    return {
+        terms: data[0].terms,
+        leaderboardConsent: data[0].leaderboard_consent,
+    };
 }
 
 /**
