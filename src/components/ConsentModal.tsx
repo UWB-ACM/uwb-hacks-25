@@ -128,8 +128,8 @@ function ConsentModalInner({
                         htmlFor="consent-leaderboard-check"
                         className="text-sm font-medium leading-none"
                     >
-                        Show my name ({user.name}), profile picture, and
-                        Hackeroon balance on the public leaderboard.
+                        Show my name ({user.name}), profile picture, and total
+                        earned Hackeroon amount on the public leaderboard.
                     </label>
                 </div>
 
