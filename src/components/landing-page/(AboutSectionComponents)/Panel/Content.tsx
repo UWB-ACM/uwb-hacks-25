@@ -26,8 +26,8 @@ export default function PanelContent({
         gsap.to(panelContent, {
             delay: 0.4,
             scale: 1,
-            duration: 0.6,
-            ease: "bounce.out",
+            duration: 0.3,
+            ease: "power2.in",
             scrollTrigger: {
                 trigger: panelContent,
                 start: "70% 90%",
