@@ -11,7 +11,7 @@ export default async function ModifyPrizePage() {
     const prizes = getPrizes();
 
     return (
-        <div className="w-screen min-h-screen">
+        <div className="w-full min-h-screen">
             <PrizeClientWrapper prizes={prizes} />
         </div>
     );
