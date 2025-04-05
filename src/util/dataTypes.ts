@@ -1,4 +1,10 @@
 /**
+ * An identifier for the current revision of the legal terms.
+ * Every time they are updated, this must be incremented.
+ */
+export const TERMS_LEVEL = 1;
+
+/**
  * A user and balance in the database.
  */
 export interface LeaderboardRecord {
@@ -54,6 +60,18 @@ export interface User {
      * This needs to be retrieved separately from the user.
      */
     balance: number;
+
+    /**
+     * The terms level that the user has agreed to.
+     * @see TERMS_LEVEL
+     */
+    terms: number;
+
+    /**
+     * Has the user agreed to be displayed
+     * on the leaderboard?
+     */
+    leaderboardConsent: boolean;
 }
 
 /**

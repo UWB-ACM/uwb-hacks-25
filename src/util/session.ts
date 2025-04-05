@@ -12,6 +12,9 @@ const sessionTimeSeconds = 7 * 24 * 60 * 60;
 
 /**
  * The part of a user that's available in a session.
+ * These need to be parts of the user that never change,
+ * as we don't have a mechanism to refresh the user's
+ * data.
  */
 export type SessionUser = Pick<User, "id" | "name" | "email" | "picture">;
 
