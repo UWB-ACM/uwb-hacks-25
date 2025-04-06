@@ -74,9 +74,12 @@ const TracksSection = () => {
             >
                 Tracks
             </PanelHeader>
-            <PanelContent className="flex flex-col items-center gap-y-4">
-                <MysteryBox className="box" />
-                <p className="z-[5] font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center">
+            <PanelContent className="relative flex flex-col items-center">
+                <div className="relative box">
+                    <MysteryBox className="w-[200px] md:w-[325px] lg:w-[375px] xl:w-[400px] h-fit" />
+                    <MysteryBoxLid className="absolute top-0 w-[200px] md:w-[325px] lg:w-[375px] xl:w-[400px] h-fit" />
+                </div>
+                <p className="font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6">
                     All hackathon tracks will be unveiled on the day of the
                     hackathon!
                 </p>
