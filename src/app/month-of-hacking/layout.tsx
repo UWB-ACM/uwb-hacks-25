@@ -55,7 +55,6 @@ export const metadata: Metadata = {
         },
     },
     robots: "max-image-preview:large",
-    icons: "/iconplaceholder.ico",
 };
 
 export const viewport: Viewport = {
