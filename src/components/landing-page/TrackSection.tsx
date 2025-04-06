@@ -6,6 +6,7 @@ import gsap from "gsap";
 // Panel components
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
 import PanelContent from "./(AboutSectionComponents)/Panel/Content";
+import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
 
 // Mystery box components
 import MysteryBox from "./(TracksSectionComponents)/MysteryBox";
@@ -65,19 +66,22 @@ const TracksSection = () => {
     }, []);
 
     return (
-        <div className="mt-12 md:mt-16 relative flex-col p-4 flex items-center bg-white border-[3px] border-black overflow-hidden">
-            <h2
-                className="z-10 text-[#49B2F8] font-h1 my-4"
-                style={{ fontSize: "calc(1rem + 3vw)" }}
+        <Panel className="mt-12 md:mt-16" panelColor="white">
+            <PanelHeader
+                as="h2"
+                className="text-[#49B2F8] border-none lg:w-full pb-0"
+                isSectionHeader
             >
-                TRACKS
-            </h2>
-            <MysteryBox className="box" />
-            <p className="z-[5] font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center m-2 md:m-4 pt-2 bg-white">
-                All hackathon tracks will be unveiled on the day of the
-                hackathon!
-            </p>
-        </div>
+                Tracks
+            </PanelHeader>
+            <PanelContent className="flex flex-col items-center gap-y-4">
+                <MysteryBox className="box" />
+                <p className="z-[5] font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center">
+                    All hackathon tracks will be unveiled on the day of the
+                    hackathon!
+                </p>
+            </PanelContent>
+        </Panel>
     );
 };
 
