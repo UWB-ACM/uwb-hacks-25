@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function QuestionMark() {
+type QuestionMarkProps = {
+    className?: string;
+};
+
+export default function QuestionMark({ className }: QuestionMarkProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -14,6 +18,7 @@ export default function QuestionMark() {
                 fillRule: "evenodd",
                 clipRule: "evenodd",
             }}
+            className={className}
         >
             <g>
                 <path
