@@ -47,17 +47,24 @@ const TracksSection = () => {
                     contents={mysteryBoxContents}
                     setShowTracks={setShowTracks}
                 />
-                {showTracks && (
-                    <>
+
+                {showTracks && mysteryBoxContents.length == 1 && (
+                    <p className="tracks font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6">
+                        {mysteryBoxContents[0]}
+                    </p>
+                )}
+
+                {showTracks && mysteryBoxContents.length > 1 && (
+                    <div className="w-full mt-6 flex flex-wrap justify-around gap-4">
                         {mysteryBoxContents.map((content, idx) => (
                             <p
                                 key={idx}
-                                className="tracks font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6"
+                                className="tracks font-h1 text-xl md:text-2xl lg:text-3xl text-center"
                             >
                                 {content}
                             </p>
                         ))}
-                    </>
+                    </div>
                 )}
             </PanelContent>
         </Panel>
