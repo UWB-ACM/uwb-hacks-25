@@ -5,7 +5,7 @@ import Button from "@/src/components/Button";
 
 function Page() {
     return (
-        <div className="flex flex-col w-screen items-center">
+        <div className="flex flex-col w-full items-center">
             <div className="max-w-[800px] flex flex-col">
                 <div className="text-center py-6 md:py-8 overflow-x-auto">
                     <h1 className="font-h1 text-4xl md:text-5xl">

@@ -5,7 +5,7 @@ import MohSchedule from "@/public/monthOfHacking/mohschedule.png";
 
 function Page() {
     return (
-        <div className="p-10 w-screen flex justify-center">
+        <div className="p-10 w-full flex justify-center">
             <Image
                 src={MohSchedule}
                 className="max-w-[1200px] rounded-md"
