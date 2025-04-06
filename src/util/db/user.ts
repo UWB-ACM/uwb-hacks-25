@@ -174,6 +174,14 @@ export async function getUserConsent(
 }
 
 /**
+ * Deletes a user's account.
+ * @param id - is the ID of the account to delete.
+ */
+export async function deleteUser(id: number): Promise<void> {
+    await sql`DELETE FROM users WHERE id=${id};`;
+}
+
+/**
  * Generates a Gravatar URL from the given email address.
  * @param email - is the email address to generate the URL from.
  */

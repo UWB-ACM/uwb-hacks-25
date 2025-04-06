@@ -3,7 +3,7 @@
 import { SessionUser } from "@/src/util/session";
 import { Checkbox } from "@/src/components/ui/checkbox";
 import React, { useRef, useState } from "react";
-import { actionSetUserLeaderboardConsent } from "@/src/util/actions/consent";
+import { actionSetUserLeaderboardConsent } from "@/src/util/actions/user";
 
 export default function LeaderboardConsent({
     initialLeaderboardConsent,
