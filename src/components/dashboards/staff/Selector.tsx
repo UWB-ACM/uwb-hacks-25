@@ -29,20 +29,20 @@ export default function Selector<T>(props: SelectorProps<T>) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-            <Dialog open={isOpen} onOpenChange={(open) => setIsOpen(open)}>
-                <DialogTrigger className="bg-blue-300 border-[1px] border-black rounded-xl p-4">
-                    {props.buttonName}
-                </DialogTrigger>
-                <DialogContent className="z-[1000] max-w-[90%] sm:max-w-[425px] max-h-[80%] overflow-hidden flex flex-col">
-                    <DialogHeader>
-                        <DialogTitle>{props.dialogName}</DialogTitle>
-                    </DialogHeader>
+        <Dialog open={isOpen} onOpenChange={(open) => setIsOpen(open)}>
+            <DialogTrigger className="bg-blue-300 border-[1px] border-black rounded-xl p-4">
+                {props.buttonName}
+            </DialogTrigger>
+            <DialogContent className="z-[1000] max-w-[90%] sm:max-w-[425px] max-h-[80%] overflow-hidden flex flex-col">
+                <DialogHeader>
+                    <DialogTitle>{props.dialogName}</DialogTitle>
+                </DialogHeader>
 
-                    <Suspense fallback={<div>Please wait.</div>}>
-                        <Cards {...props} setIsOpen={setIsOpen} />
-                    </Suspense>
-                </DialogContent>
-            </Dialog>
+                <Suspense fallback={<div>Please wait.</div>}>
+                    <Cards {...props} setIsOpen={setIsOpen} />
+                </Suspense>
+            </DialogContent>
+        </Dialog>
     );
 }
 

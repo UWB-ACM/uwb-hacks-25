@@ -24,7 +24,7 @@ export interface Props<T> {
 
 /**
  * This is a clone of the Selector component, but with a search bar.
- * It is used for selecting users in the staff dashboard.  
+ * It is used for selecting users in the staff dashboard.
  */
 export default function SelectorWithSearch<T>(props: Props<T>) {
     const [isOpen, setIsOpen] = useState(false);

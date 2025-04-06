@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { User } from "@/src/util/dataTypes";
 import SelectorWithSearch from "./SelectorWithSearch";
@@ -11,9 +11,9 @@ function StaffUserSelector({ users }: { users: Promise<User[]> }) {
 
     useEffect(() => {
         users.then((resolvedUsers) => {
-          setUserList(resolvedUsers);
+            setUserList(resolvedUsers);
         });
-      }, [users]);
+    }, [users]);
 
     return (
         <SelectorWithSearch
