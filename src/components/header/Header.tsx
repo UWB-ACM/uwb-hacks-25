@@ -4,6 +4,8 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 import Link from "next/link";
 import "../../styles/header.css";
 import Image from "next/image";
+import DesktopBanner from "./DesktopBanner";
+import MobileBanner from "./MobileBanner";
 
 export type HeaderLinkData = { id: string; name: string } & (
     | { url: string }
@@ -18,13 +20,17 @@ export type HeaderLinkData = { id: string; name: string } & (
  * @param links - is a list of links to show on the header.
  * @param wrapH1 - should the big "UWB HACKS" be wrapped in an h1?
  *                 This should only really be used on the main page.
+ * @param banner - should the banner be shown?
+ *                 This should only really be used on the main page.
  */
 export default function Header({
     links,
     wrapH1,
+    banner,
 }: {
     links: HeaderLinkData[];
     wrapH1?: boolean;
+    banner?: boolean;
 }) {
     const [sideNav, setSideNav] = useState(false);
 
@@ -33,10 +39,10 @@ export default function Header({
             <div className="hidden md:block">
                 {/* Heading spacer */}
                 <div className="h-[7rem]" />
-                <HeaderDesktop links={links} wrapH1={wrapH1} />
+                <HeaderDesktop links={links} wrapH1={wrapH1} banner={banner} />
             </div>
             <div className="block md:hidden">
-                <HeaderMobile wrapH1={wrapH1} setSideNav={setSideNav} />
+                <HeaderMobile wrapH1={wrapH1} setSideNav={setSideNav} banner={banner}/>
             </div>
 
             <HeaderSidebar
@@ -118,19 +124,30 @@ function HeaderLink({ link }: { link: HeaderLinkData }) {
 function HeaderDesktop({
     links,
     wrapH1,
+    banner,
 }: {
     links: HeaderLinkData[];
     wrapH1?: boolean;
+    banner?: boolean;
 }) {
-    return (
-        <nav className="fixed z-[999] top-0 flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full bg-white/25 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
-            <UWBHacksButton wrapH1={wrapH1} />
+    const [bannerVisible, setBannerVisible] = useState(banner || false);
 
-            <div className="hidden md:flex gap-x-10 ">
-                {links.map((link) => (
-                    <HeaderLink key={link.id} link={link} />
-                ))}
+    return (
+        <nav className="fixed z-[999] top-0 w-full">
+            <div className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full bg-white/25 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                <UWBHacksButton wrapH1={wrapH1} />
+
+                <div className="hidden md:flex gap-x-10 ">
+                    {links.map((link) => (
+                        <HeaderLink key={link.id} link={link} />
+                    ))}
+                </div>
             </div>
+
+            <DesktopBanner
+                bannerVisible={bannerVisible}
+                setBannerVisible={setBannerVisible}
+            />
         </nav>
     );
 }
@@ -138,14 +155,24 @@ function HeaderDesktop({
 function HeaderMobile({
     wrapH1,
     setSideNav,
+    banner,
 }: {
     wrapH1?: boolean;
     setSideNav: Dispatch<SetStateAction<boolean>>;
+    banner?: boolean;
 }) {
+    const [bannerVisible, setBannerVisible] = useState(banner || false);
+
     return (
-        <nav className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full min-w-72">
-            <UWBHacksButton wrapH1={wrapH1} mobile />
-            <HeaderSidebarButton setSideNav={setSideNav} />
+        <nav className="">
+            <MobileBanner
+                bannerVisible={bannerVisible}
+                setBannerVisible={setBannerVisible}
+            />
+            <div className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full min-w-72">
+                <UWBHacksButton wrapH1={wrapH1} mobile />
+                <HeaderSidebarButton setSideNav={setSideNav} />
+            </div>
         </nav>
     );
 }
