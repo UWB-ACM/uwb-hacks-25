@@ -2,12 +2,10 @@ import React from "react";
 
 type MysteryBoxContainerProps = {
     className?: string;
-    mysteryBoxContents: string[];
 };
 
 export default function MysteryBoxContainer({
     className,
-    mysteryBoxContents,
 }: MysteryBoxContainerProps) {
     return (
         <svg
