@@ -43,6 +43,7 @@ export default function MysteryBox({ contents }: MysteryBoxProps) {
 
         const mysteryBox = mysteryBoxRef.current;
         const mysteryBoxLid = mysteryBoxLidRef.current;
+        const contentElements = document.querySelectorAll(".content");
 
         if (!tlRef.current || !mysteryBox || !mysteryBoxLid) return;
 
@@ -59,6 +60,25 @@ export default function MysteryBox({ contents }: MysteryBoxProps) {
         }
 
         popLid(tlRef, mysteryBoxLid);
+
+        contentElements.forEach((content, idx) => {
+            const xOffset =
+                (idx - Math.floor(contentElements.length / 2)) * 300;
+
+            if (!tlRef.current) return;
+            tlRef.current.to(
+                content,
+                {
+                    y: "-100vh",
+                    x: xOffset,
+                    rotate: `${(idx - Math.floor(contentElements.length / 2)) * 30}deg`,
+                    duration: 1,
+                    ease: "power1.out",
+                    scale: 1,
+                },
+                "<",
+            );
+        });
     };
 
     return (
@@ -70,7 +90,7 @@ export default function MysteryBox({ contents }: MysteryBoxProps) {
             {contents.map((content, idx) => (
                 <p
                     key={idx}
-                    className="-z-[5] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 scale-75 font-h1 text-xl md:text-2xl lg:text-3xl text-center"
+                    className="content -z-[5] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 scale-75 font-h1 text-xl md:text-2xl lg:text-3xl text-center"
                 >
                     {content}
                 </p>

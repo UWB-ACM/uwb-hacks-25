@@ -28,10 +28,14 @@ const TracksSection = () => {
             </PanelHeader>
             <PanelContent className="relative flex flex-col items-center">
                 <MysteryBox contents={mysteryBoxContents} />
-                <p className="font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6">
-                    All hackathon tracks will be unveiled on the day of the
-                    hackathon!
-                </p>
+                {mysteryBoxContents.map((content, idx) => (
+                    <p
+                        key={idx}
+                        className="font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6"
+                    >
+                        {content}
+                    </p>
+                ))}
             </PanelContent>
         </Panel>
     );
