@@ -1,7 +1,7 @@
 import React from "react";
 
 type MysteryBoxLidProps = {
-    ref: React.RefObject<null>;
+    ref: React.RefObject<SVGSVGElement | null>;
     className?: string;
 };
 
