@@ -4,8 +4,9 @@ import { TransactionType } from "@/src/util/dataTypes";
 /**
  * Checks a user in to an event.
  * This also gives them the required hackeroons.
- * This function is idempotent (i.e., it won't check in
- * users multiple times).
+ * If the user already checked in to the event, then
+ * alreadyCheckin is true.
+ * Otherwise, returns true on success and false on failure.
  * @param user - is the ID of the user to check in.
  * @param event - is the event to check the user in to.
  * @param authorized_by - is the staff member who authorized this check-in
@@ -15,7 +16,7 @@ export async function checkInUser(
     user: number,
     event: number,
     authorized_by: number | null,
-) {
+): Promise<boolean | { alreadyCheckin: true }> {
     try {
         await sql.begin((sql) => [
             // This needs to be locked for concurrency, to prevent
@@ -44,9 +45,11 @@ export async function checkInUser(
             "constraint_name" in e &&
             e["constraint_name"] === "attendance_pk"
         ) {
-            return;
+            return { alreadyCheckin: true };
         }
 
         throw e;
     }
+
+    return true;
 }
