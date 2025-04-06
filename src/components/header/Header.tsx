@@ -161,13 +161,12 @@ function HeaderMobile({
     setSideNav: Dispatch<SetStateAction<boolean>>;
     banner?: boolean;
 }) {
-    const [bannerVisible, setBannerVisible] = useState(banner || false);
+    const [bannerVisible] = useState(banner || false);
 
     return (
         <nav className="">
             <MobileBanner
                 bannerVisible={bannerVisible}
-                setBannerVisible={setBannerVisible}
             />
             <div className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full min-w-72">
                 <UWBHacksButton wrapH1={wrapH1} mobile />
