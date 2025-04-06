@@ -23,6 +23,99 @@ import SupportSection from "@/src/components/dashboards/userdashboard/SupportSec
 async function UserDashboard({ user }: { user: SessionUser }) {
     const transactions = await getTransactionsForUser(user.id);
 
+    const testTransactions_ZeroTransactions = [
+    ];
+
+    const testTransactions_LessThanThreeTransactions = [
+        {
+            id: 14,
+            type: 1,
+            amount: 125,
+            eventName: "test event 1",
+            prizeName: "test prize 1",
+            time: "4/4/2025, 2:00:00 PM",
+        },
+        {
+            id: 15,
+            type: 2,
+            amount: 15,
+            eventName: "test event 2",
+            prizeName: "test prize 2",
+            time: "4/4/2025, 4:00:00 PM",
+        },
+    ];
+
+    const testTransactions_ThreeTransactions = [
+        {
+            id: 14,
+            type: 1,
+            amount: 125,
+            eventName: "test event 1",
+            prizeName: "test prize 1",
+            time: "4/4/2025, 2:00:00 PM",
+        },
+        {
+            id: 15,
+            type: 2,
+            amount: 15,
+            eventName: "test event 2",
+            prizeName: "test prize 2",
+            time: "4/4/2025, 4:00:00 PM",
+        },
+        {
+            id: 16,
+            type: 1,
+            amount: 25,
+            eventName: "test event 3",
+            prizeName: "test prize 3",
+            time: "4/4/2025, 5:00:00 PM",
+        },
+    ];
+
+    const testTransactions_MoreThanThreeTransactions = [
+        {
+            id: 14,
+            type: 1,
+            amount: 125,
+            eventName: "test event 1",
+            prizeName: "test prize 1",
+            time: "4/4/2025, 2:00:00 PM",
+        },
+        {
+            id: 15,
+            type: 2,
+            amount: 15,
+            eventName: "test event 2",
+            prizeName: "test prize 2",
+            time: "4/4/2025, 4:00:00 PM",
+        },
+        {
+            id: 16,
+            type: 1,
+            amount: 25,
+            eventName: "test event 3",
+            prizeName: "test prize 3",
+            time: "4/4/2025, 5:00:00 PM",
+        },
+        {
+            id: 17,
+            type: 2,
+            amount: 12,
+            eventName: "test event 4",
+            prizeName: "test prize 4",
+            time: "4/4/2025, 6:00:00 PM",
+        },
+        {
+            id: 18,
+            type: 1,
+            amount: 5,
+            eventName: "test event 5",
+            prizeName: "test prize 5",
+            time: "4/4/2025, 8:00:00 PM",
+        },
+    ];
+
+    
     return (
         // User Dashboard Container
         <div className="w-[90%] mx-auto rounded-md sm:mt-[3rem]">
