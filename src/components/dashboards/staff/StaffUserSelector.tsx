@@ -1,20 +1,29 @@
 "use client";
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useRouter } from "next/navigation";
 import { User } from "@/src/util/dataTypes";
-import Selector from "@/src/components/dashboards/staff/Selector";
-
+import SelectorWithSearch from "./SelectorWithSearch";
 function StaffUserSelector({ users }: { users: Promise<User[]> }) {
     const router = useRouter();
 
+    const [userList, setUserList] = useState<User[]>([]);
+
+    useEffect(() => {
+        users.then((resolvedUsers) => {
+          setUserList(resolvedUsers);
+        });
+      }, [users]);
+
     return (
-        <Selector
-            items={users}
+        <SelectorWithSearch
+            items={userList}
+            setItems={setUserList}
             buttonName="Select User"
             dialogName="User Selector"
             id={(user) => user.id}
-            title={(user) => user.name + " / " + user.id}
+            email={(user) => user.email}
+            title={(user) => user.name + " / " + user.id + " / "}
             description={(user) => user.email}
             imageURL={(user) => user.picture}
             onClick={(user) => {

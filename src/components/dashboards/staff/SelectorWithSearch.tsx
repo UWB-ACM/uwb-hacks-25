@@ -1,10 +1,4 @@
-import React, {
-    Dispatch,
-    SetStateAction,
-    Suspense,
-    use,
-    useState,
-} from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import {
     Dialog,
     DialogContent,
@@ -13,47 +7,68 @@ import {
     DialogTrigger,
 } from "@/src/components/ui/dialog";
 import Image from "next/image";
+import Input from "@/src/components/ui/Input";
 
-export interface SelectorProps<T> {
-    items: Promise<T[]>;
+export interface Props<T> {
+    items: T[];
+    setItems?: Dispatch<SetStateAction<T[]>>;
     buttonName: string;
     dialogName: string;
     id: ((value: T) => number) | ((value: T) => string);
+    email: (value: T) => string;
     title: (value: T) => string;
     description: (value: T) => string;
     imageURL?: (value: T) => string;
     onClick: (value: T) => void;
 }
 
-export default function Selector<T>(props: SelectorProps<T>) {
+/**
+ * This is a clone of the Selector component, but with a search bar.
+ * It is used for selecting users in the staff dashboard.  
+ */
+export default function SelectorWithSearch<T>(props: Props<T>) {
     const [isOpen, setIsOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
 
     return (
-            <Dialog open={isOpen} onOpenChange={(open) => setIsOpen(open)}>
-                <DialogTrigger className="bg-blue-300 border-[1px] border-black rounded-xl p-4">
-                    {props.buttonName}
-                </DialogTrigger>
-                <DialogContent className="z-[1000] max-w-[90%] sm:max-w-[425px] max-h-[80%] overflow-hidden flex flex-col">
-                    <DialogHeader>
-                        <DialogTitle>{props.dialogName}</DialogTitle>
-                    </DialogHeader>
+        <Dialog open={isOpen} onOpenChange={(open) => setIsOpen(open)}>
+            <DialogTrigger className="bg-blue-300 border-[1px] border-black rounded-xl p-4">
+                {props.buttonName}
+            </DialogTrigger>
+            <DialogContent className="z-[1000] max-w-[90%] sm:max-w-[425px] max-h-[80%] overflow-hidden flex flex-col">
+                <DialogHeader>
+                    <DialogTitle>{props.dialogName}</DialogTitle>
+                </DialogHeader>
 
-                    <Suspense fallback={<div>Please wait.</div>}>
-                        <Cards {...props} setIsOpen={setIsOpen} />
-                    </Suspense>
-                </DialogContent>
-            </Dialog>
+                <Input value={searchTerm} setValue={setSearchTerm} />
+
+                <Cards
+                    {...props}
+                    searchTerm={searchTerm}
+                    setIsOpen={setIsOpen}
+                />
+            </DialogContent>
+        </Dialog>
     );
 }
 
 function Cards<T>(
-    props: SelectorProps<T> & { setIsOpen: Dispatch<SetStateAction<boolean>> },
+    props: Props<T> & {
+        setIsOpen: Dispatch<SetStateAction<boolean>>;
+        searchTerm: string;
+    },
 ) {
-    const itemList = use(props.items);
+    const filteredItems = props.items.filter((item) => {
+        const combinedInfo =
+            props.title(item) + props.description(item) + props.email(item);
+        return combinedInfo
+            .toLowerCase()
+            .includes(props.searchTerm.toLowerCase());
+    });
 
     return (
         <div className="max-h-full overflow-auto flex flex-col gap-3 px-5">
-            {itemList.map((item) => (
+            {filteredItems.map((item) => (
                 <Card key={props.id(item)} {...props} item={item} />
             ))}
         </div>
@@ -61,7 +76,7 @@ function Cards<T>(
 }
 
 function Card<T>(
-    props: SelectorProps<T> & {
+    props: Props<T> & {
         setIsOpen: Dispatch<SetStateAction<boolean>>;
         item: T;
     },
