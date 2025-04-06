@@ -132,7 +132,7 @@ const AboutSection: React.FC = () => {
 
                 {/* UWB ACM Description Content */}
                 <PanelContent className="flex justify-center items-center">
-                    <div className="z-[5] w-4/5 md:w-3/4 lg:w-3/5 flex flex-col self-center p-4 bg-white border-2 border-black">
+                    <div className="z-[5] w-4/5 md:w-3/4 lg:w-3/5 flex flex-col xl:flex-row xl:gap-x-4 self-center p-6 bg-white border-2 border-black">
                         <p className="font-semibold text-center md:text-left">
                             UWB ACM is a chapter of the Association of Computing
                             Machinery at UWB dedicated to creating events and
@@ -140,7 +140,7 @@ const AboutSection: React.FC = () => {
                             careers related to Computer Science. Learn more in
                             our Discord!
                         </p>
-                        <div className="w-full flex justify-center md:justify-end mt-2">
+                        <div className="w-full flex justify-center items-center md:justify-end mt-2 xl:mt-0">
                             <Button
                                 href={"https://discord.gg/DzWEhESsZw"}
                                 target="_blank"
