@@ -23,11 +23,17 @@ const TransactionTable = ({ transactions }: TransactionTableProps) => {
             <h3 className="bg-white p-3 font-bold"> Transaction History </h3>
             <div className="overflow-x-auto">
                 <Table className="w-full bg-white">
-                    {transactions.length > 3 && 
-                      <TableCaption className="mt-0 p-2 text-gray-600 bg-gray-100 border-t border-gray-300">
-                          <button className="text-black underline hover:scale-105 duration-150" onClick={() => setShowMore(!showMore)}> {showMore ? "Show Less" : "Show More"} </button>
-                      </TableCaption>
-                    }
+                    {transactions.length > 3 && (
+                        <TableCaption className="mt-0 p-2 text-gray-600 bg-gray-100 border-t border-gray-300">
+                            <button
+                                className="text-black underline hover:scale-105 duration-150"
+                                onClick={() => setShowMore(!showMore)}
+                            >
+                                {" "}
+                                {showMore ? "Show Less" : "Show More"}{" "}
+                            </button>
+                        </TableCaption>
+                    )}
                     <TableHeader>
                         <TableRow className="bg-[#f3f3f3] hover:bg-[#f3f3f3]">
                             <TableHead className="px-4 py-2 font-medium text-gray-500  border border-gray-300 whitespace-nowrap">
@@ -57,39 +63,42 @@ const TransactionTable = ({ transactions }: TransactionTableProps) => {
                         )}
 
                         {transactions.length > 0 &&
-                            transactions.slice(0, Math.min(transactions.length, 3)).map((transaction, index) => (
-                                <TableRow
-                                    key={transaction.id}
-                                    className={
-                                        index % 2 === 0
-                                            ? "bg-white hover:bg-gray-100"
-                                            : "bg-[#f8f8f8] hover:bg-gray-100"
-                                    }
-                                >
-                                    <TableCell className="px-4 py-2 border border-gray-300">
-                                        {transaction.type}
-                                    </TableCell>
-                                    <TableCell className="px-4 py-2 border border-gray-300">
-                                        {transaction.amount}
-                                    </TableCell>
-                                    <TableCell className="px-4 py-2 border border-gray-300">
-                                        {transaction.eventName !== null
-                                            ? transaction.eventName
-                                            : "No event associated with this transaction"}
-                                    </TableCell>
-                                    <TableCell className="px-4 py-2 border border-gray-300">
-                                        {transaction.prizeName !== null
-                                            ? transaction.prizeName
-                                            : "No prize associated with this transaction"}
-                                    </TableCell>
-                                    <TableCell className="px-4 py-2 border border-gray-300">
-                                        {transaction.time.toLocaleString()}
-                                    </TableCell>
-                                </TableRow>
-                            ))}
+                            transactions
+                                .slice(0, Math.min(transactions.length, 3))
+                                .map((transaction, index) => (
+                                    <TableRow
+                                        key={transaction.id}
+                                        className={
+                                            index % 2 === 0
+                                                ? "bg-white hover:bg-gray-100"
+                                                : "bg-[#f8f8f8] hover:bg-gray-100"
+                                        }
+                                    >
+                                        <TableCell className="px-4 py-2 border border-gray-300">
+                                            {transaction.type}
+                                        </TableCell>
+                                        <TableCell className="px-4 py-2 border border-gray-300">
+                                            {transaction.amount}
+                                        </TableCell>
+                                        <TableCell className="px-4 py-2 border border-gray-300">
+                                            {transaction.eventName !== null
+                                                ? transaction.eventName
+                                                : "No event associated with this transaction"}
+                                        </TableCell>
+                                        <TableCell className="px-4 py-2 border border-gray-300">
+                                            {transaction.prizeName !== null
+                                                ? transaction.prizeName
+                                                : "No prize associated with this transaction"}
+                                        </TableCell>
+                                        <TableCell className="px-4 py-2 border border-gray-300">
+                                            {transaction.time.toLocaleString()}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
 
                         {/* Greater than three transactions, cut off after 3 transactions shown */}
-                        {showMore && transactions.length > 3 &&
+                        {showMore &&
+                            transactions.length > 3 &&
                             transactions
                                 .slice(3, transactions.length)
                                 .map((transaction, index) => (
