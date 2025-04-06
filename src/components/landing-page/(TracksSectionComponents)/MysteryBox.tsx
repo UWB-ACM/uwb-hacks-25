@@ -63,7 +63,12 @@ export default function MysteryBox() {
             onClick={handleBoxOpen}
             className="relative"
         >
-            <MysteryBoxContainer className="w-[200px] md:w-[325px] lg:w-[375px] h-fit" />
+            <MysteryBoxContainer
+                className="w-[200px] md:w-[325px] lg:w-[375px] h-fit"
+                mysteryBoxContents={[
+                    "All hackathon tracks will be unveiled on the day of the hackathon!",
+                ]}
+            />
             <MysteryBoxLid
                 ref={mysteryBoxLidRef}
                 className="absolute top-0 w-[200px] md:w-[325px] lg:w-[375px] h-fit"
