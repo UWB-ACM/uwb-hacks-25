@@ -69,7 +69,7 @@ export default function RootLayout({
 }>) {
     return (
         <div
-            className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-screen`}
+            className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-full`}
         >
             <ReactLenis root>
                 <Header links={[]} />

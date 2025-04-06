@@ -56,8 +56,8 @@ export default async function DashboardPage({
             <UserDashboard user={session.user} />
 
             {isStaff && (
-                <div className="w-screen min-h-screen">
-                    <div className="w-screen py-4 px-8 grid place-content-center">
+                <div className="w-full min-h-screen">
+                    <div className="w-full py-4 px-8 grid place-content-center">
                         <h2 className="text-3xl text-center">
                             User Management
                         </h2>
@@ -86,7 +86,7 @@ export default async function DashboardPage({
                         )}
                     </div>
 
-                    <div className="w-screen py-4 px-8 grid place-content-center">
+                    <div className="w-full py-4 px-8 grid place-content-center">
                         <h2 className="text-3xl text-center">Staff Actions</h2>
                         {/* Container for Buttons */}
                         <div className="w-[95vw] flex flex-col items-center md:flex-row gap-y-4 md:gap-x-4 justify-center mt-6 flex-wrap">
