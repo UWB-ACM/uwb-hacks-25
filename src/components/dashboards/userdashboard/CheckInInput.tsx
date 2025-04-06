@@ -2,14 +2,8 @@
 
 import React, { useState } from "react";
 import { actionValidateCheckin } from "@/src/util/actions/checkIn";
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-} from "@/src/components/ui/dialog";
 import { Event } from "@/src/util/dataTypes";
-import { DialogBody } from "next/dist/client/components/react-dev-overlay/internal/components/Dialog";
+import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
 
 function CheckInInput() {
     const [code, setCode] = useState<string>("");
@@ -66,18 +60,12 @@ function CheckInInput() {
                 </button>
             </div>
 
-            <Dialog
+            <DashboardFeedback
                 open={isModalOpen}
-                onOpenChange={(open) => setIsModalOpen(open)}
-            >
-                <DialogContent className="max-w-[90%] sm:max-w-[425px] z-[1000]">
-                    <DialogHeader>
-                        <DialogTitle>{dialogTitle}</DialogTitle>
-                    </DialogHeader>
-
-                    <DialogBody>{dialogBody}</DialogBody>
-                </DialogContent>
-            </Dialog>
+                setOpen={setIsModalOpen}
+                title={dialogTitle}
+                description={dialogBody}
+            />
         </>
     );
 }

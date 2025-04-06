@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { Prize } from "@/src/util/dataTypes";
 
@@ -8,6 +8,7 @@ export interface CardProps {
     prize: Prize;
     hackeroonAmount?: number;
     setHackeroonAmount?: React.Dispatch<React.SetStateAction<number>>;
+    selectedItems?: Prize[];
     setSelectedItems?: React.Dispatch<React.SetStateAction<Prize[]>>;
 }
 
@@ -15,6 +16,7 @@ export default function PrizeCard({
     prize,
     hackeroonAmount,
     setHackeroonAmount,
+    selectedItems,
     setSelectedItems,
 }: CardProps) {
     const enablePurchasing =
@@ -22,8 +24,10 @@ export default function PrizeCard({
         setHackeroonAmount != null &&
         setSelectedItems != null;
 
-    const [isItemBought, setIsItemBought] = useState(false);
-    const [prizeStock, setPrizeStock] = useState(prize.stock);
+    const isItemBought =
+        selectedItems?.some((selectedPrize) => selectedPrize.id === prize.id) ??
+        false;
+    const prizeStock = prize.stock - (isItemBought ? 1 : 0);
 
     const buyItem = (itemPrice: number) => {
         if (!enablePurchasing) return;
@@ -34,13 +38,9 @@ export default function PrizeCard({
             prizeStock > 0
         ) {
             setHackeroonAmount((prev) => prev - itemPrice);
-            setIsItemBought(true);
-            setPrizeStock((prev) => prev - 1);
             setSelectedItems((prev) => [...prev, prize]);
         } else if (isItemBought) {
             setHackeroonAmount((prev) => prev + itemPrice);
-            setIsItemBought(false);
-            setPrizeStock((prev) => prev + 1);
             setSelectedItems((prev) =>
                 prev.filter((item) => item.id !== prize.id),
             );

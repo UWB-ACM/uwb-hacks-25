@@ -82,10 +82,10 @@ export async function createTransaction(
                     sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
                     sql`INSERT INTO transactions ("user", type, amount, authorized_by, event) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${event} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0) RETURNING id, time;`,
                 ])
-            )[1];
+            )[2];
 
             if (data.length !== 0) {
-                data[0]["event_name"] = eventName;
+                data[0]["event_name"] = eventName[0]["name"];
             }
 
             break;
@@ -119,10 +119,10 @@ export async function createTransaction(
                     sql`SELECT 1 FROM prizes WHERE id=${prize} FOR UPDATE;`,
                     sql`INSERT INTO transactions ("user", type, amount, authorized_by, prize) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${prize} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0 AND (SELECT Count(*) FROM transactions WHERE transactions.prize=${prize}) < (SELECT initial_stock FROM prizes WHERE id=${prize})) RETURNING id, time;`,
                 ])
-            )[1];
+            )[2];
 
             if (data.length !== 0) {
-                data[0]["prize_name"] = prizeName;
+                data[0]["prize_name"] = prizeName[0]["name"];
             }
 
             break;
