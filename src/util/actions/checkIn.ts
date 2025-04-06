@@ -5,15 +5,22 @@ import { addCode, getCodeData, removeCode } from "@/src/util/tempCode";
 import { checkInUser } from "@/src/util/db/checkIn";
 import { ensureStaffPermission } from "@/src/util/staff";
 import { redirect } from "next/navigation";
+import { getEventById } from "@/src/util/db/event";
+import { Event } from "@/src/util/dataTypes";
 
 /**
  * Validates that the check-in code is valid, and, if it is,
  * checks the currently logged-in user in to the event.
- * This is idempotent, so multiple calls will only result in a single
- * check-in.
+ * On success, this returns the event that the
+ * user checked in to.
+ * If the user already checked in to the event, then
+ * alreadyCheckin is true.
+ * Otherwise, null.
  * @param code - is the code to check-in with.
  */
-export async function actionValidateCheckin(code: string): Promise<boolean> {
+export async function actionValidateCheckin(
+    code: string,
+): Promise<Event | { alreadyCheckin: true } | null> {
     const session = await getSession();
     if (!session.user?.id) return redirect("/");
 
@@ -24,13 +31,31 @@ export async function actionValidateCheckin(code: string): Promise<boolean> {
      */
     const codeData = await getCodeData(code);
     if (codeData == null || codeData.event == null) {
-        return false;
+        return null;
     }
 
-    // This is idempotent and won't check in users multiple times.
-    await checkInUser(session.user.id, codeData.event, codeData.authorized_by);
+    const eventData = getEventById(codeData.event);
 
-    return true;
+    // This is idempotent and won't check in users multiple times.
+    const success = await checkInUser(
+        session.user.id,
+        codeData.event,
+        codeData.authorized_by,
+    );
+
+    if (!success) {
+        return null;
+    }
+
+    if (typeof success === "object" && "alreadyCheckin" in success) {
+        return { alreadyCheckin: true };
+    }
+
+    // In theory, eventData could return null even if checkInUser
+    // succeeds, but that can only really happen if event deletion
+    // races with check-in, and even if it does, the only consequence
+    // is that we say it failed when it didn't.
+    return await eventData;
 }
 
 /**
