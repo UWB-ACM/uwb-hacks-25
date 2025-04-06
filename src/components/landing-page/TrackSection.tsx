@@ -124,7 +124,7 @@ const TracksSection = () => {
             y: "100vh",
             x: lidPopLeft ? "-75%" : "75%",
             rotate: lidPopLeft ? "-120deg" : "120deg",
-            duration: 1.3,
+            duration: 1,
         });
     };
 
@@ -143,10 +143,10 @@ const TracksSection = () => {
                     onClick={handleBoxOpen}
                     className="relative"
                 >
-                    <MysteryBox className="w-[200px] md:w-[325px] lg:w-[375px] xl:w-[400px] h-fit" />
+                    <MysteryBox className="w-[200px] md:w-[325px] lg:w-[375px] h-fit" />
                     <MysteryBoxLid
                         ref={mysteryBoxLidRef}
-                        className="absolute top-0 w-[200px] md:w-[325px] lg:w-[375px] xl:w-[400px] h-fit"
+                        className="absolute top-0 w-[200px] md:w-[325px] lg:w-[375px] h-fit"
                     />
                 </button>
                 <p className="font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6">
