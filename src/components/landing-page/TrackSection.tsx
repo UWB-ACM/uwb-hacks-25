@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 // Panel components
@@ -17,18 +17,28 @@ import QuestionMark from "./(TracksSectionComponents)/QuestionMark";
 
 const TracksSection = () => {
     const tlRef = useRef<gsap.core.Timeline | null>(null);
+    const mysteryBoxRef = useRef(null);
 
+    const [boxOpened, setBoxOpened] = useState(false);
+
+    // Initial animation for mystery box
     useEffect(() => {
+        const mysteryBox = mysteryBoxRef.current;
+
+        if (!mysteryBox) return;
+
         tlRef.current = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
 
         const shakeMysteryBox = () => {
-            tlRef.current?.to(".box", {
+            if (!tlRef.current) return;
+
+            tlRef.current.to(mysteryBox, {
                 x: 20,
                 rotate: "5deg",
                 duration: 0.15,
                 ease: "power1.out",
             });
-            tlRef.current?.to(".box", {
+            tlRef.current.to(mysteryBox, {
                 x: -20,
                 rotate: "-5deg",
                 duration: 0.15,
@@ -36,7 +46,7 @@ const TracksSection = () => {
             });
         };
 
-        tlRef.current.to(".box", {
+        tlRef.current.to(mysteryBox, {
             y: "-2vh",
             duration: 0.75,
             ease: "bounce.in",
@@ -44,8 +54,25 @@ const TracksSection = () => {
         for (let idx = 0; idx < 3; idx++) {
             shakeMysteryBox();
         }
-        tlRef.current.to(".box", { y: 0, x: 0, rotate: 0, duration: 0.3 });
+        tlRef.current.to(mysteryBox, { x: 0, y: 0, rotate: 0, duration: 0.3 });
     }, []);
+
+    const handleBoxOpen = () => {
+        const mysteryBox = mysteryBoxRef.current;
+
+        if (!tlRef.current || !mysteryBox) return;
+
+        setBoxOpened(true);
+
+        tlRef.current.kill();
+        tlRef.current = gsap.timeline();
+        tlRef.current.to(mysteryBox, { x: 0, rotate: 0 });
+        tlRef.current.to(mysteryBox, {
+            delay: 0.5,
+            y: 0,
+            duration: 0.5,
+        });
+    };
 
     return (
         <Panel className="mt-12 md:mt-16" panelColor="white">
@@ -57,10 +84,14 @@ const TracksSection = () => {
                 Tracks
             </PanelHeader>
             <PanelContent className="relative flex flex-col items-center">
-                <div className="relative box">
+                <button
+                    ref={mysteryBoxRef}
+                    onClick={handleBoxOpen}
+                    className="relative"
+                >
                     <MysteryBox className="w-[200px] md:w-[325px] lg:w-[375px] xl:w-[400px] h-fit" />
                     <MysteryBoxLid className="absolute top-0 w-[200px] md:w-[325px] lg:w-[375px] xl:w-[400px] h-fit" />
-                </div>
+                </button>
                 <p className="font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6">
                     All hackathon tracks will be unveiled on the day of the
                     hackathon!
