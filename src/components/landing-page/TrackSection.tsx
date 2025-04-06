@@ -34,14 +34,14 @@ const TracksSection = () => {
             if (!tlRef.current) return;
 
             tlRef.current.to(mysteryBox, {
-                x: 20,
-                rotate: "5deg",
+                x: 5,
+                rotate: "2.5deg",
                 duration: 0.15,
                 ease: "power1.out",
             });
             tlRef.current.to(mysteryBox, {
-                x: -20,
-                rotate: "-5deg",
+                x: -5,
+                rotate: "-2.5deg",
                 duration: 0.15,
                 ease: "power1.out",
             });
