@@ -11,7 +11,7 @@ export default async function ModifyPrizePage() {
     const events = getEvents();
 
     return (
-        <div className="w-screen min-h-screen">
+        <div className="w-full min-h-screen">
             <EventClientWrapper events={events} />
         </div>
     );
