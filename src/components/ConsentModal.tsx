@@ -15,9 +15,10 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Session, SessionUser } from "@/src/util/session";
 import {
+    actionDeleteUserSelf,
     actionSetUserLeaderboardConsent,
     actionSetUserTerms,
-} from "@/src/util/actions/consent";
+} from "@/src/util/actions/user";
 
 export default function ConsentModal({
     sessionPromise,
@@ -61,8 +62,8 @@ function ConsentModalInner({
         router.refresh();
     };
 
-    const handleDelete = () => {
-        // TODO: Implement account deletion logic
+    const handleDelete = async () => {
+        await actionDeleteUserSelf();
 
         // The user is now logged out.
         router.refresh();

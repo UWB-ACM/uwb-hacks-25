@@ -14,6 +14,7 @@ import AdminActionsUser from "@/src/components/dashboards/AdminActionsUser";
 import StaffActionsUser from "@/src/components/dashboards/StaffActionsUser";
 import StaffQRScanner from "@/src/components/dashboards/staff/StaffQRScanner";
 import StaffUserSelector from "@/src/components/dashboards/staff/StaffUserSelector";
+import DeleteAccountButton from "@/src/components/dashboards/userdashboard/DeleteAccountButton";
 
 export default async function DashboardPage({
     selectedID,
@@ -96,6 +97,13 @@ export default async function DashboardPage({
                     </div>
                 </div>
             )}
+
+            {/* Delete account section */}
+            <div className="text-center">
+                <h2 className="text-3xl py-2">Danger Zone</h2>
+
+                <DeleteAccountButton />
+            </div>
         </>
     );
 }
