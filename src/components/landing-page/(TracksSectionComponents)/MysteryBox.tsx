@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, {
+    useRef,
+    useState,
+    useEffect,
+    Dispatch,
+    SetStateAction,
+} from "react";
 import gsap from "gsap";
 
 // Mystery box components
@@ -16,9 +22,13 @@ import {
 
 type MysteryBoxProps = {
     contents: string[];
+    setShowTracks: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function MysteryBox({ contents }: MysteryBoxProps) {
+export default function MysteryBox({
+    contents,
+    setShowTracks,
+}: MysteryBoxProps) {
     const tlRef = useRef<gsap.core.Timeline | null>(null);
     const mysteryBoxRef = useRef<HTMLButtonElement | null>(null);
     const mysteryBoxLidRef = useRef<SVGSVGElement | null>(null);
@@ -75,6 +85,7 @@ export default function MysteryBox({ contents }: MysteryBoxProps) {
                     duration: 1,
                     ease: "power1.out",
                     scale: 1,
+                    onComplete: () => setShowTracks(true),
                 },
                 "<",
             );
