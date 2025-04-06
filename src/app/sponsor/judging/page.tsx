@@ -2,7 +2,7 @@ import React from "react";
 
 function Page() {
     return (
-        <div className="flex flex-col w-screen h-[100vh] items-center">
+        <div className="flex flex-col w-full h-[100vh] items-center">
             <div className="max-w-[1000px] flex flex-col">
                 <div className="text-center p-6 md:p-8 mb-2 md:mb-4 px-4 overflow-x-auto">
                     <h1 className="font-h1 text-4xl md:text-5xl">
