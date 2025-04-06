@@ -18,6 +18,7 @@ import QuestionMark from "./(TracksSectionComponents)/QuestionMark";
 const TracksSection = () => {
     const tlRef = useRef<gsap.core.Timeline | null>(null);
     const mysteryBoxRef = useRef(null);
+    const mysteryBoxLidRef = useRef(null);
 
     const [boxOpened, setBoxOpened] = useState(false);
 
@@ -59,8 +60,9 @@ const TracksSection = () => {
 
     const handleBoxOpen = () => {
         const mysteryBox = mysteryBoxRef.current;
+        const mysteryBoxLid = mysteryBoxLidRef.current;
 
-        if (!tlRef.current || !mysteryBox) return;
+        if (!tlRef.current || !mysteryBox || !mysteryBoxLid) return;
 
         setBoxOpened(true);
 
@@ -68,9 +70,41 @@ const TracksSection = () => {
         tlRef.current = gsap.timeline();
         tlRef.current.to(mysteryBox, { x: 0, rotate: 0 });
         tlRef.current.to(mysteryBox, {
-            delay: 0.5,
             y: 0,
-            duration: 0.5,
+            duration: 1,
+        });
+        tlRef.current.to(mysteryBox, {
+            delay: 0.5,
+            duration: 0.2,
+            y: -10,
+            ease: "power2.out",
+        });
+        tlRef.current.to(mysteryBox, {
+            y: 0,
+            duration: 0.2,
+            ease: "power2.in",
+        });
+        tlRef.current.to(mysteryBox, {
+            delay: 0.5,
+            duration: 0.2,
+            y: -15,
+            ease: "power2.out",
+        });
+        tlRef.current.to(mysteryBox, {
+            y: 0,
+            duration: 0.2,
+            ease: "power2.in",
+        });
+        tlRef.current.to(mysteryBox, {
+            delay: 0.5,
+            duration: 0.2,
+            y: -20,
+            ease: "power2.out",
+        });
+        tlRef.current.to(mysteryBox, {
+            y: 0,
+            duration: 0.2,
+            ease: "power2.in",
         });
     };
 
@@ -90,7 +124,7 @@ const TracksSection = () => {
                     className="relative"
                 >
                     <MysteryBox className="w-[200px] md:w-[325px] lg:w-[375px] xl:w-[400px] h-fit" />
-                    <MysteryBoxLid className="absolute top-0 w-[200px] md:w-[325px] lg:w-[375px] xl:w-[400px] h-fit" />
+                    <MysteryBoxLid ref={mysteryBoxLidRef} className="absolute top-0 w-[200px] md:w-[325px] lg:w-[375px] xl:w-[400px] h-fit" />
                 </button>
                 <p className="font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6">
                     All hackathon tracks will be unveiled on the day of the

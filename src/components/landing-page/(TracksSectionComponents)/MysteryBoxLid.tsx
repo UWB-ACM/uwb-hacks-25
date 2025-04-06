@@ -1,12 +1,14 @@
 import React from "react";
 
 type MysteryBoxLidProps = {
+    ref: React.RefObject<null>;
     className?: string;
 };
 
-export default function MysteryBoxLid({ className }: MysteryBoxLidProps) {
+export default function MysteryBoxLid({ className, ref }: MysteryBoxLidProps) {
     return (
         <svg
+            ref={ref}
             width="574"
             height="423"
             viewBox="0 0 574 423"
