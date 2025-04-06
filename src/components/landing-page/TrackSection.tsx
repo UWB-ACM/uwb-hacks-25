@@ -21,47 +21,29 @@ const TracksSection = () => {
     useEffect(() => {
         tlRef.current = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
 
+        const shakeMysteryBox = () => {
+            tlRef.current?.to(".box", {
+                x: 20,
+                rotate: "5deg",
+                duration: 0.15,
+                ease: "power1.out",
+            });
+            tlRef.current?.to(".box", {
+                x: -20,
+                rotate: "-5deg",
+                duration: 0.15,
+                ease: "power1.out",
+            });
+        };
+
         tlRef.current.to(".box", {
             y: "-2vh",
             duration: 0.75,
             ease: "bounce.in",
         });
-        tlRef.current.to(".box", {
-            x: 20,
-            rotate: "5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", {
-            x: -20,
-            rotate: "-5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", {
-            x: 20,
-            rotate: "5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", {
-            x: -20,
-            rotate: "-5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", {
-            x: 20,
-            rotate: "5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", {
-            x: -20,
-            rotate: "-5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
+        for (let idx = 0; idx < 3; idx++) {
+            shakeMysteryBox();
+        }
         tlRef.current.to(".box", { y: 0, x: 0, rotate: 0, duration: 0.3 });
     }, []);
 
