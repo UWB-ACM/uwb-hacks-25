@@ -73,6 +73,16 @@ const TracksSection = () => {
                 duration: 0.2,
                 y: -10 + i * -5,
                 ease: "power2.out",
+                onStart: () => {
+                    gsap.to(mysteryBoxLid, {
+                        x: (i + 1) * (i % 2 == 0 ? -5 : 5),
+                        y: (i + 1) * -10,
+                        rotate: (i + 1) * (i % 2 == 0 ? -2.5 : 2.5),
+                    });
+                },
+                onComplete: () => {
+                    gsap.to(mysteryBoxLid, { x: 0, y: 0, rotate: 0 });
+                },
             });
             tlRef.current.to(mysteryBox, {
                 y: 0,
