@@ -1,5 +1,10 @@
 import React from "react";
 import Header from "@/src/components/header/Header";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms of Service | UWB Hacks 25",
+};
 
 const TermsOfService = () => {
     return (
