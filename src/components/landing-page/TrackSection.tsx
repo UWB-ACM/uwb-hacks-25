@@ -59,12 +59,14 @@ const TracksSection = () => {
     }, []);
 
     const handleBoxOpen = () => {
+        if (boxOpened) return;
+
+        setBoxOpened(true);
+
         const mysteryBox = mysteryBoxRef.current;
         const mysteryBoxLid = mysteryBoxLidRef.current;
 
         if (!tlRef.current || !mysteryBox || !mysteryBoxLid) return;
-
-        setBoxOpened(true);
 
         const bounceBox = (i: number) => {
             if (!tlRef.current) return;
@@ -102,6 +104,28 @@ const TracksSection = () => {
         for (let i = 0; i < 3; i++) {
             bounceBox(i);
         }
+
+        const lidPopLeft = Math.random() >= 0.5 ? true : false;
+
+        tlRef.current.to(mysteryBoxLid, {
+            delay: 0.5,
+            scale: 0.8,
+            y: "-50vh",
+            x: lidPopLeft ? "-35%" : "35%",
+            rotate: lidPopLeft ? "-50deg" : "50deg",
+            duration: 0.2,
+        });
+
+        tlRef.current.set(mysteryBoxLid, { zIndex: -5 });
+
+        tlRef.current.to(mysteryBoxLid, {
+            delay: 0.75,
+            scale: 0,
+            y: "100vh",
+            x: lidPopLeft ? "-75%" : "75%",
+            rotate: lidPopLeft ? "-120deg" : "120deg",
+            duration: 1.3,
+        });
     };
 
     return (
