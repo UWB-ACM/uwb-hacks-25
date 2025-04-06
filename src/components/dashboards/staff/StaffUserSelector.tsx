@@ -23,7 +23,7 @@ function StaffUserSelector({ users }: { users: Promise<User[]> }) {
             dialogName="User Selector"
             id={(user) => user.id}
             email={(user) => user.email}
-            title={(user) => user.name + " / " + user.id + " / "}
+            title={(user) => user.name + " / " + user.id}
             description={(user) => user.email}
             imageURL={(user) => user.picture}
             onClick={(user) => {
