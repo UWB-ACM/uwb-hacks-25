@@ -5,8 +5,12 @@ import { committees } from "@/src/components/landing-page/(MeetTheTeamSectionCom
 import CommitteeTabs from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/CommitteeTabs";
 import MembersGrid from "@/src/components/landing-page/(MeetTheTeamSectionComponents)/MembersGrid";
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
+import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
+import PanelContent from "./(AboutSectionComponents)/Panel/Content";
 
 const MeetTheTeamSection = () => {
+    const panelMargin = "mt-12 md:mt-16";
+
     const [activeCommitteeId, setActiveCommitteeId] = useState(
         committees[0].id,
     );
@@ -16,13 +20,16 @@ const MeetTheTeamSection = () => {
     );
 
     return (
-        <Panel panelColor="white" className="mt-10 mb-20">
-            <div className="p-6 space-y-8">
-                {/* Heading */}
-                <h2 className="[color:#49B2F8] text-center [font-family:san-marino-beach] text-5xl">
-                    MEET THE LEAGUE
-                </h2>
+        <Panel panelColor="white" className={panelMargin}>
+            {/* Heading */}
+            <PanelHeader
+                className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
+                isSectionHeader
+            >
+                Meet the League
+            </PanelHeader>
 
+            <PanelContent className="space-y-8">
                 {/* Tabs */}
                 <CommitteeTabs
                     committees={committees}
@@ -34,7 +41,7 @@ const MeetTheTeamSection = () => {
                 {activeCommittee && (
                     <MembersGrid members={activeCommittee.members} />
                 )}
-            </div>
+            </PanelContent>
         </Panel>
     );
 };

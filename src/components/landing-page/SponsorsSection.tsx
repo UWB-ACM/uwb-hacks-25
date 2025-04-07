@@ -1,27 +1,28 @@
 import Image from "next/image";
-import SponsorBGImage from "@/public/sponsorsSection/sponsor-bg.svg";
 import UWBStemImage from "@/public/sponsorsSection/uwb-stem.png";
 import UWBBusinessImage from "@/public/sponsorsSection/uwb-business.png";
 import AvanadeImage from "@/public/sponsorsSection/avanade-logo.svg";
 import Link from "next/link";
 
+import Panel from "./(AboutSectionComponents)/Panel/Panel";
+import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
+import PanelContent from "./(AboutSectionComponents)/Panel/Content";
+
 const SponsorsSection = () => {
+    const panelMargin = "mt-12 md:mt-16";
+
     return (
-        <div className="relative bg-white border-black border-2 py-16 px-8 sm:mt-[10rem] mb-10 my-4 overflow-hidden">
-            <Image
-                className="absolute inset-0 -z-10 object-cover w-full h-full"
-                alt="background img"
-                src={SponsorBGImage}
-                fill
-            />
+        <Panel className={panelMargin} panelColor="white">
+            <PanelHeader
+                className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
+                isSectionHeader
+            >
+                UWB HACKS 2025 SPONSORS
+            </PanelHeader>
 
-            <div className="container mx-auto flex flex-col items-center">
-                <h2 className="text-[#49B2F8] text-5xl md:text-6xl text-center mb-20 font-h1">
-                    UWB HACKS 2025 SPONSORS
-                </h2>
-
+            <PanelContent className="w-full flex flex-col items-center">
                 {/* Main sponsors row */}
-                <div className="w-full flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-16">
+                <div className="w-full flex flex-wrap justify-center items-center gap-8 md:gap-16">
                     <div className="flex justify-center items-center">
                         <Link href="https://www.uwb.edu/stem/" target="_blank">
                             <Image
@@ -76,8 +77,8 @@ const SponsorsSection = () => {
                         */}
                     </div>
                 </div>
-            </div>
-        </div>
+            </PanelContent>
+        </Panel>
     );
 };
 
