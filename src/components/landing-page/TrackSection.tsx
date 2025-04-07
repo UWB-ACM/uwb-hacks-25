@@ -35,9 +35,14 @@ const TracksSection = () => {
 
     return (
         <Panel className="mt-12 md:mt-16" panelColor="white">
+            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[10%] left-[8%] rotate-[19deg]" />
+            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[20%] right-[14%] -rotate-[15deg]" />
+            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[10%] left-[16%] rotate-[28deg]" />
+            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[3%] right-[20%] -rotate-[40deg]" />
+
             <PanelHeader
                 as="h2"
-                className="text-[#49B2F8] border-none lg:w-full pb-0"
+                className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
                 isSectionHeader
             >
                 Tracks

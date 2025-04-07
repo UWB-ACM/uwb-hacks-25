@@ -1,6 +1,6 @@
 {
     "contents": {
-        "preHackathonContents": ["All hackathon tracks will be unveiled on the day of the hackathon!"],
+        "preHackathonContents": ["Hackathon tracks will be unveiled on the day of the hackathon!"],
         "duringHackathonContents": ["track1", "track2", "track3", "track4", "track5"]
     }
 }

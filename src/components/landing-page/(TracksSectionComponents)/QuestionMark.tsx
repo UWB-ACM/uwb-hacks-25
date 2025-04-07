@@ -1,4 +1,6 @@
 import React from "react";
+import { twMerge } from "tailwind-merge";
+import clsx from "clsx";
 
 type QuestionMarkProps = {
     className?: string;
@@ -9,8 +11,7 @@ export default function QuestionMark({ className }: QuestionMarkProps) {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
-            width="168px"
-            height="265px"
+            viewBox="0 0 168 265"
             style={{
                 shapeRendering: "geometricPrecision",
                 textRendering: "geometricPrecision",
@@ -18,7 +19,7 @@ export default function QuestionMark({ className }: QuestionMarkProps) {
                 fillRule: "evenodd",
                 clipRule: "evenodd",
             }}
-            className={className}
+            className={twMerge(clsx("absolute opacity-10", className))}
         >
             <g>
                 <path
