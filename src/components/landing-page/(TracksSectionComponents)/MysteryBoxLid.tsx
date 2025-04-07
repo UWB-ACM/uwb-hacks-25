@@ -11,7 +11,7 @@ export default function MysteryBoxLid({ className, ref }: MysteryBoxLidProps) {
         <div ref={ref} className={className}>
             <Image
                 src={"/tracksSection/mystery-box-lid-optimized.svg"}
-                alt={"Question Mark"}
+                alt={"Mystery Box Lid"}
                 width={0}
                 height={0}
                 style={{ width: "100%", height: "auto" }}
