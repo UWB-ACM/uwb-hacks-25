@@ -13,6 +13,7 @@ import {
     DialogTrigger,
 } from "@/src/components/ui/dialog";
 import Image from "next/image";
+import Input from "@/src/components/ui/Input";
 
 export interface SelectorProps<T> {
     items: Promise<T[]>;
@@ -23,10 +24,12 @@ export interface SelectorProps<T> {
     description: (value: T) => string;
     imageURL?: (value: T) => string;
     onClick: (value: T) => void;
+    search?: boolean;
 }
 
 export default function Selector<T>(props: SelectorProps<T>) {
     const [isOpen, setIsOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => setIsOpen(open)}>
@@ -38,8 +41,10 @@ export default function Selector<T>(props: SelectorProps<T>) {
                     <DialogTitle>{props.dialogName}</DialogTitle>
                 </DialogHeader>
 
+                {props.search && <Input value={searchTerm} setValue={setSearchTerm} />}
+
                 <Suspense fallback={<div>Please wait.</div>}>
-                    <Cards {...props} setIsOpen={setIsOpen} />
+                    <Cards {...props} setIsOpen={setIsOpen} searchTerm={searchTerm}/>
                 </Suspense>
             </DialogContent>
         </Dialog>
@@ -47,13 +52,20 @@ export default function Selector<T>(props: SelectorProps<T>) {
 }
 
 function Cards<T>(
-    props: SelectorProps<T> & { setIsOpen: Dispatch<SetStateAction<boolean>> },
+    props: SelectorProps<T> & { setIsOpen: Dispatch<SetStateAction<boolean>>, searchTerm: string },
 ) {
     const itemList = use(props.items);
 
+    const filteredItems = itemList.filter((item) => {
+        const combinedInfo = props.title(item) + props.description(item) + props.id;
+        return combinedInfo
+            .toLowerCase()
+            .includes(props.searchTerm.toLowerCase());
+    });
+
     return (
         <div className="max-h-full overflow-auto flex flex-col gap-3 px-5">
-            {itemList.map((item) => (
+            {filteredItems.map((item) => (
                 <Card key={props.id(item)} {...props} item={item} />
             ))}
         </div>
