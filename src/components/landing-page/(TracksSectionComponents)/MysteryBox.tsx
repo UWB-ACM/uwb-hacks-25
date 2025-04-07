@@ -84,7 +84,7 @@ export default function MysteryBox({
                     y: "-100vh",
                     x: xOffset,
                     rotate: `${(idx - Math.floor(contentElements.length / 2)) * 30}deg`,
-                    duration: 0.6,
+                    duration: 0.3,
                     ease: "power1.out",
                     scale: 1,
                     onComplete: () => setShowTracks(true),
