@@ -26,7 +26,6 @@ const shakeMysteryBox = (
     tlRef.current.to(mysteryBox, {
         y: "-2vh",
         duration: 0.75,
-        ease: "bounce.in",
     });
     for (let idx = 0; idx < 3; idx++) {
         shake();
