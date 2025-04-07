@@ -18,7 +18,11 @@ function StaffUserSelector({ users }: { users: Promise<User[]> }) {
             description={(user) => user.email}
             imageURL={(user) => user.picture}
             onClick={(user) => {
-                router.push("/dashboard/" + user.id);
+                router.push("/dashboard/" + user.id, {
+                    // This makes QR scanning on the dashboard
+                    // more seamless.
+                    scroll: false,
+                });
             }}
         />
     );
