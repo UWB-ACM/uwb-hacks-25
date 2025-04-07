@@ -79,11 +79,6 @@ export default function PrizeCard({
                 </div>
             </div>
 
-            {/* Description Row */}
-            {/* <div className="w-full mb-4 bg-yellow-300 text-black font-comic rounded-md p-2 border-[2px] border-black">
-                <p className="text-sm text-center">{prize.description}</p>
-            </div> */}
-
             {/* Buy/Remove Button */}
             {enablePurchasing && (
                 <button
