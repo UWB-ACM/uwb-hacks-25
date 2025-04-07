@@ -24,6 +24,7 @@ function StaffQRScanner() {
             <DialogTrigger className="bg-blue-300 border-[1px] border-black rounded-xl p-4">
                 Scan QR Code
             </DialogTrigger>
+
             <DialogContent className="max-w-[90%] sm:max-w-[425px] z-[1000]">
                 <DialogHeader>
                     <DialogTitle>QR Code Scanner</DialogTitle>
