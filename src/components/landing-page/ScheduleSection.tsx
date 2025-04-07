@@ -2,16 +2,21 @@ import React from "react";
 import Image from "next/image";
 import AccentImage from "@/public/accent.webp";
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
+import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
+import PanelContent from "./(AboutSectionComponents)/Panel/Content";
 
 const ScheduleSection: React.FC = () => {
+    const panelMargin = "mt-12 md:mt-16";
+
     return (
-        <Panel panelColor="white" className="mt-10 mb-20">
-            <div className="self-center col-span-1 mt-[2rem] sm:mt-[4rem] md:col-span-3 ">
-                <h2 className="[color:#49B2F8] text-center [font-family:san-marino-beach] text-5xl">
-                    SCHEDULE
-                </h2>
-            </div>
-            <div className="p-6 md:p-6 grid gap-y-6 gap-x-6 [grid-template-columns:repeat(1,1fr)] md:[grid-template-columns:repeat(3,1fr)] mb-[3rem]">
+        <Panel panelColor="white" className={panelMargin}>
+            <PanelHeader
+                className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
+                isSectionHeader
+            >
+                Schedule
+            </PanelHeader>
+            <PanelContent className="grid gap-y-6 gap-x-6 md:grid-cols-3">
                 <ScheduleCard
                     day="DAY 1"
                     date="4/25 FRI"
@@ -117,7 +122,7 @@ const ScheduleSection: React.FC = () => {
                     ]}
                     accentPosition="bottom-left"
                 />
-            </div>
+            </PanelContent>
         </Panel>
     );
 };
