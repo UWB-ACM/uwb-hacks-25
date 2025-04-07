@@ -12,7 +12,7 @@ export default function MysteryBoxContainer({
         <div className={className}>
             <Image
                 src={"/tracksSection/mystery-box-optimized.svg"}
-                alt={"Question Mark"}
+                alt={"Mystery Box Container"}
                 width={0}
                 height={0}
                 style={{ width: "100%", height: "auto" }}
