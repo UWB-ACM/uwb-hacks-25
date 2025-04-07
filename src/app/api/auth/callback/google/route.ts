@@ -53,7 +53,13 @@ export async function GET(request: Request) {
                 data.picture || null,
             ));
 
+        // Pick up the saved previous page
+        // during authentication and go back to it.
+        const redirectAfter = session.redirectAfter;
+
         delete session.googleState;
+        delete session.redirectAfter;
+
         if (user) {
             session.user = {
                 id: user.id,
@@ -65,7 +71,11 @@ export async function GET(request: Request) {
 
         await saveSession(session);
 
-        return NextResponse.redirect(new URL("/", request.url));
+        if (redirectAfter) {
+            return NextResponse.redirect(new URL(redirectAfter, request.url));
+        } else {
+            return NextResponse.redirect(new URL("/", request.url));
+        }
     } catch (error) {
         console.error(error);
         return new NextResponse(null, { status: 500 });
