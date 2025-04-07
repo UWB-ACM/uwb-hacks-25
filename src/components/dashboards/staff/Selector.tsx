@@ -41,10 +41,16 @@ export default function Selector<T>(props: SelectorProps<T>) {
                     <DialogTitle>{props.dialogName}</DialogTitle>
                 </DialogHeader>
 
-                {props.search && <Input value={searchTerm} setValue={setSearchTerm} />}
+                {props.search && (
+                    <Input value={searchTerm} setValue={setSearchTerm} />
+                )}
 
                 <Suspense fallback={<div>Please wait.</div>}>
-                    <Cards {...props} setIsOpen={setIsOpen} searchTerm={searchTerm}/>
+                    <Cards
+                        {...props}
+                        setIsOpen={setIsOpen}
+                        searchTerm={searchTerm}
+                    />
                 </Suspense>
             </DialogContent>
         </Dialog>
@@ -52,12 +58,16 @@ export default function Selector<T>(props: SelectorProps<T>) {
 }
 
 function Cards<T>(
-    props: SelectorProps<T> & { setIsOpen: Dispatch<SetStateAction<boolean>>, searchTerm: string },
+    props: SelectorProps<T> & {
+        setIsOpen: Dispatch<SetStateAction<boolean>>;
+        searchTerm: string;
+    },
 ) {
     const itemList = use(props.items);
 
     const filteredItems = itemList.filter((item) => {
-        const combinedInfo = props.title(item) + props.description(item) + props.id;
+        const combinedInfo =
+            props.title(item) + props.description(item) + props.id;
         return combinedInfo
             .toLowerCase()
             .includes(props.searchTerm.toLowerCase());
