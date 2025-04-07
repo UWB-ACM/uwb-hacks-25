@@ -34,7 +34,6 @@ export default function Selector<T>(props: SelectorProps<T>) {
                 {props.buttonName}
             </DialogTrigger>
             <DialogContent className="z-[1000] max-w-[90%] sm:max-w-[425px] max-h-[80%] overflow-hidden flex flex-col">
-
                 <DialogHeader>
                     <DialogTitle>{props.dialogName}</DialogTitle>
                 </DialogHeader>
