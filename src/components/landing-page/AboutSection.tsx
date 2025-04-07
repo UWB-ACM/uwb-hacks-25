@@ -225,6 +225,12 @@ const AboutSection: React.FC = () => {
                     <PanelContent>
                         {/* Hackeroon Prizes Carousel */}
                         <HackeroonCarousel />
+
+                        <div className="flex lg:justify-end justify-center mt-2 md:mt-4">
+                            <Button href={"/hackeroon-shop"} color={"yellow"}>
+                                Go to Marketplace
+                            </Button>
+                        </div>
                     </PanelContent>
                 </Panel>
 
