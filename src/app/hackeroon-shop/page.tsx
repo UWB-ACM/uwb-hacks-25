@@ -15,6 +15,25 @@ export default async function PrizesPage() {
         return [];
     });
 
+    const retrievePrizeImage = (prizeName: string) => {
+        switch (prizeName) {
+            case "Wireless Bank Charger":
+                return "/hackeroonShop/powerBank.jpeg";
+            case "Lap Desk":
+                return "/hackeroonShop/lapDesk.jpeg";
+            case "Pickleball Set":
+                return "/hackeroonShop/pickleballSet.png";
+            case "Dual Handle Lunch Bag":
+                return "/hackeroonShop/lunchBag.png";
+            case "Adidas Fleece Hoodie":
+                return "/hackeroonShop/adidasFleeceHoodie.png";
+            case "Backpack":
+                return "/hackeroonShop/backpack.jpeg";
+            default:
+                return "globe.svg";
+        }
+    };
+
     return (
         <div className="w-full min-h-full flex flex-col">
             <Header
@@ -52,23 +71,29 @@ export default async function PrizesPage() {
                 ]}
             />
 
-            <h1 className="font-san-marino-beach text-5xl text-[#2886c4] pb-8 text-center">
+            <h1 className="font-san-marino-beach text-5xl text-[#2886c4] text-center mt-8">
                 Hackeroon Shop
             </h1>
 
-            {/* TODO: Update actual prizes and remove the "DEMO" text below. */}
+            {/* TODO: Update actual prizes */}
             {/* TODO: Insert prize stand location below. */}
+            <div className="flex justify-center">
+                <p className="mt-4 font-h1 text-3xl text-[#39a8f1] text-center w-[90%] md:w-[80%]">
+                    Check out what your hackeroons can buy!
+                </p>
+            </div>
 
-            <p className="self-center text-center max-w-[80%] md:max-w-[50%] text-lg">
-                DEMO-ONLY: THE ITEMS LISTED HERE ARE FOR TESTING PURPOSES AND
-                WILL NOT BE OFFERED DURING THE EVENT. Check out what your
-                hackeroons can buy! Prizes are offered on a
-                first-come-first-serve basis, and can be purchased at our prize
-                stand in-person [INSERT LOCATION].
+            <p className="self-center text-center max-w-[80%] md:max-w-[50%] font-bold">
+                Prizes are offered on a first-come-first-serve basis
             </p>
+
             <div className="w-full flex-grow p-8 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {prizes.map((prize, index) => (
-                    <PrizeCard key={index} prize={prize} />
+                    <PrizeCard
+                        key={index}
+                        prize={prize}
+                        prizeImage={retrievePrizeImage(prize.name)}
+                    />
                 ))}
             </div>
         </div>
