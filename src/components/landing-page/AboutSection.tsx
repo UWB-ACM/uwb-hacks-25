@@ -75,12 +75,11 @@ const AboutSection: React.FC = () => {
                                 Register for UWB Hacks!
                             </Button>
                             <Button
-                                href={"https://discord.gg/6AapzPNvRy"}
-                                target="_blank"
+                                href={"/dashboard"}
                                 color="yellow"
                                 fontSize={12}
                             >
-                                Learn more on our Discord!
+                                Open Dashboard
                             </Button>
                         </div>
                     </div>
