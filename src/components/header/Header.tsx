@@ -42,7 +42,11 @@ export default function Header({
                 <HeaderDesktop links={links} wrapH1={wrapH1} banner={banner} />
             </div>
             <div className="block md:hidden">
-                <HeaderMobile wrapH1={wrapH1} setSideNav={setSideNav} banner={banner}/>
+                <HeaderMobile
+                    wrapH1={wrapH1}
+                    setSideNav={setSideNav}
+                    banner={banner}
+                />
             </div>
 
             <HeaderSidebar
@@ -165,9 +169,7 @@ function HeaderMobile({
 
     return (
         <nav className="">
-            <MobileBanner
-                bannerVisible={bannerVisible}
-            />
+            <MobileBanner bannerVisible={bannerVisible} />
             <div className="flex items-center justify-around lg:justify-between h-28 lg:px-20 w-full min-w-72">
                 <UWBHacksButton wrapH1={wrapH1} mobile />
                 <HeaderSidebarButton setSideNav={setSideNav} />
