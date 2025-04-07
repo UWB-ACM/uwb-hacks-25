@@ -1,11 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import PrizeCard from "@/src/components/dashboards/staff/PrizeCard";
 import { Prize, TransactionType, User } from "@/src/util/dataTypes";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
 import Link from "next/link";
+import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
 
 export default function BuyPage({
     user,
@@ -16,13 +16,19 @@ export default function BuyPage({
     balance: number;
     prizes: Prize[];
 }) {
-    const router = useRouter();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [buyResponse, setBuyResponse] = useState<
+        { success: boolean; prize: Prize }[]
+    >([]);
 
-    const [hackeroonAmount, setHackeroonAmount] = useState(balance);
+    const [hackeroonAmount, setHackeroonAmount] = useState(balance + 20);
     const [selectedItems, setSelectedItems] = useState<Prize[]>([]);
 
     const handleSubmit = async () => {
         if (selectedItems.length !== 0) {
+            const res: { success: boolean; prize: Prize }[] = [];
+            let refundAmount = 0;
+
             for (const item of selectedItems) {
                 const data = await actionCreateTransaction(
                     user.id,
@@ -40,15 +46,79 @@ export default function BuyPage({
                     item.id,
                 );
 
-                // TODO: Track which purchases failed.
-                console.log(data);
+                res.push({
+                    prize: item,
+                    success: data != null,
+                });
+
+                // "Refund" any failed transactions.
+                // This is just a visual change, and doesn't
+                // modify the true balance.
+                if (data == null) {
+                    refundAmount += item.price;
+                }
             }
 
-            router.push(
-                `/dashboard/buy-prizes/${user.id}/transaction-complete`,
-            );
+            setBuyResponse(res);
+            setHackeroonAmount((amount) => amount + refundAmount);
+            setSelectedItems([]);
+            setIsModalOpen(true);
         }
     };
+
+    const transactionTitle = useMemo(() => {
+        let successCount = 0;
+        let failureCount = 0;
+
+        for (const transaction of buyResponse) {
+            if (transaction.success) {
+                successCount++;
+            } else {
+                failureCount++;
+            }
+        }
+
+        if (successCount === buyResponse.length) {
+            return "Success";
+        }
+
+        if (failureCount === buyResponse.length) {
+            return "Failure";
+        }
+
+        return "Some Transactions Failed";
+    }, [buyResponse]);
+
+    const transactionBody = useMemo(() => {
+        const successNames = buyResponse.filter((item) => item.success);
+        const failureNames = buyResponse.filter((item) => !item.success);
+
+        return (
+            <div className="flex flex-col gap-4">
+                {successNames.length > 0 && (
+                    <div>
+                        Successfully purchased:
+                        <ul className="list-disc list-inside pl-4 font-bold">
+                            {successNames.map((item) => (
+                                <li key={item.prize.id}>{item.prize.name}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {failureNames.length > 0 && (
+                    <div>
+                        Failed to purchase:
+                        <ul className="list-disc list-inside pl-4 font-bold">
+                            {failureNames.map((item) => (
+                                <li key={item.prize.id}>{item.prize.name}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+            </div>
+        );
+    }, [buyResponse]);
 
     return (
         <>
@@ -92,6 +162,7 @@ export default function BuyPage({
                             prize={prize}
                             hackeroonAmount={hackeroonAmount}
                             setHackeroonAmount={setHackeroonAmount}
+                            selectedItems={selectedItems}
                             setSelectedItems={setSelectedItems}
                         />
                     ))}
@@ -130,6 +201,13 @@ export default function BuyPage({
                     </div>
                 </div>
             </div>
+
+            <DashboardFeedback
+                open={isModalOpen}
+                setOpen={setIsModalOpen}
+                title={transactionTitle}
+                description={transactionBody}
+            />
         </>
     );
 }
