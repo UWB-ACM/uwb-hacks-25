@@ -42,7 +42,7 @@ const bounceBox = (
 ) => {
     if (!tlRef.current) return;
     tlRef.current.to(mysteryBox, {
-        delay: 0.5,
+        delay: 0.4,
         duration: 0.2,
         y: -10 + i * -5,
         ease: "power2.out",
@@ -66,17 +66,50 @@ const bounceBox = (
 
 const popLid = (
     tlRef: React.RefObject<gsap.core.Timeline | null>,
+    mysteryBox: HTMLButtonElement,
     mysteryBoxLid: SVGSVGElement,
 ) => {
     if (!tlRef.current) return;
     const lidPopLeft = Math.random() >= 0.5 ? true : false;
 
-    tlRef.current.to(mysteryBoxLid, {
-        delay: 0.5,
-        scale: 0.8,
-        y: "-50vh",
-        x: lidPopLeft ? "-35%" : "35%",
-        rotate: lidPopLeft ? "-50deg" : "50deg",
+    tlRef.current.to(
+        mysteryBoxLid,
+        {
+            delay: 0.5,
+            scale: 0.8,
+            y: "-50vh",
+            x: lidPopLeft ? "-35%" : "35%",
+            rotate: lidPopLeft ? "-50deg" : "50deg",
+            duration: 0.2,
+        },
+        "start",
+    );
+
+    tlRef.current.to(
+        mysteryBox,
+        {
+            delay: 0.5,
+            y: "-15px",
+            x: lidPopLeft ? "-3px" : "3px",
+            rotate: lidPopLeft ? "-2deg" : "2deg",
+            duration: 0.2,
+            ease: "power1.out",
+        },
+        "start",
+    );
+
+    tlRef.current.to(mysteryBox, {
+        y: 0,
+        x: lidPopLeft ? "3px" : "-3px",
+        rotate: lidPopLeft ? "2deg" : "-2deg",
+        duration: 0.2,
+        ease: "power1.out",
+    });
+
+    tlRef.current.to(mysteryBox, {
+        y: 0,
+        x: 0,
+        rotate: 0,
         duration: 0.2,
     });
 

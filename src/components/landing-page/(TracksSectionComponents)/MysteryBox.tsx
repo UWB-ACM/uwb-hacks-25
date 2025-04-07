@@ -62,14 +62,14 @@ export default function MysteryBox({
         tlRef.current.to(mysteryBox, { x: 0, rotate: 0 });
         tlRef.current.to(mysteryBox, {
             y: 0,
-            duration: 1,
+            duration: 0.75,
         });
 
         for (let i = 0; i < 3; i++) {
             bounceBox(tlRef, mysteryBox, mysteryBoxLid, i);
         }
 
-        popLid(tlRef, mysteryBoxLid);
+        popLid(tlRef, mysteryBox, mysteryBoxLid);
 
         contentElements.forEach((content, idx) => {
             const xOffset =
