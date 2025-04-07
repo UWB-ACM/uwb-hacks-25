@@ -24,9 +24,8 @@ const TracksSection = () => {
 
     useEffect(() => {
         if (!showTracks) return;
-        gsap.set(".tracks", { y: "-100vh" });
         gsap.to(".tracks", {
-            delay: 0.25,
+            delay: 1,
             y: 0,
             stagger: 0.25,
             ease: "power1.out",
@@ -54,7 +53,10 @@ const TracksSection = () => {
                 />
 
                 {showTracks && mysteryBoxContents.length == 1 && (
-                    <p className="tracks font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6">
+                    <p
+                        style={{ transform: "translateY(-100vh)" }}
+                        className="tracks font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6"
+                    >
                         {mysteryBoxContents[0]}
                     </p>
                 )}
@@ -64,6 +66,7 @@ const TracksSection = () => {
                         {mysteryBoxContents.map((content, idx) => (
                             <p
                                 key={idx}
+                                style={{ transform: "translateY(-100vh)" }}
                                 className="tracks font-h1 text-xl md:text-2xl lg:text-3xl text-center"
                             >
                                 {content}

@@ -71,6 +71,8 @@ export default function MysteryBox({
 
         popLid(tlRef, mysteryBox, mysteryBoxLid);
 
+        gsap.set(contentElements, { scale: 0.5 });
+
         contentElements.forEach((content, idx) => {
             const xOffset =
                 (idx - Math.floor(contentElements.length / 2)) * 300;
@@ -82,7 +84,7 @@ export default function MysteryBox({
                     y: "-100vh",
                     x: xOffset,
                     rotate: `${(idx - Math.floor(contentElements.length / 2)) * 30}deg`,
-                    duration: 1,
+                    duration: 0.6,
                     ease: "power1.out",
                     scale: 1,
                     onComplete: () => setShowTracks(true),
@@ -98,19 +100,22 @@ export default function MysteryBox({
             onClick={handleBoxOpen}
             className="relative"
         >
+            <div className="z-20 relative">
+                <MysteryBoxContainer className="w-[200px] md:w-[325px] lg:w-[375px] h-fit" />
+                <MysteryBoxLid
+                    ref={mysteryBoxLidRef}
+                    className="absolute top-[10px] w-[200px] md:w-[325px] lg:w-[375px] h-fit"
+                />
+            </div>
+
             {contents.map((content, idx) => (
                 <p
                     key={idx}
-                    className="content -z-[5] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 scale-75 font-h1 text-xl md:text-2xl lg:text-3xl text-center"
+                    className="z-10 content absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 scale-75 font-h1 text-xl md:text-2xl lg:text-3xl text-center text-black"
                 >
                     {content}
                 </p>
             ))}
-            <MysteryBoxContainer className="w-[200px] md:w-[325px] lg:w-[375px] h-fit" />
-            <MysteryBoxLid
-                ref={mysteryBoxLidRef}
-                className="absolute top-0 w-[200px] md:w-[325px] lg:w-[375px] h-fit"
-            />
         </button>
     );
 }
