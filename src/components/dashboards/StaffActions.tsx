@@ -3,7 +3,6 @@ import { FaGift } from "react-icons/fa6";
 import DashboardButton from "@/src/components/dashboards/DashboardButton";
 
 function StaffActions() {
-    // TODO: Make these actual actions.
     return (
         <>
             <DashboardButton href="/dashboard/create-check-in-code">

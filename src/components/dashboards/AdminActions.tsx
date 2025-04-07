@@ -3,7 +3,6 @@ import { FaGift } from "react-icons/fa6";
 import DashboardButton from "@/src/components/dashboards/DashboardButton";
 
 function AdminActions() {
-    // TODO: Make these actual actions.
     return (
         <>
             <DashboardButton href="#">

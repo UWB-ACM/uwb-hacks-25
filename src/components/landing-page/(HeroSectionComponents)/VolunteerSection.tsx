@@ -6,8 +6,9 @@ const VolunteerSection = () => {
             <h2 className="text-xl font-bold mb-4">
                 Be the power behind the superpowers!
             </h2>
-            {/* TODO: Add a link here. */}
-            <Button href={"/"}>Volunteer</Button>
+            <Button href="https://tinyurl.com/yesvtyyh" target="_blank">
+                Volunteer
+            </Button>
         </div>
     );
 };
