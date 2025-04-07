@@ -6,6 +6,7 @@ import { Prize } from "@/src/util/dataTypes";
 
 export interface CardProps {
     prize: Prize;
+    prizeImage?: string;
     hackeroonAmount?: number;
     setHackeroonAmount?: React.Dispatch<React.SetStateAction<number>>;
     selectedItems?: Prize[];
@@ -14,6 +15,7 @@ export interface CardProps {
 
 export default function PrizeCard({
     prize,
+    prizeImage = "/bg.jpg",
     hackeroonAmount,
     setHackeroonAmount,
     selectedItems,
@@ -55,33 +57,32 @@ export default function PrizeCard({
             </h2>
 
             {/* Image Section */}
-            <div className="w-full h-[200px] flex justify-center items-center bg-neutral-100 rounded-md border-[2px] border-black mb-4">
+            <div className="relative w-full h-[200px] bg-white rounded-md border-2 border-black mb-4">
                 <Image
-                    src={"/globe.svg"}
-                    height={200}
-                    width={200}
-                    alt={`Image of ${prize.name}`}
                     className="object-contain"
+                    src={prizeImage}
+                    alt={`Image of ${prize.name}`}
+                    fill
                 />
             </div>
 
             {/* Stock and Price Row */}
             <div className="flex w-full mb-2 space-x-2">
                 {/* Stock */}
-                <div className="flex items-center justify-center bg-green-300 text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
+                <div className="flex items-center justify-center bg-[#66B0F2] text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
                     <p className="text-sm">{`${prizeStock} Left!`}</p>
                 </div>
 
                 {/* Price */}
-                <div className="flex items-center justify-center bg-blue-300 text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
+                <div className="flex items-center justify-center bg-[#F7CC58] text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
                     <p className="text-sm">{`${prize.price} Hackeroons`}</p>
                 </div>
             </div>
 
             {/* Description Row */}
-            <div className="w-full mb-4 bg-yellow-300 text-black font-comic rounded-md p-2 border-[2px] border-black">
+            {/* <div className="w-full mb-4 bg-yellow-300 text-black font-comic rounded-md p-2 border-[2px] border-black">
                 <p className="text-sm text-center">{prize.description}</p>
-            </div>
+            </div> */}
 
             {/* Buy/Remove Button */}
             {enablePurchasing && (
