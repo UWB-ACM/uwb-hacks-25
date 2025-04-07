@@ -35,6 +35,11 @@ export interface Session {
      * A random value to prevent tampering with the auth URL.
      */
     googleState?: string;
+
+    /**
+     * A path to redirect to after authentication has succeeded.
+     */
+    redirectAfter?: string;
 }
 
 /**
