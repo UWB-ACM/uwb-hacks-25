@@ -1,15 +1,14 @@
 "use client";
 
-import React from "react";
 import { useRouter } from "next/navigation";
 import { User } from "@/src/util/dataTypes";
 import Selector from "@/src/components/dashboards/staff/Selector";
-
 function StaffUserSelector({ users }: { users: Promise<User[]> }) {
     const router = useRouter();
 
     return (
         <Selector
+            search={true}
             items={users}
             buttonName="Select User"
             dialogName="User Selector"
