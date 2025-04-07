@@ -1,109 +1,81 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import gsap from "gsap";
-import Image from "next/image";
-import QuestionMark from "@/public/tracksSection/question-mark.svg";
-import MysteryBox from "@/public/tracksSection/mystery-box.svg";
+
+// Panel components
+import Panel from "./(AboutSectionComponents)/Panel/Panel";
+import PanelContent from "./(AboutSectionComponents)/Panel/Content";
+import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
+
+// Mystery Box components / assets
+import MysteryBox from "./(TracksSectionComponents)/MysteryBox";
+import mystery_box_contents_data from "./(TracksSectionComponents)/mysteryBoxContents.json";
+
+// Used in Tracks section background
+import QuestionMark from "./(TracksSectionComponents)/QuestionMark";
 
 const TracksSection = () => {
-    const tlRef = useRef<gsap.core.Timeline | null>(null);
+    // TODO: change from "preHackathonContents" --> "duringHackathonContents" to reveal track names
+    const mysteryBoxContents =
+        mystery_box_contents_data["contents"]["preHackathonContents"];
+
+    const [showTracks, setShowTracks] = useState(false);
 
     useEffect(() => {
-        tlRef.current = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-
-        tlRef.current.to(".box", {
-            y: "-2vh",
-            duration: 0.75,
-            ease: "bounce.in",
-        });
-        tlRef.current.to(".box", {
-            x: 20,
-            rotate: "5deg",
-            duration: 0.15,
+        if (!showTracks) return;
+        gsap.to(".tracks", {
+            delay: 1,
+            y: 0,
+            stagger: 0.25,
             ease: "power1.out",
         });
-        tlRef.current.to(".box", {
-            x: -20,
-            rotate: "-5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", {
-            x: 20,
-            rotate: "5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", {
-            x: -20,
-            rotate: "-5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", {
-            x: 20,
-            rotate: "5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", {
-            x: -20,
-            rotate: "-5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(".box", { y: 0, x: 0, rotate: 0, duration: 0.3 });
-    }, []);
+    }, [showTracks]);
 
     return (
-        <div className="mt-12 md:mt-16 relative flex-col p-4 flex items-center bg-white border-[3px] border-black overflow-hidden">
-            {/* Random question marks */}
-            <Image
-                className="questionMark absolute top-[10%] left-[10%] -rotate-[12deg]"
-                alt=""
-                src={QuestionMark}
-                width={60}
-            />
-            <Image
-                className="questionMark absolute bottom-[15%] left-[20%] rotate-[25deg]"
-                alt=""
-                src={QuestionMark}
-                width={70}
-            />
-            <Image
-                className="questionMark absolute top-[10%] right-[20%] rotate-[25deg]"
-                alt="q"
-                src={QuestionMark}
-                width={100}
-            />
-            <Image
-                className="questionMark absolute bottom-[15%] right-[20%] -rotate-[25deg]"
-                alt=""
-                src={QuestionMark}
-                width={40}
-            />
+        <Panel className="mt-12 md:mt-16" panelColor="white">
+            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[10%] left-[8%] rotate-[19deg]" />
+            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[20%] right-[14%] -rotate-[15deg]" />
+            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[10%] left-[16%] rotate-[28deg]" />
+            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[3%] right-[20%] -rotate-[40deg]" />
 
-            <h2
-                className="z-10 text-[#49B2F8] font-h1 my-4"
-                style={{ fontSize: "calc(1rem + 3vw)" }}
+            <PanelHeader
+                as="h2"
+                className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
+                isSectionHeader
             >
-                TRACKS
-            </h2>
-            <div className="relative z-[5] flex items-center">
-                <Image
-                    className="box aspect-square w-[250px] md:w-[350px] lg:w-[400px]"
-                    src={MysteryBox}
-                    alt="Image of Mystery Box"
-                    width={0}
-                    height={0}
+                Tracks
+            </PanelHeader>
+            <PanelContent className="relative flex flex-col items-center">
+                <MysteryBox
+                    contents={mysteryBoxContents}
+                    setShowTracks={setShowTracks}
                 />
-            </div>
-            <p className="z-[5] font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center m-2 md:m-4 pt-2 bg-white">
-                All hackathon tracks will be unveiled on the day of the
-                hackathon!
-            </p>
-        </div>
+
+                {showTracks && mysteryBoxContents.length == 1 && (
+                    <p
+                        style={{ transform: "translateY(-100vh)" }}
+                        className="tracks font-h1 text-xl md:text-2xl lg:text-3xl md:w-[70%] text-center mt-6"
+                    >
+                        {mysteryBoxContents[0]}
+                    </p>
+                )}
+
+                {showTracks && mysteryBoxContents.length > 1 && (
+                    <div className="w-full mt-6 flex flex-wrap justify-around gap-4">
+                        {mysteryBoxContents.map((content, idx) => (
+                            <p
+                                key={idx}
+                                style={{ transform: "translateY(-100vh)" }}
+                                className="tracks font-h1 text-xl md:text-2xl lg:text-3xl text-center"
+                            >
+                                {content}
+                            </p>
+                        ))}
+                    </div>
+                )}
+            </PanelContent>
+        </Panel>
     );
 };
 
