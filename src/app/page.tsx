@@ -203,11 +203,7 @@ export default function Page() {
                         >
                             <SponsorsSection />
                         </div>
-                        <div
-                            id="faq"
-                            ref={faqRef}
-                            className="w-full"
-                        >
+                        <div id="faq" ref={faqRef} className="w-full">
                             <FAQSection />
                         </div>
                     </div>
