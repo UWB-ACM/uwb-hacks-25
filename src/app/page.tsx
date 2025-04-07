@@ -192,21 +192,21 @@ export default function Page() {
                         <div
                             id="team"
                             ref={meetTheTeamRef}
-                            className={`w-full mt-[-1rem] sm:mt-[3rem] overflow-hidden`}
+                            className={`w-full overflow-hidden`}
                         >
                             <MeetTheTeamSection />
                         </div>
                         <div
                             id="sponsors"
                             ref={sponsorsRef}
-                            className="w-full mt-[4rem] sm:mt-[-6rem] overflow-hidden"
+                            className="w-full overflow-hidden"
                         >
                             <SponsorsSection />
                         </div>
                         <div
                             id="faq"
                             ref={faqRef}
-                            className="w-full mt-[4rem] sm:mt-[-6rem]"
+                            className="w-full"
                         >
                             <FAQSection />
                         </div>
