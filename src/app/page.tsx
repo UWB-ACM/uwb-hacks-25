@@ -124,6 +124,7 @@ export default function Page() {
                             },
                         ]}
                         wrapH1
+                        banner={true}
                     />
 
                     <HeroSection />
