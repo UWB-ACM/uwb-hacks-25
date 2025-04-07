@@ -110,7 +110,11 @@ function TransactionList({
 
                             // Remove the cost of the transaction from the balance.
                             setBalance(
-                                (balance) => balance - transaction.amount,
+                                (balance) =>
+                                    balance +
+                                    // Unreverting adds the amount back, not
+                                    // removes it.
+                                    (reverted ? -1 : 1) * transaction.amount,
                             );
                         }}
                     />
@@ -135,10 +139,37 @@ function TransactionItem({
 }) {
     const isAdmin = hasPermissions(permission, { has: PermissionLevel.Admin });
 
-    const canRevert =
-        (isAdmin || transaction.authorized_by === sessionUser.id) &&
-        !transaction.reverted;
-    const canRevertWithBalance = balance - transaction.amount >= 0;
+    const canRevert = isAdmin || transaction.authorized_by === sessionUser.id;
+    // If the transaction is already reverted, then unreverting adds
+    // the amount back, not subtracts it.
+    const canRevertWithBalance =
+        balance + (transaction.reverted ? 1 : -1) * transaction.amount >= 0;
+
+    let buttonColor;
+    let buttonText;
+
+    if (canRevertWithBalance) {
+        if (transaction.reverted) {
+            // Unrevert.
+            buttonColor = "bg-blue-500";
+            buttonText = "Un-revert";
+        } else {
+            // Revert.
+            buttonColor = "bg-red-500";
+            buttonText = "Revert";
+        }
+    } else {
+        // Insufficient balance.
+        if (transaction.reverted) {
+            // Unrevert.
+            buttonColor = "bg-blue-800";
+            buttonText = "Cannot Un-revert";
+        } else {
+            // Revert.
+            buttonColor = "bg-red-800";
+            buttonText = "Cannot Revert";
+        }
+    }
 
     return (
         <div className="flex flex-row justify-between">
@@ -150,28 +181,25 @@ function TransactionItem({
                 {canRevert && (
                     <button
                         className={
-                            (canRevertWithBalance
-                                ? "bg-red-500"
-                                : "bg-red-900") +
+                            buttonColor +
                             " border-[1px] border-black rounded-xl p-2"
                         }
                         onClick={async () => {
                             if (!canRevert || !canRevertWithBalance) return;
 
-                            // TODO: Allow unreverting transactions.
+                            const newRevertedStatus = !transaction.reverted;
+
                             if (
                                 await actionSetTransactionReverted(
                                     transaction.id,
-                                    true,
+                                    newRevertedStatus,
                                 )
                             ) {
-                                revert(true);
+                                revert(newRevertedStatus);
                             }
                         }}
                     >
-                        {canRevertWithBalance
-                            ? "Revert"
-                            : "Cannot Revert - Insufficient Balance"}
+                        {buttonText}
                     </button>
                 )}
             </div>
