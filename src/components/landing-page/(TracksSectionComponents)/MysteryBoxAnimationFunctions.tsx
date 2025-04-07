@@ -37,7 +37,7 @@ const shakeMysteryBox = (
 const bounceBox = (
     tlRef: React.RefObject<gsap.core.Timeline | null>,
     mysteryBox: HTMLButtonElement,
-    mysteryBoxLid: SVGSVGElement,
+    mysteryBoxLid: HTMLDivElement,
     i: number,
 ) => {
     if (!tlRef.current) return;
@@ -67,7 +67,7 @@ const bounceBox = (
 const popLid = (
     tlRef: React.RefObject<gsap.core.Timeline | null>,
     mysteryBox: HTMLButtonElement,
-    mysteryBoxLid: SVGSVGElement,
+    mysteryBoxLid: HTMLDivElement,
 ) => {
     if (!tlRef.current) return;
     const lidPopLeft = Math.random() >= 0.5 ? true : false;

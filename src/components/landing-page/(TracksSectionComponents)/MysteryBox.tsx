@@ -31,7 +31,7 @@ export default function MysteryBox({
 }: MysteryBoxProps) {
     const tlRef = useRef<gsap.core.Timeline | null>(null);
     const mysteryBoxRef = useRef<HTMLButtonElement | null>(null);
-    const mysteryBoxLidRef = useRef<SVGSVGElement | null>(null);
+    const mysteryBoxLidRef = useRef<HTMLDivElement | null>(null);
 
     const [boxOpened, setBoxOpened] = useState(false);
 
