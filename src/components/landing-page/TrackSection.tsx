@@ -16,7 +16,7 @@ import mystery_box_contents_data from "./(TracksSectionComponents)/mysteryBoxCon
 import QuestionMark from "./(TracksSectionComponents)/QuestionMark";
 
 const TracksSection = () => {
-    // CHANGE FROM "preHackathonContents" --> "duringHackathonContents" to reveal track names
+    // TODO: change from "preHackathonContents" --> "duringHackathonContents" to reveal track names
     const mysteryBoxContents =
         mystery_box_contents_data["contents"]["preHackathonContents"];
 
