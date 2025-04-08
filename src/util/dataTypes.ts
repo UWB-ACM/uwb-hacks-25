@@ -287,4 +287,24 @@ export enum TransactionType {
      * A payment to purchase a prize.
      */
     PrizePurchase = 2,
+
+    /**
+     * Someone did well in an event, asked a good question,
+     * or helped out.
+     */
+    Performance = 3,
+
+    /**
+     * Someone won an event activity.
+     */
+    ActivityWinner = 4,
 }
+
+/**
+ * A map of transaction types to their hackeroon amounts.
+ * This only includes transaction types which have a constant value.
+ */
+export const valuedTransactionTypes = {
+    [TransactionType.Performance]: 25,
+    [TransactionType.ActivityWinner]: 50,
+} as const;
