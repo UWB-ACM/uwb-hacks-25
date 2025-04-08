@@ -84,10 +84,12 @@ export default function HackeroonCarousel({
 
             {/* Hackeroon Item Card Container */}
             <div className="w-[70%] flex justify-center items-center min-h-[300px]">
-                <HackeroonItemCard
-                    cardRef={cardRef}
-                    hackeroonPrize={prizes[currIdx]}
-                />
+                {prizes[currIdx] && (
+                    <HackeroonItemCard
+                        cardRef={cardRef}
+                        hackeroonPrize={prizes[currIdx]}
+                    />
+                )}
             </div>
 
             {/* Next Button */}
