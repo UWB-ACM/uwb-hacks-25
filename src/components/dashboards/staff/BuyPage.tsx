@@ -21,12 +21,14 @@ export default function BuyPage({
         { success: boolean; prize: Prize }[]
     >([]);
 
-    const [hackeroonAmount, setHackeroonAmount] = useState(balance + 20);
+    const [hackeroonAmount, setHackeroonAmount] = useState(balance);
     const [selectedItems, setSelectedItems] = useState<Prize[]>([]);
+    const [currentPrizes, setCurrentPrizes] = useState<Prize[]>(prizes);
 
     const handleSubmit = async () => {
         if (selectedItems.length !== 0) {
             const res: { success: boolean; prize: Prize }[] = [];
+            const successIDs = new Set();
             let refundAmount = 0;
 
             for (const item of selectedItems) {
@@ -56,12 +58,22 @@ export default function BuyPage({
                 // modify the true balance.
                 if (data == null) {
                     refundAmount += item.price;
+                } else {
+                    successIDs.add(item.id);
                 }
             }
 
             setBuyResponse(res);
             setHackeroonAmount((amount) => amount + refundAmount);
             setSelectedItems([]);
+            // Unselecting a prize will make its displayed stock go up, so
+            // we need to update our list to reflect what has been sold.
+            setCurrentPrizes((prizes) =>
+                prizes.map((prize) => ({
+                    ...prize,
+                    sold: prize.sold + (successIDs.has(prize.id) ? 1 : 0),
+                })),
+            );
             setIsModalOpen(true);
         }
     };
@@ -156,7 +168,7 @@ export default function BuyPage({
             <div className="flex">
                 {/* Prize Cards */}
                 <div className="w-[70vw] md:w-[80vw] lg:w-[85vw] p-8 overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {prizes.map((prize, index) => (
+                    {currentPrizes.map((prize, index) => (
                         <PrizeCard
                             key={index}
                             prize={prize}

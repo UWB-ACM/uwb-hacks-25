@@ -153,18 +153,25 @@ export interface Prize {
     description: string | null;
 
     /**
-     * The current stock of the prize.
-     *
-     * This is different from the initial_stock field
-     * and needs to be computed based on it and all the
-     * transactions on the prize.
+     * The initial stock of the prize.
      */
-    stock: number;
+    initialStock: number;
+
+    /**
+     * The number of prizes that have been sold so far.
+     */
+    sold: number;
 
     /**
      * The prize's price.
      */
     price: number;
+
+    /**
+     * An identifier for the image that should be shown
+     * for this prize.
+     */
+    imageName: string | null;
 }
 
 /**
