@@ -2,7 +2,11 @@
 
 import React, { useState } from "react";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
-import { TransactionType, User } from "@/src/util/dataTypes";
+import {
+    TransactionType,
+    User,
+    valuedTransactionTypes,
+} from "@/src/util/dataTypes";
 import Link from "next/link";
 import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
 
@@ -11,21 +15,38 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
     const [feedbackSuccess, setFeedbackSuccess] = useState(false);
 
     const [amount, setAmount] = useState(0);
-    const [reason, setReason] = useState("unknown");
 
-    const reasonMap: Record<string, TransactionType> = {
+    const reasonTypeMap = {
         unknown: TransactionType.Unknown,
-        event: TransactionType.EventAttendance,
-        prize: TransactionType.PrizePurchase,
+        performance: TransactionType.Performance,
+        "activity-winner": TransactionType.ActivityWinner,
+    } as const;
+
+    const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
+        unknown: "Unknown",
+        performance: "Performance",
+        "activity-winner": "Activity Winner",
     };
+
+    const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        // If this transaction type has a prescribed amount,
+        // use that instead of the saved one.
+        const reasonType = reasonTypeMap[reason];
+        const trueAmount =
+            reasonType in valuedTransactionTypes
+                ? valuedTransactionTypes[
+                      reasonType as keyof typeof valuedTransactionTypes
+                  ]
+                : amount;
+
         const data = await actionCreateTransaction(
             user.id,
-            reasonMap[reason],
-            amount,
+            reasonTypeMap[reason],
+            trueAmount,
             null,
             null,
         );
@@ -50,30 +71,51 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                             </span>
                         </h1>
                         <div className="grid place-content-center">
-                            <div className="flex flex-col w-[60vw] max-w-[50vh] mt-4 md:text-lg lg:text-xl">
-                                <label htmlFor="amount">Amount</label>
-                                <input
-                                    type="number"
-                                    step={10}
-                                    id="amount"
-                                    value={amount}
-                                    className="px-4 py-3 border-[1px] border-black rounded-md"
-                                    placeholder="1000"
-                                    onChange={(e) =>
-                                        setAmount(Number(e.target.value))
-                                    }
-                                />
-                            </div>
+                            {/* Only show amount for transaction types with no prescribed value. */}
+                            {!(
+                                reasonTypeMap[reason] in valuedTransactionTypes
+                            ) && (
+                                <>
+                                    <div className="flex flex-col w-[60vw] max-w-[50vh] mt-4 md:text-lg lg:text-xl">
+                                        <label htmlFor="amount">Amount</label>
+                                        <input
+                                            type="number"
+                                            step={10}
+                                            id="amount"
+                                            value={amount}
+                                            className="px-4 py-3 border-[1px] border-black rounded-md"
+                                            placeholder="1000"
+                                            onChange={(e) =>
+                                                setAmount(
+                                                    Number(e.target.value),
+                                                )
+                                            }
+                                        />
+                                    </div>
+                                </>
+                            )}
                             <div className="flex flex-col w-[60vw] max-w-[50vh] mt-4 md:text-lg lg:text-xl">
                                 <label htmlFor="reason">Reason</label>
                                 <select
                                     id="reason"
                                     value={reason}
                                     className="px-4 py-3 border-[1px] border-black rounded-md"
-                                    onChange={(e) => setReason(e.target.value)}
+                                    onChange={(e) =>
+                                        setReason(
+                                            e.target
+                                                .value as keyof typeof reasonTypeMap,
+                                        )
+                                    }
                                 >
-                                    {/* TODO: Add event and prize with their own dropdowns for event/prize ID */}
-                                    <option value="unknown">Unknown</option>
+                                    {Object.keys(reasonTypeMap).map((key) => (
+                                        <option key={key} value={key}>
+                                            {
+                                                reasonNameMap[
+                                                    key as keyof typeof reasonTypeMap
+                                                ]
+                                            }
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                             <input
