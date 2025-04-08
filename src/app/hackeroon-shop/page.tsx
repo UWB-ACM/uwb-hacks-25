@@ -15,25 +15,6 @@ export default async function PrizesPage() {
         return [];
     });
 
-    const retrievePrizeImage = (prizeName: string) => {
-        switch (prizeName) {
-            case "Wireless Bank Charger":
-                return "/hackeroonShop/powerBank.jpeg";
-            case "Lap Desk":
-                return "/hackeroonShop/lapDesk.jpeg";
-            case "Pickleball Set":
-                return "/hackeroonShop/pickleballSet.png";
-            case "Dual Handle Lunch Bag":
-                return "/hackeroonShop/lunchBag.png";
-            case "Adidas Fleece Hoodie":
-                return "/hackeroonShop/adidasFleeceHoodie.png";
-            case "Backpack":
-                return "/hackeroonShop/backpack.jpeg";
-            default:
-                return "globe.svg";
-        }
-    };
-
     return (
         <div className="w-full min-h-full flex flex-col">
             <Header
@@ -89,11 +70,7 @@ export default async function PrizesPage() {
 
             <div className="w-full flex-grow p-8 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {prizes.map((prize, index) => (
-                    <PrizeCard
-                        key={index}
-                        prize={prize}
-                        prizeImage={retrievePrizeImage(prize.name)}
-                    />
+                    <PrizeCard key={index} prize={prize} />
                 ))}
             </div>
         </div>

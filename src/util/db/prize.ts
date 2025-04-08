@@ -6,14 +6,16 @@ import sql from "@/src/util/database";
  */
 export async function getPrizes(): Promise<Prize[]> {
     const data =
-        await sql`SELECT id, name, description, initial_stock, price, (SELECT Count(*) FROM transactions WHERE transactions.prize=prizes.id) AS sold FROM prizes;`;
+        await sql`SELECT id, name, description, initial_stock, price, image_name, (SELECT CAST(Count(*) as int) FROM transactions WHERE transactions.prize=prizes.id) AS sold FROM prizes;`;
 
     return data.map((row) => ({
         id: row.id,
         name: row.name,
         description: row.description,
-        stock: row.initial_stock - row.sold,
+        initialStock: row.initial_stock,
+        sold: row.sold,
         price: row.price,
+        imageName: row.image_name,
     }));
 }
 
@@ -22,7 +24,7 @@ export async function getPrizes(): Promise<Prize[]> {
  */
 export async function getPrizeById(id: number): Promise<Prize | null> {
     const data =
-        await sql`SELECT id, name, description, initial_stock, price FROM prizes WHERE id=${id}`;
+        await sql`SELECT id, name, description, initial_stock, price, image_name, (SELECT CAST(Count(*) as int) FROM transactions WHERE transactions.prize=prizes.id) AS sold FROM prizes WHERE id=${id}`;
 
     // if there's no prize with given id, return null
     if (data.length === 0) return null;
@@ -32,19 +34,22 @@ export async function getPrizeById(id: number): Promise<Prize | null> {
         id: data[0].id,
         name: data[0].name,
         description: data[0].description,
-        stock: data[0].initial_stock,
+        initialStock: data[0].initial_stock,
+        sold: data[0].sold,
         price: data[0].price,
+        imageName: data[0].image_name,
     };
 }
 
 export async function createPrize(
     name: string,
     description: string,
-    initial_stock: number,
+    initialStock: number,
     price: number,
+    imageName: string,
 ): Promise<Prize | null> {
     const data =
-        await sql`INSERT into prizes ("name", "description", "initial_stock", "price") VALUES (${name}, ${description}, ${initial_stock}, ${price}) RETURNING id`;
+        await sql`INSERT into prizes ("name", "description", "initial_stock", "price", "image_name") VALUES (${name}, ${description}, ${initialStock}, ${price}, ${imageName}) RETURNING id`;
 
     if (data.length === 0) return null;
 
@@ -52,8 +57,10 @@ export async function createPrize(
         id: data[0].id,
         name,
         description,
-        stock: initial_stock,
+        initialStock,
+        sold: 0,
         price,
+        imageName,
     };
 }
 
@@ -63,10 +70,11 @@ export async function updatePrize(
     description: string,
     initial_stock: number,
     price: number,
+    imageName: string,
 ) {
     // update prize
     const data =
-        await sql`UPDATE prizes SET name=${name}, description=${description}, initial_stock=${initial_stock}, price=${price} WHERE id=${id}`;
+        await sql`UPDATE prizes SET name=${name}, description=${description}, initial_stock=${initial_stock}, price=${price}, image_name=${imageName} WHERE id=${id}`;
 
     // doing this to satisfy eslint
     console.log("updatedPrizeData:", data);

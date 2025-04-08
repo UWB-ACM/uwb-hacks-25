@@ -3,10 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import { Prize } from "@/src/util/dataTypes";
+import { retrievePrizeImage } from "@/src/util/prizeImage";
 
 export interface CardProps {
     prize: Prize;
-    prizeImage?: string;
     hackeroonAmount?: number;
     setHackeroonAmount?: React.Dispatch<React.SetStateAction<number>>;
     selectedItems?: Prize[];
@@ -15,7 +15,6 @@ export interface CardProps {
 
 export default function PrizeCard({
     prize,
-    prizeImage = "/bg.jpg",
     hackeroonAmount,
     setHackeroonAmount,
     selectedItems,
@@ -29,7 +28,7 @@ export default function PrizeCard({
     const isItemBought =
         selectedItems?.some((selectedPrize) => selectedPrize.id === prize.id) ??
         false;
-    const prizeStock = prize.stock - (isItemBought ? 1 : 0);
+    const prizeStock = prize.initialStock - prize.sold - (isItemBought ? 1 : 0);
 
     const buyItem = (itemPrice: number) => {
         if (!enablePurchasing) return;
@@ -60,7 +59,7 @@ export default function PrizeCard({
             <div className="relative w-full h-[200px] bg-white rounded-md border-2 border-black mb-4">
                 <Image
                     className="object-contain"
-                    src={prizeImage}
+                    src={retrievePrizeImage(prize.imageName)}
                     alt={`Image of ${prize.name}`}
                     fill
                 />

@@ -1,22 +1,26 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, use } from "react";
 
 // For carousel
-import hackeroon_prizes_data from "./hackeroonPrizes.json";
 import gsap from "gsap";
 import CarouselControls from "./CarouselControls";
 import HackeroonItemCard from "./Card";
 
 // For carousel controls
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Prize } from "@/src/util/dataTypes";
 
-export default function HackeroonCarousel() {
+export default function HackeroonCarousel({
+    hackeroonPrizes,
+}: {
+    hackeroonPrizes: Promise<Prize[]>;
+}) {
+    const prizes = use(hackeroonPrizes);
+
     const [currIdx, setCurrIdx] = useState(0);
     const cardRef = useRef<HTMLDivElement | null>(null);
     const [isAnimating, setIsAnimating] = useState(false);
-
-    const hackeroonPrizes = hackeroon_prizes_data["hackeroon_prizes"];
 
     const handleNext = () => {
         if (isAnimating) return;
@@ -27,7 +31,7 @@ export default function HackeroonCarousel() {
             duration: 0.25,
             ease: "power3.inOut",
             onComplete: () => {
-                if (currIdx == hackeroonPrizes.length - 1) {
+                if (currIdx == prizes.length - 1) {
                     setCurrIdx(0);
                 } else {
                     setCurrIdx(currIdx + 1);
@@ -55,7 +59,7 @@ export default function HackeroonCarousel() {
             ease: "power3.inOut",
             onComplete: () => {
                 if (currIdx == 0) {
-                    setCurrIdx(hackeroonPrizes.length - 1);
+                    setCurrIdx(prizes.length - 1);
                 } else {
                     setCurrIdx(currIdx - 1);
                 }
@@ -80,10 +84,12 @@ export default function HackeroonCarousel() {
 
             {/* Hackeroon Item Card Container */}
             <div className="w-[70%] flex justify-center items-center min-h-[300px]">
-                <HackeroonItemCard
-                    cardRef={cardRef}
-                    hackeroonPrize={hackeroonPrizes[currIdx]}
-                />
+                {prizes[currIdx] && (
+                    <HackeroonItemCard
+                        cardRef={cardRef}
+                        hackeroonPrize={prizes[currIdx]}
+                    />
+                )}
             </div>
 
             {/* Next Button */}
