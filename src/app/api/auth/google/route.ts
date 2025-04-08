@@ -17,7 +17,7 @@ export async function GET() {
 
             const allowedOrigin =
                 process.env.NODE_ENV === "production"
-                    ? "https://uwbhacks.com"
+                    ? "https://www.uwbhacks.com"
                     : "http://localhost:3000";
             if (prevPageURL.origin === allowedOrigin) {
                 redirectAfter = prevPageURL.pathname;
