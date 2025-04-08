@@ -1,5 +1,5 @@
 // General imports
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 
 // Buttons
@@ -25,8 +25,11 @@ import LeaderboardRecord from "./(AboutSectionComponents)/LeaderboardRecord";
 
 // For Last Years Winners panel
 import LastYearsWinnersRecord from "./(AboutSectionComponents)/LastYearsWinnersRecord";
+import { Prize } from "@/src/util/dataTypes";
 
-const AboutSection: React.FC = () => {
+const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
+    hackeroonPrizes,
+}) => {
     const panelMargin = "mt-12 md:mt-16";
 
     return (
@@ -194,7 +197,7 @@ const AboutSection: React.FC = () => {
                     </PanelContent>
                 </Panel>
 
-                {/* Hackeroons */}
+                {/* Last Year's Prizes */}
                 <Panel
                     className="flex flex-col"
                     panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
@@ -224,7 +227,11 @@ const AboutSection: React.FC = () => {
 
                     <PanelContent>
                         {/* Hackeroon Prizes Carousel */}
-                        <HackeroonCarousel />
+                        <Suspense>
+                            <HackeroonCarousel
+                                hackeroonPrizes={hackeroonPrizes}
+                            />
+                        </Suspense>
 
                         <div className="flex lg:justify-end justify-center mt-2 md:mt-4">
                             <Button href={"/hackeroon-shop"} color={"yellow"}>

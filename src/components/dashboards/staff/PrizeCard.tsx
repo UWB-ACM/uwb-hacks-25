@@ -1,15 +1,9 @@
 "use client";
 
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Prize } from "@/src/util/dataTypes";
-import DefaultImage from "@/public/bg.jpg";
-import AdidasFleeceHoodie from "@/public/hackeroonShop/adidasFleeceHoodie.png";
-import WirelessBankCharger from "@/public/hackeroonShop/powerBank.jpeg";
-import LapDesk from "@/public/hackeroonShop/lapDesk.jpeg";
-import Pickleball from "@/public/hackeroonShop/pickleballSet.png";
-import DualLunchBag from "@/public/hackeroonShop/lunchBag.png";
-import Backpack from "@/public/hackeroonShop/backpack.jpeg";
+import { retrievePrizeImage } from "@/src/util/prizeImage";
 
 export interface CardProps {
     prize: Prize;
@@ -18,25 +12,6 @@ export interface CardProps {
     selectedItems?: Prize[];
     setSelectedItems?: React.Dispatch<React.SetStateAction<Prize[]>>;
 }
-
-const retrievePrizeImage = (prizeName: string | null): StaticImageData => {
-    switch (prizeName) {
-        case "wirelessBankCharger":
-            return WirelessBankCharger;
-        case "lapDesk":
-            return LapDesk;
-        case "pickleball":
-            return Pickleball;
-        case "dualLunchBag":
-            return DualLunchBag;
-        case "adidasAvanadeHoodie":
-            return AdidasFleeceHoodie;
-        case "backpack":
-            return Backpack;
-        default:
-            return DefaultImage;
-    }
-};
 
 export default function PrizeCard({
     prize,
