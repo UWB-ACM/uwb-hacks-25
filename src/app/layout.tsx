@@ -4,6 +4,7 @@ import { Inter, Rubik_Mono_One, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "../util/lenis";
 import Footer from "../components/Footer";
+import Consent from "@/src/components/Consent";
 
 const inter = Inter({
     variable: "--font-inter",
@@ -73,6 +74,7 @@ export default function RootLayout({
                 className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-full`}
             >
                 <ReactLenis root>
+                    <Consent />
                     {children}
                     <Footer />
                 </ReactLenis>
