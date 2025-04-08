@@ -6,7 +6,7 @@ function SupportSection() {
     return (
         <Button
             href={
-                "https://docs.google.com/forms/d/e/1FAIpQLSeE5tYU3c8GZ20H1PPZS2-yjZ89tROgPMQRtsybsJ6j10iv4A/viewform?usp=sharing"
+                "https://forms.gle/4ZwYjs6dnAACtWraA"
             }
             target={"_blank"}
             color="yellow"
