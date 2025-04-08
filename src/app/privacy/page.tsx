@@ -276,7 +276,7 @@ const PrivacyPolicy = () => {
                     </h2>
                     <p>
                         If you have questions or comments about this Privacy
-                        Policy, please contact us at: acmuwbothell@gmail.com.
+                        Policy, please contact us at: uwbhacks2025@gmail.com.
                     </p>
                 </section>
             </div>

@@ -242,7 +242,7 @@ const TermsOfService = () => {
                     </h2>
                     <p>
                         If you have any questions about these Terms, please
-                        contact us at acmuwbothell@gmail.com.
+                        contact us at uwbhacks2025@gmail.com.
                     </p>
                 </section>
             </div>
