@@ -11,6 +11,7 @@ export async function actionCreatePrize(
     description: string,
     initial_stock: number,
     price: number,
+    imageName: string,
 ): Promise<Prize | null> {
     const session = await getSession();
     if (!session.user?.id) return null;
@@ -23,7 +24,13 @@ export async function actionCreatePrize(
         return null;
     }
 
-    return await createPrize(name, description, initial_stock, price);
+    return await createPrize(
+        name,
+        description,
+        initial_stock,
+        price,
+        imageName,
+    );
 }
 
 export async function fetchPrizeById(id: number) {
@@ -34,8 +41,9 @@ export async function actionUpdatePrize(
     id: number,
     name: string,
     description: string,
-    initial_stock: number,
+    initialStock: number,
     price: number,
+    imageName: string,
 ) {
     const session = await getSession();
     if (!session.user?.id) return null;
@@ -48,5 +56,12 @@ export async function actionUpdatePrize(
         return null;
     }
 
-    return await updatePrize(id, name, description, initial_stock, price);
+    return await updatePrize(
+        id,
+        name,
+        description,
+        initialStock,
+        price,
+        imageName,
+    );
 }

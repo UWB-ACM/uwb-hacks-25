@@ -20,6 +20,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
     const [prizeDescription, setPrizeDescription] = useState<string>("");
     const [prizeInitialStock, setPrizeInitialStock] = useState<string>("");
     const [prizePrice, setPrizePrice] = useState<string>("");
+    const [prizeImageName, setPrizeImageName] = useState<string>("");
 
     // Fetch prize data whenver prizeId changes
     useEffect(() => {
@@ -34,8 +35,9 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
             if (prize) {
                 setPrizeName(prize.name);
                 setPrizeDescription(prize.description || "Prize Description");
-                setPrizeInitialStock(prize.stock.toString());
+                setPrizeInitialStock(prize.initialStock.toString());
                 setPrizePrice(prize.price.toString());
+                setPrizeImageName(prize.imageName?.toString() || "");
             }
         }
 
@@ -80,6 +82,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
             prizeDescription,
             Number(prizeInitialStock),
             Number(prizePrice),
+            prizeImageName,
         );
 
         // doing this to satisfy eslint
@@ -176,6 +179,20 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                                 setPrizePrice(e.target.value);
                             }}
                             required
+                            className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
+                        />
+
+                        {/* Prize Image Name */}
+                        <label
+                            htmlFor="prizeImageName"
+                            className="flex items-center mt-4 md:mt-0"
+                        >
+                            Prize Image Name
+                        </label>
+                        <input
+                            id="prizeImageName"
+                            value={prizeImageName}
+                            onChange={(e) => setPrizeImageName(e.target.value)}
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                         />
                     </div>

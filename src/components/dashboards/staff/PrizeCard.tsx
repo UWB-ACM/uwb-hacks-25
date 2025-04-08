@@ -29,7 +29,7 @@ export default function PrizeCard({
     const isItemBought =
         selectedItems?.some((selectedPrize) => selectedPrize.id === prize.id) ??
         false;
-    const prizeStock = prize.stock - (isItemBought ? 1 : 0);
+    const prizeStock = prize.initialStock - prize.sold - (isItemBought ? 1 : 0);
 
     const buyItem = (itemPrice: number) => {
         if (!enablePurchasing) return;

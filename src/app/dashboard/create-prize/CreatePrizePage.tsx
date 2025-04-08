@@ -14,6 +14,7 @@ export function CreatePrizePage() {
     const [prizeDescription, setPrizeDescription] = useState<string>("");
     const [prizeInitialStock, setPrizeInitialStock] = useState<number>(0);
     const [prizePrice, setPrizePrice] = useState<number>(0);
+    const [prizeImageName, setPrizeImageName] = useState<string>("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -44,6 +45,7 @@ export function CreatePrizePage() {
             prizeDescription,
             prizeInitialStock,
             prizePrice,
+            prizeImageName,
         );
 
         // adding this to satisfy eslint
@@ -124,6 +126,20 @@ export function CreatePrizePage() {
                             setPrizePrice(parseInt(e.target.value));
                         }}
                         required
+                        className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
+                    />
+
+                    {/* Prize Image Name */}
+                    <label
+                        htmlFor="prizeImageName"
+                        className="flex items-center mt-4 md:mt-0"
+                    >
+                        Prize Image Name
+                    </label>
+                    <input
+                        id="prizeImageName"
+                        value={prizeImageName}
+                        onChange={(e) => setPrizeImageName(e.target.value)}
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
                 </div>
