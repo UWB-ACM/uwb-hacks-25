@@ -21,11 +21,12 @@ export default function PanelContent({
 
         const panelContent = panelContentRef.current;
 
-        gsap.set(panelContent, { scale: 0 });
+        gsap.set(panelContent, { scale: 0.1, opacity: 0 });
 
         gsap.to(panelContent, {
             delay: 0.4,
             scale: 1,
+            opacity: 1,
             duration: 0.3,
             ease: "power2.in",
             scrollTrigger: {
