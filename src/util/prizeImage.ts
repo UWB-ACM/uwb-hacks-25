@@ -8,7 +8,7 @@ import Backpack from "@/public/hackeroonShop/backpack.jpeg";
 import DefaultImage from "@/public/bg.jpg";
 import FidgetSpinner from "@/public/hackeroonShop/gear.webp";
 import KeyChain from "@/public/hackeroonShop/keychain.jpg";
-import CableWinder from "@/public/hackeroonShop/cableWinder.jpg";
+import CableWinder from "@/public/hackeroonShop/cableWinder.webp";
 import TShirt from "@/public/hackeroonShop/tshirt.png";
 
 export const retrievePrizeImage = (
