@@ -1,6 +1,6 @@
 "use server";
 
-import { getSession } from "@/src/util/session";
+import { getSession, saveSession } from "@/src/util/session";
 import { redirect } from "next/navigation";
 import {
     deleteUser,
@@ -40,4 +40,7 @@ export async function actionDeleteUserSelf(): Promise<void> {
     if (!session.user?.id) return redirect("/");
 
     await deleteUser(session.user.id);
+
+    delete session.user;
+    await saveSession(session);
 }
