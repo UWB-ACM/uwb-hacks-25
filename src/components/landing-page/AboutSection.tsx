@@ -246,7 +246,9 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                     <PanelHeader as="h2">Leaderboard</PanelHeader>
                     <PanelContent className="h-full flex justify-center items-center font-h1 text-3xl md:text-4xl text-blue-500 tracking-widest">
                         {/* TODO: get top 3 hackathon participants with highest hackeroon count and use LeaderboardRecord to display */}
-                        Coming soon!
+                        <div className="bg-white p-5 rounded-md border-black border-2 shadow-[5px_5px_0_rgba(0,0,0,1)]">
+                            Coming soon!
+                        </div>
                     </PanelContent>
                 </Panel>
             </div>
