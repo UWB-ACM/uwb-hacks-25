@@ -10,10 +10,17 @@ import Husky from "@/public/about/husky.png";
 import CheckInInput from "@/src/components/dashboards/userdashboard/CheckInInput";
 import MarketPlaceLink from "@/src/components/dashboards/userdashboard/MarketPlaceLink";
 import SupportSection from "@/src/components/dashboards/userdashboard/SupportSection";
+import { getUserConsent } from "@/src/util/db/user";
+import LeaderboardConsent from "@/src/components/dashboards/userdashboard/LeaderboardConsent";
 import TransactionTable from "./userdashboard/TransactionTable";
 
 async function UserDashboard({ user }: { user: SessionUser }) {
-    const transactions = await getTransactionsForUser(user.id);
+    const [transactions, consent] = await Promise.all([
+        getTransactionsForUser(user.id),
+        getUserConsent(user.id),
+    ]);
+
+    if (!consent) return null;
 
     return (
         // User Dashboard Container
@@ -77,6 +84,15 @@ async function UserDashboard({ user }: { user: SessionUser }) {
                     <div className="flex flex-col md:flex-row gap-5">
                         <MarketPlaceLink />
                         <SupportSection />
+                    </div>
+
+                    <div className="pt-3 max-w-[80%] md:max-w-[60%] mx-auto">
+                        <LeaderboardConsent
+                            user={user}
+                            initialLeaderboardConsent={
+                                consent.leaderboardConsent
+                            }
+                        />
                     </div>
                 </div>
             </div>

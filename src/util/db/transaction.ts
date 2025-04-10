@@ -28,10 +28,12 @@ export async function createTransaction(
     let data: Record<string, unknown>[];
 
     switch (type) {
-        case TransactionType.Unknown: {
+        case TransactionType.Unknown:
+        case TransactionType.Performance:
+        case TransactionType.ActivityWinner: {
             if (event || prize) {
                 throw new Error(
-                    "Unknown transactions cannot have events/prizes!",
+                    "Simple transactions cannot have events/prizes!",
                 );
             }
 
