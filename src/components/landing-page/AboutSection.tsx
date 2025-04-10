@@ -244,16 +244,9 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                 {/* Leaderboard */}
                 <Panel panelColor={"#f5be58"} className="flex flex-col">
                     <PanelHeader as="h2">Leaderboard</PanelHeader>
-                    <PanelContent className="h-full px-2 md:px-8 flex flex-col justify-between gap-y-8 md:text-lg text-white">
-                        <LeaderboardRecord
-                            name={"Name1"}
-                            hackeroonAmount={99999}
-                        />
-                        <LeaderboardRecord
-                            name={"Name2"}
-                            hackeroonAmount={345}
-                        />
-                        <LeaderboardRecord name={"Name3"} hackeroonAmount={1} />
+                    <PanelContent className="h-full flex justify-center items-center font-h1 text-3xl md:text-4xl text-blue-500 tracking-widest">
+                        {/* TODO: get top 3 hackathon participants with highest hackeroon count and use LeaderboardRecord to display */}
+                        Coming soon!
                     </PanelContent>
                 </Panel>
             </div>
