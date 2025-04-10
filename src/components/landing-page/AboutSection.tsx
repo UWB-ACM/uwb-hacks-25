@@ -21,7 +21,7 @@ import FunFact from "./(AboutSectionComponents)/FunFacts/FunFact";
 import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Carousel";
 
 // for Leaderboard panel
-import LeaderboardRecord from "./(AboutSectionComponents)/LeaderboardRecord";
+// import LeaderboardRecord from "./(AboutSectionComponents)/LeaderboardRecord";
 
 // For Last Years Winners panel
 import LastYearsWinnersRecord from "./(AboutSectionComponents)/LastYearsWinnersRecord";
