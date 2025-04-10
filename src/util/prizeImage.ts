@@ -6,6 +6,10 @@ import DualLunchBag from "@/public/hackeroonShop/lunchBag.png";
 import AdidasFleeceHoodie from "@/public/hackeroonShop/adidasFleeceHoodie.png";
 import Backpack from "@/public/hackeroonShop/backpack.jpeg";
 import DefaultImage from "@/public/bg.jpg";
+import FidgetSpinner from "@/public/hackeroonShop/gear.webp";
+import KeyChain from "@/public/hackeroonShop/keychain.jpg";
+import CableWinder from "@/public/hackeroonShop/cableWinder.webp";
+import TShirt from "@/public/hackeroonShop/tshirt.png";
 
 export const retrievePrizeImage = (
     prizeName: string | null,
@@ -23,6 +27,14 @@ export const retrievePrizeImage = (
             return AdidasFleeceHoodie;
         case "backpack":
             return Backpack;
+        case "fidgetSpinner":
+            return FidgetSpinner;
+        case "keyChain":
+            return KeyChain;
+        case "cableWinder":
+            return CableWinder;
+        case "tShirt":
+            return TShirt;
         default:
             return DefaultImage;
     }

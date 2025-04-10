@@ -5,9 +5,7 @@ import React from "react";
 function SupportSection() {
     return (
         <Button
-            href={
-                "https://forms.gle/4ZwYjs6dnAACtWraA"
-            }
+            href={"https://forms.gle/4ZwYjs6dnAACtWraA"}
             target={"_blank"}
             color="yellow"
         >
