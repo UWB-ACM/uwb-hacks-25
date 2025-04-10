@@ -118,16 +118,22 @@ export default function CheckInCodeGenerator({
                     : "No event selected"}
             </p>
 
-            <div className="flex gap-x-2 justify-center mt-1">
+            <div className="flex gap-x-2 justify-center items-center mt-4">
+                <label htmlFor="countdownDuration" className="text-center">
+                    Duration (seconds)
+                </label>
                 <input
+                    id="countdownDuration"
                     className="px-4 py-2 rounded-lg border"
                     type="number"
                     value={duration.toString()}
                     onChange={handleChange}
                 />
+            </div>
+            <div className="flex justify-center mt-2">
                 <button
                     className={
-                        "p-3 rounded-md " +
+                        "w-full md:w-1/2 p-3 rounded-md text-white " +
                         (loading ? "bg-gray-200" : "bg-green-400")
                     }
                     onClick={onClick}
@@ -135,9 +141,16 @@ export default function CheckInCodeGenerator({
                     {loading ? "Loading..." : "Create"}
                 </button>
             </div>
-            <h1>{currentCode}</h1>
 
-            <div className="text-center mt-2">Countdown: {countdown}</div>
+            <h1 className="text-center font-bold text-xl mt-4">
+                {currentCode}
+            </h1>
+            <div className="text-center mt-2 text-lg md:text-xl">
+                Countdown:{" "}
+                <span className="font-bold text-2xl md:text-3xl">
+                    {countdown}
+                </span>
+            </div>
         </div>
     );
 }
