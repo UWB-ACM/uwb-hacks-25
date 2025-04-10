@@ -66,13 +66,14 @@ export default function PrizeCard({
             </div>
 
             {/* Stock and Price Row */}
-            <div className="flex w-full mb-2 space-x-2">
+            <div className="flex w-full mb-2 space-x-2 justify-center">
                 {/* Stock */}
-                <div className="flex items-center justify-center bg-[#66B0F2] text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
+                {/* <div className="flex items-center justify-center bg-[#66B0F2] text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
                     <p className="text-sm">{`${prizeStock} Left!`}</p>
-                </div>
+                </div> a*/}
 
                 {/* Price */}
+
                 <div className="flex items-center justify-center bg-[#F7CC58] text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
                     <p className="text-sm">{`${prize.price} Hackeroons`}</p>
                 </div>
