@@ -24,7 +24,7 @@ export default async function Page() {
             <div className="h-[80vh] w-[90vw] md:w-[60vw] lg:w-[40vw] bg-neutral-100 p-6 flex flex-col justify-between rounded-md border-2 border-black shadow-lg">
                 {/* main content of the user, separate from the exit button */}
                 <div>
-                    <h2 className="text-center text-xl md:text-2xl font-bold mb-2">
+                    <h2 className="text-center text-xl md:text-2xl font-bold">
                         Create Check-In Code
                     </h2>
                     {session.user && <CheckInCodeGenerator events={events} />}

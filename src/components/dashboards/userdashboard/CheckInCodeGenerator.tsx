@@ -15,6 +15,7 @@ export default function CheckInCodeGenerator({
 }) {
     const [duration, setDuration] = useState(0);
     const [eventId, setEventId] = useState<number | null>(null);
+    const [eventName, setEventName] = useState<string | null>(null);
 
     const intervalRef = useRef<NodeJS.Timeout | null>(null); // Ref to store the interval ID
 
@@ -102,30 +103,41 @@ export default function CheckInCodeGenerator({
 
     return (
         <div>
-            <div className="w-full flex justify-center">
+            <div className="w-full flex justify-center mt-2">
                 <StaffEventSelector
                     events={events}
                     setEventId={(id) => setEventId(id)}
+                    setEventName={(name) => setEventName(name)}
                 />
             </div>
 
-            <input
-                type="number"
-                value={duration.toString()}
-                onChange={handleChange}
-            />
-            <button
-                className={
-                    "p-3 rounded-md " +
-                    (loading ? "bg-gray-200" : "bg-green-400")
-                }
-                onClick={onClick}
-            >
-                {loading ? "Loading..." : "Create"}
-            </button>
+            {/* Event Name */}
+            <p className="text-center mt-4 text-xl md:text-2xl">
+                {eventName
+                    ? `Selected event: ${eventName}`
+                    : "No event selected"}
+            </p>
+
+            <div className="flex gap-x-2 justify-center mt-1">
+                <input
+                    className="px-4 py-2 rounded-lg border"
+                    type="number"
+                    value={duration.toString()}
+                    onChange={handleChange}
+                />
+                <button
+                    className={
+                        "p-3 rounded-md " +
+                        (loading ? "bg-gray-200" : "bg-green-400")
+                    }
+                    onClick={onClick}
+                >
+                    {loading ? "Loading..." : "Create"}
+                </button>
+            </div>
             <h1>{currentCode}</h1>
 
-            <div>Countdown: {countdown}</div>
+            <div className="text-center mt-2">Countdown: {countdown}</div>
         </div>
     );
 }
