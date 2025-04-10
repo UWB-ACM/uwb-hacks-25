@@ -1,15 +1,11 @@
 import Image from "next/image";
 import React from "react";
-
-type HackeroonPrize = {
-    name: string;
-    price: number;
-    image: string;
-};
+import { Prize } from "@/src/util/dataTypes";
+import { retrievePrizeImage } from "@/src/util/prizeImage";
 
 type HackeroonItemCardProps = {
     cardRef: React.RefObject<HTMLDivElement | null>;
-    hackeroonPrize: HackeroonPrize;
+    hackeroonPrize: Prize;
 };
 
 export default function HackeroonItemCard({
@@ -26,9 +22,9 @@ export default function HackeroonItemCard({
                 {hackeroonPrize.name}
             </p>
             {/* Prize Image */}
-            <div className="w-full p-4 mt-2 bg-gray-200 flex justify-center rounded-md border border-black">
+            <div className="w-full p-4 mt-2 bg-white flex justify-center rounded-md border border-black">
                 <Image
-                    src={hackeroonPrize.image}
+                    src={retrievePrizeImage(hackeroonPrize.imageName)}
                     alt={"Image of " + hackeroonPrize.name}
                     width={100}
                     height={100}

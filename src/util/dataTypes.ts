@@ -1,4 +1,10 @@
 /**
+ * An identifier for the current revision of the legal terms.
+ * Every time they are updated, this must be incremented.
+ */
+export const TERMS_LEVEL = 1;
+
+/**
  * A user and balance in the database.
  */
 export interface LeaderboardRecord {
@@ -54,6 +60,18 @@ export interface User {
      * This needs to be retrieved separately from the user.
      */
     balance: number;
+
+    /**
+     * The terms level that the user has agreed to.
+     * @see TERMS_LEVEL
+     */
+    terms: number;
+
+    /**
+     * Has the user agreed to be displayed
+     * on the leaderboard?
+     */
+    leaderboardConsent: boolean;
 }
 
 /**
@@ -153,18 +171,25 @@ export interface Prize {
     description: string | null;
 
     /**
-     * The current stock of the prize.
-     *
-     * This is different from the initial_stock field
-     * and needs to be computed based on it and all the
-     * transactions on the prize.
+     * The initial stock of the prize.
      */
-    stock: number;
+    initialStock: number;
+
+    /**
+     * The number of prizes that have been sold so far.
+     */
+    sold: number;
 
     /**
      * The prize's price.
      */
     price: number;
+
+    /**
+     * An identifier for the image that should be shown
+     * for this prize.
+     */
+    imageName: string | null;
 }
 
 /**
@@ -269,4 +294,24 @@ export enum TransactionType {
      * A payment to purchase a prize.
      */
     PrizePurchase = 2,
+
+    /**
+     * Someone did well in an event, asked a good question,
+     * or helped out.
+     */
+    Performance = 3,
+
+    /**
+     * Someone won an event activity.
+     */
+    ActivityWinner = 4,
 }
+
+/**
+ * A map of transaction types to their hackeroon amounts.
+ * This only includes transaction types which have a constant value.
+ */
+export const valuedTransactionTypes = {
+    [TransactionType.Performance]: 25,
+    [TransactionType.ActivityWinner]: 50,
+} as const;
