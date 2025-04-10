@@ -7,11 +7,13 @@ import { Event } from "@/src/util/dataTypes";
 type StaffEventSelectorProps = {
     events: Promise<Event[]>;
     setEventId: Dispatch<SetStateAction<number | null>>;
+    setEventName: Dispatch<SetStateAction<string | null>>;
 };
 
 export default function StaffEventSelector({
     events,
     setEventId,
+    setEventName,
 }: StaffEventSelectorProps) {
     return (
         <Selector
@@ -23,6 +25,7 @@ export default function StaffEventSelector({
             description={(event) => event.description || "event description"}
             onClick={(event) => {
                 setEventId(event.id);
+                setEventName(event.name);
             }}
         />
     );
