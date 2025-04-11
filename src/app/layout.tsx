@@ -72,9 +72,9 @@ export default function RootLayout({
             <body
                 className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-full`}
             >
-                    <Consent />
-                    {children}
-                    <Footer />
+                <Consent />
+                {children}
+                <Footer />
             </body>
         </html>
     );
