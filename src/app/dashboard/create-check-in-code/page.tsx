@@ -19,11 +19,14 @@ export default async function Page() {
     // returning the card with user information
     return (
         // centering all the content on the screen
-        <div className="h-screen grid place-content-center">
+        <div className="grid place-content-center mt-12">
             {/* the actual card with all the user data */}
-            <div className="h-[80vh] w-[90vw] md:w-[60vw] lg:w-[40vw] bg-neutral-100 p-5 flex flex-col justify-between rounded-md border-2 border-black shadow-lg">
+            <div className="h-[80vh] w-[90vw] md:w-[60vw] lg:w-[40vw] bg-neutral-100 p-6 flex flex-col justify-between rounded-md border-2 border-black shadow-lg">
                 {/* main content of the user, separate from the exit button */}
                 <div>
+                    <h2 className="text-center text-xl md:text-2xl font-bold">
+                        Create Check-In Code
+                    </h2>
                     {session.user && <CheckInCodeGenerator events={events} />}
                 </div>
                 {/* exit button that returns user back to staff dashboard */}

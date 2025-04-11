@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import React from "react";
 import { Inter, Rubik_Mono_One, Open_Sans } from "next/font/google";
-import { ReactLenis } from "../../util/lenis";
 import Header from "@/src/components/header/Header";
 
 const inter = Inter({
@@ -70,10 +69,8 @@ export default function RootLayout({
         <div
             className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-full`}
         >
-            <ReactLenis root>
-                <Header links={[]} />
-                {children}
-            </ReactLenis>
+            <Header links={[]} />
+            {children}
         </div>
     );
 }
