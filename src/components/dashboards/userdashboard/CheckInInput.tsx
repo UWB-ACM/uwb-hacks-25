@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { actionValidateCheckin } from "@/src/util/actions/checkIn";
 import { Event } from "@/src/util/dataTypes";
 import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
+import FancyInput from "@/src/components/ui/FancyInput";
 
 function CheckInInput() {
     const [code, setCode] = useState<string>("");
@@ -43,22 +44,7 @@ function CheckInInput() {
 
     return (
         <>
-            <div className="flex">
-                <input
-                    type="text"
-                    className="min-w-20 min-h-10 "
-                    onChange={(e) => setCode(e.target.value)}
-                    onPaste={(e) => {
-                        e.preventDefault();
-                    }}
-                />
-                <button
-                    onClick={validateCheckIn}
-                    className="min-w-20 min-h-10 bg-blue-500 text-white"
-                >
-                    Check In
-                </button>
-            </div>
+            <FancyInput value={code} onChange={setCode} onClick={validateCheckIn} button={true}/>
 
             <DashboardFeedback
                 open={isModalOpen}
