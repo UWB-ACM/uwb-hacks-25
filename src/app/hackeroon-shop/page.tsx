@@ -15,6 +15,15 @@ export default async function PrizesPage() {
         return [];
     });
 
+    prizes.sort((a, b) => {
+        if (a.price < b.price) {
+            return -1;
+        } else if (a.price > b.price) {
+            return 1;
+        }
+        return 0;
+    });
+
     return (
         <div className="w-full min-h-full flex flex-col">
             <Header
@@ -65,7 +74,8 @@ export default async function PrizesPage() {
             </div>
 
             <p className="self-center text-center max-w-[80%] md:max-w-[50%] font-bold">
-                Prizes are offered on a first-come-first-serve basis
+                Prizes are offered on a first-come-first-serve basis.
+                <br /> Prices also may be subject to change!
             </p>
 
             <div className="w-full flex-grow p-8 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
