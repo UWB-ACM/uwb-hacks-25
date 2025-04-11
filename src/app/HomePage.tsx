@@ -30,7 +30,7 @@ export default function HomePage({
     const meetTheTeamRef = useRef<HTMLDivElement>(null);
     const sponsorsRef = useRef<HTMLDivElement>(null);
     const faqRef = useRef<HTMLDivElement>(null);
-    
+
     const scrollTopRef = useRef<HTMLDivElement>(null);
     const [showGoTop, setShowGoTop] = useState(false);
     const [scrollY, setScrollY] = useState(0);
@@ -58,7 +58,7 @@ export default function HomePage({
                 block: "start",
             });
         }
-    }
+    };
 
     return (
         <div className="flex flex-col items-center w-[screen] overflow-hidden">
