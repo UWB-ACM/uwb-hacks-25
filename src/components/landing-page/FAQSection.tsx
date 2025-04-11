@@ -19,7 +19,7 @@ const faqItems = [
     },
     {
         question:
-            "5. Do I need a teaFm to register, and how many people can be on a team?",
+            "5. Do I need a team to register, and how many people can be on a team?",
         answer: "Yes. If you don’t have a team, we will provide opportunities to form teams before the hackathon begins. Each team must have 3 to 5 members—no exceptions. Teams that don’t meet this requirementwill be disqualified.",
     },
     {
