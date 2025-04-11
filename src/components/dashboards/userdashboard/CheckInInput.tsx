@@ -18,6 +18,11 @@ function CheckInInput() {
 
         setIsModalOpen(true);
         setCheckinRes(valid);
+
+        // If the check-in was successful, clear the input field.
+        if (valid) {
+            setCode("");
+        }
     }
 
     let dialogTitle;
