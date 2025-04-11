@@ -1,18 +1,18 @@
 import React from "react";
-import { getEvents } from "@/src/util/db/event";
-import EventClientWrapper from "./EventClientWrapper";
+import { getPrizes } from "@/src/util/db/prize";
+import PrizeClientWrapper from "./PrizeClientWrapper";
 import { getSession } from "@/src/util/session";
 import { ensureStaffPermission } from "@/src/util/staff";
 
-export default async function ModifyEventPage() {
+export default async function ModifyPrizePage() {
     const session = await getSession();
     await ensureStaffPermission(session);
 
-    const events = getEvents();
+    const prizes = getPrizes();
 
     return (
         <div className="w-full min-h-screen">
-            <EventClientWrapper events={events} />
+            <PrizeClientWrapper prizes={prizes} />
         </div>
     );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Lenis from "lenis";
 import Image from "next/image";
 import ScrollImage from "@/public/hero/scroll-top.svg";
 import { Parallax, ParallaxProvider } from "react-scroll-parallax";
@@ -33,42 +32,39 @@ export default function HomePage({
     const meetTheTeamRef = useRef<HTMLDivElement>(null);
     const sponsorsRef = useRef<HTMLDivElement>(null);
     const faqRef = useRef<HTMLDivElement>(null);
-    const lenis = useRef<Lenis | null>(null);
 
+    const scrollTopRef = useRef<HTMLDivElement>(null);
     const [showGoTop, setShowGoTop] = useState(false);
+    const [scrollY, setScrollY] = useState(0);
 
+    const handleScrollUpButton = () => {
+        const position = window.pageYOffset;
+        setScrollY(position);
+
+        if (scrollY > 100) {
+            setShowGoTop(true);
+        } else {
+            setShowGoTop(false);
+        }
+    };
+
+    //SCROLL LISTENER
     useEffect(() => {
-        // Initialize Lenis for smooth scrolling
-        lenis.current = new Lenis();
-
-        const handleScroll = () => {
-            setShowGoTop(window.scrollY > 600);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        const raf = (time: number) => {
-            lenis.current?.raf(time);
-            requestAnimationFrame(raf);
-        };
-        requestAnimationFrame(raf);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+        window.addEventListener("scroll", handleScrollUpButton);
+    });
 
     const scrollToTop = () => {
-        if (lenis.current) {
-            lenis.current.scrollTo(0, {
-                duration: 0.4,
-                easing: (t: number) => t,
+        if (scrollTopRef.current) {
+            scrollTopRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
             });
         }
     };
 
     return (
         <div className="flex flex-col items-center w-[screen] overflow-hidden">
+            <div ref={scrollTopRef}></div>
             <button
                 onClick={scrollToTop}
                 className={`fixed z-[100] w-12 h-12 bottom-4 bg-white border-black border-2 right-4 scroll-up-animation ${
