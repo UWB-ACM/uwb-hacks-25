@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import React from "react";
 import { Inter, Rubik_Mono_One, Open_Sans } from "next/font/google";
 import "./globals.css";
-import { ReactLenis } from "../util/lenis";
 import Footer from "../components/Footer";
 import Consent from "@/src/components/Consent";
 
@@ -73,11 +72,9 @@ export default function RootLayout({
             <body
                 className={`${inter.variable} ${openSans.variable} ${rubikMonoOne.variable} antialiased w-full`}
             >
-                <ReactLenis root>
-                    <Consent />
-                    {children}
-                    <Footer />
-                </ReactLenis>
+                <Consent />
+                {children}
+                <Footer />
             </body>
         </html>
     );
