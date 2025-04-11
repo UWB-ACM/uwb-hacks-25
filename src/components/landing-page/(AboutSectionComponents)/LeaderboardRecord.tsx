@@ -1,14 +1,14 @@
 import React from "react";
 
-type LeaderboardRecordProps = {
+type LeaderboardUserRecordProps = {
     name: string;
     hackeroonAmount: number;
 };
 
-export default function LeaderboardRecord({
+export default function LeaderboardUserRecord({
     name,
     hackeroonAmount,
-}: LeaderboardRecordProps) {
+}: LeaderboardUserRecordProps) {
     return (
         <div className="grid grid-cols-3">
             <div className="flex justify-center items-center">
