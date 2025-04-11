@@ -6,9 +6,9 @@ import DualLunchBag from "@/public/hackeroonShop/lunchBag.png";
 import AdidasFleeceHoodie from "@/public/hackeroonShop/adidasFleeceHoodie.png";
 import Backpack from "@/public/hackeroonShop/backpack.jpeg";
 import DefaultImage from "@/public/bg.jpg";
-import FidgetSpinner from "@/public/hackeroonShop/gear.webp";
+import FidgetSpinner from "@/public/hackeroonShop/fidgetSpinner.png";
 import KeyChain from "@/public/hackeroonShop/keychain.jpg";
-import CableWinder from "@/public/hackeroonShop/cableWinder.webp";
+import CableWinder from "@/public/hackeroonShop/cableWinder.png";
 import TShirt from "@/public/hackeroonShop/tshirt.png";
 
 export const retrievePrizeImage = (
