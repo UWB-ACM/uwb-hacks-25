@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import React from "react";
 import { Inter, Rubik_Mono_One, Open_Sans } from "next/font/google";
 import "./globals.css";
-import { ReactLenis } from "../util/lenis";
 import Footer from "../components/Footer";
 import Consent from "@/src/components/Consent";
 
