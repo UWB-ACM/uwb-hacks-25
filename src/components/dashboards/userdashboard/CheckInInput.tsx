@@ -44,7 +44,12 @@ function CheckInInput() {
 
     return (
         <>
-            <FancyInput value={code} onChange={setCode} onClick={validateCheckIn} button={true}/>
+            <FancyInput
+                value={code}
+                onChange={setCode}
+                onClick={validateCheckIn}
+                button={true}
+            />
 
             <DashboardFeedback
                 open={isModalOpen}
