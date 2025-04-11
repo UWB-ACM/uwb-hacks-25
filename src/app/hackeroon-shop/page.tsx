@@ -15,6 +15,15 @@ export default async function PrizesPage() {
         return [];
     });
 
+    prizes.sort((a, b) => {
+        if (a.price < b.price) {
+            return -1;
+        } else if (a.price > b.price) {  
+            return 1;
+        }
+        return 0;
+    });
+
     return (
         <div className="w-full min-h-full flex flex-col">
             <Header
