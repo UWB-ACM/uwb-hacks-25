@@ -21,15 +21,16 @@ import FunFact from "./(AboutSectionComponents)/FunFacts/FunFact";
 import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Carousel";
 
 // for Leaderboard panel
-import LeaderboardRecord from "./(AboutSectionComponents)/LeaderboardRecord";
+import Leaderboard from "./(AboutSectionComponents)/Leaderboard";
 
 // For Last Years Winners panel
 import LastYearsWinnersRecord from "./(AboutSectionComponents)/LastYearsWinnersRecord";
-import { Prize } from "@/src/util/dataTypes";
+import { LeaderboardRecord, Prize } from "@/src/util/dataTypes";
 
-const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
-    hackeroonPrizes,
-}) => {
+const AboutSection: React.FC<{
+    hackeroonPrizes: Promise<Prize[]>;
+    leaderboardData: Promise<LeaderboardRecord[]>;
+}> = ({ hackeroonPrizes, leaderboardData }) => {
     const panelMargin = "mt-12 md:mt-16";
 
     return (
@@ -245,15 +246,10 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                 <Panel panelColor={"#f5be58"} className="flex flex-col">
                     <PanelHeader as="h2">Leaderboard</PanelHeader>
                     <PanelContent className="h-full px-2 md:px-8 flex flex-col justify-between gap-y-8 md:text-lg text-white">
-                        <LeaderboardRecord
-                            name={"Name1"}
-                            hackeroonAmount={99999}
-                        />
-                        <LeaderboardRecord
-                            name={"Name2"}
-                            hackeroonAmount={345}
-                        />
-                        <LeaderboardRecord name={"Name3"} hackeroonAmount={1} />
+                        {/* Render leaderboard */}
+                        <Suspense>
+                            <Leaderboard leaderboardData={leaderboardData} />
+                        </Suspense>
                     </PanelContent>
                 </Panel>
             </div>

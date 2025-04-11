@@ -17,12 +17,14 @@ import MeetTheTeamSection from "@/src/components/landing-page/MeetTheTeamSection
 import SponsorsSection from "@/src/components/landing-page/SponsorsSection";
 import FAQSection from "@/src/components/landing-page/FAQSection";
 import "../styles/globals.css";
-import { Prize } from "@/src/util/dataTypes";
+import { LeaderboardRecord, Prize } from "@/src/util/dataTypes";
 
 export default function HomePage({
     hackeroonPrizes,
+    leaderboardData,
 }: {
     hackeroonPrizes: Promise<Prize[]>;
+    leaderboardData: Promise<LeaderboardRecord[]>;
 }) {
     const mainRef = useRef<HTMLDivElement>(null);
     const aboutRef = useRef<HTMLDivElement>(null);
@@ -175,7 +177,10 @@ export default function HomePage({
                 >
                     <div className="z-[5] w-[90%] mx-auto">
                         <div id="about" ref={aboutRef} className="w-full">
-                            <AboutSection hackeroonPrizes={hackeroonPrizes} />
+                            <AboutSection
+                                hackeroonPrizes={hackeroonPrizes}
+                                leaderboardData={leaderboardData}
+                            />
                         </div>
 
                         {/* TODO - release all of these the day of the event */}
