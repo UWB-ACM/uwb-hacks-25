@@ -8,6 +8,7 @@ export const TERMS_LEVEL = 1;
  * A user and balance in the database.
  */
 export interface LeaderboardRecord {
+    picture: string;
     /**
      * The user's ID, which is unique to it.
      */

@@ -1,18 +1,27 @@
 import React from "react";
+import Image from "next/image";
 
 type LeaderboardUserRecordProps = {
     name: string;
     hackeroonAmount: number;
+    picture: string;
 };
 
 export default function LeaderboardUserRecord({
     name,
     hackeroonAmount,
+    picture,
 }: LeaderboardUserRecordProps) {
     return (
         <div className="grid grid-cols-3">
             <div className="flex justify-center items-center">
-                <div className="w-[50px] h-[50px] bg-white border-black border-[1px] rounded-full" />
+                <Image
+                    className="rounded-full"
+                    src={picture}
+                    alt="User Profile Photo"
+                    width="75"
+                    height="75"
+                />
             </div>
             <div className="flex justify-center items-center">
                 <p>{name}</p>

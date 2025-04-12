@@ -18,6 +18,7 @@ export default function Leaderboard({
                     <LeaderboardUserRecord
                         name={user.name}
                         hackeroonAmount={user.balance}
+                        picture={user.picture}
                     />
                 </div>
             ))}
