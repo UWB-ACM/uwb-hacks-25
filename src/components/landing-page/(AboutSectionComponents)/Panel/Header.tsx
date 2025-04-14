@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 import gsap from "gsap";
@@ -24,28 +24,21 @@ export default function PanelHeader({
     const headerRef = useRef(null);
 
     useEffect(() => {
+        if (!headerRef.current) return;
+
         const header = headerRef.current;
 
-        if (header) {
-            gsap.set(header, { y: "-100%" });
+        gsap.set(header, { y: "-100%" });
 
-            const animation = gsap.to(header, {
-                duration: 0.2,
-                ease: "power1.in",
-                y: 0,
-                scrollTrigger: {
-                    trigger: `#${id}`,
-                    start: "30% 80%",
-                },
-            });
-
-            return () => {
-                if (animation.scrollTrigger) {
-                    animation.scrollTrigger.kill();
-                }
-                animation.kill();
-            };
-        }
+        gsap.to(header, {
+            duration: 0.2,
+            ease: "power1.in",
+            y: 0,
+            scrollTrigger: {
+                trigger: `#${id}`,
+                start: "30% 80%",
+            },
+        });
     }, []);
 
     const props = {
