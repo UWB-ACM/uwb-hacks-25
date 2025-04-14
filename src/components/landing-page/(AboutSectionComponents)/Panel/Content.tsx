@@ -6,11 +6,13 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 type PanelContentProps = {
+    id: string;
     children: React.ReactNode;
     className?: string;
 };
 
 export default function PanelContent({
+    id,
     children,
     className,
 }: PanelContentProps) {
@@ -24,15 +26,14 @@ export default function PanelContent({
         gsap.set(panelContent, { scale: 0.1, opacity: 0 });
 
         gsap.to(panelContent, {
-            delay: 0.2,
+            delay: 0.3,
             scale: 1,
             opacity: 1,
-            duration: 0.15,
-            ease: "power2.in",
+            duration: 0.2,
+            ease: "power1.in",
             scrollTrigger: {
-                trigger: panelContent,
-                start: "70% 90%",
-                markers: true,
+                trigger: `#${id}`,
+                start: "30% 80%",
             },
         });
     }, []);
