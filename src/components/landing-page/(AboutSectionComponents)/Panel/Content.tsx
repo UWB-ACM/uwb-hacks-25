@@ -36,7 +36,8 @@ export default function PanelContent({
                 start: "30% 80%",
             },
         });
-    }, []);
+        // id only passed into dependency array to satisfy ESLint. value of id will never be changed within this component
+    }, [id]);
 
     return (
         <div ref={panelContentRef} className={clsx("p-6 md:p-10", className)}>
