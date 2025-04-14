@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 type PanelHeaderProps = {
+    id: string;
     children: React.ReactNode;
     isSectionHeader?: boolean;
     className?: string;
@@ -14,6 +15,7 @@ type PanelHeaderProps = {
 };
 
 export default function PanelHeader({
+    id,
     children,
     isSectionHeader = false,
     className,
@@ -29,12 +31,11 @@ export default function PanelHeader({
 
             const animation = gsap.to(header, {
                 duration: 0.2,
-                ease: "power2.out",
+                ease: "power1.in",
                 y: 0,
                 scrollTrigger: {
-                    trigger: header,
-                    start: "bottom 65%",
-                    markers: true,
+                    trigger: `#${id}`,
+                    start: "30% 80%",
                 },
             });
 

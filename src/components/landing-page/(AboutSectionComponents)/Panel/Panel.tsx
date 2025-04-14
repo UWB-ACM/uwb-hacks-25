@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 type PanelProps = {
+    id: string;
     children: React.ReactNode;
     className?: string;
     panelBackground?: string;
@@ -15,6 +16,7 @@ type PanelProps = {
 
 export default function Panel({
     children,
+    id,
     className = "",
     panelBackground,
     panelColor,
@@ -33,6 +35,7 @@ export default function Panel({
 
     return (
         <div
+            id={id}
             className={twMerge(
                 clsx(
                     "relative w-full border-black border-[3px] bg-cover bg-center overflow-hidden",
