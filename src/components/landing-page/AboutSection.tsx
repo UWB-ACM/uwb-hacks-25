@@ -20,9 +20,6 @@ import FunFact from "./(AboutSectionComponents)/FunFacts/FunFact";
 // For Hackeroons Panel
 import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Carousel";
 
-// for Leaderboard panel
-// import LeaderboardRecord from "./(AboutSectionComponents)/LeaderboardRecord";
-
 // For Last Years Winners panel
 import LastYearsWinnersRecord from "./(AboutSectionComponents)/LastYearsWinnersRecord";
 import { Prize } from "@/src/util/dataTypes";
@@ -36,13 +33,15 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
         <section>
             {/* UWBHacks About Container */}
             <Panel
-                className={`${panelMargin} aboutSectionContainer`}
+                id="aboutPanel"
+                className={`${panelMargin}`}
                 panelBackground={
                     "/about/backgrounds/AboutSection_Background_1.jpg"
                 }
             >
                 {/* UWBHacks About Section Header */}
                 <PanelHeader
+                    id="aboutPanel"
                     as="h2"
                     isSectionHeader
                     className="z-[5] lg:absolute"
@@ -51,7 +50,10 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                 </PanelHeader>
 
                 {/* UWBHacks About Section Content */}
-                <PanelContent className="z-[5] flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 overflow-hidden">
+                <PanelContent
+                    id="aboutPanel"
+                    className="z-[5] flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 overflow-hidden"
+                >
                     <FlyingHusky />
 
                     {/* UWBHacks About Section Description */}
@@ -90,9 +92,13 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
             </Panel>
 
             {/* Previous UWBHacks Fun Statistics Container */}
-            <Panel className={`w-full border-none ${panelMargin}`}>
+            <Panel
+                id="funFactsPanel"
+                className={`w-full border-none ${panelMargin}`}
+            >
                 <div className="flex justify-center">
                     <PanelHeader
+                        id="funFactsPanel"
                         as="h2"
                         className="font-h1 text-white bg-transparent border-none p-0"
                     >
@@ -124,16 +130,20 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
 
             {/* UWB ACM Description Container */}
             <Panel
+                id="uwbacmDescriptionPanel"
                 className={`mt-12 md:mt-16 ${panelMargin}`}
                 panelBackground="/about/backgrounds/AboutSection_Background_2.jpg"
             >
                 {/* UWBHacks ACM Description Header */}
-                <PanelHeader as="h2">
+                <PanelHeader id="uwbacmDescriptionPanel" as="h2">
                     UWB Association for Computing Machinery
                 </PanelHeader>
 
                 {/* UWB ACM Description Content */}
-                <PanelContent className="flex justify-center items-center">
+                <PanelContent
+                    id="uwbacmDescriptionPanel"
+                    className="flex justify-center items-center"
+                >
                     <div className="z-[5] w-4/5 md:w-3/4 lg:w-3/5 flex flex-col xl:flex-row xl:gap-x-4 self-center p-6 bg-white border-2 border-black">
                         <p className="font-semibold text-center md:text-left">
                             UWB ACM is a chapter of the Association of Computing
@@ -169,13 +179,16 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
             <div className={`w-full grid md:grid-cols-2 gap-8 ${panelMargin}`}>
                 {/* Month of Hacking */}
                 <Panel
+                    id="monthOfHackingPanel"
                     panelBackground={
                         "/about/backgrounds/AboutSection_Background_3.jpg"
                     }
                     className="flex flex-col justify-between"
                 >
-                    <PanelHeader as="h2">Month of Hacking</PanelHeader>
-                    <PanelContent>
+                    <PanelHeader id="monthOfHackingPanel" as="h2">
+                        Month of Hacking
+                    </PanelHeader>
+                    <PanelContent id="monthOfHackingPanel">
                         <p className="text-center font-bold md:text-lg">
                             In{" "}
                             <span className="font-h1 text-blue-700 tracking-wider px-[2px] text-xl md:text-2xl">
@@ -197,13 +210,19 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                     </PanelContent>
                 </Panel>
 
-                {/* Last Year's Prizes */}
+                {/* Last Year's Winners */}
                 <Panel
+                    id="lastYearsWinnersPanel"
                     className="flex flex-col"
                     panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
                 >
-                    <PanelHeader as="h2">Last Year&apos;s Projects</PanelHeader>
-                    <PanelContent className="h-full flex flex-col justify-around gap-y-4">
+                    <PanelHeader id="lastYearsWinnersPanel" as="h2">
+                        Last Year&apos;s Projects
+                    </PanelHeader>
+                    <PanelContent
+                        id="lastYearsWinnersPanel"
+                        className="h-full flex flex-col justify-around gap-y-4"
+                    >
                         <LastYearsWinnersRecord
                             name={"LoveStorying"}
                             linkedInPost={
@@ -222,10 +241,15 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                 </Panel>
 
                 {/* Hackeroons */}
-                <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
-                    <PanelHeader as="h2">Hackeroons</PanelHeader>
+                <Panel
+                    id="hackeroonPrizesPanel"
+                    panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
+                >
+                    <PanelHeader id="hackeroonPrizesPanel" as="h2">
+                        Hackeroons
+                    </PanelHeader>
 
-                    <PanelContent>
+                    <PanelContent id="hackeroonPrizesPanel">
                         {/* Hackeroon Prizes Carousel */}
                         <Suspense>
                             <HackeroonCarousel
@@ -242,9 +266,18 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                 </Panel>
 
                 {/* Leaderboard */}
-                <Panel panelColor={"#f5be58"} className="flex flex-col">
-                    <PanelHeader as="h2">Leaderboard</PanelHeader>
-                    <PanelContent className="h-full flex justify-center items-center font-h1 text-3xl md:text-4xl text-blue-500 tracking-widest">
+                <Panel
+                    id="leaderboardPanel"
+                    panelColor={"#f5be58"}
+                    className="flex flex-col"
+                >
+                    <PanelHeader id="leaderboardPanel" as="h2">
+                        Leaderboard
+                    </PanelHeader>
+                    <PanelContent
+                        id="leaderboardPanel"
+                        className="h-full flex justify-center items-center font-h1 text-3xl md:text-4xl text-blue-500 tracking-widest"
+                    >
                         {/* TODO: get top 3 hackathon participants with highest hackeroon count and use LeaderboardRecord to display */}
                         <div className="bg-white p-5 rounded-md border-black border-2 shadow-[5px_5px_0_rgba(0,0,0,1)]">
                             Coming soon!

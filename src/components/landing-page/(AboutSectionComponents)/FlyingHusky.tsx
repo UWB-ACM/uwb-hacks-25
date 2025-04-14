@@ -27,15 +27,15 @@ export default function FlyingHusky() {
                     { x: "-80vw", y: "40vh", rotation: "-20deg", scale: 0.75 },
                     { x: "-40vw", y: "-30vh", rotation: "10deg", scale: 0.85 },
                     { x: "-20vw", y: "-20vh", rotation: "5deg", scale: 0.9 },
-                    { x: "-10vw", y: "-10vh", rotation: 0, scale: 0.95 },
-                    { x: 0, y: 0, rotation: 0, scale: 1 },
+                    { x: "-10vw", y: "-10vh", rotation: "0deg", scale: 0.95 },
+                    { x: 0, y: 0, rotation: "0deg", scale: 1 },
                 ],
                 curviness: 1.5,
                 autoRotate: true,
             },
             scrollTrigger: {
-                trigger: ".aboutSectionContainer",
-                start: "top 80%",
+                trigger: "#aboutPanel",
+                start: "30% 80%",
             },
         });
 
