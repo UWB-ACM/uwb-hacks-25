@@ -29,8 +29,8 @@ export default function PanelContent({
             delay: 0.3,
             scale: 1,
             opacity: 1,
-            duration: 0.2,
-            ease: "power1.in",
+            duration: 0.4,
+            ease: "expo.out",
             scrollTrigger: {
                 trigger: `#${id}`,
                 start: "30% 80%",

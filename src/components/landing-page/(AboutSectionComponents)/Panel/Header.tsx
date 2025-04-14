@@ -31,8 +31,8 @@ export default function PanelHeader({
         gsap.set(header, { y: "-100%" });
 
         gsap.to(header, {
-            duration: 0.2,
-            ease: "power1.in",
+            duration: 0.4,
+            ease: "expo.out",
             y: 0,
             scrollTrigger: {
                 trigger: `#${id}`,
