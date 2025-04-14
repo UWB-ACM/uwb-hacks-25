@@ -29,7 +29,7 @@ export default function PanelContent({
             delay: 0.3,
             scale: 1,
             opacity: 1,
-            duration: 0.4,
+            duration: 0.2,
             ease: "expo.out",
             scrollTrigger: {
                 trigger: `#${id}`,
