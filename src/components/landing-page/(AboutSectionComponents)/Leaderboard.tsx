@@ -12,10 +12,11 @@ export default function Leaderboard({
 
     // Render leaderboard records!!
     return (
-        <div className="grid text-white text-center gap-y-6">
+        <div className="grid text-white text-center gap-y-2 md:gap-y-4">
             {leaderboard.map((user, index) => (
                 <div key={index}>
                     <LeaderboardUserRecord
+                        ranking={index + 1}
                         name={user.name}
                         hackeroonAmount={user.balance}
                         picture={user.picture}
