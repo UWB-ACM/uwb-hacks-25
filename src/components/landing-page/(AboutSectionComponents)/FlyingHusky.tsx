@@ -15,8 +15,8 @@ export default function FlyingHusky() {
         });
 
         gsap.to(".flyingHusky", {
-            delay: 0.35,
-            duration: 1,
+            delay: 0.3,
+            duration: 1.2,
             x: 0,
             y: 0,
             rotation: 0,
