@@ -223,10 +223,13 @@ const AboutSection: React.FC<{
                 </Panel>
 
                 {/* Hackeroons */}
-                <Panel panelBackground="/about/backgrounds/AboutSection_Background_4.jpg">
+                <Panel
+                    className="flex flex-col"
+                    panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
+                >
                     <PanelHeader as="h2">Hackeroons</PanelHeader>
 
-                    <PanelContent>
+                    <PanelContent className="h-full flex flex-col justify-around">
                         {/* Hackeroon Prizes Carousel */}
                         <Suspense>
                             <HackeroonCarousel
@@ -244,8 +247,8 @@ const AboutSection: React.FC<{
 
                 {/* Leaderboard */}
                 <Panel panelColor={"#f5be58"} className="flex flex-col">
-                    <PanelHeader as="h2">Leaderboard</PanelHeader>
-                    <PanelContent className="h-full px-2 md:px-8 flex flex-col justify-between gap-y-8 md:text-lg text-white">
+                    <PanelHeader as="h2">Hackeroon Leaderboard</PanelHeader>
+                    <PanelContent className="h-full flex flex-col justify-between gap-y-8 md:text-lg text-white p-4 md:p-6">
                         {/* Render leaderboard */}
                         <Suspense>
                             <Leaderboard leaderboardData={leaderboardData} />
