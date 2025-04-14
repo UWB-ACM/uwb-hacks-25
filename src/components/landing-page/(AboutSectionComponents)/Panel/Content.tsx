@@ -19,7 +19,7 @@ export default function PanelContent({
     const panelContentRef = useRef(null);
 
     useEffect(() => {
-        if (!panelContentRef) return;
+        if (!panelContentRef.current) return;
 
         const panelContent = panelContentRef.current;
 
