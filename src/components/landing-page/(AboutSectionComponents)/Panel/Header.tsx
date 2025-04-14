@@ -39,7 +39,8 @@ export default function PanelHeader({
                 start: "30% 80%",
             },
         });
-    }, []);
+        // id only passed into dependency array to satisfy ESLint. value of id will never be changed within this component
+    }, [id]);
 
     const props = {
         ref: headerRef,
