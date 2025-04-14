@@ -24,14 +24,15 @@ export default function PanelContent({
         gsap.set(panelContent, { scale: 0.1, opacity: 0 });
 
         gsap.to(panelContent, {
-            delay: 0.4,
+            delay: 0.2,
             scale: 1,
             opacity: 1,
-            duration: 0.3,
+            duration: 0.15,
             ease: "power2.in",
             scrollTrigger: {
                 trigger: panelContent,
                 start: "70% 90%",
+                markers: true,
             },
         });
     }, []);
