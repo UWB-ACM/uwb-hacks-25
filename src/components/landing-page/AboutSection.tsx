@@ -49,7 +49,7 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                 >
                     About
                 </PanelHeader>
-
+                
                 {/* UWBHacks About Section Content */}
                 <PanelContent className="z-[5] flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 overflow-hidden">
                     <FlyingHusky />
@@ -88,6 +88,8 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                     </div>
                 </PanelContent>
             </Panel>
+            
+            
 
             {/* Previous UWBHacks Fun Statistics Container */}
             <Panel className={`w-full border-none ${panelMargin}`}>
