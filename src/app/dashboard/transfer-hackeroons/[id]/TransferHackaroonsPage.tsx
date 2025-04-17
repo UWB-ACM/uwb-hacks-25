@@ -12,20 +12,41 @@ import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
 
 export default function TransferHackaroonsPage({ user }: { user: User }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [feedbackSuccess, setFeedbackSuccess] = useState(false);
+    const [feedbackSuccess, setFeedbackSuccess] = useState<
+        "success" | "error" | "over-limit"
+    >("error");
 
     const [amount, setAmount] = useState(0);
+
+    const feedbackTitle = {
+        success: "Success",
+        error: "Failure",
+        "over-limit": "Failure",
+    } as const;
+
+    const feedbackDescription = {
+        success: "Successfully credited Hackeroons.",
+        error: "An error occurred. Please try again, and ensure that this transaction doesn't make the user's balance go below zero.",
+        "over-limit":
+            "This user has already received the maximum amount they can for this transaction category.",
+    } as const;
 
     const reasonTypeMap = {
         unknown: TransactionType.Unknown,
         performance: TransactionType.Performance,
         "activity-winner": TransactionType.ActivityWinner,
+        "costume-hero": TransactionType.CostumeHero,
+        "costume-husky": TransactionType.CostumeHusky,
+        "costume-business": TransactionType.CostumeBusinessCasual,
     } as const;
 
     const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
         unknown: "Unknown",
         performance: "Performance",
         "activity-winner": "Activity Winner",
+        "costume-hero": "Hero Costume (Friday)",
+        "costume-husky": "Husky Spirit Costume (Saturday)",
+        "costume-business": "Business Casual Costume (Sunday)",
     };
 
     const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
@@ -52,7 +73,14 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         );
 
         setIsModalOpen(true);
-        setFeedbackSuccess(data != null);
+
+        if (data != null && "error" in data) {
+            setFeedbackSuccess(data["error"]);
+        } else if (data != null) {
+            setFeedbackSuccess("success");
+        } else {
+            setFeedbackSuccess("error");
+        }
     };
 
     return (
@@ -138,12 +166,8 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
             <DashboardFeedback
                 open={isModalOpen}
                 setOpen={setIsModalOpen}
-                title={feedbackSuccess ? "Success" : "Failure"}
-                description={
-                    feedbackSuccess
-                        ? "Successfully credited Hackeroons."
-                        : "An error occurred. Please try again, and ensure that this transaction doesn't make the user's balance go below zero."
-                }
+                title={feedbackTitle[feedbackSuccess]}
+                description={feedbackDescription[feedbackSuccess]}
             />
         </>
     );

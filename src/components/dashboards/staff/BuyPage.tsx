@@ -48,15 +48,17 @@ export default function BuyPage({
                     item.id,
                 );
 
+                const success = data != null && !("error" in data);
+
                 res.push({
                     prize: item,
-                    success: data != null,
+                    success,
                 });
 
                 // "Refund" any failed transactions.
                 // This is just a visual change, and doesn't
                 // modify the true balance.
-                if (data == null) {
+                if (!success) {
                     refundAmount += item.price;
                 } else {
                     successIDs.add(item.id);

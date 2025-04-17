@@ -31,7 +31,7 @@ export async function actionCreateTransaction(
     amount: number,
     event: number | null,
     prize: number | null,
-): Promise<Transaction | null> {
+): Promise<Transaction | { error: "over-limit" } | null> {
     const session = await getSession();
     if (!session.user?.id) return null;
 
