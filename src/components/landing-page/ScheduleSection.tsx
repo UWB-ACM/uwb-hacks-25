@@ -26,15 +26,7 @@ const ScheduleSection: React.FC = () => {
                             description: "Check-In",
                         },
                         {
-                            time: "12:00 PM - 12:30 PM",
-                            description: "Opening Ceremony",
-                        },
-                        {
-                            time: "12:30 PM - 1:00 PM",
-                            description: "Guest Speaker",
-                        },
-                        {
-                            time: "1:00 PM - 1:30 PM",
+                            time: "12:00 PM - 1:00 PM",
                             description: "Opening Ceremony",
                         },
                         {
