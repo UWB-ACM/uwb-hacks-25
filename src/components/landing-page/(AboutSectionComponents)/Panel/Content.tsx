@@ -6,13 +6,13 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 type PanelContentProps = {
-    id: string;
+    parentPanelId: string;
     children: React.ReactNode;
     className?: string;
 };
 
 export default function PanelContent({
-    id,
+    parentPanelId,
     children,
     className,
 }: PanelContentProps) {
@@ -32,12 +32,12 @@ export default function PanelContent({
             duration: 0.2,
             ease: "expo.out",
             scrollTrigger: {
-                trigger: `#${id}`,
+                trigger: `#${parentPanelId}`,
                 start: "30% 80%",
             },
         });
-        // id only passed into dependency array to satisfy ESLint. value of id will never be changed within this component
-    }, [id]);
+        // parentPanelId only passed into dependency array to satisfy ESLint. value of parentPanelId will never be changed within this component
+    }, [parentPanelId]);
 
     return (
         <div ref={panelContentRef} className={clsx("p-6 md:p-10", className)}>
