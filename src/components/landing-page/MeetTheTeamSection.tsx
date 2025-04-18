@@ -30,7 +30,10 @@ const MeetTheTeamSection = () => {
                 Meet the League
             </PanelHeader>
 
-            <PanelContent parentPanelId="meetTheTeamPanel" className="space-y-8">
+            <PanelContent
+                parentPanelId="meetTheTeamPanel"
+                className="space-y-8"
+            >
                 {/* Tabs */}
                 <CommitteeTabs
                     committees={committees}
