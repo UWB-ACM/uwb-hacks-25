@@ -11,14 +11,14 @@ const ScheduleSection: React.FC = () => {
     return (
         <Panel id="schedulePanel" panelColor="white" className={panelMargin}>
             <PanelHeader
-                id="schedulePanel"
+                parentPanelId="schedulePanel"
                 className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
                 isSectionHeader
             >
                 Schedule
             </PanelHeader>
             <PanelContent
-                id="schedulePanel"
+                parentPanelId="schedulePanel"
                 className="grid gap-y-6 gap-x-6 md:grid-cols-3"
             >
                 <ScheduleCard

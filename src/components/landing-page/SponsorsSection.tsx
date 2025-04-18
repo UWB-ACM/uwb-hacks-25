@@ -14,7 +14,7 @@ const SponsorsSection = () => {
     return (
         <Panel id="sponsorsPanel" className={panelMargin} panelColor="white">
             <PanelHeader
-                id="sponsorsPanel"
+                parentPanelId="sponsorsPanel"
                 className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
                 isSectionHeader
             >
@@ -22,7 +22,7 @@ const SponsorsSection = () => {
             </PanelHeader>
 
             <PanelContent
-                id="sponsorsPanel"
+                parentPanelId="sponsorsPanel"
                 className="w-full flex flex-col items-center"
             >
                 {/* Main sponsors row */}

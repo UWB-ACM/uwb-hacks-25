@@ -40,7 +40,7 @@ const TracksSection = () => {
             <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[3%] right-[20%] -rotate-[40deg]" />
 
             <PanelHeader
-                id="tracksPanel"
+                parentPanelId="tracksPanel"
                 as="h2"
                 className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
                 isSectionHeader
@@ -48,7 +48,7 @@ const TracksSection = () => {
                 Tracks
             </PanelHeader>
             <PanelContent
-                id="tracksPanel"
+                parentPanelId="tracksPanel"
                 className="relative flex flex-col items-center"
             >
                 <MysteryBox
