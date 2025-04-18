@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { actionUpdatePrize } from "@/src/util/actions/prize";
 import { Prize } from "@/src/util/dataTypes";
 import { fetchPrizeById } from "@/src/util/actions/prize";
+import Link from "next/link";
 
 type ModifyPrizeFormProps = {
     prizeId: number | null;
@@ -199,12 +200,20 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                     {error && (
                         <p className="mt-4 text-red-600 text-center">{error}</p>
                     )}
-                    <button
-                        type="submit"
-                        className="mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 duration-200 border-black border-[1px]"
-                    >
-                        Submit
-                    </button>
+                    <div className="flex justify-between">
+                        <button
+                            type="submit"
+                            className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 border-black border-[1px]"
+                        >
+                            Submit
+                        </button>
+                        <Link
+                            href="/dashboard"
+                            className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-red-500 text-white text-center"
+                        >
+                            Exit
+                        </Link>
+                    </div>
                 </form>
             </div>
         </div>
