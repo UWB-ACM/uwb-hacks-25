@@ -57,7 +57,7 @@ export default function MysteryBox({
 
         if (!tlRef.current || !mysteryBox || !mysteryBoxLid) return;
 
-        tlRef.current.kill();
+        tlRef.current.clear();
         tlRef.current = gsap.timeline();
         tlRef.current.to(mysteryBox, { x: 0, rotate: 0 });
         tlRef.current.to(mysteryBox, {
