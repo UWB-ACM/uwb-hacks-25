@@ -12,15 +12,19 @@ const SponsorsSection = () => {
     const panelMargin = "mt-12 md:mt-16";
 
     return (
-        <Panel className={panelMargin} panelColor="white">
+        <Panel id="sponsorsPanel" className={panelMargin} panelColor="white">
             <PanelHeader
+                parentPanelId="sponsorsPanel"
                 className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
                 isSectionHeader
             >
                 UWB HACKS 2025 SPONSORS
             </PanelHeader>
 
-            <PanelContent className="w-full flex flex-col items-center">
+            <PanelContent
+                parentPanelId="sponsorsPanel"
+                className="w-full flex flex-col items-center"
+            >
                 {/* Main sponsors row */}
                 <div className="w-full flex flex-wrap justify-center items-center gap-8 md:gap-16">
                     <div className="flex justify-center items-center">
