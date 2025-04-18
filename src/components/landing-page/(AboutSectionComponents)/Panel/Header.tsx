@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 type PanelHeaderProps = {
-    id: string;
+    parentPanelId: string;
     children: React.ReactNode;
     isSectionHeader?: boolean;
     className?: string;
@@ -15,7 +15,7 @@ type PanelHeaderProps = {
 };
 
 export default function PanelHeader({
-    id,
+    parentPanelId,
     children,
     isSectionHeader = false,
     className,
@@ -35,12 +35,12 @@ export default function PanelHeader({
             ease: "expo.out",
             y: 0,
             scrollTrigger: {
-                trigger: `#${id}`,
+                trigger: `#${parentPanelId}`,
                 start: "30% 80%",
             },
         });
-        // id only passed into dependency array to satisfy ESLint. value of id will never be changed within this component
-    }, [id]);
+        // parentPanelId only passed into dependency array to satisfy ESLint. value of parentPanelId will never be changed within this component
+    }, [parentPanelId]);
 
     const props = {
         ref: headerRef,
