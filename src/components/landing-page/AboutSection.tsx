@@ -41,7 +41,7 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
             >
                 {/* UWBHacks About Section Header */}
                 <PanelHeader
-                    id="aboutPanel"
+                    parentPanelId="aboutPanel"
                     as="h2"
                     isSectionHeader
                     className="z-[5] lg:absolute"
@@ -51,7 +51,7 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
 
                 {/* UWBHacks About Section Content */}
                 <PanelContent
-                    id="aboutPanel"
+                    parentPanelId="aboutPanel"
                     className="z-[5] flex flex-col md:flex-row justify-center items-center gap-x-8 gap-y-4 overflow-hidden"
                 >
                     <FlyingHusky />
@@ -98,7 +98,7 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
             >
                 <div className="flex justify-center">
                     <PanelHeader
-                        id="funFactsPanel"
+                        parentPanelId="funFactsPanel"
                         as="h2"
                         className="font-h1 text-white bg-transparent border-none p-0"
                     >
@@ -135,13 +135,13 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                 panelBackground="/about/backgrounds/AboutSection_Background_2.jpg"
             >
                 {/* UWBHacks ACM Description Header */}
-                <PanelHeader id="uwbacmDescriptionPanel" as="h2">
+                <PanelHeader parentPanelId="uwbacmDescriptionPanel" as="h2">
                     UWB Association for Computing Machinery
                 </PanelHeader>
 
                 {/* UWB ACM Description Content */}
                 <PanelContent
-                    id="uwbacmDescriptionPanel"
+                    parentPanelId="uwbacmDescriptionPanel"
                     className="flex justify-center items-center"
                 >
                     <div className="z-[5] w-4/5 md:w-3/4 lg:w-3/5 flex flex-col xl:flex-row xl:gap-x-4 self-center p-6 bg-white border-2 border-black">
@@ -185,10 +185,10 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                     }
                     className="flex flex-col justify-between"
                 >
-                    <PanelHeader id="monthOfHackingPanel" as="h2">
+                    <PanelHeader parentPanelId="monthOfHackingPanel" as="h2">
                         Month of Hacking
                     </PanelHeader>
-                    <PanelContent id="monthOfHackingPanel">
+                    <PanelContent parentPanelId="monthOfHackingPanel">
                         <p className="text-center font-bold md:text-lg">
                             In{" "}
                             <span className="font-h1 text-blue-700 tracking-wider px-[2px] text-xl md:text-2xl">
@@ -216,11 +216,11 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                     className="flex flex-col"
                     panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
                 >
-                    <PanelHeader id="lastYearsWinnersPanel" as="h2">
+                    <PanelHeader parentPanelId="lastYearsWinnersPanel" as="h2">
                         Last Year&apos;s Projects
                     </PanelHeader>
                     <PanelContent
-                        id="lastYearsWinnersPanel"
+                        parentPanelId="lastYearsWinnersPanel"
                         className="h-full flex flex-col justify-around gap-y-4"
                     >
                         <LastYearsWinnersRecord
@@ -245,11 +245,11 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                     id="hackeroonPrizesPanel"
                     panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
                 >
-                    <PanelHeader id="hackeroonPrizesPanel" as="h2">
+                    <PanelHeader parentPanelId="hackeroonPrizesPanel" as="h2">
                         Hackeroons
                     </PanelHeader>
 
-                    <PanelContent id="hackeroonPrizesPanel">
+                    <PanelContent parentPanelId="hackeroonPrizesPanel">
                         {/* Hackeroon Prizes Carousel */}
                         <Suspense>
                             <HackeroonCarousel
@@ -271,11 +271,11 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                     panelColor={"#f5be58"}
                     className="flex flex-col"
                 >
-                    <PanelHeader id="leaderboardPanel" as="h2">
+                    <PanelHeader parentPanelId="leaderboardPanel" as="h2">
                         Leaderboard
                     </PanelHeader>
                     <PanelContent
-                        id="leaderboardPanel"
+                        parentPanelId="leaderboardPanel"
                         className="h-full flex justify-center items-center font-h1 text-3xl md:text-4xl text-blue-500 tracking-widest"
                     >
                         {/* TODO: get top 3 hackathon participants with highest hackeroon count and use LeaderboardRecord to display */}
