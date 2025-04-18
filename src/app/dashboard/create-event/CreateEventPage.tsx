@@ -1,9 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { actionCreateEvent } from "@/src/util/actions/events";
 import { datetimeLocalToDate, dateToDatetimeLocal } from "@/src/util/date";
+import Link from "next/link";
 
 export default function CreateEventPage() {
     const router = useRouter();
@@ -166,12 +167,20 @@ export default function CreateEventPage() {
                 {error && (
                     <p className="mt-4 text-red-600 text-center">{error}</p>
                 )}
-                <button
-                    type="submit"
-                    className="mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 border-black border-[1px]"
-                >
-                    Submit
-                </button>
+                <div className="flex justify-between">
+                    <button
+                        type="submit"
+                        className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 border-black border-[1px]"
+                    >
+                        Submit
+                    </button>
+                    <Link
+                        href="/dashboard"
+                        className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-red-500 text-white text-center"
+                    >
+                        Exit
+                    </Link>
+                </div>
             </form>
         </div>
     );
