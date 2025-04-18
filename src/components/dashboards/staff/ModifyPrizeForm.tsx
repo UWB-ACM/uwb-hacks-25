@@ -201,18 +201,18 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                         <p className="mt-4 text-red-600 text-center">{error}</p>
                     )}
                     <div className="flex justify-between">
-                        <button
-                            type="submit"
-                            className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 border-black border-[1px]"
-                        >
-                            Submit
-                        </button>
                         <Link
                             href="/dashboard"
                             className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-red-500 text-white text-center"
                         >
                             Exit
                         </Link>
+                        <button
+                            type="submit"
+                            className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-green-600 hover:bg-green-500 text-white duration-200 border-black border-[1px]"
+                        >
+                            Submit
+                        </button>
                     </div>
                 </form>
             </div>
