@@ -20,13 +20,17 @@ import FunFact from "./(AboutSectionComponents)/FunFacts/FunFact";
 // For Hackeroons Panel
 import HackeroonCarousel from "./(AboutSectionComponents)/HackeroonCarousel/Carousel";
 
+// for Leaderboard panel
+import Leaderboard from "./(AboutSectionComponents)/leaderboard/Leaderboard";
+
 // For Last Years Winners panel
 import LastYearsWinnersRecord from "./(AboutSectionComponents)/LastYearsWinnersRecord";
-import { Prize } from "@/src/util/dataTypes";
+import { LeaderboardRecord, Prize } from "@/src/util/dataTypes";
 
-const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
-    hackeroonPrizes,
-}) => {
+const AboutSection: React.FC<{
+    hackeroonPrizes: Promise<Prize[]>;
+    leaderboardData: Promise<LeaderboardRecord[]>;
+}> = ({ hackeroonPrizes, leaderboardData }) => {
     const panelMargin = "mt-12 md:mt-16";
 
     return (
@@ -243,13 +247,17 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                 {/* Hackeroons */}
                 <Panel
                     id="hackeroonPrizesPanel"
+                    className="flex flex-col"
                     panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
                 >
                     <PanelHeader parentPanelId="hackeroonPrizesPanel" as="h2">
                         Hackeroons
                     </PanelHeader>
 
-                    <PanelContent parentPanelId="hackeroonPrizesPanel">
+                    <PanelContent
+                        parentPanelId="hackeroonPrizesPanel"
+                        className="h-full flex flex-col justify-around"
+                    >
                         {/* Hackeroon Prizes Carousel */}
                         <Suspense>
                             <HackeroonCarousel
@@ -272,16 +280,16 @@ const AboutSection: React.FC<{ hackeroonPrizes: Promise<Prize[]> }> = ({
                     className="flex flex-col"
                 >
                     <PanelHeader parentPanelId="leaderboardPanel" as="h2">
-                        Leaderboard
+                        Hackeroon Leaderboard
                     </PanelHeader>
                     <PanelContent
                         parentPanelId="leaderboardPanel"
-                        className="h-full flex justify-center items-center font-h1 text-3xl md:text-4xl text-blue-500 tracking-widest"
+                        className="h-full flex flex-col justify-between gap-y-8 md:text-lg text-white p-4 md:p-6"
                     >
-                        {/* TODO: get top 3 hackathon participants with highest hackeroon count and use LeaderboardRecord to display */}
-                        <div className="bg-white p-5 rounded-md border-black border-2 shadow-[5px_5px_0_rgba(0,0,0,1)]">
-                            Coming soon!
-                        </div>
+                        {/* Render leaderboard */}
+                        <Suspense>
+                            <Leaderboard leaderboardData={leaderboardData} />
+                        </Suspense>
                     </PanelContent>
                 </Panel>
             </div>
