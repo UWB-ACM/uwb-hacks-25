@@ -306,13 +306,32 @@ export enum TransactionType {
      * Someone won an event activity.
      */
     ActivityWinner = 4,
+
+    /**
+     * Someone wore a hero costume.
+     */
+    CostumeHero = 5,
+
+    /**
+     * Someone wore a husky spirit costume.
+     */
+    CostumeHusky = 6,
+
+    /**
+     * Someone wore a business casual costume.
+     */
+    CostumeBusinessCasual = 7,
 }
 
 /**
  * A map of transaction types to their hackeroon amounts.
  * This only includes transaction types which have a constant value.
+ * MUST BE NON-NEGATIVE.
  */
 export const valuedTransactionTypes = {
     [TransactionType.Performance]: 25,
     [TransactionType.ActivityWinner]: 50,
+    [TransactionType.CostumeHero]: 50,
+    [TransactionType.CostumeHusky]: 50,
+    [TransactionType.CostumeBusinessCasual]: 50,
 } as const;
