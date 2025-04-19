@@ -13,8 +13,8 @@ export function CreatePrizePage() {
     // Prize information
     const [prizeName, setPrizeName] = useState<string>("");
     const [prizeDescription, setPrizeDescription] = useState<string>("");
-    const [prizeInitialStock, setPrizeInitialStock] = useState<number>(0);
-    const [prizePrice, setPrizePrice] = useState<number>(0);
+    const [prizeInitialStock, setPrizeInitialStock] = useState<string>("");
+    const [prizePrice, setPrizePrice] = useState<string>("");
     const [prizeImageName, setPrizeImageName] = useState<string>("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -26,26 +26,36 @@ export function CreatePrizePage() {
         2. Prizes should not have a negative price
         */
 
-        if (prizeInitialStock < 0 || Number.isNaN(prizeInitialStock)) {
-            setError("Prizes must have an initial stock!");
+        // check if both prizeInitialStock and prizePrice are numbers
+        if (Number.isNaN(prizeInitialStock)) {
+            setError("Initial prize stock must consist of only numbers!");
             return;
-        } else {
-            setError("");
+        }
+        if (Number.isNaN(prizePrice)) {
+            setError("Prize price must consist of only numbers!");
+            return;
         }
 
-        if (prizePrice < 0 || Number.isNaN(prizePrice)) {
+        // check if prize initial stock is valid
+        if (Number(prizeInitialStock) < 0) {
+            setError("Prizes must have a non-negative initial stock!");
+            return;
+        }
+
+        // check if prize price is valid
+        if (Number(prizePrice) < 0) {
             setError("Prizes must have a price above 0 hackaroons!");
             return;
-        } else {
-            setError("");
         }
+
+        setError("");
 
         // useless unless we add a confirmation page that the prize has been added (good idea!!)
         const data = await actionCreatePrize(
             prizeName,
             prizeDescription,
-            prizeInitialStock,
-            prizePrice,
+            Number(prizeInitialStock),
+            Number(prizePrice),
             prizeImageName,
         );
 
@@ -100,14 +110,11 @@ export function CreatePrizePage() {
                         Prize Initial Stock
                     </label>
                     <input
-                        id="prizeInitialStock"
-                        value={prizeInitialStock || 0}
-                        type="number"
-                        min={0}
-                        onChange={(e) => {
-                            setPrizeInitialStock(parseInt(e.target.value));
-                        }}
                         required
+                        id="prizeInitialStock"
+                        value={prizeInitialStock}
+                        placeholder="Enter prize initial stock"
+                        onChange={(e) => setPrizeInitialStock(e.target.value)}
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
 
@@ -119,14 +126,11 @@ export function CreatePrizePage() {
                         Prize Price
                     </label>
                     <input
-                        id="prizePrice"
-                        value={prizePrice || 0}
-                        type="number"
-                        min={0}
-                        onChange={(e) => {
-                            setPrizePrice(parseInt(e.target.value));
-                        }}
                         required
+                        id="prizePrice"
+                        value={prizePrice}
+                        placeholder="Enter prize price"
+                        onChange={(e) => setPrizePrice(e.target.value)}
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
 
@@ -145,7 +149,9 @@ export function CreatePrizePage() {
                     />
                 </div>
                 {error && (
-                    <p className="mt-4 text-red-600 text-center">{error}</p>
+                    <p className="mt-4 text-red-600 text-center font-bold">
+                        {error}
+                    </p>
                 )}
                 <div className="flex justify-between">
                     <Link
