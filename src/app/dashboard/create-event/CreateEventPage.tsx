@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function CreateEventPage() {
     const router = useRouter();
 
-    const [error, setError] = useState("");
+    const [error, setError] = useState<string | null>(null);
 
     // Event information
     const [eventName, setEventName] = useState<string>("");
@@ -24,7 +24,7 @@ export default function CreateEventPage() {
     const [eventEnd, setEventEnd] = useState<Date | null>(null);
     const [eventLocation, setEventLocation] = useState<string | null>(null);
     const [eventAttendanceAmount, setEventAttendanceAmount] =
-        useState<number>(0);
+        useState<string>("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -33,9 +33,15 @@ export default function CreateEventPage() {
         if (eventEnd !== null && eventEnd <= eventStart) {
             setError("Event end time must be after event start time!");
             return;
-        } else {
-            setError("");
         }
+
+        // check if eventAttendanceAmount is a number
+        if (isNaN(Number(eventAttendanceAmount))) {
+            setError("Event attendance amount must consist of only digits");
+            return;
+        }
+
+        setError(null);
 
         const data = await actionCreateEvent(
             eventName,
@@ -43,7 +49,7 @@ export default function CreateEventPage() {
             eventStart,
             eventEnd,
             eventLocation,
-            eventAttendanceAmount,
+            Number(eventAttendanceAmount),
         );
 
         // adding this to satisfy eslint
@@ -153,19 +159,19 @@ export default function CreateEventPage() {
                         Attendance Amount (H$)
                     </label>
                     <input
-                        id="eventAttendanceAmount"
-                        value={eventAttendanceAmount || 0}
-                        type="number"
-                        min={0}
-                        onChange={(e) => {
-                            setEventAttendanceAmount(parseInt(e.target.value));
-                        }}
                         required
+                        id="eventAttendanceAmount"
+                        value={eventAttendanceAmount}
+                        onChange={(e) =>
+                            setEventAttendanceAmount(e.target.value)
+                        }
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
                 </div>
                 {error && (
-                    <p className="mt-4 text-red-600 text-center">{error}</p>
+                    <p className="mt-4 text-red-600 text-center font-bold">
+                        {error}
+                    </p>
                 )}
                 <div className="flex justify-between">
                     <Link
