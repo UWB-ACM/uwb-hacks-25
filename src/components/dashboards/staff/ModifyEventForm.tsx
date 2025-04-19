@@ -24,7 +24,7 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
     const [eventEnd, setEventEnd] = useState<Date | null>(null);
     const [eventLocation, setEventLocation] = useState<string | null>(null);
     const [eventAttendanceAmount, setEventAttendanceAmount] =
-        useState<number>(0);
+        useState<string>("");
 
     // Format Date as YYYY-MM-DDThh:mm
     const formatDateForInput = (date: Date | null): string => {
@@ -55,7 +55,7 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
                 setEventStart(event.start);
                 setEventEnd(event.end);
                 setEventLocation(event.location);
-                setEventAttendanceAmount(event.attendanceAmount);
+                setEventAttendanceAmount(event.attendanceAmount.toString());
             }
         }
 
@@ -80,6 +80,11 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
             return;
         }
 
+        if (isNaN(Number(eventAttendanceAmount))) {
+            setError("Event attendance amount must contain only digits");
+            return;
+        }
+
         setError(null);
 
         // useless unless we add a confirmation page that the prize has been updated (good idea!!)
@@ -90,7 +95,7 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
             eventStart,
             eventEnd,
             eventLocation,
-            eventAttendanceAmount,
+            Number(eventAttendanceAmount),
         );
 
         // doing this to satisfy eslint
@@ -211,21 +216,19 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
                             Attendance Amount (H$)
                         </label>
                         <input
-                            id="eventAttendanceAmount"
-                            value={eventAttendanceAmount || 0}
-                            type="number"
-                            min={0}
-                            onChange={(e) => {
-                                setEventAttendanceAmount(
-                                    parseInt(e.target.value),
-                                );
-                            }}
                             required
+                            id="eventAttendanceAmount"
+                            value={eventAttendanceAmount}
+                            onChange={(e) =>
+                                setEventAttendanceAmount(e.target.value)
+                            }
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                         />
                     </div>
                     {error && (
-                        <p className="mt-4 text-red-600 text-center">{error}</p>
+                        <p className="mt-4 text-red-600 text-center font-bold">
+                            {error}
+                        </p>
                     )}
                     <div className="flex justify-between">
                         <Link
