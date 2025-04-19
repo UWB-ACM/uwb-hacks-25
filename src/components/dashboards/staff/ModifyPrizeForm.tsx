@@ -55,7 +55,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
             */
 
         if (isNaN(Number(prizeInitialStock)) || isNaN(Number(prizePrice))) {
-            setError("Initial stock and price must be a valid number!");
+            setError("Initial stock and price must consist of only numbers!");
             return;
         }
 
@@ -157,7 +157,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                         <input
                             id="prizeInitialStock"
                             value={prizeInitialStock}
-                            min={0}
+                            placeholder="Enter initial stock of prize"
                             onChange={(e) => {
                                 setPrizeInitialStock(e.target.value);
                             }}
@@ -175,7 +175,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                         <input
                             id="prizePrice"
                             value={prizePrice}
-                            min={0}
+                            placeholder="Enter price of prize"
                             onChange={(e) => {
                                 setPrizePrice(e.target.value);
                             }}
