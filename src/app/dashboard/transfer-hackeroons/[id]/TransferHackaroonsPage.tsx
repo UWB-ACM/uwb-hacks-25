@@ -16,7 +16,7 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         "success" | "error" | "over-limit"
     >("error");
 
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState<string>("");
 
     const feedbackTitle = {
         success: "Success",
@@ -50,9 +50,18 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
     };
 
     const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
+    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        // check if amount value is all digits
+        if (isNaN(Number(amount))) {
+            setError("Inputted hackeroon amount must consist of only digits");
+            return;
+        } else {
+            setError(null);
+        }
 
         // If this transaction type has a prescribed amount,
         // use that instead of the saved one.
@@ -62,7 +71,7 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                 ? valuedTransactionTypes[
                       reasonType as keyof typeof valuedTransactionTypes
                   ]
-                : amount;
+                : Number(amount);
 
         const data = await actionCreateTransaction(
             user.id,
@@ -71,6 +80,8 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
             null,
             null,
         );
+
+        console.log("transaction created");
 
         setIsModalOpen(true);
 
@@ -87,11 +98,8 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         <>
             <div className="h-screen grid place-content-center">
                 {/* Container for "Transfer Hackeroons" Content */}
-                <div className="h-[80vh] w-[80vw] max-w-[70vh] rounded-xl p-5 border-[1px] border-black shadow-xl">
-                    <form
-                        onSubmit={handleSubmit}
-                        className="h-[70vh] grid place-content-center"
-                    >
+                <div className="h-[80vh] w-[80vw] max-w-[70vh] rounded-xl p-5 border-[1px] border-black shadow-xl grid place-content-center">
+                    <form onSubmit={handleSubmit}>
                         <h1 className="text-center text-2xl md:text-3xl lg:text-4xl">
                             Transferring Hackeroons to{" "}
                             <span className="font-bold whitespace-nowrap">
@@ -107,18 +115,20 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                                     <div className="flex flex-col w-[60vw] max-w-[50vh] mt-4 md:text-lg lg:text-xl">
                                         <label htmlFor="amount">Amount</label>
                                         <input
-                                            type="number"
-                                            step={10}
+                                            required
                                             id="amount"
                                             value={amount}
                                             className="px-4 py-3 border-[1px] border-black rounded-md"
-                                            placeholder="1000"
+                                            placeholder="Enter hackeroon amount"
                                             onChange={(e) =>
-                                                setAmount(
-                                                    Number(e.target.value),
-                                                )
+                                                setAmount(e.target.value)
                                             }
                                         />
+                                        {error && (
+                                            <p className="text-red-500 font-bold text-center text-base mt-1">
+                                                {error}
+                                            </p>
+                                        )}
                                     </div>
                                 </>
                             )}
