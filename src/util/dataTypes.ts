@@ -308,9 +308,9 @@ export enum TransactionType {
     ActivityWinner = 4,
 
     /**
-     * Someone wore a hero costume.
+     * Someone wore a hero/fandom costume.
      */
-    CostumeHero = 5,
+    CostumeFandom = 5,
 
     /**
      * Someone wore a husky spirit costume.
@@ -318,9 +318,9 @@ export enum TransactionType {
     CostumeHusky = 6,
 
     /**
-     * Someone wore a business casual costume.
+     * Someone wore a professional costume.
      */
-    CostumeBusinessCasual = 7,
+    CostumeProfessional = 7,
 }
 
 /**
@@ -331,7 +331,7 @@ export enum TransactionType {
 export const valuedTransactionTypes = {
     [TransactionType.Performance]: 25,
     [TransactionType.ActivityWinner]: 50,
-    [TransactionType.CostumeHero]: 50,
+    [TransactionType.CostumeFandom]: 50,
     [TransactionType.CostumeHusky]: 50,
-    [TransactionType.CostumeBusinessCasual]: 50,
+    [TransactionType.CostumeProfessional]: 50,
 } as const;
