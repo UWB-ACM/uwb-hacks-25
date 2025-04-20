@@ -24,7 +24,7 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
     const [eventEnd, setEventEnd] = useState<Date | null>(null);
     const [eventLocation, setEventLocation] = useState<string | null>(null);
     const [eventAttendanceAmount, setEventAttendanceAmount] =
-        useState<string>("");
+        useState<number>(0);
 
     // Format Date as YYYY-MM-DDThh:mm
     const formatDateForInput = (date: Date | null): string => {
@@ -55,7 +55,7 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
                 setEventStart(event.start);
                 setEventEnd(event.end);
                 setEventLocation(event.location);
-                setEventAttendanceAmount(event.attendanceAmount.toString());
+                setEventAttendanceAmount(event.attendanceAmount);
             }
         }
 
@@ -80,11 +80,6 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
             return;
         }
 
-        if (isNaN(Number(eventAttendanceAmount))) {
-            setError("Event attendance amount must contain only digits");
-            return;
-        }
-
         setError(null);
 
         // useless unless we add a confirmation page that the prize has been updated (good idea!!)
@@ -95,7 +90,7 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
             eventStart,
             eventEnd,
             eventLocation,
-            Number(eventAttendanceAmount),
+            eventAttendanceAmount,
         );
 
         // doing this to satisfy eslint
@@ -218,9 +213,12 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
                         <input
                             required
                             id="eventAttendanceAmount"
-                            value={eventAttendanceAmount}
+                            value={eventAttendanceAmount.toString()}
+                            type="number"
+                            min={0}
+                            step={5}
                             onChange={(e) =>
-                                setEventAttendanceAmount(e.target.value)
+                                setEventAttendanceAmount(Number(e.target.value))
                             }
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                         />
