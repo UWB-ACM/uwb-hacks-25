@@ -19,8 +19,8 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
     // Prize information
     const [prizeName, setPrizeName] = useState<string>("");
     const [prizeDescription, setPrizeDescription] = useState<string>("");
-    const [prizeInitialStock, setPrizeInitialStock] = useState<string>("");
-    const [prizePrice, setPrizePrice] = useState<string>("");
+    const [prizeInitialStock, setPrizeInitialStock] = useState<number>(0);
+    const [prizePrice, setPrizePrice] = useState<number>(0);
     const [prizeImageName, setPrizeImageName] = useState<string>("");
 
     // Fetch prize data whenver prizeId changes
@@ -36,8 +36,8 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
             if (prize) {
                 setPrizeName(prize.name);
                 setPrizeDescription(prize.description || "Prize Description");
-                setPrizeInitialStock(prize.initialStock.toString());
-                setPrizePrice(prize.price.toString());
+                setPrizeInitialStock(prize.initialStock);
+                setPrizePrice(prize.price);
                 setPrizeImageName(prize.imageName?.toString() || "");
             }
         }
@@ -54,17 +54,12 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
             2. Prizes should not have a negative price
             */
 
-        if (isNaN(Number(prizeInitialStock)) || isNaN(Number(prizePrice))) {
-            setError("Initial stock and price must consist of only numbers!");
-            return;
-        }
-
-        if (Number(prizeInitialStock) < 0) {
+        if (prizeInitialStock < 0) {
             setError("Prizes must have a non-negative initial stock");
             return;
         }
 
-        if (Number(prizePrice) < 0) {
+        if (prizePrice < 0) {
             setError("Prizes must have a non-negative price");
             return;
         }
@@ -81,8 +76,8 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
             prize.id,
             prizeName,
             prizeDescription,
-            Number(prizeInitialStock),
-            Number(prizePrice),
+            prizeInitialStock,
+            prizePrice,
             prizeImageName,
         );
 
@@ -156,10 +151,11 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                         </label>
                         <input
                             id="prizeInitialStock"
-                            value={prizeInitialStock}
-                            placeholder="Enter initial stock of prize"
+                            value={prizeInitialStock.toString()}
+                            type="number"
+                            min={0}
                             onChange={(e) => {
-                                setPrizeInitialStock(e.target.value);
+                                setPrizeInitialStock(Number(e.target.value));
                             }}
                             required
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
@@ -174,10 +170,12 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                         </label>
                         <input
                             id="prizePrice"
-                            value={prizePrice}
-                            placeholder="Enter price of prize"
+                            value={prizePrice.toString()}
+                            type="number"
+                            min={0}
+                            step={5}
                             onChange={(e) => {
-                                setPrizePrice(e.target.value);
+                                setPrizePrice(Number(e.target.value));
                             }}
                             required
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
