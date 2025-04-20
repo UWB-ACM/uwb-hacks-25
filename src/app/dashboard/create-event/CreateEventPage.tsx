@@ -24,7 +24,7 @@ export default function CreateEventPage() {
     const [eventEnd, setEventEnd] = useState<Date | null>(null);
     const [eventLocation, setEventLocation] = useState<string | null>(null);
     const [eventAttendanceAmount, setEventAttendanceAmount] =
-        useState<string>("");
+        useState<number>(0);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -32,12 +32,6 @@ export default function CreateEventPage() {
         // return if eventEnd time is before eventStart time
         if (eventEnd !== null && eventEnd <= eventStart) {
             setError("Event end time must be after event start time!");
-            return;
-        }
-
-        // check if eventAttendanceAmount is a number
-        if (isNaN(Number(eventAttendanceAmount))) {
-            setError("Event attendance amount must consist of only digits");
             return;
         }
 
@@ -161,9 +155,12 @@ export default function CreateEventPage() {
                     <input
                         required
                         id="eventAttendanceAmount"
-                        value={eventAttendanceAmount}
+                        type="number"
+                        min={0}
+                        step={5}
+                        value={eventAttendanceAmount.toString()}
                         onChange={(e) =>
-                            setEventAttendanceAmount(e.target.value)
+                            setEventAttendanceAmount(Number(e.target.value))
                         }
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
