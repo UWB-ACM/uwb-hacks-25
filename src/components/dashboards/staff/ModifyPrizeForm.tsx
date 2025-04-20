@@ -98,7 +98,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
     }
 
     return (
-        <div className="mt-4 w-full grid place-content-center">
+        <div className="h-[80vh] w-full grid place-content-center">
             {/* Modal Container, will extract into separate component
                 This just stores the form that the user would enter new prize info into */}
             <div>
