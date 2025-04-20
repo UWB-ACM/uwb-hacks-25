@@ -8,6 +8,7 @@ export const TERMS_LEVEL = 1;
  * A user and balance in the database.
  */
 export interface LeaderboardRecord {
+    picture: string;
     /**
      * The user's ID, which is unique to it.
      */
@@ -305,13 +306,32 @@ export enum TransactionType {
      * Someone won an event activity.
      */
     ActivityWinner = 4,
+
+    /**
+     * Someone wore a hero/fandom costume.
+     */
+    CostumeFandom = 5,
+
+    /**
+     * Someone wore a husky spirit costume.
+     */
+    CostumeHusky = 6,
+
+    /**
+     * Someone wore a professional costume.
+     */
+    CostumeProfessional = 7,
 }
 
 /**
  * A map of transaction types to their hackeroon amounts.
  * This only includes transaction types which have a constant value.
+ * MUST BE NON-NEGATIVE.
  */
 export const valuedTransactionTypes = {
     [TransactionType.Performance]: 25,
     [TransactionType.ActivityWinner]: 50,
+    [TransactionType.CostumeFandom]: 50,
+    [TransactionType.CostumeHusky]: 50,
+    [TransactionType.CostumeProfessional]: 50,
 } as const;

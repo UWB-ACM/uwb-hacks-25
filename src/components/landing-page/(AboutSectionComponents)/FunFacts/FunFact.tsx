@@ -15,14 +15,14 @@ export default function FunFact({ src, alt }: FunFactProps) {
         gsap.set(".funFact", { scale: 0, rotate: 0 });
 
         gsap.to(".funFact", {
-            delay: 0.7,
+            delay: 0.2,
             stagger: 0.2,
             duration: 0.35,
             ease: "bounce",
             scale: 1,
             scrollTrigger: {
                 trigger: "#funFactsContainer",
-                start: "65% 90%",
+                start: "30% 80%",
             },
         });
     }, []);

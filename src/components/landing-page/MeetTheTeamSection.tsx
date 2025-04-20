@@ -20,16 +20,20 @@ const MeetTheTeamSection = () => {
     );
 
     return (
-        <Panel panelColor="white" className={panelMargin}>
+        <Panel id="meetTheTeamPanel" panelColor="white" className={panelMargin}>
             {/* Heading */}
             <PanelHeader
+                parentPanelId="meetTheTeamPanel"
                 className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
                 isSectionHeader
             >
                 Meet the League
             </PanelHeader>
 
-            <PanelContent className="space-y-8">
+            <PanelContent
+                parentPanelId="meetTheTeamPanel"
+                className="space-y-8"
+            >
                 {/* Tabs */}
                 <CommitteeTabs
                     committees={committees}

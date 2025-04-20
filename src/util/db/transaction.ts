@@ -1,4 +1,8 @@
-import { Transaction, TransactionType } from "@/src/util/dataTypes";
+import {
+    Transaction,
+    TransactionType,
+    valuedTransactionTypes,
+} from "@/src/util/dataTypes";
 import sql from "@/src/util/database";
 
 /**
@@ -24,13 +28,11 @@ export async function createTransaction(
     authorized_by: number | null,
     event: number | null,
     prize: number | null,
-): Promise<Transaction | null> {
+): Promise<Transaction | { error: "over-limit" } | null> {
     let data: Record<string, unknown>[];
 
     switch (type) {
-        case TransactionType.Unknown:
-        case TransactionType.Performance:
-        case TransactionType.ActivityWinner: {
+        case TransactionType.Unknown: {
             if (event || prize) {
                 throw new Error(
                     "Simple transactions cannot have events/prizes!",
@@ -52,6 +54,63 @@ export async function createTransaction(
             )[1];
             break;
         }
+
+        // Only for transaction types that are
+        // valued and have limits.
+        case TransactionType.ActivityWinner:
+        case TransactionType.Performance:
+        case TransactionType.CostumeFandom:
+        case TransactionType.CostumeHusky:
+        case TransactionType.CostumeProfessional: {
+            const limits = {
+                [TransactionType.Performance]: 20,
+                [TransactionType.ActivityWinner]: 3,
+                [TransactionType.CostumeFandom]: 1,
+                [TransactionType.CostumeHusky]: 1,
+                [TransactionType.CostumeProfessional]: 1,
+            };
+
+            if (event || prize) {
+                throw new Error(
+                    "Simple transactions cannot have events/prizes!",
+                );
+            }
+
+            if (!(type in limits)) {
+                throw new Error("Transaction type needs to have a limit!");
+            }
+
+            if (!(type in valuedTransactionTypes)) {
+                throw new Error("Transaction type needs to have a value!");
+            }
+
+            const limit = limits[type];
+
+            // Override the value to ensure consistency.
+            // This also guarantees that amount >= 0.
+            amount = valuedTransactionTypes[type];
+
+            // Our amount is positive, so we don't need to worry about
+            // putting the balance below zero, but we do need to worry about
+            // limits, so the lock is still required.
+            const res = await sql.begin((sql) => [
+                sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
+                sql`SELECT COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND type=${type}), 0) AS limit;`,
+                sql`INSERT INTO transactions ("user", type, amount, authorized_by) (SELECT ${user}, ${type}, ${amount}, ${authorized_by} WHERE COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND type=${type}), 0) < ${limit}) RETURNING id, time;`,
+            ]);
+            data = res[2];
+
+            if (
+                data.length === 0 &&
+                res[1]?.[0]?.["limit"] != null &&
+                res[1][0]["limit"] >= limit
+            ) {
+                return { error: "over-limit" };
+            }
+
+            break;
+        }
+
         case TransactionType.EventAttendance: {
             if (prize) {
                 throw new Error(
@@ -92,6 +151,7 @@ export async function createTransaction(
 
             break;
         }
+
         case TransactionType.PrizePurchase: {
             if (event) {
                 throw new Error(
@@ -129,6 +189,7 @@ export async function createTransaction(
 
             break;
         }
+
         default: {
             throw new Error("Unhandled transaction type: " + type);
         }

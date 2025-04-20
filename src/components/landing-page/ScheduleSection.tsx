@@ -9,33 +9,43 @@ const ScheduleSection: React.FC = () => {
     const panelMargin = "mt-12 md:mt-16";
 
     return (
-        <Panel panelColor="white" className={panelMargin}>
+        <Panel id="schedulePanel" panelColor="white" className={panelMargin}>
             <PanelHeader
+                parentPanelId="schedulePanel"
                 className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
                 isSectionHeader
             >
                 Schedule
             </PanelHeader>
-            <PanelContent className="grid gap-y-6 gap-x-6 md:grid-cols-3">
+            <PanelContent
+                parentPanelId="schedulePanel"
+                className="grid gap-y-6 gap-x-6 md:grid-cols-3"
+            >
                 <ScheduleCard
                     day="DAY 1"
                     date="4/25 FRI"
+                    spirit="Fandom Day"
                     events={[
                         {
                             time: "10:00 AM - 11:45 AM",
                             description: "Check-In",
                         },
                         {
-                            time: "12:00 PM - 12:30 PM",
-                            description: "Opening Ceremony",
+                            time: "10:00 AM - 11:45 AM",
+                            description:
+                                "(Optional) GDG Team Formation Activity",
                         },
                         {
-                            time: "12:30 PM - 1:00 PM",
-                            description: "Guest Speaker",
+                            time: "12:00 PM - 1:00 PM",
+                            description: "Opening Ceremony",
                         },
                         {
                             time: "1:00 PM - 1:30 PM",
                             description: "Opening Ceremony",
+                        },
+                        {
+                            time: "1:30 PM - 4:00 PM",
+                            description: "ARC is Closed",
                         },
                         {
                             time: "1:30 PM - 2:30 PM",
@@ -44,6 +54,10 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "2:30 PM - 4:00 PM",
                             description: "In-Person Work Time",
+                        },
+                        {
+                            time: "4:00 PM - 8:00 PM",
+                            description: "ARC is Open",
                         },
                         {
                             time: "4:00 PM - 5:00 PM",
@@ -59,6 +73,7 @@ const ScheduleSection: React.FC = () => {
                 <ScheduleCard
                     day="DAY 2"
                     date="4/26 SAT"
+                    spirit="Husky Spirit Day"
                     events={[
                         {
                             time: "10:00 AM - 11:30 AM",
@@ -86,6 +101,7 @@ const ScheduleSection: React.FC = () => {
                 <ScheduleCard
                     day="DAY 3"
                     date="4/27 SUN"
+                    spirit="Professional Day"
                     events={[
                         {
                             time: "9:00 AM - 10:00 AM",
@@ -97,7 +113,7 @@ const ScheduleSection: React.FC = () => {
                         },
                         {
                             time: "10:50 AM - 12:50 PM",
-                            description: "Judging",
+                            description: "Judging, Demo Day, and Tabling",
                         },
                         {
                             time: "1:00 PM - 2:00 PM",
@@ -130,6 +146,7 @@ const ScheduleSection: React.FC = () => {
 interface ScheduleCardProps {
     day: string;
     date: string;
+    spirit: string;
     events: { time: string; description: string }[];
     accentPosition?: "bottom-left" | "bottom-right" | "top-right";
 }
@@ -137,11 +154,12 @@ interface ScheduleCardProps {
 const ScheduleCard: React.FC<ScheduleCardProps> = ({
     day,
     date,
+    spirit,
     events,
     accentPosition,
 }) => {
     return (
-        <div className="relative border-2 border-black bg-white p-4 md:p-5 flex flex-col min-h-[300px] md:min-h-[400px] overflow-hidden schedule-card transition-transform hover:scale-105 hover:border-yellow-500 hover:bg-[#fdf4c5]">
+        <div className="relative border-2 border-black bg-white p-4 md:p-5 flex flex-col min-h-[350px] md:min-h-[450px] overflow-hidden schedule-card transition-transform hover:scale-105 hover:border-yellow-500 hover:bg-[#fdf4c5]">
             <Image
                 src={AccentImage || "/placeholder.svg"}
                 alt=""
@@ -172,7 +190,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
             <div className="border-t border-black mb-4"></div>
 
             {events.length > 0 ? (
-                <div className="flex-grow space-y-2">
+                <div className="flex-grow space-y-2 mb-2">
                     {events.map((event, index) => (
                         <div key={index} className="flex">
                             <span className="text-sm md:text-base text-black w-[45%] pr-2 flex-shrink-0">
@@ -187,6 +205,10 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
             ) : (
                 <p className="text-gray-400 italic">No events scheduled</p>
             )}
+
+            <p className="text-base md:text-lg font-bold text-yellow-500 text-center my-2">
+                {spirit}
+            </p>
         </div>
     );
 };
