@@ -59,15 +59,15 @@ export async function createTransaction(
         // valued and have limits.
         case TransactionType.ActivityWinner:
         case TransactionType.Performance:
-        case TransactionType.CostumeHero:
+        case TransactionType.CostumeFandom:
         case TransactionType.CostumeHusky:
-        case TransactionType.CostumeBusinessCasual: {
+        case TransactionType.CostumeProfessional: {
             const limits = {
                 [TransactionType.Performance]: 20,
                 [TransactionType.ActivityWinner]: 3,
-                [TransactionType.CostumeHero]: 1,
+                [TransactionType.CostumeFandom]: 1,
                 [TransactionType.CostumeHusky]: 1,
-                [TransactionType.CostumeBusinessCasual]: 1,
+                [TransactionType.CostumeProfessional]: 1,
             };
 
             if (event || prize) {
