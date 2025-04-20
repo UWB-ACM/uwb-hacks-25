@@ -35,18 +35,18 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         unknown: TransactionType.Unknown,
         performance: TransactionType.Performance,
         "activity-winner": TransactionType.ActivityWinner,
-        "costume-hero": TransactionType.CostumeHero,
+        "costume-fandom": TransactionType.CostumeFandom,
         "costume-husky": TransactionType.CostumeHusky,
-        "costume-business": TransactionType.CostumeBusinessCasual,
+        "costume-professional": TransactionType.CostumeProfessional,
     } as const;
 
     const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
         unknown: "Unknown",
         performance: "Performance",
         "activity-winner": "Activity Winner",
-        "costume-hero": "Hero Costume (Friday)",
+        "costume-fandom": "Fandom Costume (Friday)",
         "costume-husky": "Husky Spirit Costume (Saturday)",
-        "costume-business": "Business Casual Costume (Sunday)",
+        "costume-professional": "Professional Costume (Sunday)",
     };
 
     const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
