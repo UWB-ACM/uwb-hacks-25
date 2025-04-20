@@ -8,13 +8,13 @@ import Link from "next/link";
 export function CreatePrizePage() {
     const router = useRouter();
 
-    const [error, setError] = useState("");
+    const [error, setError] = useState<string | null>(null);
 
     // Prize information
     const [prizeName, setPrizeName] = useState<string>("");
     const [prizeDescription, setPrizeDescription] = useState<string>("");
-    const [prizeInitialStock, setPrizeInitialStock] = useState<string>("");
-    const [prizePrice, setPrizePrice] = useState<string>("");
+    const [prizeInitialStock, setPrizeInitialStock] = useState<number>(0);
+    const [prizePrice, setPrizePrice] = useState<number>(0);
     const [prizeImageName, setPrizeImageName] = useState<string>("");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -26,36 +26,26 @@ export function CreatePrizePage() {
         2. Prizes should not have a negative price
         */
 
-        // check if both prizeInitialStock and prizePrice are numbers
-        if (Number.isNaN(prizeInitialStock)) {
-            setError("Initial prize stock must consist of only numbers!");
-            return;
-        }
-        if (Number.isNaN(prizePrice)) {
-            setError("Prize price must consist of only numbers!");
-            return;
-        }
-
         // check if prize initial stock is valid
-        if (Number(prizeInitialStock) < 0) {
+        if (prizeInitialStock < 0) {
             setError("Prizes must have a non-negative initial stock!");
             return;
         }
 
         // check if prize price is valid
-        if (Number(prizePrice) < 0) {
+        if (prizePrice < 0) {
             setError("Prizes must have a price above 0 hackaroons!");
             return;
         }
 
-        setError("");
+        setError(null);
 
         // useless unless we add a confirmation page that the prize has been added (good idea!!)
         const data = await actionCreatePrize(
             prizeName,
             prizeDescription,
-            Number(prizeInitialStock),
-            Number(prizePrice),
+            prizeInitialStock,
+            prizePrice,
             prizeImageName,
         );
 
@@ -112,9 +102,13 @@ export function CreatePrizePage() {
                     <input
                         required
                         id="prizeInitialStock"
-                        value={prizeInitialStock}
-                        placeholder="Enter prize initial stock"
-                        onChange={(e) => setPrizeInitialStock(e.target.value)}
+                        value={prizeInitialStock.toString()}
+                        type="number"
+                        min={0}
+                        step={5}
+                        onChange={(e) =>
+                            setPrizeInitialStock(Number(e.target.value))
+                        }
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
 
@@ -128,9 +122,12 @@ export function CreatePrizePage() {
                     <input
                         required
                         id="prizePrice"
-                        value={prizePrice}
+                        value={prizePrice.toString()}
+                        type="number"
+                        min={0}
+                        step={5}
                         placeholder="Enter prize price"
-                        onChange={(e) => setPrizePrice(e.target.value)}
+                        onChange={(e) => setPrizePrice(Number(e.target.value))}
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
 
