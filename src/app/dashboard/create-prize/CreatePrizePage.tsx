@@ -56,7 +56,7 @@ export function CreatePrizePage() {
     };
 
     return (
-        <div className="w-full grid place-content-center">
+        <div className="h-[80vh] w-full grid place-content-center">
             <form
                 onSubmit={handleSubmit}
                 className="p-4 border-black border rounded-lg bg-white"

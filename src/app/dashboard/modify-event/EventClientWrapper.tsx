@@ -16,7 +16,7 @@ export default function EventClientWrapper({
 
     return (
         <>
-            <div className="w-full flex justify-center">
+            <div className="mt-4 w-full flex justify-center">
                 <StaffEventSelector
                     events={events}
                     setEventId={(id) => setEventId(id)}
