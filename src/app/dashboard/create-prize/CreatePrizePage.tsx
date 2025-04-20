@@ -105,7 +105,6 @@ export function CreatePrizePage() {
                         value={prizeInitialStock.toString()}
                         type="number"
                         min={0}
-                        step={5}
                         onChange={(e) =>
                             setPrizeInitialStock(Number(e.target.value))
                         }
