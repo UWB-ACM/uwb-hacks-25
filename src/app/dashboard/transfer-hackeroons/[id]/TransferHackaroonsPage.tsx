@@ -16,8 +16,6 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         "success" | "error" | "over-limit"
     >("error");
 
-    const [amount, setAmount] = useState<string>("");
-
     const feedbackTitle = {
         success: "Success",
         error: "Failure",
@@ -49,19 +47,12 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         "costume-business": "Business Casual Costume (Sunday)",
     };
 
+    const [amount, setAmount] = useState<number>(0);
     const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
     const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        // check if amount value is all digits
-        if (isNaN(Number(amount))) {
-            setError("Inputted hackeroon amount must consist of only digits");
-            return;
-        } else {
-            setError(null);
-        }
 
         // If this transaction type has a prescribed amount,
         // use that instead of the saved one.
@@ -71,7 +62,7 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                 ? valuedTransactionTypes[
                       reasonType as keyof typeof valuedTransactionTypes
                   ]
-                : Number(amount);
+                : amount;
 
         const data = await actionCreateTransaction(
             user.id,
@@ -80,8 +71,6 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
             null,
             null,
         );
-
-        console.log("transaction created");
 
         setIsModalOpen(true);
 
@@ -117,11 +106,15 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                                         <input
                                             required
                                             id="amount"
-                                            value={amount}
+                                            type="number"
+                                            min={0}
+                                            step={5}
+                                            value={amount.toString()}
                                             className="px-4 py-3 border-[1px] border-black rounded-md"
-                                            placeholder="Enter hackeroon amount"
                                             onChange={(e) =>
-                                                setAmount(e.target.value)
+                                                setAmount(
+                                                    Number(e.target.value),
+                                                )
                                             }
                                         />
                                         {error && (
