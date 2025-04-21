@@ -65,8 +65,6 @@ export default async function PrizesPage() {
                 Hackeroon Shop
             </h1>
 
-            {/* TODO: Update actual prizes */}
-            {/* TODO: Insert prize stand location below. */}
             <div className="flex justify-center">
                 <p className="mt-4 font-h1 text-3xl text-[#39a8f1] text-center w-[90%] md:w-[80%]">
                     Check out what your hackeroons can buy!
@@ -74,6 +72,11 @@ export default async function PrizesPage() {
             </div>
 
             <p className="self-center text-center max-w-[80%] md:max-w-[50%] font-bold">
+                Come in-person on Sunday, April 27th, to purchase a prize.
+                Prizes can be purchased at one of our Hackeroon Booths, located
+                on the top-floor of the ARC.
+                <br />
+                <br />
                 Prizes are offered on a first-come-first-serve basis.
                 <br /> Prices also may be subject to change!
             </p>
