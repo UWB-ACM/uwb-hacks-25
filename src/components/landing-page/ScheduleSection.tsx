@@ -29,37 +29,43 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "10:00 AM - 11:45 AM",
                             name: "Check-In and Team Formation",
-                            description: "Participants check in, enjoy coffee and snacks, and can join an optional team formation session.",
+                            description:
+                                "Participants check in, enjoy coffee and snacks, and can join an optional team formation session.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "12:00 PM - 1:30 PM",
                             name: "Opening Ceremony",
-                            description: "Kick-off the event with an exciting opening ceremony.",
+                            description:
+                                "Kick-off the event with an exciting opening ceremony.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "1:30 PM - 4:00 PM",
                             name: "ARC Closes for Setup",
-                            description: "The ARC will be closed for event setup.",
+                            description:
+                                "The ARC will be closed for event setup.",
                             location: "Relocate to NCEC or other locations",
                         },
                         {
                             time: "1:30 PM - 2:30 PM",
                             name: "Lunch",
-                            description: "Enjoy lunch in the NCEC with fellow participants.",
+                            description:
+                                "Enjoy lunch in the NCEC with fellow participants.",
                             location: "North Creek Event Center (NCEC)",
                         },
                         {
                             time: "2:30 PM - 4:00 PM",
                             name: "In-Person Work Time",
-                            description: "Teams may continue working on their projects anywhere outside the ARC",
+                            description:
+                                "Teams may continue working on their projects anywhere outside the ARC",
                             location: "Anywhere on Campus",
                         },
                         {
                             time: "4:00 PM - 8:00 PM",
                             name: "ARC Reopens, In-Person Work Time",
-                            description: "The ARC reopens for continued in-person work. Food and drinks will be provided.",
+                            description:
+                                "The ARC reopens for continued in-person work. Food and drinks will be provided.",
                             location: "ARC Overlook",
                         },
                     ]}
@@ -73,13 +79,15 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "10:00 AM - 11:30 AM",
                             name: "Check-In",
-                            description: "Participants check in for the second day of the event.",
+                            description:
+                                "Participants check in for the second day of the event.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "12:00 PM - 12:30 PM",
                             name: "Guest Speaker",
-                            description: "A guest speaker shares insights and inspiration.",
+                            description:
+                                "A guest speaker shares insights and inspiration.",
                             location: "North Creek Event Center (NCEC)",
                         },
                         {
@@ -91,13 +99,15 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "1:00 PM - 3:00 PM",
                             name: "Optional Activity",
-                            description: "Cascadia Programmers: Talk with Kody the Chatbot",
+                            description:
+                                "Cascadia Programmers: Talk with Kody the Chatbot",
                             location: "ARC Overlook",
                         },
                         {
                             time: "2:00 PM - 4:00 PM",
                             name: "Optional Activity",
-                            description: "Photoshoot with the Huskies: Dubs and Holly!",
+                            description:
+                                "Photoshoot with the Huskies: Dubs and Holly!",
                             location: "ARC Overlook",
                         },
                         {
@@ -109,7 +119,8 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "4:00 PM - 8:00 PM",
                             name: "In-Person Work Time",
-                            description: "Teams continue working on their projects in person.",
+                            description:
+                                "Teams continue working on their projects in person.",
                             location: "ARC Overlook",
                         },
                     ]}
@@ -123,13 +134,15 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "9:00 AM - 10:00 AM",
                             name: "Check-In",
-                            description: "Participants check in for the final day of the event.",
+                            description:
+                                "Participants check in for the final day of the event.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "9:00 AM - 2:00 PM",
                             name: "Hackeroon Shop Opens",
-                            description: "Participants can redeem Hackeroon tickets for prizes",
+                            description:
+                                "Participants can redeem Hackeroon tickets for prizes",
                             location: "ARC Overlook",
                         },
                         {
@@ -141,31 +154,36 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "10:50 AM - 12:50 PM",
                             name: "Judging, Demo Day, and Tabling",
-                            description: "Teams present their projects for judging and demos.",
+                            description:
+                                "Teams present their projects for judging and demos.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "1:00 PM - 2:00 PM",
                             name: "Networking Luncheon",
-                            description: "During lunch, participants can network with judges and industry professionals.",
+                            description:
+                                "During lunch, participants can network with judges and industry professionals.",
                             location: "Plaza",
                         },
                         {
                             time: "2:00 PM - 2:30 PM",
                             name: "Group Photo",
-                            description: "Take a group photo to commemorate the event.",
+                            description:
+                                "Take a group photo to commemorate the event.",
                             location: "Field",
                         },
                         {
                             time: "2:30 PM - 4:00 PM",
                             name: "Finalist Presentations",
-                            description: "Finalists present their projects to the judges.",
+                            description:
+                                "Finalists present their projects to the judges.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "4:00 PM - 4:30 PM",
                             name: "Final Deliberations",
-                            description: "Judges deliberate to select the winners.",
+                            description:
+                                "Judges deliberate to select the winners.",
                             location: "ARC Overlook",
                         },
                         {
@@ -186,7 +204,12 @@ interface ScheduleCardProps {
     day: string;
     date: string;
     spirit: string;
-    events: { time: string; name: string; description: string, location: string }[];
+    events: {
+        time: string;
+        name: string;
+        description: string;
+        location: string;
+    }[];
     accentPosition?: "bottom-left" | "bottom-right" | "top-right";
 }
 
@@ -206,8 +229,8 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
                     accentPosition === "bottom-left"
                         ? "bottom-0 left-0"
                         : accentPosition === "bottom-right"
-                        ? "bottom-0 right-0"
-                        : "top-0 right-0 rotate-180"
+                          ? "bottom-0 right-0"
+                          : "top-0 right-0 rotate-180"
                 }`}
             />
 
