@@ -53,7 +53,7 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "2:30 PM - 4:00 PM",
                             name: "In-Person Work Time",
-                            description: "Teams work on their projects anywhere outside of the ARC",
+                            description: "Teams may continue working on their projects anywhere outside the ARC",
                             location: "Anywhere on Campus",
                         },
                         {
@@ -129,13 +129,13 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "9:00 AM - 2:00 PM",
                             name: "Hackeroon Shop Opens",
-                            description: "Participants can redeem their Hackeroon tickets for prizes",
+                            description: "Participants can redeem Hackeroon tickets for prizes",
                             location: "ARC Overlook",
                         },
                         {
                             time: "10:00 AM - 10:30 AM",
                             name: "Hacking Concludes",
-                            description: "Every team submits their projects",
+                            description: "All teams submit their projects",
                             location: "ARC Overlook",
                         },
                         {
