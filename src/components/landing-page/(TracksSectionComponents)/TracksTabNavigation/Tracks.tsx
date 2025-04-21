@@ -5,13 +5,14 @@ import SelectedTrackInformation from "./SelectedTrackInformation";
 
 type TracksProps = {
     tracks: Track[];
+    className?: string;
 };
 
-export default function Tracks({ tracks }: TracksProps) {
+export default function Tracks({ tracks, className }: TracksProps) {
     const [selectedTrackIdx, setSelectedTrackIdx] = useState(0);
 
     return (
-        <>
+        <div className={className}>
             {/* Use to select track */}
             <TracksNav
                 tracks={tracks}
@@ -30,6 +31,6 @@ export default function Tracks({ tracks }: TracksProps) {
             <SelectedTrackInformation
                 selectedTrack={tracks[selectedTrackIdx]}
             />
-        </>
+        </div>
     );
 }
