@@ -31,7 +31,7 @@ export default function HackeroonItemCard({
                 />
             </div>
             {/* Prize Prize */}
-            <p className="text-center mt-2 font-rubik-mono-one">
+            <p className="text-center mt-2 text-xs md:text-md lg:text-lg font-rubik-mono-one">
                 {hackeroonPrize.price} Hackeroons
             </p>
         </div>
