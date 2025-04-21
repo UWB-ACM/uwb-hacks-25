@@ -114,7 +114,7 @@ const ScheduleSection: React.FC = () => {
                             time: "4:00 PM - 6:00 PM",
                             name: "Optional Activity",
                             description: "Badminton Social Club",
-                            location: "ARC Overlook", 
+                            location: "ARC Overlook",
                         },
                         {
                             time: "4:00 PM - 8:00 PM",
