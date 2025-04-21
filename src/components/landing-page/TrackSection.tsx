@@ -15,7 +15,11 @@ import mystery_box_contents_data from "./(TracksSectionComponents)/mysteryBoxCon
 // Used in Tracks section background
 import QuestionMark from "./(TracksSectionComponents)/QuestionMark";
 
+import LivePoll from "./(AboutSectionComponents)/LivePoll";
+
 const TracksSection = () => {
+    const panelMargin = "mt-12 md:mt-16";
+
     // TODO: change from "preHackathonContents" --> "duringHackathonContents" to reveal track names
     const mysteryBoxContents =
         mystery_box_contents_data["contents"]["preHackathonContents"];
@@ -33,18 +37,13 @@ const TracksSection = () => {
     }, [showTracks]);
 
     return (
-        <Panel id="tracksPanel" className="mt-12 md:mt-16" panelColor="white">
+        <Panel id="tracksPanel" className={panelMargin} panelColor="white">
             <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[10%] left-[8%] rotate-[19deg]" />
             <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[20%] right-[14%] -rotate-[15deg]" />
             <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[10%] left-[16%] rotate-[28deg]" />
             <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[3%] right-[20%] -rotate-[40deg]" />
 
-            {/* 
-            <Panel className={`w-full border-none ${panelMargin}`}>
-              <LivePoll />                  
-            </Panel>
-
-            */}
+            <LivePoll />
 
             <PanelHeader
                 parentPanelId="tracksPanel"
