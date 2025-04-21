@@ -79,7 +79,7 @@ export default function HackeroonCarousel({
         <div className="w-full flex justify-between overflow-hidden">
             {/* Prev Button */}
             <CarouselControls onClick={handlePrev}>
-                <ChevronLeft className="w-full h-full text-white" />
+                <ChevronLeft className="w-full h-full text-black" />
             </CarouselControls>
 
             {/* Hackeroon Item Card Container */}
@@ -94,7 +94,7 @@ export default function HackeroonCarousel({
 
             {/* Next Button */}
             <CarouselControls onClick={handleNext}>
-                <ChevronRight className="w-full h-full text-white " />
+                <ChevronRight className="w-full h-full text-black " />
             </CarouselControls>
         </div>
     );
