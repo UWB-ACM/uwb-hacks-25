@@ -30,13 +30,13 @@ export default function TracksNavHeader({
     };
 
     return (
-        <div className="w-full flex items-center p-2 md:p-4 border-y-2 border-black">
+        <div className="w-full flex items-center p-3 md:p-6 border-y-2 border-black">
             <button onClick={handlePrev}>
                 <ChevronLeft className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[50px] lg:h-[50px] duration-200 hover:scale-110" />
             </button>
 
             <div className="grow text-center font-h1">
-                <p className="text-xl md:text-2xl lg:text-3xl">
+                <p className="text-xl md:text-2xl lg:text-3xl text-[#FFCA3A]">
                     {tracks[selectedTrackIdx]["name"]}
                 </p>
                 <p className="text-lg md:text-xl lg:text-2xl">
