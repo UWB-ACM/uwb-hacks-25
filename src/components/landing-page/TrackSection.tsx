@@ -24,16 +24,6 @@ const TracksSection = () => {
     const tracks: Track[] = tracks_data["tracks"];
     const [showTracks, setShowTracks] = useState(false);
 
-    useEffect(() => {
-        if (!showTracks) return;
-        gsap.to(".tracks", {
-            delay: 1,
-            y: 0,
-            stagger: 0.25,
-            ease: "power1.out",
-        });
-    }, [showTracks]);
-
     return (
         <Panel id="tracksPanel" className="mt-12 md:mt-16" panelColor="white">
             <PanelHeader
@@ -61,7 +51,12 @@ const TracksSection = () => {
                 />
             </PanelContent>
 
-            {showTracks && <Tracks tracks={tracks} />}
+            <Tracks
+                className={`transition-[max-height] duration-300 ease-in-out overflow-hidden ${
+                    showTracks ? "max-h-[1000px]" : "max-h-0"
+                }`}
+                tracks={tracks}
+            />
         </Panel>
     );
 };
