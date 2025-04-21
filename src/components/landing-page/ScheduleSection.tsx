@@ -14,12 +14,14 @@ const ScheduleSection: React.FC = () => {
                 parentPanelId="schedulePanel"
                 className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
                 isSectionHeader
+                long
             >
                 Schedule
             </PanelHeader>
             <PanelContent
                 parentPanelId="schedulePanel"
                 className="grid gap-y-6 gap-x-6 md:grid-cols-3"
+                long
             >
                 <ScheduleCard
                     day="DAY 1"
