@@ -87,11 +87,11 @@ export default function HomePage({
                     {/* Wrap H1 is used for the main page. */}
                     <Header
                         links={[
-                            {
-                                id: "sponsor",
-                                name: "Sponsor Us",
-                                url: "/sponsor",
-                            },
+                            // {
+                            //     id: "sponsor",
+                            //     name: "Sponsor Us",
+                            //     url: "/sponsor",
+                            // },
                             {
                                 id: "about",
                                 name: "About",
