@@ -93,12 +93,16 @@ const FAQSection = () => {
                                     {isOpen ? MinusIcon : PlusIcon}
                                 </span>
                             </button>
+
+                            {/* https://stackoverflow.com/a/76944290 */}
                             <div
-                                className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                                    isOpen ? "max-h-40" : "max-h-0"
+                                className={`grid transition-[grid-template_rows_300ms] ease-in-out overflow-hidden ${
+                                    isOpen
+                                        ? "[grid-template-rows:1fr]"
+                                        : "[grid-template-rows:0fr]"
                                 }`}
                             >
-                                <div className="pb-5 font-h3 px-1 ml-12">
+                                <div className="pb-5 font-h3 px-1 ml-12 overflow-hidden">
                                     {Array.isArray(item.answer) ? (
                                         <ul className="list-decimal list-inside space-y-2">
                                             {item.answer.map((line, i) => (

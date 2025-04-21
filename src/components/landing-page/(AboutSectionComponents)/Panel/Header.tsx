@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 import gsap from "gsap";
@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 type PanelHeaderProps = {
+    parentPanelId: string;
     children: React.ReactNode;
     isSectionHeader?: boolean;
     className?: string;
@@ -14,6 +15,7 @@ type PanelHeaderProps = {
 };
 
 export default function PanelHeader({
+    parentPanelId,
     children,
     isSectionHeader = false,
     className,
@@ -22,29 +24,23 @@ export default function PanelHeader({
     const headerRef = useRef(null);
 
     useEffect(() => {
+        if (!headerRef.current) return;
+
         const header = headerRef.current;
 
-        if (header) {
-            gsap.set(header, { y: "-100%" });
+        gsap.set(header, { y: "-100%" });
 
-            const animation = gsap.to(header, {
-                duration: 0.4,
-                ease: "power2.out",
-                y: 0,
-                scrollTrigger: {
-                    trigger: header,
-                    start: "bottom 65%",
-                },
-            });
-
-            return () => {
-                if (animation.scrollTrigger) {
-                    animation.scrollTrigger.kill();
-                }
-                animation.kill();
-            };
-        }
-    }, []);
+        gsap.to(header, {
+            duration: 0.2,
+            ease: "expo.out",
+            y: 0,
+            scrollTrigger: {
+                trigger: `#${parentPanelId}`,
+                start: "30% 80%",
+            },
+        });
+        // parentPanelId only passed into dependency array to satisfy ESLint. value of parentPanelId will never be changed within this component
+    }, [parentPanelId]);
 
     const props = {
         ref: headerRef,
