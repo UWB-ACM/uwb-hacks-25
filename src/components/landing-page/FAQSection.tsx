@@ -15,7 +15,7 @@ const faqItems = [
     },
     {
         question: "4. Do I need programming experience to participate?",
-        answer: `No prior programming experience is required! We have provided options for "No Code" and "Low Code" projects. We welcome participants of all skill levels and will also provide mentorship, and other learning opportunities.`,
+        answer: `No prior programming experience is required! We have provided options for "No Code" and "Low Code" projects. We welcome participants of all skill levels and will also provide mentorship, and other learning opportunities. Although, we have adjusted judging criteria to balance the playing field for all participants.`,
     },
     {
         question:
