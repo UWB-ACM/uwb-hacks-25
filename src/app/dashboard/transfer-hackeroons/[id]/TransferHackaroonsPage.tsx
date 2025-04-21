@@ -49,7 +49,6 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
 
     const [amount, setAmount] = useState<number>(0);
     const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
-    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -117,11 +116,6 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                                                 )
                                             }
                                         />
-                                        {error && (
-                                            <p className="text-red-500 font-bold text-center text-base mt-1">
-                                                {error}
-                                            </p>
-                                        )}
                                     </div>
                                 </>
                             )}
