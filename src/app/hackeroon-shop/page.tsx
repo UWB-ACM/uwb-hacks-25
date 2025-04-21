@@ -28,11 +28,11 @@ export default async function PrizesPage() {
         <div className="w-full min-h-full flex flex-col">
             <Header
                 links={[
-                    {
-                        id: "sponsor",
-                        name: "Sponsor Us",
-                        url: "/sponsor",
-                    },
+                    // { Commenting out for now, we can add this back for next year idk
+                    //     id: "sponsor",
+                    //     name: "Sponsor Us",
+                    //     url: "/sponsor",
+                    // },
                     {
                         id: "about",
                         name: "About",
