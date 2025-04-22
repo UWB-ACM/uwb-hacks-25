@@ -60,11 +60,17 @@ const TransactionTable = ({ transactions }: TransactionTableProps) => {
                             .map((transaction, index) => (
                                 <TableRow
                                     key={transaction.id}
-                                    className={
-                                        index % 2 === 0
-                                            ? "bg-white hover:bg-gray-100"
-                                            : "bg-[#f8f8f8] hover:bg-gray-100"
-                                    }
+                                    className={`
+                                        ${
+                                            index % 2 === 0
+                                                ? "bg-white hover:bg-gray-100"
+                                                : "bg-[#f8f8f8] hover:bg-gray-100"
+                                        }
+                                        ${
+                                            transaction.reverted &&
+                                            "line-through"
+                                        }
+                                    `}
                                 >
                                     <TableCell className="px-4 py-2 border border-gray-300">
                                         {transaction.type}
