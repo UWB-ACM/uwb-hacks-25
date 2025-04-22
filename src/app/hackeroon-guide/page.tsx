@@ -23,7 +23,11 @@ const PointItem = ({
             <div className="flex-1 min-w-0">
                 <p className="text-md font-semibold text-black">{title}</p>
                 <p className="text-sm text-gray-700">{details}</p>
-                {time && <p className="pt-2 font-bold text-sm text-gray-700">{time}</p>}
+                {time && (
+                    <p className="pt-2 font-bold text-sm text-gray-700">
+                        {time}
+                    </p>
+                )}
             </div>
             <div className="inline-flex items-center text-lg font-semibold text-green-600">
                 +{points}
