@@ -72,9 +72,9 @@ export default async function PrizesPage() {
             </div>
 
             <p className="self-center text-center max-w-[80%] md:max-w-[50%] font-bold">
-                Come in-person on Sunday, April 27th, to purchase a prize.
-                Prizes can be purchased at one of our Hackeroon Booths, located
-                on the top-floor of the ARC.
+                Come in-person on Sunday, April 27th, from 9:00 AM to 2:00 PM,
+                to purchase a prize. Prizes can be purchased at one of our
+                Hackeroon Booths, located on the top-floor of the ARC.
                 <br />
                 <br />
                 Prizes are offered on a first-come-first-serve basis.
