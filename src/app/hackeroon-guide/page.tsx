@@ -11,16 +11,19 @@ const PointItem = ({
     title,
     points,
     details,
+    time,
 }: {
     title: string;
     points: number;
     details: string;
+    time?: string;
 }) => (
     <li className="py-3 sm:py-4">
         <div className="flex items-center space-x-4">
             <div className="flex-1 min-w-0">
                 <p className="text-md font-semibold text-black">{title}</p>
                 <p className="text-sm text-gray-700">{details}</p>
+                {time && <p className="pt-2 font-bold text-sm text-gray-700">{time}</p>}
             </div>
             <div className="inline-flex items-center text-lg font-semibold text-green-600">
                 +{points}
@@ -31,7 +34,7 @@ const PointItem = ({
 
 export default async function GuidePage() {
     return (
-        <div className="w-full min-h-screen flex flex-col">
+        <div className="font-opensans w-full min-h-screen flex flex-col">
             <Header
                 links={[
                     {
@@ -59,14 +62,14 @@ export default async function GuidePage() {
 
                 {/* Section for Month of Hacking */}
                 <section className="mb-12">
-                    <h2 className="text-3xl font-comic text-black mb-6 text-center md:text-left">
+                    <h2 className="font-rubik-mono-one text-3xl font-comic text-black mb-6 text-center md:text-left">
                         Month of Hacking
                     </h2>
 
                     {/* All Days Card */}
-                    <div className="bg-neutral-200 rounded-lg border-[4px] border-black shadow-comic overflow-hidden mb-8">
+                    <div className="bg-neutral-200 border-[4px] border-black shadow-comic overflow-hidden mb-8">
                         <div className="bg-orange-400 px-6 py-3">
-                            <h3 className="text-xl font-comic text-white">
+                            <h3 className="font-rubik-mono-one text-xl font-comic text-white">
                                 All Month Long (including the Hackathon)
                             </h3>
                         </div>
@@ -93,14 +96,14 @@ export default async function GuidePage() {
 
                 {/* Section for During the Hackathon */}
                 <section className="mb-12">
-                    <h2 className="text-3xl font-comic text-black mb-6 text-center md:text-left">
+                    <h2 className="font-rubik-mono-one text-3xl font-comic text-black mb-6 text-center md:text-left">
                         During the Hackathon
                     </h2>
 
                     {/* Friday Card */}
-                    <div className="bg-neutral-200 rounded-lg border-[4px] border-black shadow-comic overflow-hidden mb-8">
+                    <div className="bg-neutral-200 border-[4px] border-black shadow-comic overflow-hidden mb-8">
                         <div className="bg-orange-400 px-6 py-3">
-                            <h3 className="text-xl font-comic text-white">
+                            <h3 className="font-rubik-mono-one text-xl font-comic text-white">
                                 Friday
                             </h3>
                         </div>
@@ -108,7 +111,8 @@ export default async function GuidePage() {
                             <PointItem
                                 title="Super Hero Wear"
                                 points={50}
-                                details="Rock your super hero gear! (Redeem once, all day)."
+                                details="Rock your super hero gear! (Redeem once)."
+                                time="📍 Anywhere | ⏰ All day"
                             />
                             {/* <PointItem
                                 title="Fireside Chat (ARC)"
@@ -119,9 +123,9 @@ export default async function GuidePage() {
                     </div>
 
                     {/* Saturday Card */}
-                    <div className="bg-neutral-200 rounded-lg border-[4px] border-black shadow-comic overflow-hidden mb-8">
+                    <div className="bg-neutral-200 border-[4px] border-black shadow-comic overflow-hidden mb-8">
                         <div className="bg-orange-400 px-6 py-3">
-                            <h3 className="text-xl font-comic text-white">
+                            <h3 className="font-rubik-mono-one text-xl font-comic text-white">
                                 Saturday
                             </h3>
                         </div>
@@ -129,45 +133,52 @@ export default async function GuidePage() {
                             <PointItem
                                 title="Husky Spirit Wear"
                                 points={50}
-                                details="Show your Husky pride! (Redeem once, all day)."
+                                details="Show your Husky pride! (Redeem once)."
+                                time="📍 Anywhere | ⏰ All day"
                             />
                             <PointItem
                                 title="Fireside Chat (NCEC)"
                                 points={100}
-                                details="Attend the fireside chat with Heba Ramzy (Redeem once). 📍 NCEC | ⏰ 12:00 PM - 12:30 PM"
+                                details="Attend the fireside chat with Heba Ramzy (Redeem once)."
+                                time="📍 NCEC | ⏰ 12:00 PM - 12:30 PM"
                             />
                             <PointItem
                                 title="Entrepreneur in the Corner"
                                 points={100}
-                                details="Chat with Dan Terry (Redeem once). 📍 ARC | ⏰ 12:00 PM - 6:00 PM"
+                                details="Chat with Dan Terry (Redeem once)."
+                                time="📍 ARC | ⏰ 12:00 PM - 6:00 PM"
                             />
                             <PointItem
                                 title="Photo with Dubs"
                                 points={50}
-                                details="Snap a pic with Dubs! (Redeem once). 📍 ARC | ⏰ 2:00 PM - 4:00 PM"
+                                details="Snap a pic with Dubs! (Redeem once)."
+                                time="📍 ARC | ⏰ 2:00 PM - 4:00 PM"
                             />
                             <PointItem
                                 title="Photo with Holly"
                                 points={50}
-                                details="Say cheese with Holly! (Redeem once). 📍 ARC | ⏰ 3:00 PM - 3:30 PM"
+                                details="Say cheese with Holly! (Redeem once)."
+                                time="📍 ARC | ⏰ 3:00 PM - 3:30 PM"
                             />
                             <PointItem
                                 title="Talk with Kody"
                                 points={50}
-                                details="Have a chat with Kody the Chatbot (Redeem once). 📍 ARC | ⏰ 1:00 PM - 3:00 PM"
+                                details="Have a chat with Kody the Chatbot (Redeem once)."
+                                time="📍 ARC | ⏰ 1:00 PM - 3:00 PM"
                             />
                             <PointItem
                                 title="Drop-in Badminton"
                                 points={100}
-                                details="Play some Badminton! (Redeem once). 📍 ARC Field | ⏰ 4:00 PM - 6:00 PM"
+                                details="Play some Badminton! (Redeem once)."
+                                time="📍 ARC Field | ⏰ 4:00 PM - 6:00 PM"
                             />
                         </ul>
                     </div>
 
                     {/* Sunday Card */}
-                    <div className="bg-neutral-200 rounded-lg border-[4px] border-black shadow-comic overflow-hidden mb-8">
+                    <div className="bg-neutral-200 border-[4px] border-black shadow-comic overflow-hidden mb-8">
                         <div className="bg-orange-400 px-6 py-3">
-                            <h3 className="text-xl font-comic text-white">
+                            <h3 className="font-rubik-mono-one text-xl font-comic text-white">
                                 Sunday
                             </h3>
                         </div>
@@ -175,12 +186,14 @@ export default async function GuidePage() {
                             <PointItem
                                 title="Professional Attire"
                                 points={50}
-                                details="Look sharp for Demo Day! (Redeem once, all day)."
+                                details="Look sharp for Demo Day! (Redeem once)."
+                                time="📍 Anywhere | ⏰ All day"
                             />
                             <PointItem
                                 title="Demo Day Attendance"
                                 points={100}
-                                details="Be there for the final demos! (Redeem once). ⏰ Starts 4:00 PM"
+                                details="Be there for the final demos! (Redeem once)."
+                                time="⏰ Starts 4:00 PM"
                             />
                             {/* <PointItem
                                 title="Admissions Posting Booth"
@@ -193,10 +206,10 @@ export default async function GuidePage() {
 
                 {/* Prize Earning Info */}
                 <section className="mt-16">
-                    <h2 className="text-3xl font-comic text-black mb-6 text-center md:text-left">
+                    <h2 className="font-rubik-mono-one text-3xl font-comic text-black mb-6 text-center md:text-left">
                         Receiving Your Hackeroons
                     </h2>
-                    <div className="bg-neutral-200 rounded-lg border-[4px] border-black shadow-comic p-6 text-center">
+                    <div className="bg-neutral-200 border-[4px] border-black shadow-comic p-6 text-center">
                         <p className="text-black mb-4">
                             There are a few different ways you can receive
                             Hackeroons. If in doubt, you can always ask a staff
@@ -231,10 +244,10 @@ export default async function GuidePage() {
 
                 {/* Prize Redemption Info */}
                 <section className="mt-16">
-                    <h2 className="text-3xl font-comic text-black mb-6 text-center md:text-left">
+                    <h2 className="font-rubik-mono-one text-3xl font-comic text-black mb-6 text-center md:text-left">
                         Redeeming Your Hackeroons
                     </h2>
-                    <div className="bg-neutral-200 rounded-lg border-[4px] border-black shadow-comic p-6 text-center">
+                    <div className="bg-neutral-200 border-[4px] border-black shadow-comic p-6 text-center">
                         <p className="text-black mb-4">
                             Come in-person on{" "}
                             <span className="font-semibold">
