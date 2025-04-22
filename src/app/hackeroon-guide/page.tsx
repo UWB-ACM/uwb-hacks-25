@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import Header from "@/src/components/header/Header";
-import MarketPlaceLink from "@/src/components/dashboards/userdashboard/MarketPlaceLink";
+import LinkButton from "@/src/components/dashboards/userdashboard/LinkButton";
 
 export const metadata: Metadata = {
     title: "Hackeroon Guide | UWB Hacks 25",
@@ -270,7 +270,10 @@ export default async function GuidePage() {
                         <p className="text-black mb-4">
                             For more information, check out the Hackeroon Shop.
                         </p>
-                        <MarketPlaceLink />
+                        <LinkButton
+                            href="/hackeroon-shop"
+                            text="Hackeroon Shop"
+                        />
                         <p className="text-sm text-gray-700 mt-4">
                             <span className="font-semibold">Note:</span> Prizes
                             are offered on a first-come, first-serve basis.

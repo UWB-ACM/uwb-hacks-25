@@ -8,7 +8,7 @@ import QRCode from "react-qr-code";
 import Image from "next/image";
 import Husky from "@/public/about/husky.png";
 import CheckInInput from "@/src/components/dashboards/userdashboard/CheckInInput";
-import MarketPlaceLink from "@/src/components/dashboards/userdashboard/MarketPlaceLink";
+import MarketPlaceLink from "@/src/components/dashboards/userdashboard/LinkButton";
 import SupportSection from "@/src/components/dashboards/userdashboard/SupportSection";
 import { getUserConsent } from "@/src/util/db/user";
 import LeaderboardConsent from "@/src/components/dashboards/userdashboard/LeaderboardConsent";
