@@ -253,12 +253,16 @@ export default async function GuidePage() {
                     </h2>
                     <div className="bg-neutral-200 border-[4px] border-black shadow-comic p-6 text-center">
                         <p className="text-black mb-4">
-                            Come in-person on{" "}
-                            <span className="font-semibold">
-                                Sunday, April 27th, from 9:00 AM to 2:00 PM
-                            </span>
-                            , to exchange your hard-earned Hackeroons for
-                            awesome prizes!
+                            The Hackeroon Shop will be open on Saturday, April
+                            26th from 4:00 PM to 8:00 PM and Sunday, April 27th
+                            from 9:00 AM to 2:00 PM. Come by the top floor of
+                            the ARC to browse and redeem your Hackeroons for
+                            prizes in person!
+                            <br />
+                            <br />
+                            Prizes are offered on a first-come-first-serve
+                            basis.
+                            <br /> Prices also may be subject to change!
                         </p>
                         <p className="text-black mb-4">
                             Hackeroon Booths will be located on the{" "}
