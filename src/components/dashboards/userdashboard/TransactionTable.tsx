@@ -1,5 +1,9 @@
 "use client";
-import { Transaction } from "@/src/util/dataTypes";
+import {
+    Transaction,
+    TransactionType,
+    typeNameMap,
+} from "@/src/util/dataTypes";
 import React, { useState } from "react";
 import {
     Table,
@@ -73,7 +77,11 @@ const TransactionTable = ({ transactions }: TransactionTableProps) => {
                                     `}
                                 >
                                     <TableCell className="px-4 py-2 border border-gray-300">
-                                        {transaction.type}
+                                        {
+                                            typeNameMap[
+                                                transaction.type as TransactionType
+                                            ]
+                                        }
                                     </TableCell>
                                     <TableCell className="px-4 py-2 border border-gray-300">
                                         {transaction.amount}
