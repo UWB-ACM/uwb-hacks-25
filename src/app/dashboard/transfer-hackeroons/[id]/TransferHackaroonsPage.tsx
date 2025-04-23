@@ -33,35 +33,49 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
     const [amount, setAmount] = useState<number>(0);
     const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
 
+    const [loading, setLoading] = useState<boolean>(false);
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // If this transaction type has a prescribed amount,
-        // use that instead of the saved one.
-        const reasonType = reasonTypeMap[reason];
-        const trueAmount =
-            reasonType in valuedTransactionAmounts
-                ? valuedTransactionAmounts[
-                      reasonType as keyof typeof valuedTransactionAmounts
-                  ]
-                : amount;
+        if (loading) return;
+        setLoading(true);
 
-        const data = await actionCreateTransaction(
-            user.id,
-            reasonTypeMap[reason],
-            trueAmount,
-            null,
-            null,
-        );
+        try {
+            // If this transaction type has a prescribed amount,
+            // use that instead of the saved one.
+            const reasonType = reasonTypeMap[reason];
+            const trueAmount =
+                reasonType in valuedTransactionAmounts
+                    ? valuedTransactionAmounts[
+                          reasonType as keyof typeof valuedTransactionAmounts
+                      ]
+                    : amount;
 
-        setIsModalOpen(true);
+            const data = await actionCreateTransaction(
+                user.id,
+                reasonTypeMap[reason],
+                trueAmount,
+                null,
+                null,
+            );
 
-        if (data != null && "error" in data) {
-            setFeedbackSuccess(data["error"]);
-        } else if (data != null) {
-            setFeedbackSuccess("success");
-        } else {
+            setIsModalOpen(true);
+
+            if (data != null && "error" in data) {
+                setFeedbackSuccess(data["error"]);
+            } else if (data != null) {
+                setFeedbackSuccess("success");
+            } else {
+                setFeedbackSuccess("error");
+            }
+        } catch (e) {
+            console.error(e);
+
+            setIsModalOpen(true);
             setFeedbackSuccess("error");
+        } finally {
+            setLoading(false);
         }
     };
 
