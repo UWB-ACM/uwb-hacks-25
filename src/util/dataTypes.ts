@@ -257,29 +257,6 @@ export interface Transaction {
     reverted: boolean;
 }
 
-/**
- * Data stored in Redis that a check-in code maps to.
- */
-export interface CheckInInfo {
-    /**
-     * Is the duration of the code in seconds.
-     */
-    duration: number;
-
-    /**
-     * Is the staff member who created by the code (if they exist).
-     */
-    authorized_by: number | null;
-
-    /**
-     * Is the ID of the event which the code corresponds to.
-     */
-    event: number;
-}
-
-/**
- * The reason for a transaction.
- */
 export enum TransactionType {
     /**
      * A generic transaction.
@@ -305,22 +282,32 @@ export enum TransactionType {
     /**
      * Someone won an event activity.
      */
-    ActivityWinner = 4,
+    MonthOfHackingActivityWinner = 4,
 
-    /**
-     * Someone wore a hero/fandom costume.
-     */
-    CostumeFandom = 5,
+    /** Friday Transactions! */
+    FridayCostumeFandom = 5,
 
-    /**
-     * Someone wore a husky spirit costume.
-     */
-    CostumeHusky = 6,
+    FridayFireSideChat = 8,
 
-    /**
-     * Someone wore a professional costume.
-     */
-    CostumeProfessional = 7,
+    FridayHollyTheHusky = 9,
+
+    /** Saturday Transactions! */
+    SaturdayCostumeHusky = 6,
+
+    SaturdayTalkWithDanTerry = 11,
+
+    SaturdayPhotoWithDubs = 12,
+
+    SaturdayPhotoWithHolly = 13,
+
+    SaturdayTalkToKody = 14,
+
+    SaturdayBadmintonSocial = 15,
+
+    /** Sunday Transactions! */
+    SundayCostumeProfessional = 7,
+
+    SundayDemoDay = 16,
 }
 
 /**
@@ -328,10 +315,96 @@ export enum TransactionType {
  * This only includes transaction types which have a constant value.
  * MUST BE NON-NEGATIVE.
  */
-export const valuedTransactionTypes = {
+export const valuedTransactionAmounts = {
     [TransactionType.Performance]: 25,
-    [TransactionType.ActivityWinner]: 50,
-    [TransactionType.CostumeFandom]: 50,
-    [TransactionType.CostumeHusky]: 50,
-    [TransactionType.CostumeProfessional]: 50,
+    [TransactionType.MonthOfHackingActivityWinner]: 100,
+    [TransactionType.FridayCostumeFandom]: 100,
+    [TransactionType.FridayFireSideChat]: 100,
+    [TransactionType.FridayHollyTheHusky]: 50,
+
+    [TransactionType.SaturdayCostumeHusky]: 100,
+    [TransactionType.SaturdayTalkWithDanTerry]: 100,
+    [TransactionType.SaturdayPhotoWithDubs]: 50,
+    [TransactionType.SaturdayPhotoWithHolly]: 50,
+    [TransactionType.SaturdayTalkToKody]: 100,
+    [TransactionType.SaturdayBadmintonSocial]: 100,
+
+    [TransactionType.SundayCostumeProfessional]: 100,
+    [TransactionType.SundayDemoDay]: 100,
 } as const;
+
+export const valuedTransactionLimits: Record<keyof typeof valuedTransactionAmounts, number> = {
+    [TransactionType.Performance]: Infinity,
+    [TransactionType.MonthOfHackingActivityWinner]: 3,
+    [TransactionType.FridayCostumeFandom]: 1,
+    [TransactionType.FridayFireSideChat]: 1,
+    [TransactionType.FridayHollyTheHusky]: 1,
+
+    [TransactionType.SaturdayCostumeHusky]: 1,
+    [TransactionType.SaturdayTalkWithDanTerry]: 1,
+    [TransactionType.SaturdayPhotoWithDubs]: 1,
+    [TransactionType.SaturdayPhotoWithHolly]: 1,
+    [TransactionType.SaturdayTalkToKody]: 1,
+    [TransactionType.SaturdayBadmintonSocial]: 1,
+
+    [TransactionType.SundayCostumeProfessional]: 1,
+    [TransactionType.SundayDemoDay]: 1,
+};
+
+export const reasonTypeMap = {
+    unknown: TransactionType.Unknown,
+    performance: TransactionType.Performance,
+    "activity-winner": TransactionType.MonthOfHackingActivityWinner,
+
+    "friday-costume-fandom": TransactionType.FridayCostumeFandom,
+    "friday-fire-side-chat": TransactionType.FridayFireSideChat,
+    "friday-holly-the-husky": TransactionType.FridayHollyTheHusky,
+
+    "saturday-costume-husky": TransactionType.SaturdayCostumeHusky,
+    "saturday-talk-dan-terry": TransactionType.SaturdayTalkWithDanTerry,
+    "saturday-dubs-photo": TransactionType.SaturdayPhotoWithDubs,
+    "saturday-holly-photo": TransactionType.SaturdayPhotoWithHolly,
+    "saturday-talk-kody": TransactionType.SaturdayTalkToKody,
+    "saturday-badminton": TransactionType.SaturdayBadmintonSocial,
+
+    "sunday-costume-professional": TransactionType.SundayCostumeProfessional,
+    "sunday-demo-day": TransactionType.SundayDemoDay,
+} as const;
+
+export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
+    unknown: "Unknown",
+    performance: "Performance",
+    "activity-winner": "Activity Winner",
+    "friday-costume-fandom": "Fandom Costume (Friday)",
+    "friday-fire-side-chat": "Fire Side Chat (Friday)",
+    "friday-holly-the-husky": "Picture with Holly (Friday)",
+
+    "saturday-costume-husky": "Husky Spirit Costume (Saturday)",
+    "saturday-talk-dan-terry": "Talk with Dan Terry (Saturday)",
+    "saturday-dubs-photo": "Picture with Dubs (Saturday)",
+    "saturday-holly-photo": "Picture with Holly (Saturday)",
+    "saturday-talk-kody": "Talk with Kody (Saturday)",
+    "saturday-badminton": "Badminton Social (Saturday)",
+
+    "sunday-costume-professional": "Professional Costume (Sunday)",
+    "sunday-demo-day": "Demo Day (Sunday)",
+}
+
+export const typeNameMap: Record<TransactionType, string> = {
+    [TransactionType.Unknown]: "Unknown",
+    [TransactionType.EventAttendance]: "Event Attendance",
+    [TransactionType.PrizePurchase]: "Prize Purchase",
+    [TransactionType.Performance]: "Performance",
+    [TransactionType.MonthOfHackingActivityWinner]: "Activity Winner",      
+    [TransactionType.FridayCostumeFandom]: "Fandom Costume (Friday)",
+    [TransactionType.FridayFireSideChat]: "Fire Side Chat (Friday)",
+    [TransactionType.FridayHollyTheHusky]: "Picture with Holly (Friday)",
+    [TransactionType.SaturdayCostumeHusky]: "Husky Spirit Costume (Saturday)",
+    [TransactionType.SaturdayTalkWithDanTerry]: "Talk with Dan Terry (Saturday)",
+    [TransactionType.SaturdayPhotoWithDubs]: "Picture with Dubs (Saturday)",
+    [TransactionType.SaturdayPhotoWithHolly]: "Picture with Holly (Saturday)",
+    [TransactionType.SaturdayTalkToKody]: "Talk with Kody (Saturday)",
+    [TransactionType.SaturdayBadmintonSocial]: "Badminton Social (Saturday)",
+    [TransactionType.SundayCostumeProfessional]: "Professional Costume (Sunday)",
+    [TransactionType.SundayDemoDay]: "Demo Day (Sunday)",
+}
