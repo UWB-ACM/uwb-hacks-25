@@ -2,6 +2,8 @@ import Image from "next/image";
 import UWBStemImage from "@/public/sponsorsSection/uwb-stem.png";
 import UWBBusinessImage from "@/public/sponsorsSection/uwb-business.png";
 import AvanadeImage from "@/public/sponsorsSection/avanade-logo.svg";
+import FutureForceImage from "@/public/sponsorsSection/futureforce.jpg";
+import MaddKitchenImage from "@/public/sponsorsSection/madkitchen.png";
 import Link from "next/link";
 
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
@@ -70,15 +72,27 @@ const SponsorsSection = () => {
                 {/* Secondary sponsors row */}
                 <div className="w-full flex justify-center items-center">
                     <div className="flex justify-center items-center">
-                        {/*
+                        
                         <Image
-                            src={RedBullImage}
-                            width={100}
+                            src={MaddKitchenImage}
+                            width={200}
                             height={80}
                             alt="Red Bull"
-                            className="object-contain"
+                            className="object-contain md:mr-10"
                         />
-                        */}
+                       
+                    </div>
+
+                    <div className="flex justify-center items-center">
+                        
+                        <Image
+                            src={FutureForceImage}
+                            width={200}
+                            height={80}
+                            alt="Red Bull"
+                            className="object-contain md:ml-10"
+                        />
+                       
                     </div>
                 </div>
             </PanelContent>
