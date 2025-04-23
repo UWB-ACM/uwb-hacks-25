@@ -333,7 +333,10 @@ export const valuedTransactionAmounts = {
     [TransactionType.SundayDemoDay]: 100,
 } as const;
 
-export const valuedTransactionLimits: Record<keyof typeof valuedTransactionAmounts, number> = {
+export const valuedTransactionLimits: Record<
+    keyof typeof valuedTransactionAmounts,
+    number
+> = {
     [TransactionType.Performance]: Infinity,
     [TransactionType.MonthOfHackingActivityWinner]: 3,
     [TransactionType.FridayCostumeFandom]: 1,
@@ -388,23 +391,25 @@ export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
 
     "sunday-costume-professional": "Professional Costume (Sunday)",
     "sunday-demo-day": "Demo Day (Sunday)",
-}
+};
 
 export const typeNameMap: Record<TransactionType, string> = {
     [TransactionType.Unknown]: "Unknown",
     [TransactionType.EventAttendance]: "Event Attendance",
     [TransactionType.PrizePurchase]: "Prize Purchase",
     [TransactionType.Performance]: "Performance",
-    [TransactionType.MonthOfHackingActivityWinner]: "Activity Winner",      
+    [TransactionType.MonthOfHackingActivityWinner]: "Activity Winner",
     [TransactionType.FridayCostumeFandom]: "Fandom Costume (Friday)",
     [TransactionType.FridayFireSideChat]: "Fire Side Chat (Friday)",
     [TransactionType.FridayHollyTheHusky]: "Picture with Holly (Friday)",
     [TransactionType.SaturdayCostumeHusky]: "Husky Spirit Costume (Saturday)",
-    [TransactionType.SaturdayTalkWithDanTerry]: "Talk with Dan Terry (Saturday)",
+    [TransactionType.SaturdayTalkWithDanTerry]:
+        "Talk with Dan Terry (Saturday)",
     [TransactionType.SaturdayPhotoWithDubs]: "Picture with Dubs (Saturday)",
     [TransactionType.SaturdayPhotoWithHolly]: "Picture with Holly (Saturday)",
     [TransactionType.SaturdayTalkToKody]: "Talk with Kody (Saturday)",
     [TransactionType.SaturdayBadmintonSocial]: "Badminton Social (Saturday)",
-    [TransactionType.SundayCostumeProfessional]: "Professional Costume (Sunday)",
+    [TransactionType.SundayCostumeProfessional]:
+        "Professional Costume (Sunday)",
     [TransactionType.SundayDemoDay]: "Demo Day (Sunday)",
-}
+};

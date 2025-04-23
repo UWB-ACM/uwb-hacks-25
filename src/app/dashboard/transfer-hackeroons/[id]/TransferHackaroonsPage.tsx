@@ -6,7 +6,7 @@ import {
     User,
     valuedTransactionAmounts,
     reasonTypeMap,
-    reasonNameMap
+    reasonNameMap,
 } from "@/src/util/dataTypes";
 import Link from "next/link";
 import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
@@ -31,8 +31,6 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         "over-limit":
             "This user has already received the maximum amount they can for this transaction category.",
     } as const;
-
-    
 
     const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
 

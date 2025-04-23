@@ -71,10 +71,9 @@ export async function createTransaction(
         case TransactionType.SaturdayTalkToKody:
         case TransactionType.SaturdayBadmintonSocial:
 
-        case TransactionType.SundayCostumeProfessional: 
-        case TransactionType.SundayDemoDay: 
-        {
-            const limits = valuedTransactionLimits
+        case TransactionType.SundayCostumeProfessional:
+        case TransactionType.SundayDemoDay: {
+            const limits = valuedTransactionLimits;
 
             if (event || prize) {
                 throw new Error(
@@ -94,7 +93,10 @@ export async function createTransaction(
 
             // Override the value to ensure consistency.
             // This also guarantees that amount >= 0.
-            amount = valuedTransactionAmounts[type as keyof typeof valuedTransactionAmounts];
+            amount =
+                valuedTransactionAmounts[
+                    type as keyof typeof valuedTransactionAmounts
+                ];
 
             // Our amount is positive, so we don't need to worry about
             // putting the balance below zero, but we do need to worry about
