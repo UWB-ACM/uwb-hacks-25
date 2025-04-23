@@ -88,7 +88,6 @@ export function CreatePrizePage() {
                         id="prizeDescription"
                         value={prizeDescription}
                         onChange={(e) => setPrizeDescription(e.target.value)}
-                        required
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
 
