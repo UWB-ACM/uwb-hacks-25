@@ -1,14 +1,15 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { actionCreateEvent } from "@/src/util/actions/events";
 import { datetimeLocalToDate, dateToDatetimeLocal } from "@/src/util/date";
+import Link from "next/link";
 
 export default function CreateEventPage() {
     const router = useRouter();
 
-    const [error, setError] = useState("");
+    const [error, setError] = useState<string | null>(null);
 
     // Event information
     const [eventName, setEventName] = useState<string>("");
@@ -32,9 +33,9 @@ export default function CreateEventPage() {
         if (eventEnd !== null && eventEnd <= eventStart) {
             setError("Event end time must be after event start time!");
             return;
-        } else {
-            setError("");
         }
+
+        setError(null);
 
         const data = await actionCreateEvent(
             eventName,
@@ -42,7 +43,7 @@ export default function CreateEventPage() {
             eventStart,
             eventEnd,
             eventLocation,
-            eventAttendanceAmount,
+            Number(eventAttendanceAmount),
         );
 
         // adding this to satisfy eslint
@@ -52,7 +53,7 @@ export default function CreateEventPage() {
     };
 
     return (
-        <div className="w-full grid place-content-center">
+        <div className="h-[80vh] w-full grid place-content-center">
             <form
                 onSubmit={handleSubmit}
                 className="p-4 border-black border rounded-lg bg-white"
@@ -152,26 +153,37 @@ export default function CreateEventPage() {
                         Attendance Amount (H$)
                     </label>
                     <input
+                        required
                         id="eventAttendanceAmount"
-                        value={eventAttendanceAmount || 0}
                         type="number"
                         min={0}
-                        onChange={(e) => {
-                            setEventAttendanceAmount(parseInt(e.target.value));
-                        }}
-                        required
+                        step={5}
+                        value={eventAttendanceAmount.toString()}
+                        onChange={(e) =>
+                            setEventAttendanceAmount(Number(e.target.value))
+                        }
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
                 </div>
                 {error && (
-                    <p className="mt-4 text-red-600 text-center">{error}</p>
+                    <p className="mt-4 text-red-600 text-center font-bold">
+                        {error}
+                    </p>
                 )}
-                <button
-                    type="submit"
-                    className="mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 border-black border-[1px]"
-                >
-                    Submit
-                </button>
+                <div className="flex justify-between">
+                    <Link
+                        href="/dashboard"
+                        className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-red-500 text-white text-center"
+                    >
+                        Exit
+                    </Link>
+                    <button
+                        type="submit"
+                        className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-green-600 hover:bg-green-500 text-white duration-200 border-black border-[1px]"
+                    >
+                        Submit
+                    </button>
+                </div>
             </form>
         </div>
     );
