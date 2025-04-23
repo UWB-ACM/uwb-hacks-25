@@ -44,6 +44,30 @@ export const retrievePrizeImage = (
             return OwalaWhite;
         case "cherryBlossoms":
             return CherryBlossoms;
+        case "stressPaw":
+            return StressPaw;
+        case "notebook":
+            return Notebook;
+        case "uwbMagnet":
+            return UWBMagnet;
+        case "uwbBracelet":
+            return UWBBracelet;
+        case "uwbCoaster":
+            return UWBCoaster;
+        case "uwbShirt":
+            return UWBShirt;
+        case "uwbToteBag":
+            return UWBToteBag;
+        case "huskySticker":
+            return HuskySticker;
+        case "uwbPenantKeychain":
+            return UWBPenantKeychain;
+        case "uwSticker":
+            return UWSticker;
+        case "uwbPenant":
+            return UWBPenant;
+        case "purpleWaterBottle":
+            return PurpleWaterBottle
         default:
             return DefaultImage;
     }
