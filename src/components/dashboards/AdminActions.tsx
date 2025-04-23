@@ -5,10 +5,6 @@ import DashboardButton from "@/src/components/dashboards/DashboardButton";
 function AdminActions() {
     return (
         <>
-            <DashboardButton href="#">
-                <FaGift className="h-[30px] w-[30px]" />
-                View Transactions
-            </DashboardButton>
             <DashboardButton href="/dashboard/create-event">
                 <FaGift className="h-[30px] w-[30px]" />
                 Create Event

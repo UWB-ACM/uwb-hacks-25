@@ -181,6 +181,59 @@ const AboutSection: React.FC<{
 
             {/* "Month of Hacking", "Hackeroons", "Leaderboard", & "Last Year's Winners" Container */}
             <div className={`w-full grid md:grid-cols-2 gap-8 ${panelMargin}`}>
+                {/* Hackeroons */}
+                <Panel
+                    id="hackeroonPrizesPanel"
+                    className="flex flex-col"
+                    panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
+                >
+                    <PanelHeader parentPanelId="hackeroonPrizesPanel" as="h2">
+                        Hackeroons
+                    </PanelHeader>
+
+                    <PanelContent
+                        parentPanelId="hackeroonPrizesPanel"
+                        className="h-full flex flex-col justify-around"
+                    >
+                        {/* Hackeroon Prizes Carousel */}
+                        <Suspense>
+                            <HackeroonCarousel
+                                hackeroonPrizes={hackeroonPrizes}
+                            />
+                        </Suspense>
+
+                        <div className="flex justify-between  mt-2 md:mt-4">
+                            <Button href={"/hackeroon-guide"} color={"blue"}>
+                                Hackeroon Guide
+                            </Button>
+
+                            <Button href={"/hackeroon-shop"} color={"yellow"}>
+                                Go to Marketplace
+                            </Button>
+                        </div>
+                    </PanelContent>
+                </Panel>
+
+                {/* Leaderboard */}
+                <Panel
+                    id="leaderboardPanel"
+                    panelColor={"#f5be58"}
+                    className="flex flex-col"
+                >
+                    <PanelHeader parentPanelId="leaderboardPanel" as="h2">
+                        Hackeroon Leaderboard
+                    </PanelHeader>
+                    <PanelContent
+                        parentPanelId="leaderboardPanel"
+                        className="h-full flex flex-col justify-between gap-y-8 md:text-lg text-white p-4 md:p-6"
+                    >
+                        {/* Render leaderboard */}
+                        <Suspense>
+                            <Leaderboard leaderboardData={leaderboardData} />
+                        </Suspense>
+                    </PanelContent>
+                </Panel>
+
                 {/* Month of Hacking */}
                 <Panel
                     id="monthOfHackingPanel"
@@ -241,55 +294,6 @@ const AboutSection: React.FC<{
                             }
                             buttonColor="yellow"
                         />
-                    </PanelContent>
-                </Panel>
-
-                {/* Hackeroons */}
-                <Panel
-                    id="hackeroonPrizesPanel"
-                    className="flex flex-col"
-                    panelBackground="/about/backgrounds/AboutSection_Background_4.jpg"
-                >
-                    <PanelHeader parentPanelId="hackeroonPrizesPanel" as="h2">
-                        Hackeroons
-                    </PanelHeader>
-
-                    <PanelContent
-                        parentPanelId="hackeroonPrizesPanel"
-                        className="h-full flex flex-col justify-around"
-                    >
-                        {/* Hackeroon Prizes Carousel */}
-                        <Suspense>
-                            <HackeroonCarousel
-                                hackeroonPrizes={hackeroonPrizes}
-                            />
-                        </Suspense>
-
-                        <div className="flex lg:justify-end justify-center mt-2 md:mt-4">
-                            <Button href={"/hackeroon-shop"} color={"yellow"}>
-                                Go to Marketplace
-                            </Button>
-                        </div>
-                    </PanelContent>
-                </Panel>
-
-                {/* Leaderboard */}
-                <Panel
-                    id="leaderboardPanel"
-                    panelColor={"#f5be58"}
-                    className="flex flex-col"
-                >
-                    <PanelHeader parentPanelId="leaderboardPanel" as="h2">
-                        Hackeroon Leaderboard
-                    </PanelHeader>
-                    <PanelContent
-                        parentPanelId="leaderboardPanel"
-                        className="h-full flex flex-col justify-between gap-y-8 md:text-lg text-white p-4 md:p-6"
-                    >
-                        {/* Render leaderboard */}
-                        <Suspense>
-                            <Leaderboard leaderboardData={leaderboardData} />
-                        </Suspense>
                     </PanelContent>
                 </Panel>
             </div>

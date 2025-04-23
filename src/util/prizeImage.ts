@@ -13,6 +13,18 @@ import TShirt from "@/public/hackeroonShop/tshirt.png";
 import OwalaBlack from "@/public/hackeroonShop/owalas-black.png";
 import OwalaWhite from "@/public/hackeroonShop/owalas-white.png";
 import CherryBlossoms from "@/public/hackeroonShop/cherry-blossoms.png";
+import StressPaw from "@/public/hackeroonShop/stressPaw.jpg";
+import Notebook from "@/public/hackeroonShop/notebook.jpg";
+import UWBMagnet from "@/public/hackeroonShop/uwbMagnet.jpg";
+import UWBBracelet from "@/public/hackeroonShop/uwbBracelet.jpg";
+import UWBCoaster from "@/public/hackeroonShop/uwbCoaster.jpg";
+import UWBShirt from "@/public/hackeroonShop/uwbShirt.jpg";
+import UWBToteBag from "@/public/hackeroonShop/uwbToteBag.jpg";
+import HuskySticker from "@/public/hackeroonShop/huskySticker.jpg";
+import UWBPenantKeychain from "@/public/hackeroonShop/uwbPenantKeychain.jpg";
+import UWSticker from "@/public/hackeroonShop/uwSticker.jpg";
+import UWBPenant from "@/public/hackeroonShop/uwbPenant.jpg";
+// import PurpleWaterBottle from "@/public/hackeroonShop/purpleWaterBottle.jpg";
 
 export const retrievePrizeImage = (
     prizeName: string | null,
@@ -44,6 +56,30 @@ export const retrievePrizeImage = (
             return OwalaWhite;
         case "cherryBlossoms":
             return CherryBlossoms;
+        case "stressPaw":
+            return StressPaw;
+        case "notebook":
+            return Notebook;
+        case "uwbMagnet":
+            return UWBMagnet;
+        case "uwbBracelet":
+            return UWBBracelet;
+        case "uwbCoaster":
+            return UWBCoaster;
+        case "uwbShirt":
+            return UWBShirt;
+        case "uwbToteBag":
+            return UWBToteBag;
+        case "huskySticker":
+            return HuskySticker;
+        case "uwbPenantKeychain":
+            return UWBPenantKeychain;
+        case "uwSticker":
+            return UWSticker;
+        case "uwbPenant":
+            return UWBPenant;
+        // case "purpleWaterBottle":
+        //     return PurpleWaterBottle
         default:
             return DefaultImage;
     }

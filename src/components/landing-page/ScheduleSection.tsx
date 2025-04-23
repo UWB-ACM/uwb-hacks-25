@@ -14,12 +14,14 @@ const ScheduleSection: React.FC = () => {
                 parentPanelId="schedulePanel"
                 className="text-[#49B2F8] border-none lg:w-full pb-0 bg-transparent"
                 isSectionHeader
+                long
             >
                 Schedule
             </PanelHeader>
             <PanelContent
                 parentPanelId="schedulePanel"
                 className="grid gap-y-6 gap-x-6 md:grid-cols-3"
+                long
             >
                 <ScheduleCard
                     day="DAY 1"
@@ -28,44 +30,45 @@ const ScheduleSection: React.FC = () => {
                     events={[
                         {
                             time: "10:00 AM - 11:45 AM",
-                            description: "Check-In",
-                        },
-                        {
-                            time: "10:00 AM - 11:45 AM",
+                            name: "Check-In and Team Formation",
                             description:
-                                "(Optional) GDG Team Formation Activity",
+                                "Participants check in, enjoy coffee and snacks, and can join an optional team formation session.",
+                            location: "ARC Overlook",
                         },
                         {
-                            time: "12:00 PM - 1:00 PM",
-                            description: "Opening Ceremony",
-                        },
-                        {
-                            time: "1:00 PM - 1:30 PM",
-                            description: "Opening Ceremony",
+                            time: "12:00 PM - 1:30 PM",
+                            name: "Opening Ceremony",
+                            description:
+                                "Kick-off the event with an exciting opening ceremony.",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "1:30 PM - 4:00 PM",
-                            description: "ARC is Closed",
+                            name: "ARC Closes for Setup",
+                            description:
+                                "The ARC will be closed for event setup.",
+                            location: "Relocate to NCEC or other locations",
                         },
                         {
                             time: "1:30 PM - 2:30 PM",
-                            description: "Lunch",
+                            name: "Lunch",
+                            description:
+                                "Enjoy lunch in the NCEC with fellow participants.",
+                            location: "North Creek Event Center (NCEC)",
                         },
                         {
                             time: "2:30 PM - 4:00 PM",
-                            description: "In-Person Work Time",
+                            name: "In-Person Work Time",
+                            description:
+                                "Teams may continue working on their projects anywhere outside the ARC",
+                            location: "Anywhere on Campus",
                         },
                         {
                             time: "4:00 PM - 8:00 PM",
-                            description: "ARC is Open",
-                        },
-                        {
-                            time: "4:00 PM - 5:00 PM",
-                            description: "Activity",
-                        },
-                        {
-                            time: "5:00 PM - 8:00 PM",
-                            description: "In-Person Work Time",
+                            name: "ARC Reopens, In-Person Work Time",
+                            description:
+                                "The ARC reopens for continued in-person work. Food and drinks will be provided.",
+                            location: "ARC Overlook",
                         },
                     ]}
                     accentPosition="bottom-left"
@@ -77,23 +80,50 @@ const ScheduleSection: React.FC = () => {
                     events={[
                         {
                             time: "10:00 AM - 11:30 AM",
-                            description: "Check-In",
+                            name: "Check-In",
+                            description:
+                                "Participants check in for the second day of the event.",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "12:00 PM - 12:30 PM",
-                            description: "Guest Speaker",
+                            name: "Guest Speaker",
+                            description:
+                                "A guest speaker shares insights and inspiration.",
+                            location: "North Creek Event Center (NCEC)",
                         },
                         {
                             time: "12:30 PM - 1:00 PM",
-                            description: "Lunch",
+                            name: "Lunch",
+                            description: "Lunch break for participants.",
+                            location: "ARC Overlook + NCEC",
                         },
                         {
                             time: "1:00 PM - 3:00 PM",
-                            description: "Activity",
+                            name: "Optional Activity",
+                            description:
+                                "Cascadia Programmers: Talk with Kody the Chatbot",
+                            location: "ARC Overlook",
+                        },
+                        {
+                            time: "2:00 PM - 4:00 PM",
+                            name: "Optional Activity",
+                            description:
+                                "Photoshoot with the Huskies: Dubs and Holly!",
+                            location: "ARC Overlook",
+                        },
+                        {
+                            time: "4:00 PM - 6:00 PM",
+                            name: "Optional Activity",
+                            description: "Badminton Social Club",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "4:00 PM - 8:00 PM",
-                            description: "In-Person Work Time",
+                            name: "In-Person Work Time",
+                            description:
+                                "Teams continue working on their projects in person.",
+                            location: "ARC Overlook",
                         },
                     ]}
                     accentPosition="bottom-left"
@@ -105,35 +135,64 @@ const ScheduleSection: React.FC = () => {
                     events={[
                         {
                             time: "9:00 AM - 10:00 AM",
-                            description: "Check-In",
+                            name: "Check-In",
+                            description:
+                                "Participants check in for the final day of the event.",
+                            location: "ARC Overlook",
+                        },
+                        {
+                            time: "9:00 AM - 2:00 PM",
+                            name: "Hackeroon Shop Opens",
+                            description:
+                                "Participants can redeem Hackeroon tickets for prizes",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "10:00 AM - 10:30 AM",
-                            description: "Closing Ceremony",
+                            name: "Hacking Concludes",
+                            description: "All teams submit their projects",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "10:50 AM - 12:50 PM",
-                            description: "Judging, Demo Day, and Tabling",
+                            name: "Judging, Demo Day, and Tabling",
+                            description:
+                                "Teams present their projects for judging and demos.",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "1:00 PM - 2:00 PM",
-                            description: "Networking Luncheon",
+                            name: "Networking Luncheon",
+                            description:
+                                "During lunch, participants can network with judges and industry professionals.",
+                            location: "Plaza",
                         },
                         {
                             time: "2:00 PM - 2:30 PM",
-                            description: "Group Photo",
+                            name: "Group Photo",
+                            description:
+                                "Take a group photo to commemorate the event.",
+                            location: "Field",
                         },
                         {
                             time: "2:30 PM - 4:00 PM",
-                            description: "Finalist Presentations",
+                            name: "Finalist Presentations",
+                            description:
+                                "Finalists present their projects to the judges.",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "4:00 PM - 4:30 PM",
-                            description: "Final Deliberations",
+                            name: "Final Deliberations",
+                            description:
+                                "Judges deliberate to select the winners.",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "4:30 PM - 5:00 PM",
-                            description: "Winners Announced",
+                            name: "Winners Announced",
+                            description: "Winners of the event are announced.",
+                            location: "ARC Overlook",
                         },
                     ]}
                     accentPosition="bottom-left"
@@ -147,7 +206,12 @@ interface ScheduleCardProps {
     day: string;
     date: string;
     spirit: string;
-    events: { time: string; description: string }[];
+    events: {
+        time: string;
+        name: string;
+        description: string;
+        location: string;
+    }[];
     accentPosition?: "bottom-left" | "bottom-right" | "top-right";
 }
 
@@ -159,7 +223,7 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
     accentPosition,
 }) => {
     return (
-        <div className="relative border-2 border-black bg-white p-4 md:p-5 flex flex-col min-h-[350px] md:min-h-[450px] overflow-hidden schedule-card transition-transform hover:scale-105 hover:border-yellow-500 hover:bg-[#fdf4c5]">
+        <div className="relative border-2 border-black bg-white p-4 md:p-5 flex flex-col min-h-[350px] md:min-h-[450px] overflow-hidden schedule-card transition-transform">
             <Image
                 src={AccentImage || "/placeholder.svg"}
                 alt=""
@@ -191,24 +255,37 @@ const ScheduleCard: React.FC<ScheduleCardProps> = ({
 
             {events.length > 0 ? (
                 <div className="flex-grow space-y-2 mb-2">
+                    <p className="text-base md:text-2xl font-san-marino-beach text-yellow-500 text-center my-2">
+                        {spirit}
+                    </p>
+
                     {events.map((event, index) => (
-                        <div key={index} className="flex">
-                            <span className="text-sm md:text-base text-black w-[45%] pr-2 flex-shrink-0">
-                                {event.time}
-                            </span>
-                            <span className="text-sm md:text-base text-black">
+                        <div
+                            key={index}
+                            className="border-gray-300 hover:scale-[102%] transition cursor-pointer hover:border-yellow-500 hover:bg-[#fdf4c5] bg-white border "
+                        >
+                            <div className="flex w-full">
+                                <div className="justify-items-center w-full bg-orange-400 flex shadow-sm p-2 px-4">
+                                    <span className="grow text-xs text-white font-opensans font-bold w-[45%] pr-2 flex-shrink-0">
+                                        {event.time}
+                                    </span>
+                                    <span className="text-xs self-end font-opensans font-bold text-white ">
+                                        {event.name}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="px-2 pt-2 font-bold text-sm text-gray-500">
+                                Location: {event.location}
+                            </div>
+                            <div className="p-2 text-sm text-gray-500">
                                 {event.description}
-                            </span>
+                            </div>
                         </div>
                     ))}
                 </div>
             ) : (
                 <p className="text-gray-400 italic">No events scheduled</p>
             )}
-
-            <p className="text-base md:text-lg font-bold text-yellow-500 text-center my-2">
-                {spirit}
-            </p>
         </div>
     );
 };

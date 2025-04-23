@@ -11,6 +11,7 @@ export interface CardProps {
     setHackeroonAmount?: React.Dispatch<React.SetStateAction<number>>;
     selectedItems?: Prize[];
     setSelectedItems?: React.Dispatch<React.SetStateAction<Prize[]>>;
+    showStock?: boolean;
 }
 
 export default function PrizeCard({
@@ -19,6 +20,7 @@ export default function PrizeCard({
     setHackeroonAmount,
     selectedItems,
     setSelectedItems,
+    showStock,
 }: CardProps) {
     const enablePurchasing =
         hackeroonAmount != null &&
@@ -67,16 +69,26 @@ export default function PrizeCard({
 
             {/* Stock and Price Row */}
             <div className="flex w-full mb-2 space-x-2 justify-center">
-                {/* Stock */}
-                <div className="flex items-center justify-center bg-[#66B0F2] text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
-                    <p className="text-sm">{`${prizeStock} Left!`}</p>
-                </div>
+                {/* Stock. It's hidden on public pages, but we always show out of stock to avoid annoying people. */}
+                {prizeStock > 0 ? (
+                    showStock && (
+                        <div className="flex items-center justify-center bg-[#66B0F2] text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
+                            <p className="text-sm">{`${prizeStock} Left!`}</p>
+                        </div>
+                    )
+                ) : (
+                    <div className="flex items-center justify-center bg-red-400 text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
+                        <p className="text-sm">{`Out of Stock!`}</p>
+                    </div>
+                )}
 
-                {/* Price */}
+                {/* Price. No point displaying if we're out of stock. */}
 
-                <div className="flex items-center justify-center bg-[#F7CC58] text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
-                    <p className="text-sm">{`${prize.price} Hackeroons`}</p>
-                </div>
+                {prizeStock > 0 && (
+                    <div className="flex items-center justify-center bg-[#F7CC58] text-black font-comic rounded-md p-2 w-1/2 border-[2px] border-black">
+                        <p className="text-sm">{`${prize.price} Hackeroons`}</p>
+                    </div>
+                )}
             </div>
 
             {/* Buy/Remove Button */}

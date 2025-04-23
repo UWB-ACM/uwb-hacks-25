@@ -12,6 +12,10 @@ type PanelHeaderProps = {
     isSectionHeader?: boolean;
     className?: string;
     as?: "h1" | "h2" | "h3" | undefined;
+    /**
+     * Is this likely to be a long panel?
+     */
+    long?: boolean;
 };
 
 export default function PanelHeader({
@@ -20,6 +24,7 @@ export default function PanelHeader({
     isSectionHeader = false,
     className,
     as,
+    long,
 }: PanelHeaderProps) {
     const headerRef = useRef(null);
 
@@ -36,11 +41,13 @@ export default function PanelHeader({
             y: 0,
             scrollTrigger: {
                 trigger: `#${parentPanelId}`,
-                start: "30% 80%",
+                // Long panels need to kick in earlier
+                // to avoid an uncomfortable delay.
+                start: long ? "10% 80%" : "30% 80%",
             },
         });
         // parentPanelId only passed into dependency array to satisfy ESLint. value of parentPanelId will never be changed within this component
-    }, [parentPanelId]);
+    }, [long, parentPanelId]);
 
     const props = {
         ref: headerRef,

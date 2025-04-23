@@ -88,9 +88,9 @@ export default function HomePage({
                     <Header
                         links={[
                             {
-                                id: "sponsor",
-                                name: "Sponsor Us",
-                                url: "/sponsor",
+                                id: "hackeroon-guide",
+                                name: "Hackeroon Guide",
+                                url: "/hackeroon-guide",
                             },
                             {
                                 id: "about",

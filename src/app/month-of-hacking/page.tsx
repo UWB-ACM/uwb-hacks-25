@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import MohSchedule from "@/public/monthOfHacking/mohschedule.webp";
+import MohSchedule from "@/public/monthOfHacking/mohschedule.png";
 
 function Page() {
     return (
