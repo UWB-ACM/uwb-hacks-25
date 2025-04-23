@@ -281,7 +281,7 @@ export interface Transaction {
  * A transaction type.
  *
  * This is used to determine what the transaction
- * was for. 
+ * was for.
  */
 export enum TransactionType {
     /**
