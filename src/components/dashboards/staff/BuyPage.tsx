@@ -25,43 +25,59 @@ export default function BuyPage({
     const [selectedItems, setSelectedItems] = useState<Prize[]>([]);
     const [currentPrizes, setCurrentPrizes] = useState<Prize[]>(prizes);
 
+    const [loading, setLoading] = useState<boolean>(false);
+
     const handleSubmit = async () => {
+        if (loading) return;
+        setLoading(true);
+
         if (selectedItems.length !== 0) {
             const res: { success: boolean; prize: Prize }[] = [];
             const successIDs = new Set();
             let refundAmount = 0;
 
             for (const item of selectedItems) {
-                const data = await actionCreateTransaction(
-                    user.id,
-                    TransactionType.PrizePurchase,
-                    // We need to subtract the item's price from the user's balance, not
-                    // add it.
-                    //
-                    // This also allows the staff to arbitrarily chose the price,
-                    // but since they can create arbitrary transactions anyway,
-                    // that doesn't matter.
-                    // This can only be ran by staff though, so users can't
-                    // decide their own prices.
-                    -item.price,
-                    null,
-                    item.id,
-                );
+                try {
+                    const data = await actionCreateTransaction(
+                        user.id,
+                        TransactionType.PrizePurchase,
+                        // We need to subtract the item's price from the user's balance, not
+                        // add it.
+                        //
+                        // This also allows the staff to arbitrarily chose the price,
+                        // but since they can create arbitrary transactions anyway,
+                        // that doesn't matter.
+                        // This can only be ran by staff though, so users can't
+                        // decide their own prices.
+                        -item.price,
+                        null,
+                        item.id,
+                    );
 
-                const success = data != null && !("error" in data);
+                    const success = data != null && !("error" in data);
 
-                res.push({
-                    prize: item,
-                    success,
-                });
+                    res.push({
+                        prize: item,
+                        success,
+                    });
 
-                // "Refund" any failed transactions.
-                // This is just a visual change, and doesn't
-                // modify the true balance.
-                if (!success) {
+                    // "Refund" any failed transactions.
+                    // This is just a visual change, and doesn't
+                    // modify the true balance.
+                    if (!success) {
+                        refundAmount += item.price;
+                    } else {
+                        successIDs.add(item.id);
+                    }
+                } catch (e) {
+                    console.error(e);
+
+                    res.push({
+                        prize: item,
+                        success: false,
+                    });
+
                     refundAmount += item.price;
-                } else {
-                    successIDs.add(item.id);
                 }
             }
 
@@ -78,6 +94,8 @@ export default function BuyPage({
             );
             setIsModalOpen(true);
         }
+
+        setLoading(false);
     };
 
     const transactionTitle = useMemo(() => {
