@@ -47,7 +47,10 @@ export default function PanelContent({
     }, [long, parentPanelId]);
 
     return (
-        <div ref={panelContentRef} className={clsx("pt-6 px-6 md:pt-10 md:px-10" , className)}>
+        <div
+            ref={panelContentRef}
+            className={clsx("pt-6 px-6 md:pt-10 md:px-10", className)}
+        >
             {children}
         </div>
     );
