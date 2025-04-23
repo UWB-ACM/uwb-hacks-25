@@ -72,23 +72,33 @@ const SponsorsSection = () => {
                 {/* Secondary sponsors row */}
                 <div className="w-full flex justify-center items-center">
                     <div className="flex justify-center items-center">
-                        <Image
-                            src={MaddKitchenImage}
-                            width={200}
-                            height={80}
-                            alt="Mad Kitchen"
-                            className="object-contain md:mr-10"
-                        />
+                        <Link
+                            href="https://www.maddkitchen.com/"
+                            target="_blank"
+                        >
+                            <Image
+                                src={MaddKitchenImage}
+                                width={200}
+                                height={80}
+                                alt="Madd Kitchen"
+                                className="object-contain md:mr-10"
+                            />
+                        </Link>
                     </div>
 
                     <div className="flex justify-center items-center">
-                        <Image
-                            src={FutureForceImage}
-                            width={200}
-                            height={80}
-                            alt="Future Force"
-                            className="object-contain md:ml-10"
-                        />
+                        <Link
+                            href="https://www.future-force.org/"
+                            target="_blank"
+                        >
+                            <Image
+                                src={FutureForceImage}
+                                width={200}
+                                height={80}
+                                alt="Future Force"
+                                className="object-contain md:ml-10"
+                            />
+                        </Link>
                     </div>
                 </div>
             </PanelContent>
