@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
 import {
-    TransactionType,
     User,
-    valuedTransactionTypes,
+    valuedTransactionAmounts,
+    reasonTypeMap,
+    reasonNameMap
 } from "@/src/util/dataTypes";
 import Link from "next/link";
 import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
@@ -31,23 +32,7 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
             "This user has already received the maximum amount they can for this transaction category.",
     } as const;
 
-    const reasonTypeMap = {
-        unknown: TransactionType.Unknown,
-        performance: TransactionType.Performance,
-        "activity-winner": TransactionType.ActivityWinner,
-        "costume-fandom": TransactionType.CostumeFandom,
-        "costume-husky": TransactionType.CostumeHusky,
-        "costume-professional": TransactionType.CostumeProfessional,
-    } as const;
-
-    const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
-        unknown: "Unknown",
-        performance: "Performance",
-        "activity-winner": "Activity Winner",
-        "costume-fandom": "Fandom Costume (Friday)",
-        "costume-husky": "Husky Spirit Costume (Saturday)",
-        "costume-professional": "Professional Costume (Sunday)",
-    };
+    
 
     const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
 
@@ -58,9 +43,9 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         // use that instead of the saved one.
         const reasonType = reasonTypeMap[reason];
         const trueAmount =
-            reasonType in valuedTransactionTypes
-                ? valuedTransactionTypes[
-                      reasonType as keyof typeof valuedTransactionTypes
+            reasonType in valuedTransactionAmounts
+                ? valuedTransactionAmounts[
+                      reasonType as keyof typeof valuedTransactionAmounts
                   ]
                 : amount;
 
@@ -101,7 +86,8 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                         <div className="grid place-content-center">
                             {/* Only show amount for transaction types with no prescribed value. */}
                             {!(
-                                reasonTypeMap[reason] in valuedTransactionTypes
+                                reasonTypeMap[reason] in
+                                valuedTransactionAmounts
                             ) && (
                                 <>
                                     <div className="flex flex-col w-[60vw] max-w-[50vh] mt-4 md:text-lg lg:text-xl">
