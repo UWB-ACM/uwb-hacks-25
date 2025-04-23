@@ -31,9 +31,9 @@ export function ModifyUserPage({
 
     return (
         // centering all the content on the screen
-        <div className="h-screen grid place-content-center">
+        <div className="grid place-content-center">
             {/* the actual card with all the user data */}
-            <div className="h-[80vh] w-[90vw] md:w-[60vw] lg:w-[40vw] bg-neutral-100 p-5 flex flex-col justify-between rounded-md border-2 border-black shadow-lg">
+            <div className="w-[90vw] lg:w-[40vw] bg-neutral-100 p-5 flex flex-col justify-between rounded-md border-2 border-black shadow-lg">
                 {/* main content of the user, separate from the exit button */}
                 <div>
                     {/* displaying name and email of user, will have to change once database integrated*/}
@@ -60,7 +60,7 @@ export function ModifyUserPage({
                 </div>
                 {/* exit button that returns user back to staff dashboard */}
                 <Link
-                    className="py-3 rounded-lg text-center bg-red-500 text-white"
+                    className="mt-4 py-3 rounded-lg text-center bg-red-500 text-white"
                     href={`/dashboard/${user.id}`}
                 >
                     Exit
