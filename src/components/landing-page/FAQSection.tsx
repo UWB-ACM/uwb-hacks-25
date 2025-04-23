@@ -72,7 +72,7 @@ const FAQSection = () => {
     };
 
     return (
-        <div className="bg-white border-black border-2 p-10 sm:mt-[10rem]">
+        <div className="bg-white border-black border-2 p-10 mt-12 md:mt-16">
             <h1 className="font-h1 text-5xl md:text-7xl text-[#49B2F8] text-center mb-[2rem]">
                 FAQ
             </h1>
