@@ -277,6 +277,12 @@ export interface Transaction {
     reverted: boolean;
 }
 
+/**
+ * A transaction type.
+ *
+ * This is used to determine what the transaction
+ * was for. 
+ */
 export enum TransactionType {
     /**
      * A generic transaction.
