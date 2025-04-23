@@ -359,6 +359,12 @@ export const valuedTransactionAmounts = {
     [TransactionType.SundayDemoDay]: 100,
 } as const;
 
+/**
+ * A map of valued transaction types to the
+ * maximum number of them a user may achieve.
+ * Use Infinity to allow no limit.
+ * MUST BE NON-NEGATIVE.
+ */
 export const valuedTransactionLimits: Record<
     keyof typeof valuedTransactionAmounts,
     number

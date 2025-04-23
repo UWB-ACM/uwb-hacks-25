@@ -73,15 +73,13 @@ export async function createTransaction(
 
         case TransactionType.SundayCostumeProfessional:
         case TransactionType.SundayDemoDay: {
-            const limits = valuedTransactionLimits;
-
             if (event || prize) {
                 throw new Error(
                     "Simple transactions cannot have events/prizes!",
                 );
             }
 
-            if (!(type in limits)) {
+            if (!(type in valuedTransactionLimits)) {
                 throw new Error("Transaction type needs to have a limit!");
             }
 
@@ -89,7 +87,7 @@ export async function createTransaction(
                 throw new Error("Transaction type needs to have a value!");
             }
 
-            const limit = limits[type];
+            const limit = valuedTransactionLimits[type];
 
             // Override the value to ensure consistency.
             // This also guarantees that amount >= 0.
@@ -104,7 +102,9 @@ export async function createTransaction(
             const res = await sql.begin((sql) => [
                 sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
                 sql`SELECT COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND type=${type}), 0) AS limit;`,
-                sql`INSERT INTO transactions ("user", type, amount, authorized_by) (SELECT ${user}, ${type}, ${amount}, ${authorized_by} WHERE COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND type=${type}), 0) < ${limit}) RETURNING id, time;`,
+                limit === Infinity
+                    ? sql`INSERT INTO transactions ("user", type, amount, authorized_by) VALUES (${user}, ${type}, ${amount}, ${authorized_by}) RETURNING id, time;`
+                    : sql`INSERT INTO transactions ("user", type, amount, authorized_by) (SELECT ${user}, ${type}, ${amount}, ${authorized_by} WHERE COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND type=${type}), 0) < ${limit}) RETURNING id, time;`,
             ]);
             data = res[2];
 
