@@ -178,6 +178,7 @@ export default function BuyPage({
                             setHackeroonAmount={setHackeroonAmount}
                             selectedItems={selectedItems}
                             setSelectedItems={setSelectedItems}
+                            showStock
                         />
                     ))}
                 </div>
