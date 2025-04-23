@@ -76,7 +76,7 @@ const SponsorsSection = () => {
                             src={MaddKitchenImage}
                             width={200}
                             height={80}
-                            alt="Red Bull"
+                            alt="Mad Kitchen"
                             className="object-contain md:mr-10"
                         />
                     </div>
@@ -86,7 +86,7 @@ const SponsorsSection = () => {
                             src={FutureForceImage}
                             width={200}
                             height={80}
-                            alt="Red Bull"
+                            alt="Future Force"
                             className="object-contain md:ml-10"
                         />
                     </div>
