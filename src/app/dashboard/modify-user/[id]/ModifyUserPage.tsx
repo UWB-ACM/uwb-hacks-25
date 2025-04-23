@@ -175,9 +175,16 @@ function TransactionItem({
 
     return (
         <div className="flex flex-row justify-between">
-            <p className={transaction.reverted ? "line-through" : "" + " font-opensans border-black border-2 p-1 bg-indigo-200"}>
-                [{typeNameMap[transaction.type as TransactionType]}] H${transaction.amount} {transaction.event}{" "}
-                <br/>
+            <p
+                className={
+                    transaction.reverted
+                        ? "line-through"
+                        : "" +
+                          " font-opensans border-black border-2 p-1 bg-indigo-200"
+                }
+            >
+                [{typeNameMap[transaction.type as TransactionType]}] H$
+                {transaction.amount} {transaction.event} <br />
                 {transaction.prize} {transaction.time.toString()}
             </p>
             <div>
