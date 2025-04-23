@@ -72,7 +72,6 @@ const SponsorsSection = () => {
                 {/* Secondary sponsors row */}
                 <div className="w-full flex justify-center items-center">
                     <div className="flex justify-center items-center">
-                        
                         <Image
                             src={MaddKitchenImage}
                             width={200}
@@ -80,11 +79,9 @@ const SponsorsSection = () => {
                             alt="Red Bull"
                             className="object-contain md:mr-10"
                         />
-                       
                     </div>
 
                     <div className="flex justify-center items-center">
-                        
                         <Image
                             src={FutureForceImage}
                             width={200}
@@ -92,7 +89,6 @@ const SponsorsSection = () => {
                             alt="Red Bull"
                             className="object-contain md:ml-10"
                         />
-                       
                     </div>
                 </div>
             </PanelContent>
