@@ -101,10 +101,10 @@ export async function createTransaction(
             // limits, so the lock is still required.
             const res = await sql.begin((sql) => [
                 sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
-                sql`SELECT COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND type=${type}), 0) AS limit;`,
+                sql`SELECT COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND type=${type} AND reverted=FALSE), 0) AS limit;`,
                 limit === Infinity
                     ? sql`INSERT INTO transactions ("user", type, amount, authorized_by) VALUES (${user}, ${type}, ${amount}, ${authorized_by}) RETURNING id, time;`
-                    : sql`INSERT INTO transactions ("user", type, amount, authorized_by) (SELECT ${user}, ${type}, ${amount}, ${authorized_by} WHERE COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND type=${type}), 0) < ${limit}) RETURNING id, time;`,
+                    : sql`INSERT INTO transactions ("user", type, amount, authorized_by) (SELECT ${user}, ${type}, ${amount}, ${authorized_by} WHERE COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND type=${type} AND reverted=FALSE), 0) < ${limit}) RETURNING id, time;`,
             ]);
             data = res[2];
 
@@ -187,7 +187,7 @@ export async function createTransaction(
                 await sql.begin((sql) => [
                     sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
                     sql`SELECT 1 FROM prizes WHERE id=${prize} FOR UPDATE;`,
-                    sql`INSERT INTO transactions ("user", type, amount, authorized_by, prize) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${prize} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0 AND (SELECT Count(*) FROM transactions WHERE transactions.prize=${prize}) < (SELECT initial_stock FROM prizes WHERE id=${prize})) RETURNING id, time;`,
+                    sql`INSERT INTO transactions ("user", type, amount, authorized_by, prize) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${prize} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0 AND (SELECT Count(*) FROM transactions WHERE transactions.prize=${prize} AND reverted=FALSE) < (SELECT initial_stock FROM prizes WHERE id=${prize})) RETURNING id, time;`,
                 ])
             )[2];
 
