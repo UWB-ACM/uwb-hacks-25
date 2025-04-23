@@ -3,11 +3,12 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { actionCreatePrize } from "@/src/util/actions/prize";
+import Link from "next/link";
 
 export function CreatePrizePage() {
     const router = useRouter();
 
-    const [error, setError] = useState("");
+    const [error, setError] = useState<string | null>(null);
 
     // Prize information
     const [prizeName, setPrizeName] = useState<string>("");
@@ -25,19 +26,19 @@ export function CreatePrizePage() {
         2. Prizes should not have a negative price
         */
 
-        if (prizeInitialStock < 0 || Number.isNaN(prizeInitialStock)) {
-            setError("Prizes must have an initial stock!");
+        // check if prize initial stock is valid
+        if (prizeInitialStock < 0) {
+            setError("Prizes must have a non-negative initial stock!");
             return;
-        } else {
-            setError("");
         }
 
-        if (prizePrice < 0 || Number.isNaN(prizePrice)) {
+        // check if prize price is valid
+        if (prizePrice < 0) {
             setError("Prizes must have a price above 0 hackaroons!");
             return;
-        } else {
-            setError("");
         }
+
+        setError(null);
 
         // useless unless we add a confirmation page that the prize has been added (good idea!!)
         const data = await actionCreatePrize(
@@ -55,7 +56,7 @@ export function CreatePrizePage() {
     };
 
     return (
-        <div className="w-full grid place-content-center">
+        <div className="h-[80vh] w-full grid place-content-center">
             <form
                 onSubmit={handleSubmit}
                 className="p-4 border-black border rounded-lg bg-white"
@@ -87,7 +88,6 @@ export function CreatePrizePage() {
                         id="prizeDescription"
                         value={prizeDescription}
                         onChange={(e) => setPrizeDescription(e.target.value)}
-                        required
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
 
@@ -99,14 +99,14 @@ export function CreatePrizePage() {
                         Prize Initial Stock
                     </label>
                     <input
+                        required
                         id="prizeInitialStock"
-                        value={prizeInitialStock || 0}
+                        value={prizeInitialStock.toString()}
                         type="number"
                         min={0}
-                        onChange={(e) => {
-                            setPrizeInitialStock(parseInt(e.target.value));
-                        }}
-                        required
+                        onChange={(e) =>
+                            setPrizeInitialStock(Number(e.target.value))
+                        }
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
 
@@ -118,14 +118,14 @@ export function CreatePrizePage() {
                         Prize Price
                     </label>
                     <input
+                        required
                         id="prizePrice"
-                        value={prizePrice || 0}
+                        value={prizePrice.toString()}
                         type="number"
                         min={0}
-                        onChange={(e) => {
-                            setPrizePrice(parseInt(e.target.value));
-                        }}
-                        required
+                        step={5}
+                        placeholder="Enter prize price"
+                        onChange={(e) => setPrizePrice(Number(e.target.value))}
                         className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                     />
 
@@ -144,14 +144,24 @@ export function CreatePrizePage() {
                     />
                 </div>
                 {error && (
-                    <p className="mt-4 text-red-600 text-center">{error}</p>
+                    <p className="mt-4 text-red-600 text-center font-bold">
+                        {error}
+                    </p>
                 )}
-                <button
-                    type="submit"
-                    className="mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 border-black border-[1px]"
-                >
-                    Submit
-                </button>
+                <div className="flex justify-between">
+                    <Link
+                        href="/dashboard"
+                        className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-red-500 text-white text-center"
+                    >
+                        Exit
+                    </Link>
+                    <button
+                        type="submit"
+                        className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-green-600 hover:bg-green-500 text-white duration-200 border-black border-[1px]"
+                    >
+                        Submit
+                    </button>
+                </div>
             </form>
         </div>
     );

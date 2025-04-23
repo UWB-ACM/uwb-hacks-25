@@ -15,7 +15,7 @@ const faqItems = [
     },
     {
         question: "4. Do I need programming experience to participate?",
-        answer: `No prior programming experience is required! We have provided options for "No Code" and "Low Code" projects. We welcome participants of all skill levels and will also provide mentorship, and other learning opportunities.`,
+        answer: `No prior programming experience is required! We have provided options for "No Code" and "Low Code" projects. We welcome participants of all skill levels and will also provide mentorship, and other learning opportunities. Although, we have adjusted judging criteria to balance the playing field for all participants.`,
     },
     {
         question:
@@ -72,7 +72,7 @@ const FAQSection = () => {
     };
 
     return (
-        <div className="bg-white border-black border-2 p-10 sm:mt-[10rem]">
+        <div className="bg-white border-black border-2 p-10 mt-12 md:mt-16">
             <h1 className="font-h1 text-5xl md:text-7xl text-[#49B2F8] text-center mb-[2rem]">
                 FAQ
             </h1>
@@ -102,16 +102,18 @@ const FAQSection = () => {
                                         : "[grid-template-rows:0fr]"
                                 }`}
                             >
-                                <div className="pb-5 font-h3 px-1 ml-12 overflow-hidden">
-                                    {Array.isArray(item.answer) ? (
-                                        <ul className="list-decimal list-inside space-y-2">
-                                            {item.answer.map((line, i) => (
-                                                <li key={i}>{line}</li>
-                                            ))}
-                                        </ul>
-                                    ) : (
-                                        <p>{item.answer}</p>
-                                    )}
+                                <div className="overflow-hidden">
+                                    <div className="pb-5 font-h3 px-1 ml-12">
+                                        {Array.isArray(item.answer) ? (
+                                            <ul className="list-decimal list-inside space-y-2">
+                                                {item.answer.map((line, i) => (
+                                                    <li key={i}>{line}</li>
+                                                ))}
+                                            </ul>
+                                        ) : (
+                                            <p>{item.answer}</p>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>

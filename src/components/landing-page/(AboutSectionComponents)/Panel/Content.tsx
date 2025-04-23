@@ -9,12 +9,17 @@ type PanelContentProps = {
     parentPanelId: string;
     children: React.ReactNode;
     className?: string;
+    /**
+     * Is this likely to be a long panel?
+     */
+    long?: boolean;
 };
 
 export default function PanelContent({
     parentPanelId,
     children,
     className,
+    long,
 }: PanelContentProps) {
     const panelContentRef = useRef(null);
 
@@ -33,11 +38,13 @@ export default function PanelContent({
             ease: "expo.out",
             scrollTrigger: {
                 trigger: `#${parentPanelId}`,
-                start: "30% 80%",
+                // Long panels need to kick in earlier
+                // to avoid an uncomfortable delay.
+                start: long ? "10% 80%" : "30% 80%",
             },
         });
         // parentPanelId only passed into dependency array to satisfy ESLint. value of parentPanelId will never be changed within this component
-    }, [parentPanelId]);
+    }, [long, parentPanelId]);
 
     return (
         <div ref={panelContentRef} className={clsx("p-6 md:p-10", className)}>

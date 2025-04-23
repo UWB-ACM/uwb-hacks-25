@@ -15,10 +15,10 @@ export default function HackeroonItemCard({
     return (
         <div
             ref={cardRef}
-            className="item-card w-[80%] p-4 rounded-lg bg-[#FFCA3A]"
+            className="item-card w-[80%] p-4 shadow-[3px_3px_0_rgb(0,0,0,1)] rounded-tr-lg rounded-bl-lg border-black border-2 bg-[#FFCA3A]"
         >
             {/* Prize Name */}
-            <p className="text-center text-lg md:text-xl lg:text-2xl">
+            <p className="font-san-marino-beach text-center text-lg md:text-xl lg:text-2xl">
                 {hackeroonPrize.name}
             </p>
             {/* Prize Image */}
@@ -31,7 +31,7 @@ export default function HackeroonItemCard({
                 />
             </div>
             {/* Prize Prize */}
-            <p className="text-center mt-2">
+            <p className="text-center mt-2 text-xs md:text-md lg:text-lg font-rubik-mono-one">
                 {hackeroonPrize.price} Hackeroons
             </p>
         </div>

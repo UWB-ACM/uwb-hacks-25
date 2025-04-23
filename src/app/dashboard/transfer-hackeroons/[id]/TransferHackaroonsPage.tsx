@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
 import {
-    TransactionType,
     User,
-    valuedTransactionTypes,
+    valuedTransactionAmounts,
+    reasonTypeMap,
+    reasonNameMap,
 } from "@/src/util/dataTypes";
 import Link from "next/link";
 import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
@@ -15,8 +16,6 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
     const [feedbackSuccess, setFeedbackSuccess] = useState<
         "success" | "error" | "over-limit"
     >("error");
-
-    const [amount, setAmount] = useState(0);
 
     const feedbackTitle = {
         success: "Success",
@@ -31,24 +30,7 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
             "This user has already received the maximum amount they can for this transaction category.",
     } as const;
 
-    const reasonTypeMap = {
-        unknown: TransactionType.Unknown,
-        performance: TransactionType.Performance,
-        "activity-winner": TransactionType.ActivityWinner,
-        "costume-fandom": TransactionType.CostumeFandom,
-        "costume-husky": TransactionType.CostumeHusky,
-        "costume-professional": TransactionType.CostumeProfessional,
-    } as const;
-
-    const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
-        unknown: "Unknown",
-        performance: "Performance",
-        "activity-winner": "Activity Winner",
-        "costume-fandom": "Fandom Costume (Friday)",
-        "costume-husky": "Husky Spirit Costume (Saturday)",
-        "costume-professional": "Professional Costume (Sunday)",
-    };
-
+    const [amount, setAmount] = useState<number>(0);
     const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -58,9 +40,9 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         // use that instead of the saved one.
         const reasonType = reasonTypeMap[reason];
         const trueAmount =
-            reasonType in valuedTransactionTypes
-                ? valuedTransactionTypes[
-                      reasonType as keyof typeof valuedTransactionTypes
+            reasonType in valuedTransactionAmounts
+                ? valuedTransactionAmounts[
+                      reasonType as keyof typeof valuedTransactionAmounts
                   ]
                 : amount;
 
@@ -87,11 +69,8 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         <>
             <div className="h-screen grid place-content-center">
                 {/* Container for "Transfer Hackeroons" Content */}
-                <div className="h-[80vh] w-[80vw] max-w-[70vh] rounded-xl p-5 border-[1px] border-black shadow-xl">
-                    <form
-                        onSubmit={handleSubmit}
-                        className="h-[70vh] grid place-content-center"
-                    >
+                <div className="h-[80vh] w-[80vw] max-w-[70vh] rounded-xl p-5 border-[1px] border-black shadow-xl grid place-content-center">
+                    <form onSubmit={handleSubmit}>
                         <h1 className="text-center text-2xl md:text-3xl lg:text-4xl">
                             Transferring Hackeroons to{" "}
                             <span className="font-bold whitespace-nowrap">
@@ -101,18 +80,20 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                         <div className="grid place-content-center">
                             {/* Only show amount for transaction types with no prescribed value. */}
                             {!(
-                                reasonTypeMap[reason] in valuedTransactionTypes
+                                reasonTypeMap[reason] in
+                                valuedTransactionAmounts
                             ) && (
                                 <>
                                     <div className="flex flex-col w-[60vw] max-w-[50vh] mt-4 md:text-lg lg:text-xl">
                                         <label htmlFor="amount">Amount</label>
                                         <input
-                                            type="number"
-                                            step={10}
+                                            required
                                             id="amount"
-                                            value={amount}
+                                            type="number"
+                                            min={0}
+                                            step={5}
+                                            value={amount.toString()}
                                             className="px-4 py-3 border-[1px] border-black rounded-md"
-                                            placeholder="1000"
                                             onChange={(e) =>
                                                 setAmount(
                                                     Number(e.target.value),

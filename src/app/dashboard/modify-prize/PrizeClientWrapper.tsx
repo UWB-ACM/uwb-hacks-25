@@ -16,7 +16,7 @@ export default function PrizeClientWrapper({
 
     return (
         <>
-            <div className="w-full flex justify-center">
+            <div className="mt-4 w-full flex justify-center">
                 <StaffPrizeSelector
                     prizes={prizes}
                     setPrizeId={(id) => setPrizeId(id)}

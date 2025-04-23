@@ -3,6 +3,7 @@ import React from "react";
 import { getPrizes } from "@/src/util/db/prize";
 import { Metadata } from "next";
 import Header from "@/src/components/header/Header";
+import LinkButton from "@/src/components/dashboards/userdashboard/LinkButton";
 
 export const metadata: Metadata = {
     title: "Hackeroon Shop | UWB Hacks 25",
@@ -29,9 +30,9 @@ export default async function PrizesPage() {
             <Header
                 links={[
                     {
-                        id: "sponsor",
-                        name: "Sponsor Us",
-                        url: "/sponsor",
+                        id: "hackeroon-guide",
+                        name: "Hackeroon Guide",
+                        url: "/hackeroon-guide",
                     },
                     {
                         id: "about",
@@ -71,15 +72,18 @@ export default async function PrizesPage() {
                 </p>
             </div>
 
-            <p className="self-center text-center max-w-[80%] md:max-w-[50%] font-bold">
-                Come in-person on Sunday, April 27th, to purchase a prize.
-                Prizes can be purchased at one of our Hackeroon Booths, located
-                on the top-floor of the ARC.
+            <p className="mb-5 self-center text-center max-w-[80%] md:max-w-[50%] font-bold">
+                The Hackeroon Shop will be open on Saturday, April 26th from
+                4:00 PM to 8:00 PM and Sunday, April 27th from 9:00 AM to 2:00
+                PM. Come by the top floor of the ARC to browse and redeem your
+                Hackeroons for prizes in person!
                 <br />
                 <br />
                 Prizes are offered on a first-come-first-serve basis.
                 <br /> Prices also may be subject to change!
             </p>
+
+            <LinkButton href="/hackeroon-guide" text="Hackeroon Guide" />
 
             <div className="w-full flex-grow p-8 overflow-scroll overflow-x-hidden grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {prizes.map((prize, index) => (

@@ -6,6 +6,7 @@ import { actionUpdateEvent } from "@/src/util/actions/events";
 import { Event } from "@/src/util/dataTypes";
 import { fetchEventById } from "@/src/util/actions/events";
 import { datetimeLocalToDate, dateToDatetimeLocal } from "@/src/util/date";
+import Link from "next/link";
 
 type ModifyEventFormProps = {
     eventId: number | null;
@@ -109,7 +110,7 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
     }
 
     return (
-        <div className="mt-4 w-full grid place-content-center">
+        <div className="h-[80vh] w-full grid place-content-center">
             {/* Modal Container, will extract into separate component
                 This just stores the form that the user would enter new prize info into */}
             <div>
@@ -210,28 +211,37 @@ export default function ModifyEventForm({ eventId }: ModifyEventFormProps) {
                             Attendance Amount (H$)
                         </label>
                         <input
+                            required
                             id="eventAttendanceAmount"
-                            value={eventAttendanceAmount || 0}
+                            value={eventAttendanceAmount.toString()}
                             type="number"
                             min={0}
-                            onChange={(e) => {
-                                setEventAttendanceAmount(
-                                    parseInt(e.target.value),
-                                );
-                            }}
-                            required
+                            step={5}
+                            onChange={(e) =>
+                                setEventAttendanceAmount(Number(e.target.value))
+                            }
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
                         />
                     </div>
                     {error && (
-                        <p className="mt-4 text-red-600 text-center">{error}</p>
+                        <p className="mt-4 text-red-600 text-center font-bold">
+                            {error}
+                        </p>
                     )}
-                    <button
-                        type="submit"
-                        className="mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 duration-200 border-black border-[1px]"
-                    >
-                        Submit
-                    </button>
+                    <div className="flex justify-between">
+                        <Link
+                            href="/dashboard"
+                            className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-red-500 text-white text-center"
+                        >
+                            Exit
+                        </Link>
+                        <button
+                            type="submit"
+                            className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-green-600 hover:bg-green-500 text-white duration-200 border-black border-[1px]"
+                        >
+                            Submit
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
