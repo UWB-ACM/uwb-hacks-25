@@ -17,8 +17,6 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         "success" | "error" | "over-limit"
     >("error");
 
-    const [amount, setAmount] = useState(0);
-
     const feedbackTitle = {
         success: "Success",
         error: "Failure",
@@ -70,11 +68,8 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
         <>
             <div className="h-screen grid place-content-center">
                 {/* Container for "Transfer Hackeroons" Content */}
-                <div className="h-[80vh] w-[80vw] max-w-[70vh] rounded-xl p-5 border-[1px] border-black shadow-xl">
-                    <form
-                        onSubmit={handleSubmit}
-                        className="h-[70vh] grid place-content-center"
-                    >
+                <div className="h-[80vh] w-[80vw] max-w-[70vh] rounded-xl p-5 border-[1px] border-black shadow-xl grid place-content-center">
+                    <form onSubmit={handleSubmit}>
                         <h1 className="text-center text-2xl md:text-3xl lg:text-4xl">
                             Transferring Hackeroons to{" "}
                             <span className="font-bold whitespace-nowrap">
@@ -91,12 +86,13 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                                     <div className="flex flex-col w-[60vw] max-w-[50vh] mt-4 md:text-lg lg:text-xl">
                                         <label htmlFor="amount">Amount</label>
                                         <input
-                                            type="number"
-                                            step={10}
+                                            required
                                             id="amount"
-                                            value={amount}
+                                            type="number"
+                                            min={0}
+                                            step={5}
+                                            value={amount.toString()}
                                             className="px-4 py-3 border-[1px] border-black rounded-md"
-                                            placeholder="1000"
                                             onChange={(e) =>
                                                 setAmount(
                                                     Number(e.target.value),

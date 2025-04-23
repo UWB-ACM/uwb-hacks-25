@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { actionUpdatePrize } from "@/src/util/actions/prize";
 import { Prize } from "@/src/util/dataTypes";
 import { fetchPrizeById } from "@/src/util/actions/prize";
+import Link from "next/link";
 
 type ModifyPrizeFormProps = {
     prizeId: number | null;
@@ -18,8 +19,8 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
     // Prize information
     const [prizeName, setPrizeName] = useState<string>("");
     const [prizeDescription, setPrizeDescription] = useState<string>("");
-    const [prizeInitialStock, setPrizeInitialStock] = useState<string>("");
-    const [prizePrice, setPrizePrice] = useState<string>("");
+    const [prizeInitialStock, setPrizeInitialStock] = useState<number>(0);
+    const [prizePrice, setPrizePrice] = useState<number>(0);
     const [prizeImageName, setPrizeImageName] = useState<string>("");
 
     // Fetch prize data whenver prizeId changes
@@ -35,8 +36,8 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
             if (prize) {
                 setPrizeName(prize.name);
                 setPrizeDescription(prize.description || "Prize Description");
-                setPrizeInitialStock(prize.initialStock.toString());
-                setPrizePrice(prize.price.toString());
+                setPrizeInitialStock(prize.initialStock);
+                setPrizePrice(prize.price);
                 setPrizeImageName(prize.imageName?.toString() || "");
             }
         }
@@ -53,17 +54,12 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
             2. Prizes should not have a negative price
             */
 
-        if (isNaN(Number(prizeInitialStock)) || isNaN(Number(prizePrice))) {
-            setError("Initial stock and price must be a valid number!");
-            return;
-        }
-
-        if (Number(prizeInitialStock) < 0) {
+        if (prizeInitialStock < 0) {
             setError("Prizes must have a non-negative initial stock");
             return;
         }
 
-        if (Number(prizePrice) < 0) {
+        if (prizePrice < 0) {
             setError("Prizes must have a non-negative price");
             return;
         }
@@ -80,8 +76,8 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
             prize.id,
             prizeName,
             prizeDescription,
-            Number(prizeInitialStock),
-            Number(prizePrice),
+            prizeInitialStock,
+            prizePrice,
             prizeImageName,
         );
 
@@ -102,7 +98,7 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
     }
 
     return (
-        <div className="mt-4 w-full grid place-content-center">
+        <div className="h-[80vh] w-full grid place-content-center">
             {/* Modal Container, will extract into separate component
                 This just stores the form that the user would enter new prize info into */}
             <div>
@@ -155,10 +151,11 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                         </label>
                         <input
                             id="prizeInitialStock"
-                            value={prizeInitialStock}
+                            value={prizeInitialStock.toString()}
+                            type="number"
                             min={0}
                             onChange={(e) => {
-                                setPrizeInitialStock(e.target.value);
+                                setPrizeInitialStock(Number(e.target.value));
                             }}
                             required
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
@@ -173,10 +170,12 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                         </label>
                         <input
                             id="prizePrice"
-                            value={prizePrice}
+                            value={prizePrice.toString()}
+                            type="number"
                             min={0}
+                            step={5}
                             onChange={(e) => {
-                                setPrizePrice(e.target.value);
+                                setPrizePrice(Number(e.target.value));
                             }}
                             required
                             className="border-black border-[1px] p-2 rounded-md bg-neutral-100"
@@ -199,12 +198,20 @@ export default function ModifyPrizeForm({ prizeId }: ModifyPrizeFormProps) {
                     {error && (
                         <p className="mt-4 text-red-600 text-center">{error}</p>
                     )}
-                    <button
-                        type="submit"
-                        className="mt-4 py-2 px-4 rounded-md bg-neutral-200/80 hover:bg-neutral-100 duration-200 border-black border-[1px]"
-                    >
-                        Submit
-                    </button>
+                    <div className="flex justify-between">
+                        <Link
+                            href="/dashboard"
+                            className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-red-500 text-white text-center"
+                        >
+                            Exit
+                        </Link>
+                        <button
+                            type="submit"
+                            className="min-w-[30%] mt-4 py-2 px-4 rounded-md bg-green-600 hover:bg-green-500 text-white duration-200 border-black border-[1px]"
+                        >
+                            Submit
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
