@@ -1,7 +1,8 @@
 import {
     Transaction,
     TransactionType,
-    valuedTransactionTypes,
+    valuedTransactionAmounts,
+    valuedTransactionLimits,
 } from "@/src/util/dataTypes";
 import sql from "@/src/util/database";
 
@@ -57,18 +58,23 @@ export async function createTransaction(
 
         // Only for transaction types that are
         // valued and have limits.
-        case TransactionType.ActivityWinner:
+        case TransactionType.MonthOfHackingActivityWinner:
         case TransactionType.Performance:
-        case TransactionType.CostumeFandom:
-        case TransactionType.CostumeHusky:
-        case TransactionType.CostumeProfessional: {
-            const limits = {
-                [TransactionType.Performance]: 20,
-                [TransactionType.ActivityWinner]: 3,
-                [TransactionType.CostumeFandom]: 1,
-                [TransactionType.CostumeHusky]: 1,
-                [TransactionType.CostumeProfessional]: 1,
-            };
+        case TransactionType.FridayCostumeFandom:
+        case TransactionType.FridayFireSideChat:
+        case TransactionType.FridayHollyTheHusky:
+
+        case TransactionType.SaturdayCostumeHusky:
+        case TransactionType.SaturdayTalkWithDanTerry:
+        case TransactionType.SaturdayPhotoWithDubs:
+        case TransactionType.SaturdayPhotoWithHolly:
+        case TransactionType.SaturdayTalkToKody:
+        case TransactionType.SaturdayBadmintonSocial:
+
+        case TransactionType.SundayCostumeProfessional: 
+        case TransactionType.SundayDemoDay: 
+        {
+            const limits = valuedTransactionLimits
 
             if (event || prize) {
                 throw new Error(
@@ -80,7 +86,7 @@ export async function createTransaction(
                 throw new Error("Transaction type needs to have a limit!");
             }
 
-            if (!(type in valuedTransactionTypes)) {
+            if (!(type in valuedTransactionAmounts)) {
                 throw new Error("Transaction type needs to have a value!");
             }
 
@@ -88,7 +94,7 @@ export async function createTransaction(
 
             // Override the value to ensure consistency.
             // This also guarantees that amount >= 0.
-            amount = valuedTransactionTypes[type];
+            amount = valuedTransactionAmounts[type as keyof typeof valuedTransactionAmounts];
 
             // Our amount is positive, so we don't need to worry about
             // putting the balance below zero, but we do need to worry about

@@ -4,6 +4,8 @@ import {
     hasPermissions,
     PermissionLevel,
     Transaction,
+    TransactionType,
+    typeNameMap,
     User,
 } from "@/src/util/dataTypes";
 import { Session, SessionUser } from "@/src/util/session";
@@ -173,8 +175,9 @@ function TransactionItem({
 
     return (
         <div className="flex flex-row justify-between">
-            <p className={transaction.reverted ? "line-through" : ""}>
-                [{transaction.type}] H${transaction.amount} {transaction.event}{" "}
+            <p className={transaction.reverted ? "line-through" : "" + " font-opensans border-black border-2 p-1 bg-indigo-200"}>
+                [{typeNameMap[transaction.type as TransactionType]}] H${transaction.amount} {transaction.event}{" "}
+                <br/>
                 {transaction.prize} {transaction.time.toString()}
             </p>
             <div>
