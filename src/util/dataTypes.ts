@@ -194,6 +194,26 @@ export interface Prize {
 }
 
 /**
+ * Data stored in Redis that a check-in code maps to.
+ */
+export interface CheckInInfo {
+    /**
+     * Is the duration of the code in seconds.
+     */
+    duration: number;
+
+    /**
+     * Is the staff member who created by the code (if they exist).
+     */
+    authorized_by: number | null;
+
+    /**
+     * Is the ID of the event which the code corresponds to.
+     */
+    event: number;
+}
+
+/**
  * A transaction record in the database.
  */
 export interface Transaction {
