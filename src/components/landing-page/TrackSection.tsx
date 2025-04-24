@@ -24,11 +24,17 @@ const TracksSection = () => {
     const tracks: Track[] = tracks_data["tracks"];
     const [showTracks, setShowTracks] = useState(false);
     const panelContentRef = useRef<HTMLDivElement | null>(null);
-    const tracksRef = useRef<HTMLDivElement | null>(null);
+    const tracksNavRef = useRef<HTMLDivElement | null>(null);
+    const selectedTrackRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         // set initial animation state for tracks comp
-        gsap.set(tracksRef.current, {
+        gsap.set(tracksNavRef.current, {
+            height: 0,
+            opacity: 0,
+            overflow: "hidden",
+        });
+        gsap.set(selectedTrackRef.current, {
             height: 0,
             opacity: 0,
             overflow: "hidden",
@@ -49,8 +55,8 @@ const TracksSection = () => {
                 overflow: "hidden",
             });
 
-            // animate in tracks comp
-            tl.to(tracksRef.current, {
+            // animate in tracks navigation comp
+            tl.to(tracksNavRef.current, {
                 delay: 0.5,
                 height: "auto",
                 opacity: 1,
@@ -66,6 +72,16 @@ const TracksSection = () => {
                 opacity: 1,
                 ease: "power1.out",
                 stagger: 0.15,
+            });
+
+            // animate in selected track comp
+            tl.to(selectedTrackRef.current, {
+                delay: 0.5,
+                height: "auto",
+                opacity: 1,
+                duration: 0.8,
+                ease: "bounce.out",
+                clearProps: "overflow",
             });
         }
     }, [showTracks]);
@@ -98,7 +114,13 @@ const TracksSection = () => {
                     />
                 </PanelContent>
             </div>
-            {showTracks && <Tracks tracksRef={tracksRef} tracks={tracks} />}
+            {showTracks && (
+                <Tracks
+                    tracks={tracks}
+                    tracksNavRef={tracksNavRef}
+                    selectedTrackRef={selectedTrackRef}
+                />
+            )}
         </Panel>
     );
 };
