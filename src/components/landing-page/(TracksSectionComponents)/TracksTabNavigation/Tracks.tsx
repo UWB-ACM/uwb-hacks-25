@@ -4,18 +4,24 @@ import TracksNav from "./TracksNav";
 import SelectedTrackInformation from "./SelectedTrackInformation";
 
 type TracksProps = {
-    tracksRef: RefObject<HTMLDivElement | null>;
     tracks: Track[];
+    tracksNavRef: RefObject<HTMLDivElement | null>;
+    selectedTrackRef: RefObject<HTMLDivElement | null>;
 };
 
-export default function Tracks({ tracksRef, tracks }: TracksProps) {
+export default function Tracks({
+    tracks,
+    tracksNavRef,
+    selectedTrackRef,
+}: TracksProps) {
     const [selectedTrackIdx, setSelectedTrackIdx] = useState(0);
 
     return (
-        <div ref={tracksRef}>
+        <>
             {/* Use to select track */}
             <TracksNav
                 tracks={tracks}
+                tracksNavRef={tracksNavRef}
                 selectedTrackIdx={selectedTrackIdx}
                 setSelectedTrackIdx={setSelectedTrackIdx}
             />
@@ -29,8 +35,9 @@ export default function Tracks({ tracksRef, tracks }: TracksProps) {
                     - low code / code
             */}
             <SelectedTrackInformation
+                selectedTrackRef={selectedTrackRef}
                 selectedTrack={tracks[selectedTrackIdx]}
             />
-        </div>
+        </>
     );
 }

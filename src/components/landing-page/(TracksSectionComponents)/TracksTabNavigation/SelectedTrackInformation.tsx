@@ -1,15 +1,17 @@
-import React from "react";
+import React, { RefObject } from "react";
 import { Track } from "@/src/util/dataTypes";
 
 type SelectedTrackInformationProps = {
+    selectedTrackRef: RefObject<HTMLDivElement | null>;
     selectedTrack: Track;
 };
 
 export default function SelectedTrackInformation({
+    selectedTrackRef,
     selectedTrack,
 }: SelectedTrackInformationProps) {
     return (
-        <div className="p-3 md:p-6 space-y-4">
+        <div ref={selectedTrackRef} className="p-3 md:p-6 space-y-4">
             <div>
                 <p className="font-h2 font-bold tracking-wider text-center text-xl md:text-2xl">
                     {selectedTrack.question}
