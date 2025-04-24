@@ -118,11 +118,17 @@ export default async function GuidePage() {
                                 details="Rock your super hero gear! (Redeem once)."
                                 time="📍 Anywhere | ⏰ All day"
                             />
-                            {/* <PointItem
+                            <PointItem
+                                title="Photo with Holly"
+                                points={50}
+                                details="Say cheese with Holly! (Redeem once)."
+                                time="📍 NCEC | ⏰ 2:00 PM - 4:00 PM"
+                            />
+                            <PointItem
                                 title="Fireside Chat (ARC)"
                                 points={100}
-                                details="Attend a fireside chat with Cameron Bielstein (Redeem once). 📍 ARC | ⏰ 4:00 PM"
-                            />*/}
+                                details="Attend a fireside chat with Cameron Bielstein (Redeem once). 📍 NCEC | ⏰ 4:30 PM - 5:00 PM"
+                            />
                         </ul>
                     </div>
 
@@ -153,22 +159,16 @@ export default async function GuidePage() {
                                 time="📍 ARC | ⏰ 12:00 PM - 6:00 PM"
                             />
                             <PointItem
-                                title="Photo with Dubs"
+                                title="Talk with Kody"
                                 points={50}
-                                details="Snap a pic with Dubs! (Redeem once)."
-                                time="📍 ARC | ⏰ 2:00 PM - 4:00 PM"
+                                details="Have a chat with Kody the Chatbot (Redeem once)."
+                                time="📍 ARC | ⏰ 1:00 PM - 3:00 PM"
                             />
                             <PointItem
                                 title="Photo with Holly"
                                 points={50}
                                 details="Say cheese with Holly! (Redeem once)."
-                                time="📍 ARC | ⏰ 3:00 PM - 3:30 PM"
-                            />
-                            <PointItem
-                                title="Talk with Kody"
-                                points={50}
-                                details="Have a chat with Kody the Chatbot (Redeem once)."
-                                time="📍 ARC | ⏰ 1:00 PM - 3:00 PM"
+                                time="📍 NCEC | ⏰ 2:00 PM - 4:00 PM"
                             />
                             <PointItem
                                 title="Drop-in Badminton"
