@@ -114,7 +114,7 @@ export default async function GuidePage() {
                         <ul className="divide-y divide-black px-6 pt-4 pb-6">
                             <PointItem
                                 title="Super Hero Wear"
-                                points={50}
+                                points={100}
                                 details="Rock your super hero gear! (Redeem once)."
                                 time="📍 Anywhere | ⏰ All day"
                             />
@@ -142,7 +142,7 @@ export default async function GuidePage() {
                         <ul className="divide-y divide-black px-6 pt-4 pb-6">
                             <PointItem
                                 title="Husky Spirit Wear"
-                                points={50}
+                                points={100}
                                 details="Show your Husky pride! (Redeem once)."
                                 time="📍 Anywhere | ⏰ All day"
                             />
@@ -189,7 +189,7 @@ export default async function GuidePage() {
                         <ul className="divide-y divide-black px-6 pt-4 pb-6">
                             <PointItem
                                 title="Professional Attire"
-                                points={50}
+                                points={100}
                                 details="Look sharp for Demo Day! (Redeem once)."
                                 time="📍 Anywhere | ⏰ All day"
                             />
