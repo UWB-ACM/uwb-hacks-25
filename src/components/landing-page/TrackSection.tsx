@@ -31,11 +31,11 @@ const TracksSection = () => {
         // set initial animation state for tracks comp
         gsap.set(tracksNavRef.current, {
             height: 0,
-            opacity: 0,
             overflow: "hidden",
         });
         gsap.set(selectedTrackRef.current, {
             height: 0,
+            padding: 0,
             opacity: 0,
             overflow: "hidden",
         });
@@ -50,7 +50,7 @@ const TracksSection = () => {
             // animate out panel content containing mystery box
             tl.to(panelContentRef.current, {
                 delay: 0.5,
-                duration: 0.8,
+                duration: 0.5,
                 height: 0,
                 overflow: "hidden",
             });
@@ -59,7 +59,6 @@ const TracksSection = () => {
             tl.to(tracksNavRef.current, {
                 delay: 0.5,
                 height: "auto",
-                opacity: 1,
                 duration: 0.8,
                 ease: "bounce.out",
                 clearProps: "overflow",
@@ -78,11 +77,14 @@ const TracksSection = () => {
             tl.to(selectedTrackRef.current, {
                 delay: 0.5,
                 height: "auto",
-                opacity: 1,
                 duration: 0.8,
                 ease: "bounce.out",
                 clearProps: "overflow",
             });
+
+            tl.set(selectedTrackRef.current, {
+                padding: window.innerWidth < 800 ? "24px" : "40px",
+            }).to(selectedTrackRef.current, { duration: 1.5, opacity: 1 });
         }
     }, [showTracks]);
 
@@ -114,13 +116,12 @@ const TracksSection = () => {
                     />
                 </PanelContent>
             </div>
-            {showTracks && (
-                <Tracks
-                    tracks={tracks}
-                    tracksNavRef={tracksNavRef}
-                    selectedTrackRef={selectedTrackRef}
-                />
-            )}
+
+            <Tracks
+                tracks={tracks}
+                tracksNavRef={tracksNavRef}
+                selectedTrackRef={selectedTrackRef}
+            />
         </Panel>
     );
 };
