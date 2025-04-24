@@ -79,16 +79,16 @@ const TracksSection = () => {
 
             // animate in selected track comp
             tl.to(selectedTrackRef.current, {
-                delay: 0.5,
+                delay: 0.3,
                 height: "auto",
+                padding: window.innerWidth < 800 ? "24px" : "40px",
                 duration: 0.8,
                 ease: "bounce.out",
                 clearProps: "overflow",
+            }).to(selectedTrackRef.current, {
+                duration: 1.5,
+                opacity: 1,
             });
-
-            tl.set(selectedTrackRef.current, {
-                padding: window.innerWidth < 800 ? "24px" : "40px",
-            }).to(selectedTrackRef.current, { duration: 1.5, opacity: 1 });
         }
     }, [showTracks]);
 
