@@ -18,7 +18,8 @@ export default function TracksNavHeader({
             {tracks.map((track, idx) => (
                 <button
                     key={idx}
-                    className="track font-h1 text-xl md:text-2xl grow px-4 py-2 border-2 border-black bg-white"
+                    onClick={() => setSelectedTrackIdx(idx)}
+                    className={`track font-h1 text-xl md:text-2xl grow px-4 py-2 border-2 border-black bg-white duration-200 ${idx === selectedTrackIdx ? "hover:bg-neutral-300" : "hover:bg-neutral-100"} ${idx === selectedTrackIdx && "bg-neutral-300"}`}
                 >
                     {track.name}
                 </button>
