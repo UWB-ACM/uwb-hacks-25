@@ -11,14 +11,16 @@ function DesktopBanner({ bannerVisible, setBannerVisible }: BannerProps) {
         <>
             {bannerVisible && (
                 <div className="bg-orange-500 text-lg text-white font-rubik-mono-one justify-center items-center flex h-10">
-                    <p>Month of Hacking is live!</p>
+                    <p>Learn how to earn and spend your Hackeroons!</p>
                     <div className="w-4"></div>
 
                     <Link
-                        href={"/month-of-hacking"}
+                        href={"/hackeroon-guide"}
                         className="text-white font-bold hover:underline"
                     >
-                        <p className="underline cursor-pointer">Learn More</p>
+                        <p className="underline cursor-pointer">
+                            Open Hackeroon Guide
+                        </p>
                     </Link>
                     <button
                         className="absolute right-10"

@@ -3,6 +3,7 @@ import UWBStemImage from "@/public/sponsorsSection/uwb-stem.png";
 import UWBBusinessImage from "@/public/sponsorsSection/uwb-business.png";
 import AvanadeImage from "@/public/sponsorsSection/avanade-logo.svg";
 import FutureForceImage from "@/public/sponsorsSection/futureforce.jpg";
+import IEEESeattleImage from "@/public/sponsorsSection/ieee-seattle.png";
 import MaddKitchenImage from "@/public/sponsorsSection/madkitchen.png";
 import Link from "next/link";
 
@@ -45,7 +46,7 @@ const SponsorsSection = () => {
                         <Link href="https://www.avanade.com" target="_blank">
                             <Image
                                 src={AvanadeImage}
-                                width={350}
+                                width={370}
                                 height={100}
                                 alt="Avanade"
                                 className="object-contain"
@@ -70,7 +71,19 @@ const SponsorsSection = () => {
                 </div>
 
                 {/* Secondary sponsors row */}
-                <div className="w-full flex justify-center items-center">
+                <div className="w-full flex flex-wrap justify-center items-center gap-8 md:gap-16 pt-20">
+                    <div className="flex justify-center items-center">
+                        <Link href="https://ieee-seattle.org/" target="_blank">
+                            <Image
+                                src={IEEESeattleImage}
+                                width={200}
+                                height={80}
+                                alt="Future Force"
+                                className="object-contain"
+                            />
+                        </Link>
+                    </div>
+
                     <div className="flex justify-center items-center">
                         <Link
                             href="https://www.maddkitchen.com/"
@@ -78,10 +91,10 @@ const SponsorsSection = () => {
                         >
                             <Image
                                 src={MaddKitchenImage}
-                                width={200}
+                                width={255}
                                 height={80}
                                 alt="Madd Kitchen"
-                                className="object-contain md:mr-10"
+                                className="object-contain"
                             />
                         </Link>
                     </div>
@@ -93,10 +106,10 @@ const SponsorsSection = () => {
                         >
                             <Image
                                 src={FutureForceImage}
-                                width={200}
+                                width={175}
                                 height={80}
                                 alt="Future Force"
-                                className="object-contain md:ml-10"
+                                className="object-contain"
                             />
                         </Link>
                     </div>

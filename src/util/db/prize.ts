@@ -6,7 +6,7 @@ import sql from "@/src/util/database";
  */
 export async function getPrizes(): Promise<Prize[]> {
     const data =
-        await sql`SELECT id, name, description, initial_stock, price, image_name, (SELECT CAST(Count(*) as int) FROM transactions WHERE transactions.prize=prizes.id) AS sold FROM prizes;`;
+        await sql`SELECT id, name, description, initial_stock, price, image_name, (SELECT CAST(Count(*) as int) FROM transactions WHERE transactions.prize=prizes.id AND transactions.reverted=FALSE) AS sold FROM prizes;`;
 
     return data.map((row) => ({
         id: row.id,
@@ -24,7 +24,7 @@ export async function getPrizes(): Promise<Prize[]> {
  */
 export async function getPrizeById(id: number): Promise<Prize | null> {
     const data =
-        await sql`SELECT id, name, description, initial_stock, price, image_name, (SELECT CAST(Count(*) as int) FROM transactions WHERE transactions.prize=prizes.id) AS sold FROM prizes WHERE id=${id}`;
+        await sql`SELECT id, name, description, initial_stock, price, image_name, (SELECT CAST(Count(*) as int) FROM transactions WHERE transactions.prize=prizes.id AND transactions.reverted=FALSE) AS sold FROM prizes WHERE id=${id}`;
 
     // if there's no prize with given id, return null
     if (data.length === 0) return null;

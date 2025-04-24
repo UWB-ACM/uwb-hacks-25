@@ -322,8 +322,6 @@ export enum TransactionType {
 
     SaturdayTalkWithDanTerry = 11,
 
-    SaturdayPhotoWithDubs = 12,
-
     SaturdayPhotoWithHolly = 13,
 
     SaturdayTalkToKody = 14,
@@ -350,15 +348,20 @@ export const valuedTransactionAmounts = {
 
     [TransactionType.SaturdayCostumeHusky]: 100,
     [TransactionType.SaturdayTalkWithDanTerry]: 100,
-    [TransactionType.SaturdayPhotoWithDubs]: 50,
     [TransactionType.SaturdayPhotoWithHolly]: 50,
-    [TransactionType.SaturdayTalkToKody]: 100,
+    [TransactionType.SaturdayTalkToKody]: 50,
     [TransactionType.SaturdayBadmintonSocial]: 100,
 
     [TransactionType.SundayCostumeProfessional]: 100,
     [TransactionType.SundayDemoDay]: 100,
 } as const;
 
+/**
+ * A map of valued transaction types to the
+ * maximum number of them a user may achieve.
+ * Use Infinity to allow no limit.
+ * MUST BE NON-NEGATIVE.
+ */
 export const valuedTransactionLimits: Record<
     keyof typeof valuedTransactionAmounts,
     number
@@ -371,7 +374,6 @@ export const valuedTransactionLimits: Record<
 
     [TransactionType.SaturdayCostumeHusky]: 1,
     [TransactionType.SaturdayTalkWithDanTerry]: 1,
-    [TransactionType.SaturdayPhotoWithDubs]: 1,
     [TransactionType.SaturdayPhotoWithHolly]: 1,
     [TransactionType.SaturdayTalkToKody]: 1,
     [TransactionType.SaturdayBadmintonSocial]: 1,
@@ -391,7 +393,6 @@ export const reasonTypeMap = {
 
     "saturday-costume-husky": TransactionType.SaturdayCostumeHusky,
     "saturday-talk-dan-terry": TransactionType.SaturdayTalkWithDanTerry,
-    "saturday-dubs-photo": TransactionType.SaturdayPhotoWithDubs,
     "saturday-holly-photo": TransactionType.SaturdayPhotoWithHolly,
     "saturday-talk-kody": TransactionType.SaturdayTalkToKody,
     "saturday-badminton": TransactionType.SaturdayBadmintonSocial,
@@ -410,7 +411,6 @@ export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
 
     "saturday-costume-husky": "Husky Spirit Costume (Saturday)",
     "saturday-talk-dan-terry": "Talk with Dan Terry (Saturday)",
-    "saturday-dubs-photo": "Picture with Dubs (Saturday)",
     "saturday-holly-photo": "Picture with Holly (Saturday)",
     "saturday-talk-kody": "Talk with Kody (Saturday)",
     "saturday-badminton": "Badminton Social (Saturday)",
@@ -431,7 +431,6 @@ export const typeNameMap: Record<TransactionType, string> = {
     [TransactionType.SaturdayCostumeHusky]: "Husky Spirit Costume (Saturday)",
     [TransactionType.SaturdayTalkWithDanTerry]:
         "Talk with Dan Terry (Saturday)",
-    [TransactionType.SaturdayPhotoWithDubs]: "Picture with Dubs (Saturday)",
     [TransactionType.SaturdayPhotoWithHolly]: "Picture with Holly (Saturday)",
     [TransactionType.SaturdayTalkToKody]: "Talk with Kody (Saturday)",
     [TransactionType.SaturdayBadmintonSocial]: "Badminton Social (Saturday)",
