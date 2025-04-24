@@ -349,7 +349,7 @@ export const valuedTransactionAmounts = {
     [TransactionType.SaturdayCostumeHusky]: 100,
     [TransactionType.SaturdayTalkWithDanTerry]: 100,
     [TransactionType.SaturdayPhotoWithHolly]: 50,
-    [TransactionType.SaturdayTalkToKody]: 100,
+    [TransactionType.SaturdayTalkToKody]: 50,
     [TransactionType.SaturdayBadmintonSocial]: 100,
 
     [TransactionType.SundayCostumeProfessional]: 100,
