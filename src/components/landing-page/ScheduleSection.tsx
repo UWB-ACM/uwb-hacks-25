@@ -64,6 +64,13 @@ const ScheduleSection: React.FC = () => {
                             location: "Anywhere on Campus",
                         },
                         {
+                            time: "4:30 PM - 5:00 PM",
+                            name: "Fireside Chat w/ Cameron Bielstein",
+                            description:
+                                "Join Cameron Bielstein, Engineering Manager at Allen Institute, for an engaging fireside chat.",
+                            location: "North Creek Event Center (NCEC)",
+                        },
+                        {
                             time: "4:00 PM - 8:00 PM",
                             name: "ARC Reopens, In-Person Work Time",
                             description:
@@ -108,8 +115,7 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "2:00 PM - 4:00 PM",
                             name: "Optional Activity",
-                            description:
-                                "Photoshoot with the Huskies: Dubs and Holly!",
+                            description: "Photoshoot with Holly the Husky!",
                             location: "ARC Overlook",
                         },
                         {
@@ -120,9 +126,9 @@ const ScheduleSection: React.FC = () => {
                         },
                         {
                             time: "4:00 PM - 8:00 PM",
-                            name: "In-Person Work Time",
+                            name: "In-Person Work Time + Hackeroon Shop Opens",
                             description:
-                                "Teams continue working on their projects in person.",
+                                "Teams continue working on their projects in person. The Hackeroon Shop opens for participants to redeem hackeroons for prizes.",
                             location: "ARC Overlook",
                         },
                     ]}
@@ -157,7 +163,7 @@ const ScheduleSection: React.FC = () => {
                             time: "10:50 AM - 12:50 PM",
                             name: "Judging, Demo Day, and Tabling",
                             description:
-                                "Teams present their projects for judging and demos.",
+                                "Teams present their projects for judging. During judging, participants can explore demo tables showcasing projects from other teams.",
                             location: "ARC Overlook",
                         },
                         {
@@ -169,7 +175,7 @@ const ScheduleSection: React.FC = () => {
                         },
                         {
                             time: "2:00 PM - 2:30 PM",
-                            name: "Group Photo",
+                            name: "Massive Group Photo",
                             description:
                                 "Take a group photo to commemorate the event.",
                             location: "Field",
