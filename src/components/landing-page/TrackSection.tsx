@@ -19,7 +19,11 @@ import QuestionMark from "./(TracksSectionComponents)/QuestionMark";
 import Tracks from "./(TracksSectionComponents)/TracksTabNavigation/Tracks";
 import { Track } from "@/src/util/dataTypes";
 
+import LivePoll from "./(AboutSectionComponents)/LivePoll";
+
 const TracksSection = () => {
+    const panelMargin = "mt-12 md:mt-16";
+
     // tracks contains all relevant information about each of the 6 tracks
     const tracks: Track[] = tracks_data["tracks"];
     const [showTracks, setShowTracks] = useState(false);
@@ -89,7 +93,7 @@ const TracksSection = () => {
     }, [showTracks]);
 
     return (
-        <Panel id="tracksPanel" className="mt-12 md:mt-16" panelColor="white">
+        <Panel id="tracksPanel" className={panelMargin} panelColor="white">
             <PanelHeader
                 parentPanelId="tracksPanel"
                 as="h2"
