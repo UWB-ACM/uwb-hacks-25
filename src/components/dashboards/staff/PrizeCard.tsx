@@ -103,7 +103,7 @@ export default function PrizeCard({
                         buyItem(prize.price);
                     }}
                 >
-                    {isItemBought ? "Remove" : "Buy"}
+                    {isItemBought ? "Remove" : "Add to Cart"}
                 </button>
             )}
         </div>
