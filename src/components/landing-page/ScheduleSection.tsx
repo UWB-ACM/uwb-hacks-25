@@ -221,6 +221,8 @@ interface ScheduleCardProps {
     accentPosition?: "bottom-left" | "bottom-right" | "top-right";
 }
 
+// Small change to force another merge
+
 const ScheduleCard: React.FC<ScheduleCardProps> = ({
     day,
     date,
