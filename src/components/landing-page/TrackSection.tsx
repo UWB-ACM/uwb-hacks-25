@@ -91,7 +91,7 @@ const TracksSection = () => {
             <PanelHeader
                 parentPanelId="tracksPanel"
                 as="h2"
-                className="text-[#49B2F8] border-none lg:w-full bg-transparent"
+                className="text-[#49B2F8] border-none lg:w-full bg-transparent pb-3 md:pb-4 lg:pb-6"
                 isSectionHeader
             >
                 Tracks
