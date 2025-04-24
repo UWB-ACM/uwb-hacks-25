@@ -52,6 +52,13 @@ export const committees = [
         name: "Justice Leads",
         members: [
             {
+                id: "jonah-uellenberg",
+                name: "Jonah Uellenberg",
+                role: "Digital Experience Co-lead, Developer",
+                photo: "/MeetTheTeamPhotos/jonah-uellenberg.jpg",
+                link: "https://www.linkedin.com/in/uellenberg",
+            },
+            {
                 id: "jui-bangali",
                 name: "Jui Bangali",
                 role: "WiCyS President, Local Arrangments Member, Product Management Member",
@@ -64,6 +71,13 @@ export const committees = [
                 role: "WiCyS Vice President, Developer, Sponsorships Outreach Member",
                 photo: "/MeetTheTeamPhotos/kat-tran.jpg",
                 link: "https://www.linkedin.com/in/katqatran/",
+            },
+            {
+                id: "lakshmi-srinivas",
+                name: "Lakshmi Srinivas",
+                role: "WiCyS Treasurer, Product Management Member",
+                photo: "/MeetTheTeamPhotos/lakshmi-srinivas.png",
+                link: "https://www.linkedin.com/in/lakshmikandagadlasrinivas/",
             },
             {
                 id: "prarin-behdarvandian",
