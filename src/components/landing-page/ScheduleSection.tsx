@@ -175,7 +175,7 @@ const ScheduleSection: React.FC = () => {
                         },
                         {
                             time: "2:00 PM - 2:30 PM",
-                            name: " Massive Group Photo",
+                            name: "Massive Group Photo",
                             description:
                                 "Take a group photo to commemorate the event.",
                             location: "Field",
