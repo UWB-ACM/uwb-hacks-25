@@ -36,12 +36,12 @@ export default function Header({
 
     return (
         <>
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
                 {/* Heading spacer */}
                 <div className="h-[7rem]" />
                 <HeaderDesktop links={links} wrapH1={wrapH1} banner={banner} />
             </div>
-            <div className="block md:hidden">
+            <div className="block lg:hidden">
                 <HeaderMobile
                     wrapH1={wrapH1}
                     setSideNav={setSideNav}
