@@ -126,6 +126,8 @@ const TracksSection = () => {
                 tracksNavRef={tracksNavRef}
                 selectedTrackRef={selectedTrackRef}
             />
+
+            <LivePoll />
         </Panel>
     );
 };
