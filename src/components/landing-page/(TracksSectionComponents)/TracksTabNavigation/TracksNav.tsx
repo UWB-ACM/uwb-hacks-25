@@ -13,40 +13,16 @@ export default function TracksNavHeader({
     selectedTrackIdx,
     setSelectedTrackIdx,
 }: TracksNavHeaderProps) {
-    const handleNext = () => {
-        if (selectedTrackIdx == tracks.length - 1) {
-            setSelectedTrackIdx(0);
-        } else {
-            setSelectedTrackIdx(selectedTrackIdx + 1);
-        }
-    };
-
-    const handlePrev = () => {
-        if (selectedTrackIdx == 0) {
-            setSelectedTrackIdx(tracks.length - 1);
-        } else {
-            setSelectedTrackIdx(selectedTrackIdx - 1);
-        }
-    };
-
     return (
-        <div className="w-full flex items-center p-3 md:p-6 border-y-2 border-black">
-            <button onClick={handlePrev}>
-                <ChevronLeft className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[50px] lg:h-[50px] duration-200 hover:scale-110" />
-            </button>
-
-            <div className="grow text-center font-h1">
-                <p className="text-xl md:text-2xl lg:text-3xl text-[#FFCA3A]">
-                    {tracks[selectedTrackIdx]["name"]}
-                </p>
-                <p className="text-lg md:text-xl lg:text-2xl">
-                    {selectedTrackIdx + 1} / {tracks.length}
-                </p>
-            </div>
-
-            <button onClick={handleNext}>
-                <ChevronRight className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[50px] lg:h-[50px] duration-200 hover:scale-110" />
-            </button>
+        <div className="w-full flex flex-wrap items-center bg-black">
+            {tracks.map((track, idx) => (
+                <button
+                    key={idx}
+                    className="track font-h1 text-xl md:text-2xl grow px-4 py-2 border-2 border-black bg-white"
+                >
+                    {track.name}
+                </button>
+            ))}
         </div>
     );
 }
