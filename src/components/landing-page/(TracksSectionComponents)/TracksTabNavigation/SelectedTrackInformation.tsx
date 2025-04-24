@@ -11,7 +11,7 @@ export default function SelectedTrackInformation({
     selectedTrack,
 }: SelectedTrackInformationProps) {
     return (
-        <div ref={selectedTrackRef} className="p-6 md:p-10 space-y-4">
+        <div ref={selectedTrackRef} className="space-y-4">
             <div>
                 <p className="font-h2 font-bold tracking-wider text-center text-xl md:text-2xl">
                     {selectedTrack.question}
