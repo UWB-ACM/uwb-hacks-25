@@ -31,7 +31,8 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
     } as const;
 
     const [amount, setAmount] = useState<number>(0);
-    const [reason, setReason] = useState<keyof typeof reasonTypeMap>("unknown");
+    const [reason, setReason] =
+        useState<keyof typeof reasonTypeMap>("performance");
 
     const [loading, setLoading] = useState<boolean>(false);
 
