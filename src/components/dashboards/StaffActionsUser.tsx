@@ -15,7 +15,7 @@ function StaffActionsUser({ user }: { user: User }) {
 
             <DashboardButton href={`/dashboard/transfer-hackeroons/${user.id}`}>
                 <BiTransferAlt className="h-[40px] w-[40px]" />
-                Transfer Hackeroons
+                Give Hackeroons
             </DashboardButton>
 
             <DashboardButton href={`/dashboard/modify-user/${user.id}`}>
