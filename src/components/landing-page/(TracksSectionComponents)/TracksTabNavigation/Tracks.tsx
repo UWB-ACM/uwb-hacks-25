@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { RefObject, useState } from "react";
 import { Track } from "@/src/util/dataTypes";
 import TracksNav from "./TracksNav";
 import SelectedTrackInformation from "./SelectedTrackInformation";
 
 type TracksProps = {
+    tracksRef: RefObject<HTMLDivElement | null>;
     tracks: Track[];
-    className?: string;
 };
 
-export default function Tracks({ tracks, className }: TracksProps) {
+export default function Tracks({ tracksRef, tracks }: TracksProps) {
     const [selectedTrackIdx, setSelectedTrackIdx] = useState(0);
 
     return (
-        <div className={className}>
+        <div ref={tracksRef}>
             {/* Use to select track */}
             <TracksNav
                 tracks={tracks}
