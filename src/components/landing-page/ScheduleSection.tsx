@@ -36,6 +36,13 @@ const ScheduleSection: React.FC = () => {
                             location: "ARC Overlook",
                         },
                         {
+                            time: "10:00 AM - 11:00 AM",
+                            name: "GDG Team Formation Activity",
+                            description:
+                                "No team? No problem! Come build your dream team and network with your peers during this activity hosted by Google Developer Group (GDG).",
+                            location: "North Creek Event Center (NCEC)",
+                        },
+                        {
                             time: "12:00 PM - 1:30 PM",
                             name: "Opening Ceremony",
                             description:
@@ -62,6 +69,12 @@ const ScheduleSection: React.FC = () => {
                             description:
                                 "Teams may continue working on their projects anywhere outside the ARC",
                             location: "Anywhere on Campus",
+                        },
+                        {
+                            time: "3:00 PM - 4:00 PM",
+                            name: "Optional Activity",
+                            description: "Photoshoot with Holly the Husky!",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "4:30 PM - 5:00 PM",
