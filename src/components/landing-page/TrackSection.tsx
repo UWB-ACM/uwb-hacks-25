@@ -34,11 +34,24 @@ const TracksSection = () => {
             overflow: "hidden",
         });
 
+        // place track buttons offscreen
+        gsap.set(".track", { y: "-100vh", opacity: 0 });
+
         if (!showTracks) return;
         else {
             const tl = gsap.timeline();
+
+            // animate out panel content containing mystery box
+            tl.to(panelContentRef.current, {
+                delay: 0.5,
+                duration: 0.8,
+                height: 0,
+                overflow: "hidden",
+            });
+
             // animate in tracks comp
             tl.to(tracksRef.current, {
+                delay: 0.5,
                 height: "auto",
                 opacity: 1,
                 duration: 0.8,
@@ -46,11 +59,13 @@ const TracksSection = () => {
                 clearProps: "overflow",
             });
 
-            // animate out panel content containing mystery box
-            tl.to(panelContentRef.current, {
-                height: 0,
-                opacity: 0,
-                overflow: "hidden",
+            // return track buttons to original position
+            tl.to(".track", {
+                duration: 0.1,
+                y: 0,
+                opacity: 1,
+                ease: "power1.out",
+                stagger: 0.15,
             });
         }
     }, [showTracks]);
