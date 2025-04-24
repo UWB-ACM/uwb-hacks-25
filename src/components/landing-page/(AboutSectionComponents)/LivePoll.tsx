@@ -16,11 +16,11 @@ const LivePoll: React.FC = () => {
     return (
         <div
             className="strawpoll-embed"
-            id="strawpoll_wAg3QPRKdy8"
+            id="strawpoll_BJnXVRlxPZv"
             style={{
                 height: "544px",
                 maxWidth: "640px",
-                width: "100%",
+                width: "95%",
                 margin: "0 auto",
                 display: "flex",
                 flexDirection: "column",
@@ -28,8 +28,8 @@ const LivePoll: React.FC = () => {
         >
             <iframe
                 title="StrawPoll Embed"
-                id="strawpoll_iframe_wAg3QPRKdy8"
-                src="https://strawpoll.com/embed/wAg3QPRKdy8"
+                id="strawpoll_iframe_BJnXVRlxPZv"
+                src="https://strawpoll.com/embed/BJnXVRlxPZv"
                 style={{
                     position: "static",
                     visibility: "visible",
@@ -37,9 +37,6 @@ const LivePoll: React.FC = () => {
                     width: "100%",
                     flexGrow: 1,
                 }}
-                frameBorder="0"
-                allowFullScreen
-                allowTransparency
             >
                 Loading...
             </iframe>
