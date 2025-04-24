@@ -115,8 +115,7 @@ const ScheduleSection: React.FC = () => {
                         {
                             time: "2:00 PM - 4:00 PM",
                             name: "Optional Activity",
-                            description:
-                                "Photoshoot with Holly the Husky!",
+                            description: "Photoshoot with Holly the Husky!",
                             location: "ARC Overlook",
                         },
                         {
