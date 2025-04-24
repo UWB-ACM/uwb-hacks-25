@@ -37,7 +37,7 @@ const ScheduleSection: React.FC = () => {
                         },
                         {
                             time: "10:00 AM - 11:00 AM",
-                            name: "GDG Team Formation Activity",
+                            name: "Optional Activity",
                             description:
                                 "No team? No problem! Come build your dream team and network with your peers during this activity hosted by Google Developer Group (GDG).",
                             location: "North Creek Event Center (NCEC)",
