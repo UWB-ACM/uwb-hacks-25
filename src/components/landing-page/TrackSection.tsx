@@ -34,13 +34,12 @@ const TracksSection = () => {
     const selectedTrackRef = useRef<HTMLDivElement | null>(null);
     const livePollRef = useRef<HTMLDivElement | null>(null);
 
-    const [noAnimation] = useState<boolean>(
+    const [noAnimation, setNoAnimation] = useState<boolean>(
         sessionStorage.getItem("hackathonTracksShown") !== null,
     );
     const [startAnimation, setStartAnimation] = useState(false);
 
     useEffect(() => {
-
         if (noAnimation) {
             return;
         }
@@ -132,6 +131,7 @@ const TracksSection = () => {
                 onComplete: () => {
                     // set session storage to prevent animation from playing again
                     sessionStorage.setItem("hackathonTracksShown", "true");
+                    setNoAnimation(true);
                 },
             });
         }
@@ -153,10 +153,14 @@ const TracksSection = () => {
                     parentPanelId="tracksPanel"
                     className="relative flex flex-col items-center"
                 >
-                    <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[10%] left-[8%] rotate-[19deg]" />
-                    <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[20%] right-[14%] -rotate-[15deg]" />
-                    <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[10%] left-[16%] rotate-[28deg]" />
-                    <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[3%] right-[20%] -rotate-[40deg]" />
+                    {!noAnimation && (
+                        <>
+                            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[10%] left-[8%] rotate-[19deg]" />
+                            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] top-[20%] right-[14%] -rotate-[15deg]" />
+                            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[10%] left-[16%] rotate-[28deg]" />
+                            <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[3%] right-[20%] -rotate-[40deg]" />
+                        </>
+                    )}
 
                     {/* Pass name of each track as contents of mystery box */}
                     {!noAnimation && (
