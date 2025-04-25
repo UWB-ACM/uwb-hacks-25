@@ -19,101 +19,91 @@ import {
     bounceBox,
     popLid,
 } from "./MysteryBoxAnimationFunctions";
-import { RectangleEllipsis } from "lucide-react";
 
 type MysteryBoxProps = {
     contents: string[];
+    startAnimation: boolean;
     setShowTracks: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function MysteryBox({
     contents,
+    startAnimation,
     setShowTracks,
 }: MysteryBoxProps) {
     const tlRef = useRef<gsap.core.Timeline | null>(null);
     const mysteryBoxRef = useRef<HTMLButtonElement | null>(null);
     const mysteryBoxLidRef = useRef<HTMLDivElement | null>(null);
 
-    const [boxOpened, setBoxOpened] = useState(false);
-
-    // Initial animation for mystery box
     useEffect(() => {
+        // Initial animation for mystery box
         const mysteryBox = mysteryBoxRef.current;
-
         if (!mysteryBox) return;
-
         tlRef.current = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-
         shakeMysteryBox(tlRef, mysteryBox);
-    }, []);
 
-    const handleBoxOpen = () => {
-        if (boxOpened) return;
+        if (startAnimation) {
+            // scroll tracks section into view
+            const tracksSection = document.getElementById("tracks");
+            if (tracksSection) {
+                const tracksSectionRect = tracksSection.getBoundingClientRect();
 
-        setBoxOpened(true);
+                const scrollTo =
+                    window.pageYOffset + tracksSectionRect.top - 200;
 
-        // scroll tracks section into view
-        const tracksSection = document.getElementById("tracks");
-        if (tracksSection) {
-            const tracksSectionRect = tracksSection.getBoundingClientRect();
+                window.scrollTo({
+                    behavior: "smooth",
+                    top: scrollTo,
+                });
+            }
 
-            const scrollTo = window.pageYOffset + tracksSectionRect.top - 200;
+            // start mystery box animation
+            const mysteryBox = mysteryBoxRef.current;
+            const mysteryBoxLid = mysteryBoxLidRef.current;
+            const contentElements = document.querySelectorAll(".content");
 
-            window.scrollTo({
-                behavior: "smooth",
-                top: scrollTo,
+            if (!tlRef.current || !mysteryBox || !mysteryBoxLid) return;
+
+            tlRef.current.clear();
+            tlRef.current = gsap.timeline();
+            tlRef.current.to(mysteryBox, { x: 0, rotate: 0 });
+            tlRef.current.to(mysteryBox, {
+                y: 0,
+                duration: 0.75,
+            });
+
+            for (let i = 0; i < 3; i++) {
+                bounceBox(tlRef, mysteryBox, mysteryBoxLid, i);
+            }
+
+            popLid(tlRef, mysteryBox, mysteryBoxLid);
+
+            gsap.set(contentElements, { scale: 0.5 });
+
+            contentElements.forEach((content, idx) => {
+                const xOffset =
+                    (idx - Math.floor(contentElements.length / 2)) * 300;
+
+                if (!tlRef.current) return;
+                tlRef.current.to(
+                    content,
+                    {
+                        y: "-100vh",
+                        x: xOffset,
+                        rotate: `${(idx - Math.floor(contentElements.length / 2)) * 30}deg`,
+                        duration: 0.3,
+                        ease: "power1.out",
+                        scale: 1,
+                        onComplete: () => setShowTracks(true),
+                    },
+                    "<",
+                );
             });
         }
-
-        const mysteryBox = mysteryBoxRef.current;
-        const mysteryBoxLid = mysteryBoxLidRef.current;
-        const contentElements = document.querySelectorAll(".content");
-
-        if (!tlRef.current || !mysteryBox || !mysteryBoxLid) return;
-
-        tlRef.current.clear();
-        tlRef.current = gsap.timeline();
-        tlRef.current.to(mysteryBox, { x: 0, rotate: 0 });
-        tlRef.current.to(mysteryBox, {
-            y: 0,
-            duration: 0.75,
-        });
-
-        for (let i = 0; i < 3; i++) {
-            bounceBox(tlRef, mysteryBox, mysteryBoxLid, i);
-        }
-
-        popLid(tlRef, mysteryBox, mysteryBoxLid);
-
-        gsap.set(contentElements, { scale: 0.5 });
-
-        contentElements.forEach((content, idx) => {
-            const xOffset =
-                (idx - Math.floor(contentElements.length / 2)) * 300;
-
-            if (!tlRef.current) return;
-            tlRef.current.to(
-                content,
-                {
-                    y: "-100vh",
-                    x: xOffset,
-                    rotate: `${(idx - Math.floor(contentElements.length / 2)) * 30}deg`,
-                    duration: 0.3,
-                    ease: "power1.out",
-                    scale: 1,
-                    onComplete: () => setShowTracks(true),
-                },
-                "<",
-            );
-        });
-    };
+    }, [startAnimation]);
 
     return (
-        <button
-            ref={mysteryBoxRef}
-            onClick={handleBoxOpen}
-            className="relative"
-        >
+        <button ref={mysteryBoxRef} className="relative">
             <div className="z-20 relative">
                 <MysteryBoxContainer className="w-[200px] md:w-[325px] lg:w-[375px] h-fit" />
                 <MysteryBoxLid
