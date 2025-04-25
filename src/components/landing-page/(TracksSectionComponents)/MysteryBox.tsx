@@ -19,6 +19,7 @@ import {
     bounceBox,
     popLid,
 } from "./MysteryBoxAnimationFunctions";
+import { RectangleEllipsis } from "lucide-react";
 
 type MysteryBoxProps = {
     contents: string[];
@@ -50,6 +51,19 @@ export default function MysteryBox({
         if (boxOpened) return;
 
         setBoxOpened(true);
+
+        // scroll tracks section into view
+        const tracksSection = document.getElementById("tracks");
+        if (tracksSection) {
+            const tracksSectionRect = tracksSection.getBoundingClientRect();
+
+            const scrollTo = window.pageYOffset + tracksSectionRect.top - 200;
+
+            window.scrollTo({
+                behavior: "smooth",
+                top: scrollTo,
+            });
+        }
 
         const mysteryBox = mysteryBoxRef.current;
         const mysteryBoxLid = mysteryBoxLidRef.current;
