@@ -52,7 +52,7 @@ const AboutSection: React.FC<{
                 >
                     About
                 </PanelHeader>
-                
+
                 {/* UWBHacks About Section Content */}
                 <PanelContent
                     parentPanelId="aboutPanel"
@@ -94,8 +94,6 @@ const AboutSection: React.FC<{
                     </div>
                 </PanelContent>
             </Panel>
-            
-            
 
             {/* Previous UWBHacks Fun Statistics Container */}
             <Panel
