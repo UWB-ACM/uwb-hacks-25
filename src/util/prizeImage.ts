@@ -24,7 +24,9 @@ import HuskySticker from "@/public/hackeroonShop/huskySticker.jpg";
 import UWBPenantKeychain from "@/public/hackeroonShop/uwbPenantKeychain.jpg";
 import UWSticker from "@/public/hackeroonShop/uwSticker.jpg";
 import UWBPenant from "@/public/hackeroonShop/uwbPenant.jpg";
-// import PurpleWaterBottle from "@/public/hackeroonShop/purpleWaterBottle.jpg";
+import USBDock from "@/public/hackeroonShop/usbDock.png";
+import LegoDinosaur from "@/public/hackeroonShop/legoDinosaur.png";
+import PurpleWaterBottle from "@/public/hackeroonShop/purpleWaterBottle.png";
 
 export const retrievePrizeImage = (
     prizeName: string | null,
@@ -78,8 +80,12 @@ export const retrievePrizeImage = (
             return UWSticker;
         case "uwbPenant":
             return UWBPenant;
-        // case "purpleWaterBottle":
-        //     return PurpleWaterBottle
+        case "usbDock":
+            return USBDock;
+        case "legoDinosaur":
+            return LegoDinosaur;
+        case "purpleWaterBottle":
+            return PurpleWaterBottle;
         default:
             return DefaultImage;
     }
