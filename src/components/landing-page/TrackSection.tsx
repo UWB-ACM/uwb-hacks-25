@@ -36,6 +36,7 @@ const TracksSection = () => {
         // set initial animation state for tracks comp
         gsap.set(tracksNavRef.current, {
             height: 0,
+            border: 0,
             overflow: "hidden",
         });
         gsap.set(selectedTrackRef.current, {
@@ -67,13 +68,12 @@ const TracksSection = () => {
                 overflow: "hidden",
             });
 
-            // animate in tracks navigation comp
             tl.to(tracksNavRef.current, {
                 delay: 0.5,
                 height: "auto",
                 duration: 0.8,
                 ease: "bounce.out",
-                clearProps: "overflow",
+                clearProps: "overflow,border",
             });
 
             // return track buttons to original position
