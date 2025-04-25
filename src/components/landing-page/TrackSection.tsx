@@ -34,9 +34,17 @@ const TracksSection = () => {
     const selectedTrackRef = useRef<HTMLDivElement | null>(null);
     const livePollRef = useRef<HTMLDivElement | null>(null);
 
+    const [noAnimation] = useState<boolean>(
+        sessionStorage.getItem("hackathonTracksShown") !== null,
+    );
     const [startAnimation, setStartAnimation] = useState(false);
 
     useEffect(() => {
+
+        if (noAnimation) {
+            return;
+        }
+
         // set initial animation state for tracks comp
         gsap.set(tracksNavRef.current, {
             height: 0,
@@ -121,6 +129,10 @@ const TracksSection = () => {
             }).to(livePollRef.current, {
                 duration: 0.3,
                 opacity: 1,
+                onComplete: () => {
+                    // set session storage to prevent animation from playing again
+                    sessionStorage.setItem("hackathonTracksShown", "true");
+                },
             });
         }
     }, [showTracks]);
@@ -147,11 +159,13 @@ const TracksSection = () => {
                     <QuestionMark className="w-[65px] md:w-[80px] lg:w-[100px] xl:w-[125px] bottom-[3%] right-[20%] -rotate-[40deg]" />
 
                     {/* Pass name of each track as contents of mystery box */}
-                    <MysteryBox
-                        contents={tracks.map((track) => track["name"])}
-                        startAnimation={startAnimation}
-                        setShowTracks={setShowTracks}
-                    />
+                    {!noAnimation && (
+                        <MysteryBox
+                            contents={tracks.map((track) => track["name"])}
+                            startAnimation={startAnimation}
+                            setShowTracks={setShowTracks}
+                        />
+                    )}
                 </PanelContent>
             </div>
 
