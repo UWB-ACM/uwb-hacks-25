@@ -122,12 +122,12 @@ export default async function GuidePage() {
                                 title="Photo with Holly"
                                 points={50}
                                 details="Say cheese with Holly! (Redeem once)."
-                                time="📍 NCEC | ⏰ 2:00 PM - 4:00 PM"
+                                time="📍 NCEC | ⏰ 3:00 PM - 4:00 PM"
                             />
                             <PointItem
                                 title="Fireside Chat (ARC)"
                                 points={100}
-                                details="Attend a fireside chat with Cameron Bielstein (Redeem once). 📍 NCEC | ⏰ 4:30 PM - 5:00 PM"
+                                details="Attend a fireside chat with Cameron Bielstein (Redeem once). 📍 NCEC | ⏰ 4:30 PM - 5:30 PM"
                             />
                         </ul>
                     </div>

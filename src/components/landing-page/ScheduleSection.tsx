@@ -30,16 +30,16 @@ const ScheduleSection: React.FC = () => {
                     events={[
                         {
                             time: "10:00 AM - 11:45 AM",
-                            name: "Check-In and Team Formation",
+                            name: "Check-In",
                             description:
-                                "Participants check in, enjoy coffee and snacks, and can join an optional team formation session.",
+                                "Participants check in, enjoy coffee and snacks.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "10:00 AM - 11:00 AM",
-                            name: "Optional Activity",
+                            name: "Team Formation",
                             description:
-                                "No team? No problem! Come build your dream team and network with your peers during this activity hosted by Google Developer Group (GDG).",
+                                "Optional Activity: No team? No problem! Come build your dream team and network with your peers during this activity hosted by Google Developer Group (GDG).",
                             location: "North Creek Event Center (NCEC)",
                         },
                         {
@@ -50,37 +50,31 @@ const ScheduleSection: React.FC = () => {
                             location: "ARC Overlook",
                         },
                         {
-                            time: "1:30 PM - 4:00 PM",
-                            name: "ARC Closes for Setup",
-                            description:
-                                "The ARC will be closed for event setup.",
-                            location: "Relocate to NCEC or other locations",
-                        },
-                        {
                             time: "1:30 PM - 2:30 PM",
                             name: "Lunch",
                             description:
-                                "Enjoy lunch in the NCEC with fellow participants.",
-                            location: "North Creek Event Center (NCEC)",
+                                "Enjoy lunch in the Plaza with fellow participants.",
+                            location: "Plaza",
                         },
                         {
-                            time: "2:30 PM - 4:00 PM",
-                            name: "In-Person Work Time",
-                            description:
-                                "Teams may continue working on their projects anywhere outside the ARC",
-                            location: "Anywhere on Campus",
+                            time: "1:30 PM - 4:00 PM",
+                            name: "ARC Closes for Setup",
+                            description: `The ARC will be closed for event setup. Enjoy lunch in the Plaza while relocating to any of these overflow spaces: 
+                                NCEC, DISC-061, DISC 165B, UW2-005, UW2-031, DISC-152 (The Collaboratory): Mentoring Space`,
+                            location: "Relocate to NCEC or other locations",
                         },
                         {
                             time: "3:00 PM - 4:00 PM",
-                            name: "Optional Activity",
-                            description: "Photoshoot with Holly the Husky!",
+                            name: "Photo Ops w/ Holly the Husky",
+                            description:
+                                "Optional: Take pictures with Holly the Husky!",
                             location: "ARC Overlook",
                         },
                         {
-                            time: "4:30 PM - 5:00 PM",
+                            time: "4:30 PM - 5:30 PM",
                             name: "Fireside Chat w/ Cameron Bielstein",
                             description:
-                                "Join Cameron Bielstein, Engineering Manager at Allen Institute, for an engaging fireside chat.",
+                                "Optional: Join Cameron Bielstein, Engineering Manager at Allen Institute, for an engaging fireside chat.",
                             location: "North Creek Event Center (NCEC)",
                         },
                         {
@@ -107,9 +101,9 @@ const ScheduleSection: React.FC = () => {
                         },
                         {
                             time: "12:00 PM - 12:30 PM",
-                            name: "Guest Speaker",
+                            name: "Fireside Chat w/ Corporate Partners",
                             description:
-                                "A guest speaker shares insights and inspiration.",
+                                "Optional: Tune in for a fireside chat with industry leaders to learn about their experiences and insights.",
                             location: "North Creek Event Center (NCEC)",
                         },
                         {
@@ -120,22 +114,24 @@ const ScheduleSection: React.FC = () => {
                         },
                         {
                             time: "1:00 PM - 3:00 PM",
-                            name: "Optional Activity",
+                            name: "Talk with Kody the Chatbot",
                             description:
-                                "Cascadia Programmers: Talk with Kody the Chatbot",
+                                "Optional: Cascadia Programmers will be hosting a talk with Kody the Chatbot.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "2:00 PM - 4:00 PM",
-                            name: "Optional Activity",
-                            description: "Photoshoot with Holly the Husky!",
+                            name: "Photo Ops w/ Holly the Husky",
+                            description:
+                                "Optional: Take pictures with Holly the Husky!",
                             location: "ARC Overlook",
                         },
                         {
                             time: "4:00 PM - 6:00 PM",
-                            name: "Optional Activity",
-                            description: "Badminton Social Club",
-                            location: "ARC Overlook",
+                            name: "Badminton Social",
+                            description:
+                                "Take a break and enjoy some badminton!",
+                            location: "Sports Field",
                         },
                         {
                             time: "4:00 PM - 8:00 PM",
@@ -160,24 +156,25 @@ const ScheduleSection: React.FC = () => {
                             location: "ARC Overlook",
                         },
                         {
+                            time: "10:00 AM",
+                            name: "HACKING CONCLUDES. SUBMIT YOUR PROJECT!",
+                            description: "All teams submit their projects",
+                            location: "ARC Overlook",
+                        },
+                        {
                             time: "9:00 AM - 2:00 PM",
                             name: "Hackeroon Shop Opens",
                             description:
                                 "Participants can redeem Hackeroon tickets for prizes",
                             location: "ARC Overlook",
                         },
-                        {
-                            time: "10:00 AM - 10:30 AM",
-                            name: "Hacking Concludes",
-                            description: "All teams submit their projects",
-                            location: "ARC Overlook",
-                        },
+
                         {
                             time: "10:50 AM - 12:50 PM",
                             name: "Judging, Demo Day, and Tabling",
                             description:
-                                "Teams present their projects for judging. During judging, participants can explore demo tables showcasing projects from other teams.",
-                            location: "ARC Overlook",
+                                "Industry tabling will be in the ARC, optionally teams can show off their projects in the NCEC. Judging will be happening concurrently.",
+                            location: "ARC Overlook and NCEC",
                         },
                         {
                             time: "1:00 PM - 2:00 PM",
@@ -191,25 +188,32 @@ const ScheduleSection: React.FC = () => {
                             name: "Massive Group Photo",
                             description:
                                 "Take a group photo to commemorate the event.",
-                            location: "Field",
+                            location: "Sports Field",
+                        },
+                        {
+                            time: "2:30 PM",
+                            name: "Finalists Announced",
+                            description:
+                                "The top teams for each track are announced.",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "2:30 PM - 4:00 PM",
-                            name: "Finalist Presentations",
+                            name: "Finalists Presentations",
                             description:
-                                "Finalists present their projects to the judges.",
+                                "Finalists present their projects to the judges and crowd.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "4:00 PM - 4:30 PM",
                             name: "Final Deliberations",
                             description:
-                                "Judges deliberate to select the winners.",
+                                "Judges deliberate to select the winners. Donuts will be served.",
                             location: "ARC Overlook",
                         },
                         {
                             time: "4:30 PM - 5:00 PM",
-                            name: "Winners Announced",
+                            name: "Grand Prize Winners Announced",
                             description: "Winners of the event are announced.",
                             location: "ARC Overlook",
                         },
