@@ -29,7 +29,7 @@ const ScheduleSection: React.FC = () => {
                     spirit="Fandom Day"
                     events={[
                         {
-                            time: "10:00 AM - 11:45 AM",
+                            time: "9:30 AM - 11:45 AM",
                             name: "Check-In",
                             description:
                                 "Participants check in, enjoy coffee and snacks.",
