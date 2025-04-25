@@ -72,9 +72,9 @@ const ScheduleSection: React.FC = () => {
                         },
                         {
                             time: "4:30 PM - 5:30 PM",
-                            name: "Fireside Chat w/ Cameron Bielstein",
+                            name: "Fireside Chat w/ Cameron Bielstein and Armora Rama",
                             description:
-                                "Optional: Join Cameron Bielstein, Engineering Manager at Allen Institute, for an engaging fireside chat.",
+                                "Optional: Join Cameron Bielstein, Engineering Manager at Allen Institute, and Armora Rama, Founder at ThinkCyber and Researcher at Microsoft, for an engaging fireside chat.",
                             location: "North Creek Event Center (NCEC)",
                         },
                         {
