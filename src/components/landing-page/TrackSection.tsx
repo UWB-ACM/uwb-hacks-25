@@ -30,6 +30,7 @@ const TracksSection = () => {
     const panelContentRef = useRef<HTMLDivElement | null>(null);
     const tracksNavRef = useRef<HTMLDivElement | null>(null);
     const selectedTrackRef = useRef<HTMLDivElement | null>(null);
+    const livePollRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         // set initial animation state for tracks comp
@@ -38,6 +39,12 @@ const TracksSection = () => {
             overflow: "hidden",
         });
         gsap.set(selectedTrackRef.current, {
+            height: 0,
+            padding: 0,
+            opacity: 0,
+            overflow: "hidden",
+        });
+        gsap.set(livePollRef.current, {
             height: 0,
             padding: 0,
             opacity: 0,
@@ -79,14 +86,27 @@ const TracksSection = () => {
 
             // animate in selected track comp
             tl.to(selectedTrackRef.current, {
-                delay: 0.3,
+                delay: 0.5,
                 height: "auto",
                 padding: window.innerWidth < 800 ? "24px" : "40px",
-                duration: 0.8,
+                duration: 0.5,
                 ease: "bounce.out",
                 clearProps: "overflow",
             }).to(selectedTrackRef.current, {
-                duration: 1.5,
+                duration: 0.3,
+                opacity: 1,
+            });
+
+            // animate in live poll comp
+            tl.to(livePollRef.current, {
+                delay: 0.1,
+                height: "auto",
+                padding: window.innerWidth < 800 ? "24px" : "40px",
+                duration: 0.5,
+                ease: "bounce.out",
+                clearProps: "overflow",
+            }).to(livePollRef.current, {
+                duration: 0.3,
                 opacity: 1,
             });
         }
@@ -127,9 +147,7 @@ const TracksSection = () => {
                 selectedTrackRef={selectedTrackRef}
             />
 
-            <div className="p-6 md:p-10 border-black border-t-2">
-                <LivePoll />
-            </div>
+            <LivePoll livePollRef={livePollRef} />
         </Panel>
     );
 };
