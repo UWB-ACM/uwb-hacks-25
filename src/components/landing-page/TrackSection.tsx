@@ -90,7 +90,7 @@ const TracksSection = () => {
                 delay: 0.5,
                 height: "auto",
                 padding: window.innerWidth < 800 ? "24px" : "40px",
-                duration: 0.5,
+                duration: 0.75,
                 ease: "bounce.out",
                 clearProps: "overflow",
             }).to(selectedTrackRef.current, {
