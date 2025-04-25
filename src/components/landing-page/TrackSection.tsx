@@ -48,6 +48,7 @@ const TracksSection = () => {
             height: 0,
             padding: 0,
             opacity: 0,
+            borderTop: 0,
             overflow: "hidden",
         });
 
@@ -99,8 +100,9 @@ const TracksSection = () => {
 
             // animate in live poll comp
             tl.to(livePollRef.current, {
-                delay: 0.1,
+                delay: 0.3,
                 height: "auto",
+                borderTop: 4,
                 padding: window.innerWidth < 800 ? "24px" : "40px",
                 duration: 0.5,
                 ease: "bounce.out",
