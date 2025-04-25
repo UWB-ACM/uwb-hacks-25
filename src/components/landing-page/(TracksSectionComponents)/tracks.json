@@ -1,0 +1,46 @@
+{
+    "tracks": [
+        {
+            "name": "Business",
+            "question": "How can businesses and financial systems drive sustainability and ethical growth?",
+            "description": "A business or financial model can save the world by creating sustainable economic models, promoting ethical finance, and ensuring resource access for all. Profit and purpose should go hand in hand for global positive change.",
+            "noCodeExample": "Social Impact Marketplace - Connecting ethical businesses with conscious consumers.",
+            "lowCodeExample": "Automated Ethical Supply Chain Tracker - Ensuring fair trade and sustainability in supply chains."
+        },
+        {
+            "name": "Personal Development",
+            "question": "How can physical and mental health be improved globally?",
+            "description": "Physical and mental health are in decline, with rising mental health issues and inactivity. Projects to help people get active or connect to the right resources can make a significant impact.",
+            "noCodeExample": "Mental Health Resource Finder - Curating mental health resources in one place.",
+            "lowCodeExample": "AI-Powered Workout Planner - Automating workout planning with AI."
+        },
+        {
+            "name": "Entertainment",
+            "question": "How can entertainment and media inspire action and create change?",
+            "description": "Entertainment and media shape perceptions and inspire action. By engaging audiences with complex issues, these industries can drive social impact.",
+            "noCodeExample": "Interactive Climate Awareness Quiz - Educating users on environmental issues.",
+            "lowCodeExample": "AI-Powered Misinformation Detector - Identifying misleading news and social media content."
+        },
+        {
+            "name": "Biotech",
+            "question": "How can biotech and medical advancements improve global health?",
+            "description": "Biotech and medical research drive healthcare innovations and extend lifespans. These fields address major health challenges with breakthrough treatments and preventive strategies.",
+            "noCodeExample": "Personalized Health Guide - A chatbot or web app offering wellness tips based on user input.",
+            "lowCodeExample": "AI Symptom Checker - A tool that analyzes symptoms and suggests possible conditions."
+        },
+        {
+            "name": "Government",
+            "question": "How can government initiatives drive equity and smarter governance?",
+            "description": "Governments can transform sectors like transportation, city planning, and education, creating a better future through technology and progressive policies.",
+            "noCodeExample": "Community Resource Navigator - Helping residents access local government programs",
+            "lowCodeExample": "Smart Infrastructure Monitoring Tool - Tracking infrastructure needs to prevent costly failures."
+        },
+        {
+            "name": "Security",
+            "question": "How can safety solutions protect people and systems against harm?",
+            "description": "Safety and security are essential for resilience. By anticipating and responding to risks—whether digital, physical, or environmental—we can build a safer, smarter, and more sustainable world.",
+            "noCodeExample": "Community Safety Alert App - Reporting and receiving safety alerts in real-time.",
+            "lowCodeExample": "AI-Driven Home & Climate Security Dashboard - Using IoT and AI for digital and environmental threat alerts."
+        }
+    ]
+}

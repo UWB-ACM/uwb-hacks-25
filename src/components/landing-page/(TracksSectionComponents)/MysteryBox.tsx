@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-    useRef,
-    useState,
-    useEffect,
-    Dispatch,
-    SetStateAction,
-} from "react";
+import React, { useRef, useEffect, Dispatch, SetStateAction } from "react";
 import gsap from "gsap";
 
 // Mystery box components
@@ -14,92 +8,83 @@ import MysteryBoxContainer from "./MysteryBoxContainer";
 import MysteryBoxLid from "./MysteryBoxLid";
 
 // Mystery box animation functions
-import {
-    shakeMysteryBox,
-    bounceBox,
-    popLid,
-} from "./MysteryBoxAnimationFunctions";
+import { bounceBox, popLid } from "./MysteryBoxAnimationFunctions";
 
 type MysteryBoxProps = {
     contents: string[];
+    startAnimation: boolean;
     setShowTracks: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function MysteryBox({
     contents,
+    startAnimation,
     setShowTracks,
 }: MysteryBoxProps) {
-    const tlRef = useRef<gsap.core.Timeline | null>(null);
-    const mysteryBoxRef = useRef<HTMLButtonElement | null>(null);
+    const mysteryBoxRef = useRef<HTMLDivElement | null>(null);
     const mysteryBoxLidRef = useRef<HTMLDivElement | null>(null);
 
-    const [boxOpened, setBoxOpened] = useState(false);
-
-    // Initial animation for mystery box
     useEffect(() => {
+        // Initial animation for mystery box
         const mysteryBox = mysteryBoxRef.current;
-
         if (!mysteryBox) return;
 
-        tlRef.current = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+        if (startAnimation) {
+            // scroll tracks section into view
+            const tracksSection = document.getElementById("tracks");
+            if (tracksSection) {
+                const tracksSectionRect = tracksSection.getBoundingClientRect();
 
-        shakeMysteryBox(tlRef, mysteryBox);
-    }, []);
+                const scrollTo =
+                    window.pageYOffset + tracksSectionRect.top - 200;
 
-    const handleBoxOpen = () => {
-        if (boxOpened) return;
+                window.scrollTo({
+                    behavior: "smooth",
+                    top: scrollTo,
+                });
+            }
 
-        setBoxOpened(true);
+            // start mystery box animation
+            const mysteryBox = mysteryBoxRef.current;
+            const mysteryBoxLid = mysteryBoxLidRef.current;
+            const contentElements = document.querySelectorAll(".content");
 
-        const mysteryBox = mysteryBoxRef.current;
-        const mysteryBoxLid = mysteryBoxLidRef.current;
-        const contentElements = document.querySelectorAll(".content");
+            if (!mysteryBox || !mysteryBoxLid) return;
 
-        if (!tlRef.current || !mysteryBox || !mysteryBoxLid) return;
+            const tl = gsap.timeline({ delay: 0.5 });
 
-        tlRef.current.clear();
-        tlRef.current = gsap.timeline();
-        tlRef.current.to(mysteryBox, { x: 0, rotate: 0 });
-        tlRef.current.to(mysteryBox, {
-            y: 0,
-            duration: 0.75,
-        });
+            for (let i = 0; i < 3; i++) {
+                bounceBox(tl, mysteryBox, mysteryBoxLid, i);
+            }
 
-        for (let i = 0; i < 3; i++) {
-            bounceBox(tlRef, mysteryBox, mysteryBoxLid, i);
+            popLid(tl, mysteryBox, mysteryBoxLid);
+
+            gsap.set(contentElements, { scale: 0.5 });
+
+            contentElements.forEach((content, idx) => {
+                const xOffset =
+                    (idx - Math.floor(contentElements.length / 2)) * 300;
+
+                if (!tl) return;
+                tl.to(
+                    content,
+                    {
+                        y: "-100vh",
+                        x: xOffset,
+                        rotate: `${(idx - Math.floor(contentElements.length / 2)) * 30}deg`,
+                        duration: 0.3,
+                        ease: "power1.out",
+                        scale: 1,
+                        onComplete: () => setShowTracks(true),
+                    },
+                    "<",
+                );
+            });
         }
-
-        popLid(tlRef, mysteryBox, mysteryBoxLid);
-
-        gsap.set(contentElements, { scale: 0.5 });
-
-        contentElements.forEach((content, idx) => {
-            const xOffset =
-                (idx - Math.floor(contentElements.length / 2)) * 300;
-
-            if (!tlRef.current) return;
-            tlRef.current.to(
-                content,
-                {
-                    y: "-100vh",
-                    x: xOffset,
-                    rotate: `${(idx - Math.floor(contentElements.length / 2)) * 30}deg`,
-                    duration: 0.3,
-                    ease: "power1.out",
-                    scale: 1,
-                    onComplete: () => setShowTracks(true),
-                },
-                "<",
-            );
-        });
-    };
+    }, [startAnimation]);
 
     return (
-        <button
-            ref={mysteryBoxRef}
-            onClick={handleBoxOpen}
-            className="relative"
-        >
+        <div ref={mysteryBoxRef} className="relative">
             <div className="z-20 relative">
                 <MysteryBoxContainer className="w-[200px] md:w-[325px] lg:w-[375px] h-fit" />
                 <MysteryBoxLid
@@ -116,6 +101,6 @@ export default function MysteryBox({
                     {content}
                 </p>
             ))}
-        </button>
+        </div>
     );
 }
