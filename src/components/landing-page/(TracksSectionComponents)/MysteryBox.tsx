@@ -21,7 +21,7 @@ export default function MysteryBox({
     startAnimation,
     setShowTracks,
 }: MysteryBoxProps) {
-    const mysteryBoxRef = useRef<HTMLButtonElement | null>(null);
+    const mysteryBoxRef = useRef<HTMLDivElement | null>(null);
     const mysteryBoxLidRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -84,7 +84,7 @@ export default function MysteryBox({
     }, [startAnimation]);
 
     return (
-        <button ref={mysteryBoxRef} className="relative">
+        <div ref={mysteryBoxRef} className="relative">
             <div className="z-20 relative">
                 <MysteryBoxContainer className="w-[200px] md:w-[325px] lg:w-[375px] h-fit" />
                 <MysteryBoxLid
@@ -101,6 +101,6 @@ export default function MysteryBox({
                     {content}
                 </p>
             ))}
-        </button>
+        </div>
     );
 }
