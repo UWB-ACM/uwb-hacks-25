@@ -75,13 +75,15 @@ export default function MysteryBox({
                         duration: 0.3,
                         ease: "power1.out",
                         scale: 1,
-                        onComplete: () => {setShowTracks(true);},
+                        onComplete: () => {
+                            setShowTracks(true);
+                        },
                     },
                     "<",
                 );
             });
         }
-    }, [startAnimation]);
+    }, [startAnimation, setShowTracks]);
 
     return (
         <div ref={mysteryBoxRef} className="relative">

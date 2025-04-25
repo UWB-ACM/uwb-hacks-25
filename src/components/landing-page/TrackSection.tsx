@@ -135,7 +135,7 @@ const TracksSection = () => {
                 },
             });
         }
-    }, [showTracks]);
+    }, [showTracks, noAnimation]);
 
     return (
         <Panel id="tracksPanel" className={panelMargin} panelColor="white">
