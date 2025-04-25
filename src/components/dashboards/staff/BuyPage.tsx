@@ -98,7 +98,7 @@ export default function BuyPage({
         setLoading(false);
     };
 
-    const transactionTitle = useMemo(() => {
+    const [transactionTitle, transactionColor] = useMemo(() => {
         let successCount = 0;
         let failureCount = 0;
 
@@ -111,14 +111,14 @@ export default function BuyPage({
         }
 
         if (successCount === buyResponse.length) {
-            return "Success";
+            return ["Success", "bg-green-400"];
         }
 
         if (failureCount === buyResponse.length) {
-            return "Failure";
+            return ["Failure", "bg-red-400"];
         }
 
-        return "Some Transactions Failed";
+        return ["Some Transactions Failed", "bg-yellow-400"];
     }, [buyResponse]);
 
     const transactionBody = useMemo(() => {
@@ -240,6 +240,7 @@ export default function BuyPage({
                 setOpen={setIsModalOpen}
                 title={transactionTitle}
                 description={transactionBody}
+                className={transactionColor}
             />
         </>
     );
