@@ -2,6 +2,8 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 // Panel components
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
@@ -32,6 +34,8 @@ const TracksSection = () => {
     const selectedTrackRef = useRef<HTMLDivElement | null>(null);
     const livePollRef = useRef<HTMLDivElement | null>(null);
 
+    const [startAnimation, setStartAnimation] = useState(false);
+
     useEffect(() => {
         // set initial animation state for tracks comp
         gsap.set(tracksNavRef.current, {
@@ -55,6 +59,14 @@ const TracksSection = () => {
 
         // place track buttons offscreen
         gsap.set(".track", { y: "-100vh", opacity: 0 });
+
+        // set scroll trigger to activate mystery box animation
+        ScrollTrigger.create({
+            trigger: "#tracksPanel",
+            start: "30% 80%",
+            markers: true,
+            onEnter: () => setStartAnimation(true),
+        });
 
         if (!showTracks) return;
         else {
@@ -138,6 +150,7 @@ const TracksSection = () => {
                     {/* Pass name of each track as contents of mystery box */}
                     <MysteryBox
                         contents={tracks.map((track) => track["name"])}
+                        startAnimation={startAnimation}
                         setShowTracks={setShowTracks}
                     />
                 </PanelContent>
