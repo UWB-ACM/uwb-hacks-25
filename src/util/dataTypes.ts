@@ -445,3 +445,33 @@ export const typeNameMap: Record<TransactionType, string> = {
         "Professional Costume (Sunday)",
     [TransactionType.SundayDemoDay]: "Demo Day (Sunday)",
 };
+
+/**
+ * Structure of each Track record
+ */
+export interface Track {
+    /**
+     * name of track
+     */
+    name: string;
+
+    /**
+     * question related to track (helps explain tracks goal)
+     */
+    question: string;
+
+    /**
+     * track description
+     */
+    description: string;
+
+    /**
+     * no code example of track
+     */
+    noCodeExample: string;
+
+    /**
+     * low code / code example of track
+     */
+    lowCodeExample: string;
+}

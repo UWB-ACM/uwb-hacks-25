@@ -1,46 +1,13 @@
 import gsap from "gsap";
 
-const shakeMysteryBox = (
-    tlRef: React.RefObject<gsap.core.Timeline | null>,
-    mysteryBox: HTMLButtonElement,
-) => {
-    if (!tlRef.current) return;
-
-    const shake = () => {
-        if (!tlRef.current) return;
-
-        tlRef.current.to(mysteryBox, {
-            x: 5,
-            rotate: "2.5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-        tlRef.current.to(mysteryBox, {
-            x: -5,
-            rotate: "-2.5deg",
-            duration: 0.15,
-            ease: "power1.out",
-        });
-    };
-
-    tlRef.current.to(mysteryBox, {
-        y: "-2vh",
-        duration: 0.75,
-    });
-    for (let idx = 0; idx < 3; idx++) {
-        shake();
-    }
-    tlRef.current.to(mysteryBox, { x: 0, y: 0, rotate: 0, duration: 0.3 });
-};
-
 const bounceBox = (
-    tlRef: React.RefObject<gsap.core.Timeline | null>,
-    mysteryBox: HTMLButtonElement,
+    tl: gsap.core.Timeline,
+    mysteryBox: HTMLDivElement,
     mysteryBoxLid: HTMLDivElement,
     i: number,
 ) => {
-    if (!tlRef.current) return;
-    tlRef.current.to(mysteryBox, {
+    if (!tl) return;
+    tl.to(mysteryBox, {
         delay: 0.4,
         duration: 0.2,
         y: -10 + i * -5,
@@ -56,7 +23,7 @@ const bounceBox = (
             gsap.to(mysteryBoxLid, { x: 0, y: 0, rotate: 0 });
         },
     });
-    tlRef.current.to(mysteryBox, {
+    tl.to(mysteryBox, {
         y: 0,
         duration: 0.2,
         ease: "power2.in",
@@ -64,14 +31,14 @@ const bounceBox = (
 };
 
 const popLid = (
-    tlRef: React.RefObject<gsap.core.Timeline | null>,
-    mysteryBox: HTMLButtonElement,
+    tl: gsap.core.Timeline,
+    mysteryBox: HTMLDivElement,
     mysteryBoxLid: HTMLDivElement,
 ) => {
-    if (!tlRef.current) return;
+    if (!tl) return;
     const lidPopLeft = Math.random() >= 0.5 ? true : false;
 
-    tlRef.current.to(
+    tl.to(
         mysteryBoxLid,
         {
             delay: 0.5,
@@ -84,7 +51,7 @@ const popLid = (
         "start",
     );
 
-    tlRef.current.to(
+    tl.to(
         mysteryBox,
         {
             delay: 0.5,
@@ -97,7 +64,7 @@ const popLid = (
         "start",
     );
 
-    tlRef.current.to(mysteryBox, {
+    tl.to(mysteryBox, {
         y: 0,
         x: lidPopLeft ? "3px" : "-3px",
         rotate: lidPopLeft ? "2deg" : "-2deg",
@@ -105,16 +72,16 @@ const popLid = (
         ease: "power1.out",
     });
 
-    tlRef.current.to(mysteryBox, {
+    tl.to(mysteryBox, {
         y: 0,
         x: 0,
         rotate: 0,
         duration: 0.2,
     });
 
-    tlRef.current.set(mysteryBoxLid, { zIndex: -5 });
+    tl.set(mysteryBoxLid, { zIndex: -5 });
 
-    tlRef.current.to(mysteryBoxLid, {
+    tl.to(mysteryBoxLid, {
         delay: 0.75,
         scale: 0,
         y: "100vh",
@@ -124,4 +91,4 @@ const popLid = (
     });
 };
 
-export { shakeMysteryBox, bounceBox, popLid };
+export { bounceBox, popLid };
