@@ -5,8 +5,8 @@ import AvanadeImage from "@/public/sponsorsSection/avanade-logo.svg";
 import FutureForceImage from "@/public/sponsorsSection/futureforce.jpg";
 import IEEESeattleImage from "@/public/sponsorsSection/ieee-seattle.png";
 import MaddKitchenImage from "@/public/sponsorsSection/madkitchen.png";
+import ITServeImage from "@/public/sponsorsSection/itserve.png";
 import Link from "next/link";
-
 import Panel from "./(AboutSectionComponents)/Panel/Panel";
 import PanelHeader from "./(AboutSectionComponents)/Panel/Header";
 import PanelContent from "./(AboutSectionComponents)/Panel/Content";
@@ -109,6 +109,21 @@ const SponsorsSection = () => {
                                 width={175}
                                 height={80}
                                 alt="Future Force"
+                                className="object-contain"
+                            />
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Third sponsors row */}
+                <div className="w-full flex flex-wrap justify-center items-center gap-8 md:gap-16 pt-20">
+                    <div className="flex justify-center items-center">
+                        <Link href="https://itserve.org/" target="_blank">
+                            <Image
+                                src={ITServeImage}
+                                width={200}
+                                height={80}
+                                alt="ITServe"
                                 className="object-contain"
                             />
                         </Link>
