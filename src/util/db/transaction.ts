@@ -68,6 +68,7 @@ export async function createTransaction(
         case TransactionType.SaturdayTalkWithDanTerry:
         case TransactionType.SaturdayPhotoWithHolly:
         case TransactionType.SaturdayTalkToKody:
+        case TransactionType.SaturdaySandbox:
         case TransactionType.SaturdayBadmintonSocial:
 
         case TransactionType.SundayCostumeProfessional:

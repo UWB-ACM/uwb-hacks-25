@@ -326,6 +326,8 @@ export enum TransactionType {
 
     SaturdayTalkToKody = 14,
 
+    SaturdaySandbox = 17,
+
     SaturdayBadmintonSocial = 15,
 
     /** Sunday Transactions! */
@@ -350,6 +352,7 @@ export const valuedTransactionAmounts = {
     [TransactionType.SaturdayTalkWithDanTerry]: 100,
     [TransactionType.SaturdayPhotoWithHolly]: 50,
     [TransactionType.SaturdayTalkToKody]: 50,
+    [TransactionType.SaturdaySandbox]: 50,
     [TransactionType.SaturdayBadmintonSocial]: 100,
 
     [TransactionType.SundayCostumeProfessional]: 100,
@@ -376,6 +379,7 @@ export const valuedTransactionLimits: Record<
     [TransactionType.SaturdayTalkWithDanTerry]: 1,
     [TransactionType.SaturdayPhotoWithHolly]: 1,
     [TransactionType.SaturdayTalkToKody]: 1,
+    [TransactionType.SaturdaySandbox]: 1,
     [TransactionType.SaturdayBadmintonSocial]: 1,
 
     [TransactionType.SundayCostumeProfessional]: 1,
@@ -394,6 +398,7 @@ export const reasonTypeMap = {
     "saturday-costume-husky": TransactionType.SaturdayCostumeHusky,
     "saturday-talk-dan-terry": TransactionType.SaturdayTalkWithDanTerry,
     "saturday-holly-photo": TransactionType.SaturdayPhotoWithHolly,
+    "saturday-sandbox": TransactionType.SaturdaySandbox,
     "saturday-talk-kody": TransactionType.SaturdayTalkToKody,
     "saturday-badminton": TransactionType.SaturdayBadmintonSocial,
 
@@ -413,6 +418,7 @@ export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
     "saturday-talk-dan-terry": "Talk with Dan Terry (Saturday)",
     "saturday-holly-photo": "Picture with Holly (Saturday)",
     "saturday-talk-kody": "Talk with Kody (Saturday)",
+    "saturday-sandbox": "Sandbox VR Demo (Saturday)",
     "saturday-badminton": "Badminton Social (Saturday)",
 
     "sunday-costume-professional": "Professional Costume (Sunday)",
@@ -433,6 +439,7 @@ export const typeNameMap: Record<TransactionType, string> = {
         "Talk with Dan Terry (Saturday)",
     [TransactionType.SaturdayPhotoWithHolly]: "Picture with Holly (Saturday)",
     [TransactionType.SaturdayTalkToKody]: "Talk with Kody (Saturday)",
+    [TransactionType.SaturdaySandbox]: "Sandbox VR Demo (Saturday)",
     [TransactionType.SaturdayBadmintonSocial]: "Badminton Social (Saturday)",
     [TransactionType.SundayCostumeProfessional]:
         "Professional Costume (Sunday)",

@@ -165,6 +165,12 @@ export default async function GuidePage() {
                                 time="📍 ARC | ⏰ 1:00 PM - 3:00 PM"
                             />
                             <PointItem
+                                title="Sandbox: AR Terrain in Action"
+                                points={50}
+                                details="Explore an interactive AR Sandbox that transforms sand into real-time contour-mapped terrain! (Redeem once)."
+                                time="📍 DISC - 152 | ⏰ 1:00 PM - 3:00 PM"
+                            />
+                            <PointItem
                                 title="Photo with Holly"
                                 points={50}
                                 details="Say cheese with Holly! (Redeem once)."

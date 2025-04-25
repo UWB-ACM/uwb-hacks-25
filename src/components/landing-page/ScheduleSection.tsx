@@ -120,6 +120,13 @@ const ScheduleSection: React.FC = () => {
                             location: "ARC Overlook",
                         },
                         {
+                            time: "1:00 PM - 3:00 PM",
+                            name: "Sandbox: AR Terrain in Action",
+                            description:
+                                "Optional: Explore an interactive AR Sandbox that transforms sand into real-time contour-mapped terrain! (Redeem once).",
+                            location: "DISC - 152",
+                        },
+                        {
                             time: "2:00 PM - 4:00 PM",
                             name: "Photo Ops w/ Holly the Husky",
                             description:
@@ -168,7 +175,6 @@ const ScheduleSection: React.FC = () => {
                                 "Participants can redeem Hackeroon tickets for prizes",
                             location: "ARC Overlook",
                         },
-
                         {
                             time: "10:50 AM - 12:50 PM",
                             name: "Judging, Demo Day, and Tabling",
