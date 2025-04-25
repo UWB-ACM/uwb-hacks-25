@@ -36,7 +36,7 @@ const ScheduleSection: React.FC = () => {
                             location: "ARC Overlook",
                         },
                         {
-                            time: "10:00 AM - 11:00 AM",
+                            time: "10:00 AM - 11:30 AM",
                             name: "Team Formation",
                             description:
                                 "Optional Activity: No team? No problem! Come build your dream team and network with your peers during this activity hosted by Google Developer Group (GDG).",
