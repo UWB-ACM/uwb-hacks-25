@@ -127,7 +127,9 @@ const TracksSection = () => {
                 selectedTrackRef={selectedTrackRef}
             />
 
-            <LivePoll />
+            <div className="p-6 md:p-10 border-black border-t-2">
+                <LivePoll />
+            </div>
         </Panel>
     );
 };

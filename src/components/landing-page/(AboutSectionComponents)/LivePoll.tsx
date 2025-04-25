@@ -16,9 +16,8 @@ const LivePoll: React.FC = () => {
     return (
         <div
             className="strawpoll-embed"
-            id="strawpoll_BJnXVRlxPZv"
+            id="strawpoll_e6Z2AkDBEgN"
             style={{
-                height: "544px",
                 maxWidth: "640px",
                 width: "95%",
                 margin: "0 auto",
@@ -28,8 +27,9 @@ const LivePoll: React.FC = () => {
         >
             <iframe
                 title="StrawPoll Embed"
-                id="strawpoll_iframe_BJnXVRlxPZv"
-                src="https://strawpoll.com/embed/BJnXVRlxPZv"
+                id="strawpoll_iframe_e6Z2AkDBEgN"
+                src="https://strawpoll.com/embed/e6Z2AkDBEgN"
+                className="h-[600px] md:h-[550px]"
                 style={{
                     position: "static",
                     visibility: "visible",
