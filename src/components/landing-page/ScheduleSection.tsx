@@ -53,8 +53,8 @@ const ScheduleSection: React.FC = () => {
                             time: "1:30 PM - 2:30 PM",
                             name: "Lunch",
                             description:
-                                "Enjoy lunch in the Plaza with fellow participants.",
-                            location: "Plaza",
+                                "Grab lunch in the Codex with fellow participants.",
+                            location: "Codex",
                         },
                         {
                             time: "1:30 PM - 4:00 PM",
