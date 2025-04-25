@@ -30,6 +30,12 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
             "This user has already received the maximum amount they can for this transaction category.",
     } as const;
 
+    const feedbackColors = {
+        success: "bg-green-400",
+        error: "bg-red-400",
+        "over-limit": "bg-yellow-400",
+    };
+
     const [amount, setAmount] = useState<number>(0);
     const [reason, setReason] =
         useState<keyof typeof reasonTypeMap>("performance");
@@ -164,6 +170,7 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                 setOpen={setIsModalOpen}
                 title={feedbackTitle[feedbackSuccess]}
                 description={feedbackDescription[feedbackSuccess]}
+                className={feedbackColors[feedbackSuccess]}
             />
         </>
     );
