@@ -32,7 +32,7 @@ const ScheduleSection: React.FC = () => {
                             time: "10:00 AM - 11:45 AM",
                             name: "Check-In",
                             description:
-                                "Participants check in, enjoy coffee and snacks.",
+                                "Participants check in",
                             location: "ARC Overlook",
                         },
                         {
@@ -168,7 +168,6 @@ const ScheduleSection: React.FC = () => {
                                 "Participants can redeem Hackeroon tickets for prizes",
                             location: "ARC Overlook",
                         },
-
                         {
                             time: "10:50 AM - 12:50 PM",
                             name: "Judging, Demo Day, and Tabling",
