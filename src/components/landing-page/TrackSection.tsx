@@ -64,7 +64,6 @@ const TracksSection = () => {
         ScrollTrigger.create({
             trigger: "#tracksPanel",
             start: "30% 80%",
-            markers: true,
             onEnter: () => setStartAnimation(true),
         });
 

@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-    useRef,
-    useState,
-    useEffect,
-    Dispatch,
-    SetStateAction,
-} from "react";
+import React, { useRef, useEffect, Dispatch, SetStateAction } from "react";
 import gsap from "gsap";
 
 // Mystery box components
@@ -14,11 +8,7 @@ import MysteryBoxContainer from "./MysteryBoxContainer";
 import MysteryBoxLid from "./MysteryBoxLid";
 
 // Mystery box animation functions
-import {
-    shakeMysteryBox,
-    bounceBox,
-    popLid,
-} from "./MysteryBoxAnimationFunctions";
+import { bounceBox, popLid } from "./MysteryBoxAnimationFunctions";
 
 type MysteryBoxProps = {
     contents: string[];
@@ -31,7 +21,6 @@ export default function MysteryBox({
     startAnimation,
     setShowTracks,
 }: MysteryBoxProps) {
-    const tlRef = useRef<gsap.core.Timeline | null>(null);
     const mysteryBoxRef = useRef<HTMLButtonElement | null>(null);
     const mysteryBoxLidRef = useRef<HTMLDivElement | null>(null);
 
@@ -39,8 +28,6 @@ export default function MysteryBox({
         // Initial animation for mystery box
         const mysteryBox = mysteryBoxRef.current;
         if (!mysteryBox) return;
-        tlRef.current = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-        shakeMysteryBox(tlRef, mysteryBox);
 
         if (startAnimation) {
             // scroll tracks section into view
@@ -62,21 +49,15 @@ export default function MysteryBox({
             const mysteryBoxLid = mysteryBoxLidRef.current;
             const contentElements = document.querySelectorAll(".content");
 
-            if (!tlRef.current || !mysteryBox || !mysteryBoxLid) return;
+            if (!mysteryBox || !mysteryBoxLid) return;
 
-            tlRef.current.clear();
-            tlRef.current = gsap.timeline();
-            tlRef.current.to(mysteryBox, { x: 0, rotate: 0 });
-            tlRef.current.to(mysteryBox, {
-                y: 0,
-                duration: 0.75,
-            });
+            const tl = gsap.timeline({ delay: 0.5 });
 
             for (let i = 0; i < 3; i++) {
-                bounceBox(tlRef, mysteryBox, mysteryBoxLid, i);
+                bounceBox(tl, mysteryBox, mysteryBoxLid, i);
             }
 
-            popLid(tlRef, mysteryBox, mysteryBoxLid);
+            popLid(tl, mysteryBox, mysteryBoxLid);
 
             gsap.set(contentElements, { scale: 0.5 });
 
@@ -84,8 +65,8 @@ export default function MysteryBox({
                 const xOffset =
                     (idx - Math.floor(contentElements.length / 2)) * 300;
 
-                if (!tlRef.current) return;
-                tlRef.current.to(
+                if (!tl) return;
+                tl.to(
                     content,
                     {
                         y: "-100vh",
