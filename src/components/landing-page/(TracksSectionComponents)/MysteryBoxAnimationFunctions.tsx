@@ -2,7 +2,7 @@ import gsap from "gsap";
 
 const bounceBox = (
     tl: gsap.core.Timeline,
-    mysteryBox: HTMLButtonElement,
+    mysteryBox: HTMLDivElement,
     mysteryBoxLid: HTMLDivElement,
     i: number,
 ) => {
@@ -32,7 +32,7 @@ const bounceBox = (
 
 const popLid = (
     tl: gsap.core.Timeline,
-    mysteryBox: HTMLButtonElement,
+    mysteryBox: HTMLDivElement,
     mysteryBoxLid: HTMLDivElement,
 ) => {
     if (!tl) return;
