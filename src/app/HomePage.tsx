@@ -21,7 +21,7 @@ import { LeaderboardRecord, Prize } from "@/src/util/dataTypes";
 export default function HomePage({
     hackeroonPrizes,
     leaderboardData,
-    noTrackAnimation
+    noTrackAnimation,
 }: {
     hackeroonPrizes: Promise<Prize[]>;
     leaderboardData: Promise<LeaderboardRecord[]>;
@@ -183,7 +183,9 @@ export default function HomePage({
 
                         {/* TODO - release all of these the day of the event */}
                         <div id="tracks" ref={tracksRef} className="w-full">
-                            <TracksSection noTrackAnimation={noTrackAnimation} />
+                            <TracksSection
+                                noTrackAnimation={noTrackAnimation}
+                            />
                         </div>
 
                         <div
