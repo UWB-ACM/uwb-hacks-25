@@ -146,6 +146,9 @@ export default function BuyPage({
                                 <li key={item.prize.id}>{item.prize.name}</li>
                             ))}
                         </ul>
+                        I don{"'"}t have enough time to do this properly, but
+                        you might be getting this message if the user already
+                        purchased this prize (some prizes are once per user).
                     </div>
                 )}
             </div>
