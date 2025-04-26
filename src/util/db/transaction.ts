@@ -61,7 +61,7 @@ export async function createTransaction(
         case TransactionType.MonthOfHackingActivityWinner:
         case TransactionType.Performance:
         case TransactionType.FridayCostumeFandom:
-        case TransactionType.FridayFireSideChat:
+        // case TransactionType.FridayFireSideChat:
         case TransactionType.FridayHollyTheHusky:
 
         case TransactionType.SaturdayCheckinLanyard:
