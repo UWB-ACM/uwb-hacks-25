@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
 import {
+    hasPermissions,
+    PermissionLevel,
+    reasonNameMap,
+    reasonTypeMap,
     User,
     valuedTransactionAmounts,
-    reasonTypeMap,
-    reasonNameMap,
-    PermissionLevel,
-    hasPermissions,
 } from "@/src/util/dataTypes";
 import Link from "next/link";
 import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
@@ -20,6 +20,12 @@ export default function TransferHackaroonsPage({
     user: User;
     staffPerms: PermissionLevel;
 }) {
+    const excludedTypes: (keyof typeof reasonTypeMap)[] = [
+        "friday-costume-fandom",
+        "friday-holly-the-husky",
+        "friday-fire-side-chat",
+    ];
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [feedbackSuccess, setFeedbackSuccess] = useState<
         "success" | "error" | "over-limit"
@@ -176,15 +182,22 @@ export default function TransferHackaroonsPage({
                                         )
                                     }
                                 >
-                                    {Object.keys(reasonTypeMap).map((key) => (
-                                        <option key={key} value={key}>
-                                            {
-                                                reasonNameMap[
-                                                    key as keyof typeof reasonTypeMap
-                                                ]
-                                            }
-                                        </option>
-                                    ))}
+                                    {Object.keys(reasonTypeMap)
+                                        .filter(
+                                            (el) =>
+                                                !excludedTypes.includes(
+                                                    el as keyof typeof reasonTypeMap,
+                                                ),
+                                        )
+                                        .map((key) => (
+                                            <option key={key} value={key}>
+                                                {
+                                                    reasonNameMap[
+                                                        key as keyof typeof reasonTypeMap
+                                                    ]
+                                                }
+                                            </option>
+                                        ))}
                                 </select>
                             </div>
                             <input
