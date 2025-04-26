@@ -175,9 +175,9 @@ export async function createTransaction(
                 );
             }
 
-            const prizeName =
-                await sql`SELECT name FROM prizes WHERE id=${prize};`;
-            if (prizeName.length !== 1 || !prizeName[0]["name"]) {
+            const prizeDetails =
+                await sql`SELECT name, limited FROM prizes WHERE id=${prize};`;
+            if (prizeDetails.length !== 1 || !prizeDetails[0]["name"]) {
                 throw new Error(
                     "PrizePurchase transactions must have a valid prize!",
                 );
@@ -189,12 +189,14 @@ export async function createTransaction(
                 await sql.begin((sql) => [
                     sql`SELECT 1 FROM users WHERE id=${user} FOR UPDATE;`,
                     sql`SELECT 1 FROM prizes WHERE id=${prize} FOR UPDATE;`,
-                    sql`INSERT INTO transactions ("user", type, amount, authorized_by, prize) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${prize} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0 AND (SELECT Count(*) FROM transactions WHERE transactions.prize=${prize} AND reverted=FALSE) < (SELECT initial_stock FROM prizes WHERE id=${prize})) RETURNING id, time;`,
+                    prizeDetails[0]["limited"]
+                        ? sql`INSERT INTO transactions ("user", type, amount, authorized_by, prize) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${prize} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0 AND (SELECT Count(*) FROM transactions WHERE transactions.prize=${prize} AND reverted=FALSE) < (SELECT initial_stock FROM prizes WHERE id=${prize}) AND COALESCE((SELECT Count(*) FROM transactions WHERE "user"=${user} AND "type"=${TransactionType.PrizePurchase} AND "prize"=${prize}), 0) = 0) RETURNING id, time;`
+                        : sql`INSERT INTO transactions ("user", type, amount, authorized_by, prize) (SELECT ${user}, ${type}, ${amount}, ${authorized_by}, ${prize} WHERE COALESCE((SELECT balance FROM balances WHERE "user"=${user}), 0) + ${amount} >= 0 AND (SELECT Count(*) FROM transactions WHERE transactions.prize=${prize} AND reverted=FALSE) < (SELECT initial_stock FROM prizes WHERE id=${prize})) RETURNING id, time;`,
                 ])
             )[2];
 
             if (data.length !== 0) {
-                data[0]["prize_name"] = prizeName[0]["name"];
+                data[0]["prize_name"] = prizeDetails[0]["name"];
             }
 
             break;
