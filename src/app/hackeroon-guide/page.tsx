@@ -324,7 +324,7 @@ export default async function GuidePage() {
                     <div className="bg-neutral-200 border-[4px] border-black shadow-comic p-6 text-center">
                         <p className="text-black mb-4">
                             The Hackeroon Shop will be open on Saturday, April
-                            26th from 4:00 PM to 8:00 PM and Sunday, April 27th
+                            26th from 6:00 PM to 8:00 PM and Sunday, April 27th
                             from 9:00 AM to 2:00 PM. Come by the top floor of
                             the ARC to browse and redeem your Hackeroons for
                             prizes in person!

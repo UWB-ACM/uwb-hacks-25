@@ -156,9 +156,16 @@ const ScheduleSection: React.FC = () => {
                         },
                         {
                             time: "4:00 PM - 8:00 PM",
-                            name: "In-Person Work Time + Hackeroon Shop Opens",
+                            name: "In-Person Work Time",
                             description:
-                                "Teams continue working on their projects in person. The Hackeroon Shop opens for participants to redeem hackeroons for prizes.",
+                                "Teams continue working on their projects in person.",
+                            location: "ARC Overlook",
+                        },
+                        {
+                            time: "6:00 PM - 8:00 PM",
+                            name: "Hackeroon Shop Opens",
+                            description:
+                                "The Hackeroon Shop opens for participants to redeem hackeroons for prizes.",
                             location: "ARC Overlook",
                         },
                     ]}
