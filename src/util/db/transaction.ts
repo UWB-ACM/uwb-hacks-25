@@ -64,6 +64,7 @@ export async function createTransaction(
         case TransactionType.FridayFireSideChat:
         case TransactionType.FridayHollyTheHusky:
 
+        case TransactionType.SaturdayCheckinLanyard:
         case TransactionType.SaturdayCostumeHusky:
         case TransactionType.SaturdayTalkWithDanTerry:
         case TransactionType.SaturdayPhotoWithHolly:
@@ -71,6 +72,7 @@ export async function createTransaction(
         case TransactionType.SaturdaySandbox:
         case TransactionType.SaturdayBadmintonSocial:
 
+        case TransactionType.SundayCheckinLanyard:
         case TransactionType.SundayCostumeProfessional:
         case TransactionType.SundayDemoDay: {
             if (event || prize) {
