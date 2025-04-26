@@ -17,7 +17,7 @@ export default function TracksNavHeader({
     return (
         <div
             ref={tracksNavRef}
-            className="w-full flex flex-wrap items-center bg-black px-1 gap-1 md:px-2 md:gap-2 border-black border-y-4 md:border-y-8"
+            className="z-[100] w-full flex flex-wrap items-center bg-black px-1 gap-1 md:px-2 md:gap-2 border-black border-y-4 md:border-y-8"
         >
             {tracks.map((track, idx) => (
                 <button
