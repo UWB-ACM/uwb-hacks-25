@@ -75,6 +75,7 @@ export async function createTransaction(
         case TransactionType.SundayCheckinLanyard:
         case TransactionType.SundayCostumeProfessional:
         case TransactionType.SundayDemoDay: {
+            // a
             if (event || prize) {
                 throw new Error(
                     "Simple transactions cannot have events/prizes!",
