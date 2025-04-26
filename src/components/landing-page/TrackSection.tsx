@@ -22,7 +22,6 @@ import Tracks from "./(TracksSectionComponents)/TracksTabNavigation/Tracks";
 import { Track } from "@/src/util/dataTypes";
 
 import LivePoll from "./(AboutSectionComponents)/LivePoll";
-import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import { actionSetTracksAnimation } from "@/src/util/actions/animation";
 
 const TracksSection = ({ noTrackAnimation }: { noTrackAnimation: boolean }) => {
