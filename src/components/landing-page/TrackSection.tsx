@@ -22,8 +22,10 @@ import Tracks from "./(TracksSectionComponents)/TracksTabNavigation/Tracks";
 import { Track } from "@/src/util/dataTypes";
 
 import LivePoll from "./(AboutSectionComponents)/LivePoll";
+import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+import { actionSetTracksAnimation } from "@/src/util/actions/animation";
 
-const TracksSection = () => {
+const TracksSection = ({ noTrackAnimation }: { noTrackAnimation: boolean }) => {
     const panelMargin = "mt-12 md:mt-16";
 
     // tracks contains all relevant information about each of the 6 tracks
@@ -34,13 +36,10 @@ const TracksSection = () => {
     const selectedTrackRef = useRef<HTMLDivElement | null>(null);
     const livePollRef = useRef<HTMLDivElement | null>(null);
 
-    const [noAnimation, setNoAnimation] = useState<boolean>(
-        sessionStorage.getItem("hackathonTracksShown") !== null,
-    );
     const [startAnimation, setStartAnimation] = useState(false);
 
     useEffect(() => {
-        if (noAnimation) {
+        if (noTrackAnimation) {
             return;
         }
 
@@ -129,13 +128,12 @@ const TracksSection = () => {
                 duration: 0.3,
                 opacity: 1,
                 onComplete: () => {
-                    // set session storage to prevent animation from playing again
-                    sessionStorage.setItem("hackathonTracksShown", "true");
-                    setNoAnimation(true);
+                    // set cookies storage to prevent animation from playing again
+                    actionSetTracksAnimation();
                 },
             });
         }
-    }, [showTracks, noAnimation]);
+    }, [showTracks, noTrackAnimation]);
 
     return (
         <Panel id="tracksPanel" className={panelMargin} panelColor="white">
@@ -149,7 +147,7 @@ const TracksSection = () => {
             </PanelHeader>
 
             <div ref={panelContentRef}>
-                {!noAnimation && (
+                {!noTrackAnimation && (
                     <PanelContent
                         parentPanelId="tracksPanel"
                         className="relative flex flex-col items-center"
