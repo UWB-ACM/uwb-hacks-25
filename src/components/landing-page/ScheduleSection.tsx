@@ -107,6 +107,20 @@ const ScheduleSection: React.FC = () => {
                             location: "North Creek Event Center (NCEC)",
                         },
                         {
+                            time: "12:00 PM - 6:00 PM",
+                            name: "Entrepreneur in the Corner",
+                            description:
+                                "Optional: Talk one-on-one with Dan Terry, founder of BRIOTECH Inc. and seriel entrepreneur.",
+                            location: "ARC Overlook",
+                        },
+                        {
+                            time: "2:00 PM - 5:00 PM",
+                            name: "ThinkCyber in the Corner",
+                            description:
+                                "Optional: Talk one-on-one with Armora Rama, founder of ThinkCyber and researcher at Microsoft.",
+                            location: "ARC Overlook",
+                        },
+                        {
                             time: "12:30 PM - 1:00 PM",
                             name: "Lunch",
                             description: "Lunch break for participants.",
