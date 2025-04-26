@@ -114,13 +114,6 @@ const ScheduleSection: React.FC = () => {
                             location: "ARC Overlook",
                         },
                         {
-                            time: "2:00 PM - 5:00 PM",
-                            name: "ThinkCyber in the Corner",
-                            description:
-                                "Optional: Talk one-on-one with Armora Rama, founder of ThinkCyber and researcher at Microsoft.",
-                            location: "ARC Overlook",
-                        },
-                        {
                             time: "12:30 PM - 1:00 PM",
                             name: "Lunch",
                             description: "Lunch break for participants.",
@@ -139,6 +132,13 @@ const ScheduleSection: React.FC = () => {
                             description:
                                 "Optional: Explore an interactive AR Sandbox that transforms sand into real-time contour-mapped terrain! (Redeem once).",
                             location: "DISC - 152",
+                        },
+                        {
+                            time: "2:00 PM - 5:00 PM",
+                            name: "ThinkCyber in the Corner",
+                            description:
+                                "Optional: Talk one-on-one with Armora Rama, founder of ThinkCyber and researcher at Microsoft.",
+                            location: "ARC Overlook",
                         },
                         {
                             time: "2:00 PM - 4:00 PM",
