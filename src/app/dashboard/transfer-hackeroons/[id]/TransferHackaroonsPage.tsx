@@ -28,6 +28,7 @@ export default function TransferHackaroonsPage({
         "sunday-demo-day",
         "sunday-checkin-lanyard",
         "sunday-costume-professional",
+        "sunday-admissions-photo",
     ];
 
     const [isModalOpen, setIsModalOpen] = useState(false);

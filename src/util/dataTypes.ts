@@ -338,6 +338,8 @@ export enum TransactionType {
     SundayDemoDay = 16,
 
     SundayCheckinLanyard = 19,
+
+    SundayAdmissionsBoothPhoto = 20,
 }
 
 /**
@@ -363,6 +365,7 @@ export const valuedTransactionAmounts = {
     [TransactionType.SundayCheckinLanyard]: 50,
     [TransactionType.SundayCostumeProfessional]: 100,
     [TransactionType.SundayDemoDay]: 100,
+    [TransactionType.SundayAdmissionsBoothPhoto]: 50,
 } as const;
 
 /**
@@ -392,6 +395,7 @@ export const valuedTransactionLimits: Record<
     [TransactionType.SundayCheckinLanyard]: 1,
     [TransactionType.SundayCostumeProfessional]: 1,
     [TransactionType.SundayDemoDay]: 1,
+    [TransactionType.SundayAdmissionsBoothPhoto]: 1,
 };
 
 export const reasonTypeMap = {
@@ -414,6 +418,7 @@ export const reasonTypeMap = {
     "sunday-checkin-lanyard": TransactionType.SundayCheckinLanyard,
     "sunday-costume-professional": TransactionType.SundayCostumeProfessional,
     "sunday-demo-day": TransactionType.SundayDemoDay,
+    "sunday-admissions-photo": TransactionType.SundayAdmissionsBoothPhoto,
 } as const;
 
 export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
@@ -435,6 +440,7 @@ export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
     "sunday-checkin-lanyard": "Check-in with Lanyard (Sunday)",
     "sunday-costume-professional": "Professional Costume (Sunday)",
     "sunday-demo-day": "Demo Day (Sunday)",
+    "sunday-admissions-photo": "Admissions Booth Photo (Sunday)",
 };
 
 export const typeNameMap: Record<TransactionType, string> = {
@@ -459,6 +465,8 @@ export const typeNameMap: Record<TransactionType, string> = {
     [TransactionType.SundayCostumeProfessional]:
         "Professional Costume (Sunday)",
     [TransactionType.SundayDemoDay]: "Demo Day (Sunday)",
+    [TransactionType.SundayAdmissionsBoothPhoto]:
+        "Admissions Booth Photo (Sunday)",
 };
 
 /**
