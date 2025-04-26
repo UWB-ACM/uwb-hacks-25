@@ -318,6 +318,8 @@ export enum TransactionType {
     FridayHollyTheHusky = 9,
 
     /** Saturday Transactions! */
+    SaturdayCheckinLanyard = 18,
+
     SaturdayCostumeHusky = 6,
 
     SaturdayTalkWithDanTerry = 11,
@@ -334,6 +336,8 @@ export enum TransactionType {
     SundayCostumeProfessional = 7,
 
     SundayDemoDay = 16,
+
+    SundayCheckinLanyard = 19,
 }
 
 /**
@@ -348,6 +352,7 @@ export const valuedTransactionAmounts = {
     [TransactionType.FridayFireSideChat]: 100,
     [TransactionType.FridayHollyTheHusky]: 50,
 
+    [TransactionType.SaturdayCheckinLanyard]: 50,
     [TransactionType.SaturdayCostumeHusky]: 100,
     [TransactionType.SaturdayTalkWithDanTerry]: 100,
     [TransactionType.SaturdayPhotoWithHolly]: 50,
@@ -355,6 +360,7 @@ export const valuedTransactionAmounts = {
     [TransactionType.SaturdaySandbox]: 50,
     [TransactionType.SaturdayBadmintonSocial]: 100,
 
+    [TransactionType.SundayCheckinLanyard]: 50,
     [TransactionType.SundayCostumeProfessional]: 100,
     [TransactionType.SundayDemoDay]: 100,
 } as const;
@@ -375,6 +381,7 @@ export const valuedTransactionLimits: Record<
     [TransactionType.FridayFireSideChat]: 1,
     [TransactionType.FridayHollyTheHusky]: 1,
 
+    [TransactionType.SaturdayCheckinLanyard]: 1,
     [TransactionType.SaturdayCostumeHusky]: 1,
     [TransactionType.SaturdayTalkWithDanTerry]: 1,
     [TransactionType.SaturdayPhotoWithHolly]: 1,
@@ -382,6 +389,7 @@ export const valuedTransactionLimits: Record<
     [TransactionType.SaturdaySandbox]: 1,
     [TransactionType.SaturdayBadmintonSocial]: 1,
 
+    [TransactionType.SundayCheckinLanyard]: 1,
     [TransactionType.SundayCostumeProfessional]: 1,
     [TransactionType.SundayDemoDay]: 1,
 };
@@ -395,6 +403,7 @@ export const reasonTypeMap = {
     "friday-fire-side-chat": TransactionType.FridayFireSideChat,
     "friday-holly-the-husky": TransactionType.FridayHollyTheHusky,
 
+    "saturday-checkin-lanyard": TransactionType.SaturdayCheckinLanyard,
     "saturday-costume-husky": TransactionType.SaturdayCostumeHusky,
     "saturday-talk-dan-terry": TransactionType.SaturdayTalkWithDanTerry,
     "saturday-holly-photo": TransactionType.SaturdayPhotoWithHolly,
@@ -402,6 +411,7 @@ export const reasonTypeMap = {
     "saturday-talk-kody": TransactionType.SaturdayTalkToKody,
     "saturday-badminton": TransactionType.SaturdayBadmintonSocial,
 
+    "sunday-checkin-lanyard": TransactionType.SundayCheckinLanyard,
     "sunday-costume-professional": TransactionType.SundayCostumeProfessional,
     "sunday-demo-day": TransactionType.SundayDemoDay,
 } as const;
@@ -414,6 +424,7 @@ export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
     "friday-fire-side-chat": "Fire Side Chat (Friday)",
     "friday-holly-the-husky": "Picture with Holly (Friday)",
 
+    "saturday-checkin-lanyard": "Check-in with Lanyard (Saturday)",
     "saturday-costume-husky": "Husky Spirit Costume (Saturday)",
     "saturday-talk-dan-terry": "Talk with Dan Terry (Saturday)",
     "saturday-holly-photo": "Picture with Holly (Saturday)",
@@ -421,6 +432,7 @@ export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
     "saturday-sandbox": "Sandbox VR Demo (Saturday)",
     "saturday-badminton": "Badminton Social (Saturday)",
 
+    "sunday-checkin-lanyard": "Check-in with Lanyard (Sunday)",
     "sunday-costume-professional": "Professional Costume (Sunday)",
     "sunday-demo-day": "Demo Day (Sunday)",
 };
@@ -434,6 +446,8 @@ export const typeNameMap: Record<TransactionType, string> = {
     [TransactionType.FridayCostumeFandom]: "Fandom Costume (Friday)",
     [TransactionType.FridayFireSideChat]: "Fire Side Chat (Friday)",
     [TransactionType.FridayHollyTheHusky]: "Picture with Holly (Friday)",
+    [TransactionType.SaturdayCheckinLanyard]:
+        "Check-in with Lanyard (Saturday)",
     [TransactionType.SaturdayCostumeHusky]: "Husky Spirit Costume (Saturday)",
     [TransactionType.SaturdayTalkWithDanTerry]:
         "Talk with Dan Terry (Saturday)",
@@ -441,6 +455,7 @@ export const typeNameMap: Record<TransactionType, string> = {
     [TransactionType.SaturdayTalkToKody]: "Talk with Kody (Saturday)",
     [TransactionType.SaturdaySandbox]: "Sandbox VR Demo (Saturday)",
     [TransactionType.SaturdayBadmintonSocial]: "Badminton Social (Saturday)",
+    [TransactionType.SundayCheckinLanyard]: "Check-in with Lanyard (Sunday)",
     [TransactionType.SundayCostumeProfessional]:
         "Professional Costume (Sunday)",
     [TransactionType.SundayDemoDay]: "Demo Day (Sunday)",
