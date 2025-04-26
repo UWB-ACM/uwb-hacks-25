@@ -17,9 +17,9 @@ export default async function Page({
     params: Promise<{ id: string }>;
 }) {
     const session = await getSession();
-    await ensureStaffPermission(session);
+    const staffPerms = await ensureStaffPermission(session);
 
     const user = await extractDashboardUserData((await params).id);
 
-    return <TransferHackaroonsPage user={user} />;
+    return <TransferHackaroonsPage user={user} staffPerms={staffPerms} />;
 }
