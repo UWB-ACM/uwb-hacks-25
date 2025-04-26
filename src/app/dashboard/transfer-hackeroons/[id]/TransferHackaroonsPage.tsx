@@ -24,6 +24,10 @@ export default function TransferHackaroonsPage({
         "friday-costume-fandom",
         "friday-holly-the-husky",
         "friday-fire-side-chat",
+        // TODO: Replace this with saturday and remove sunday.
+        "sunday-demo-day",
+        "sunday-checkin-lanyard",
+        "sunday-costume-professional",
     ];
 
     const [isModalOpen, setIsModalOpen] = useState(false);
