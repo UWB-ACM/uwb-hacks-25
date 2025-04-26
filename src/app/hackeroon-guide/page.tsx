@@ -15,14 +15,14 @@ const PointItem = ({
 }: {
     title: string;
     points: number;
-    details: string;
+    details: React.ReactNode;
     time?: string;
 }) => (
     <li className="py-3 sm:py-4">
         <div className="flex items-center space-x-4">
             <div className="flex-1 min-w-0">
                 <p className="text-md font-semibold text-black">{title}</p>
-                <p className="text-sm text-gray-700">{details}</p>
+                <div className="text-sm text-gray-700">{details}</div>
                 {time && (
                     <p className="pt-2 font-bold text-sm text-gray-700">
                         {time}
@@ -119,6 +119,25 @@ export default async function GuidePage() {
                                 time="📍 Anywhere | ⏰ All day"
                             />
                             <PointItem
+                                title="Win ISS Keyboard Champions"
+                                points={100}
+                                details={
+                                    <>
+                                        Prove you{"'"}re the fastest typist! Win
+                                        the daily challenge at{" "}
+                                        <a
+                                            href="https://uwbhacks.uwbiss.live/"
+                                            target="_blank"
+                                            className="text-[darkcyan] underline hover:text-blue-800"
+                                        >
+                                            uwbhacks.uwbiss.live
+                                        </a>
+                                        . (Redeem once).
+                                    </>
+                                }
+                                time="📍 Online | ⏰ 12:00 PM - 5:00 PM"
+                            />
+                            <PointItem
                                 title="Photo with Holly"
                                 points={50}
                                 details="Say cheese with Holly! (Redeem once)."
@@ -127,7 +146,8 @@ export default async function GuidePage() {
                             <PointItem
                                 title="Fireside Chat (ARC)"
                                 points={100}
-                                details="Attend a fireside chat with Cameron Bielstein (Redeem once). 📍 NCEC | ⏰ 4:30 PM - 5:30 PM"
+                                details="Attend a fireside chat with Cameron Bielstein (Redeem once)."
+                                time="📍 NCEC | ⏰ 4:30 PM - 5:30 PM"
                             />
                         </ul>
                     </div>
@@ -145,6 +165,25 @@ export default async function GuidePage() {
                                 points={100}
                                 details="Show your Husky pride! (Redeem once)."
                                 time="📍 Anywhere | ⏰ All day"
+                            />
+                            <PointItem
+                                title="Win ISS Keyboard Champions"
+                                points={100}
+                                details={
+                                    <>
+                                        Prove you{"'"}re the fastest typist! Win
+                                        the daily challenge at{" "}
+                                        <a
+                                            href="https://uwbhacks.uwbiss.live/"
+                                            target="_blank"
+                                            className="text-[darkcyan] underline hover:text-blue-800"
+                                        >
+                                            uwbhacks.uwbiss.live
+                                        </a>
+                                        . (Redeem once).
+                                    </>
+                                }
+                                time="📍 Online | ⏰ 12:00 PM - 5:00 PM"
                             />
                             <PointItem
                                 title="Fireside Chat (NCEC)"
@@ -200,16 +239,36 @@ export default async function GuidePage() {
                                 time="📍 Anywhere | ⏰ All day"
                             />
                             <PointItem
+                                title="Photo with Admissions Booth"
+                                points={50}
+                                details="Visit the booth and snap a pic! (Redeem once)."
+                                time="📍 ARC Overlook | ⏰ 10:50 AM - 12:50 PM"
+                            />
+                            <PointItem
+                                title="Win ISS Keyboard Champions"
+                                points={100}
+                                details={
+                                    <>
+                                        Prove you{"'"}re the fastest typist! Win
+                                        the daily challenge at{" "}
+                                        <a
+                                            href="https://uwbhacks.uwbiss.live/"
+                                            target="_blank"
+                                            className="text-[darkcyan] underline hover:text-blue-800"
+                                        >
+                                            uwbhacks.uwbiss.live
+                                        </a>
+                                        . (Redeem once).
+                                    </>
+                                }
+                                time="📍 Online | ⏰ 12:00 PM - 5:00 PM"
+                            />
+                            <PointItem
                                 title="Demo Day Attendance"
                                 points={100}
                                 details="Be there for the final demos! (Redeem once)."
                                 time="⏰ Starts 4:00 PM"
                             />
-                            {/* <PointItem
-                                title="Admissions Posting Booth"
-                                points={50}
-                                details="Visit the booth! (Redeem once, Location/Time TBC)."
-                            />*/}
                         </ul>
                     </div>
                 </section>
@@ -228,27 +287,32 @@ export default async function GuidePage() {
                         <p className="text-black mb-4">
                             To earn Hackeroons for attending an event, open your{" "}
                             <a
-                                className="text-[darkcyan]"
+                                className="text-[darkcyan] underline hover:text-blue-800"
                                 href="/dashboard"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 Dashboard (click here)
                             </a>{" "}
                             and type the code into the check-in box.
                         </p>
                         <p className="text-black mb-4">
-                            Otherwise, ask a staff member to receive your
-                            reward. You{"'"}ll need to show them your QR code,
-                            which can be found on your{" "}
+                            For winning activities or other specific rewards
+                            (like taking photos or wearing specific attire), ask
+                            a staff member to receive your Hackeroons. You{"'"}
+                            ll need to show them your QR code, which can be
+                            found on your{" "}
                             <a
-                                className="text-[darkcyan]"
+                                className="text-[darkcyan] underline hover:text-blue-800"
                                 href="/dashboard"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 Dashboard (click here)
                             </a>
                             .
-                        </p>
+                        </p>{" "}
+                        {/* Slightly modified this paragraph for clarity */}
                     </div>
                 </section>
 
