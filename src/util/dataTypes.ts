@@ -313,7 +313,7 @@ export enum TransactionType {
     /** Friday Transactions! */
     FridayCostumeFandom = 5,
 
-    FridayFireSideChat = 8,
+    // FridayFireSideChat = 8,
 
     FridayHollyTheHusky = 9,
 
@@ -351,7 +351,7 @@ export const valuedTransactionAmounts = {
     [TransactionType.Performance]: 25,
     [TransactionType.MonthOfHackingActivityWinner]: 100,
     [TransactionType.FridayCostumeFandom]: 100,
-    [TransactionType.FridayFireSideChat]: 100,
+    // [TransactionType.FridayFireSideChat]: 100,
     [TransactionType.FridayHollyTheHusky]: 50,
 
     [TransactionType.SaturdayCheckinLanyard]: 50,
@@ -381,7 +381,7 @@ export const valuedTransactionLimits: Record<
     [TransactionType.Performance]: Infinity,
     [TransactionType.MonthOfHackingActivityWinner]: 3,
     [TransactionType.FridayCostumeFandom]: 1,
-    [TransactionType.FridayFireSideChat]: 1,
+    // [TransactionType.FridayFireSideChat]: 1,
     [TransactionType.FridayHollyTheHusky]: 1,
 
     [TransactionType.SaturdayCheckinLanyard]: 1,
@@ -404,7 +404,7 @@ export const reasonTypeMap = {
     "activity-winner": TransactionType.MonthOfHackingActivityWinner,
 
     "friday-costume-fandom": TransactionType.FridayCostumeFandom,
-    "friday-fire-side-chat": TransactionType.FridayFireSideChat,
+    // "friday-fire-side-chat": TransactionType.FridayFireSideChat,
     "friday-holly-the-husky": TransactionType.FridayHollyTheHusky,
 
     "saturday-checkin-lanyard": TransactionType.SaturdayCheckinLanyard,
@@ -426,7 +426,7 @@ export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
     performance: "Performance",
     "activity-winner": "Activity Winner",
     "friday-costume-fandom": "Fandom Costume (Friday)",
-    "friday-fire-side-chat": "Fire Side Chat (Friday)",
+    // "friday-fire-side-chat": "Fire Side Chat (Friday)",
     "friday-holly-the-husky": "Picture with Holly (Friday)",
 
     "saturday-checkin-lanyard": "Check-in with Lanyard (Saturday)",
@@ -450,7 +450,7 @@ export const typeNameMap: Record<TransactionType, string> = {
     [TransactionType.Performance]: "Performance",
     [TransactionType.MonthOfHackingActivityWinner]: "Activity Winner",
     [TransactionType.FridayCostumeFandom]: "Fandom Costume (Friday)",
-    [TransactionType.FridayFireSideChat]: "Fire Side Chat (Friday)",
+    // [TransactionType.FridayFireSideChat]: "Fire Side Chat (Friday)",
     [TransactionType.FridayHollyTheHusky]: "Picture with Holly (Friday)",
     [TransactionType.SaturdayCheckinLanyard]:
         "Check-in with Lanyard (Saturday)",
