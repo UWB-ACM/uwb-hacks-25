@@ -60,6 +60,8 @@ export async function createTransaction(
         // valued and have limits.
         case TransactionType.MonthOfHackingActivityWinner:
         case TransactionType.Performance:
+        case TransactionType.StudentInterview:
+
         case TransactionType.FridayCostumeFandom:
         // case TransactionType.FridayFireSideChat:
         case TransactionType.FridayHollyTheHusky:
@@ -67,6 +69,7 @@ export async function createTransaction(
         case TransactionType.SaturdayCheckinLanyard:
         case TransactionType.SaturdayCostumeHusky:
         case TransactionType.SaturdayTalkWithDanTerry:
+        case TransactionType.SaturdayTalkWithArmoraRama:
         case TransactionType.SaturdayPhotoWithHolly:
         case TransactionType.SaturdayTalkToKody:
         case TransactionType.SaturdaySandbox:
