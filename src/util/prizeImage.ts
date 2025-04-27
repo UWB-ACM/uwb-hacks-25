@@ -28,7 +28,7 @@ import USBDock from "@/public/hackeroonShop/usbDock.png";
 import LegoDinosaur from "@/public/hackeroonShop/legoDinosaur.png";
 import PurpleWaterBottle from "@/public/hackeroonShop/purpleWaterBottle.png";
 import AvanadeBeanie from "@/public/hackeroonShop/avanadeBeanie.png";
-import AvanadeDrawstringBag from "@/public/hackeroonShop/avanadeDrawstring.png";
+import AvanadeDrawstringBag from "@/public/hackeroonShop/avanadeDrawstringBag.png";
 
 export const retrievePrizeImage = (
     prizeName: string | null,
