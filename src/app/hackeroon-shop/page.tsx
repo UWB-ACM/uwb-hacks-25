@@ -74,7 +74,7 @@ export default async function PrizesPage() {
 
             <p className="mb-5 self-center text-center max-w-[80%] md:max-w-[50%] font-bold">
                 The Hackeroon Shop will be open on Saturday, April 26th from
-                4:00 PM to 8:00 PM and Sunday, April 27th from 9:00 AM to 2:00
+                6:00 PM to 8:00 PM and Sunday, April 27th from 9:00 AM to 2:00
                 PM. Come by the top floor of the ARC to browse and redeem your
                 Hackeroons for prizes in person!
                 <br />
