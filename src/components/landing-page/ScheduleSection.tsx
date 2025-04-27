@@ -197,6 +197,13 @@ const ScheduleSection: React.FC = () => {
                             location: "ARC Overlook",
                         },
                         {
+                            time: "10:00 AM - 10:30 AM",
+                            name: "Closing Ceremony",
+                            description:
+                                "Learn more about the judging process and final announcements.",
+                            location: "ARC Overlook",
+                        },
+                        {
                             time: "10:50 AM - 12:50 PM",
                             name: "Judging, Demo Day, and Tabling",
                             description:
