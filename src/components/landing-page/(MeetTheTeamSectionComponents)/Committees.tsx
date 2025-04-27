@@ -176,6 +176,13 @@ export const committees = [
                 link: "https://www.linkedin.com/in/uellenberg",
             },
             {
+                id: "khushpreet-gobindpuri",
+                name: "Preeti Gobindpuri",
+                role: "Lead Frontend Developer",
+                photo: "/MeetTheTeamPhotos/default.jpg",
+                link: undefined,
+            },
+            {
                 id: "kat-tran",
                 name: "Kat Tran",
                 role: "WiCyS Vice President, Developer, Sponsorships Outreach Member",
