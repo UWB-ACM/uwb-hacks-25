@@ -3,15 +3,33 @@
 import React, { useState } from "react";
 import { actionCreateTransaction } from "@/src/util/actions/transactions";
 import {
+    hasPermissions,
+    PermissionLevel,
+    reasonNameMap,
+    reasonTypeMap,
     User,
     valuedTransactionAmounts,
-    reasonTypeMap,
-    reasonNameMap,
 } from "@/src/util/dataTypes";
 import Link from "next/link";
 import DashboardFeedback from "@/src/components/dashboards/DashboardFeedback";
 
-export default function TransferHackaroonsPage({ user }: { user: User }) {
+export default function TransferHackaroonsPage({
+    user,
+    staffPerms,
+}: {
+    user: User;
+    staffPerms: PermissionLevel;
+}) {
+    const excludedTypes: (keyof typeof reasonTypeMap)[] = [
+        "friday-costume-fandom",
+        "friday-holly-the-husky",
+        // TODO: Replace this with saturday and remove sunday.
+        "sunday-demo-day",
+        "sunday-checkin-lanyard",
+        "sunday-costume-professional",
+        "sunday-admissions-photo",
+    ];
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [feedbackSuccess, setFeedbackSuccess] = useState<
         "success" | "error" | "over-limit"
@@ -44,6 +62,19 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        // Disable unknown for non-admins.
+        // This isn't secure, but the reason
+        // it's disabled is that people were
+        // using it incorrectly, so it's fine.
+        if (
+            !hasPermissions(staffPerms, {
+                has: PermissionLevel.Admin,
+            }) &&
+            reason === "unknown"
+        ) {
+            return;
+        }
 
         if (loading) return;
         setLoading(true);
@@ -99,6 +130,24 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                             </span>
                         </h1>
                         <div className="grid place-content-center">
+                            {reason === "unknown" && (
+                                <div className="flex flex-col w-[60vw] max-w-[50vh] mt-4 md:text-sm lg:text-md">
+                                    <span className="text-red-600">
+                                        I have disabled Unknown for non-admins
+                                        as it
+                                        {"'"}s been causing issues with our
+                                        systems and makes it difficult to
+                                        understand transactions. If you{"'"}re
+                                        trying to give a user Hackeroons for
+                                        attending an event, please make an event
+                                        code for them and have them enter it. If
+                                        you have a legitimate need, please copy
+                                        the URL in the address bar and send a
+                                        message to Jonah discussing it.
+                                    </span>
+                                </div>
+                            )}
+
                             {/* Only show amount for transaction types with no prescribed value. */}
                             {!(
                                 reasonTypeMap[reason] in
@@ -137,15 +186,22 @@ export default function TransferHackaroonsPage({ user }: { user: User }) {
                                         )
                                     }
                                 >
-                                    {Object.keys(reasonTypeMap).map((key) => (
-                                        <option key={key} value={key}>
-                                            {
-                                                reasonNameMap[
-                                                    key as keyof typeof reasonTypeMap
-                                                ]
-                                            }
-                                        </option>
-                                    ))}
+                                    {Object.keys(reasonTypeMap)
+                                        .filter(
+                                            (el) =>
+                                                !excludedTypes.includes(
+                                                    el as keyof typeof reasonTypeMap,
+                                                ),
+                                        )
+                                        .map((key) => (
+                                            <option key={key} value={key}>
+                                                {
+                                                    reasonNameMap[
+                                                        key as keyof typeof reasonTypeMap
+                                                    ]
+                                                }
+                                            </option>
+                                        ))}
                                 </select>
                             </div>
                             <input

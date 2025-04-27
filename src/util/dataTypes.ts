@@ -313,14 +313,18 @@ export enum TransactionType {
     /** Friday Transactions! */
     FridayCostumeFandom = 5,
 
-    FridayFireSideChat = 8,
+    // FridayFireSideChat = 8,
 
     FridayHollyTheHusky = 9,
 
     /** Saturday Transactions! */
+    SaturdayCheckinLanyard = 18,
+
     SaturdayCostumeHusky = 6,
 
     SaturdayTalkWithDanTerry = 11,
+
+    SaturdayTalkWithArmoraRama = 21,
 
     SaturdayPhotoWithHolly = 13,
 
@@ -334,6 +338,12 @@ export enum TransactionType {
     SundayCostumeProfessional = 7,
 
     SundayDemoDay = 16,
+
+    SundayCheckinLanyard = 19,
+
+    SundayAdmissionsBoothPhoto = 20,
+
+    StudentInterview = 22,
 }
 
 /**
@@ -344,19 +354,25 @@ export enum TransactionType {
 export const valuedTransactionAmounts = {
     [TransactionType.Performance]: 25,
     [TransactionType.MonthOfHackingActivityWinner]: 100,
+    [TransactionType.StudentInterview]: 50,
+
     [TransactionType.FridayCostumeFandom]: 100,
-    [TransactionType.FridayFireSideChat]: 100,
+    // [TransactionType.FridayFireSideChat]: 100,
     [TransactionType.FridayHollyTheHusky]: 50,
 
+    [TransactionType.SaturdayCheckinLanyard]: 50,
     [TransactionType.SaturdayCostumeHusky]: 100,
     [TransactionType.SaturdayTalkWithDanTerry]: 100,
+    [TransactionType.SaturdayTalkWithArmoraRama]: 100,
     [TransactionType.SaturdayPhotoWithHolly]: 50,
     [TransactionType.SaturdayTalkToKody]: 50,
     [TransactionType.SaturdaySandbox]: 50,
     [TransactionType.SaturdayBadmintonSocial]: 100,
 
+    [TransactionType.SundayCheckinLanyard]: 50,
     [TransactionType.SundayCostumeProfessional]: 100,
     [TransactionType.SundayDemoDay]: 100,
+    [TransactionType.SundayAdmissionsBoothPhoto]: 50,
 } as const;
 
 /**
@@ -371,58 +387,75 @@ export const valuedTransactionLimits: Record<
 > = {
     [TransactionType.Performance]: Infinity,
     [TransactionType.MonthOfHackingActivityWinner]: 3,
+    [TransactionType.StudentInterview]: 1,
+
     [TransactionType.FridayCostumeFandom]: 1,
-    [TransactionType.FridayFireSideChat]: 1,
+    // [TransactionType.FridayFireSideChat]: 1,
     [TransactionType.FridayHollyTheHusky]: 1,
 
+    [TransactionType.SaturdayCheckinLanyard]: 1,
     [TransactionType.SaturdayCostumeHusky]: 1,
     [TransactionType.SaturdayTalkWithDanTerry]: 1,
+    [TransactionType.SaturdayTalkWithArmoraRama]: 1,
     [TransactionType.SaturdayPhotoWithHolly]: 1,
     [TransactionType.SaturdayTalkToKody]: 1,
     [TransactionType.SaturdaySandbox]: 1,
     [TransactionType.SaturdayBadmintonSocial]: 1,
 
+    [TransactionType.SundayCheckinLanyard]: 1,
     [TransactionType.SundayCostumeProfessional]: 1,
     [TransactionType.SundayDemoDay]: 1,
+    [TransactionType.SundayAdmissionsBoothPhoto]: 1,
 };
 
 export const reasonTypeMap = {
     unknown: TransactionType.Unknown,
     performance: TransactionType.Performance,
     "activity-winner": TransactionType.MonthOfHackingActivityWinner,
+    "student-interview": TransactionType.StudentInterview,
 
     "friday-costume-fandom": TransactionType.FridayCostumeFandom,
-    "friday-fire-side-chat": TransactionType.FridayFireSideChat,
+    // "friday-fire-side-chat": TransactionType.FridayFireSideChat,
     "friday-holly-the-husky": TransactionType.FridayHollyTheHusky,
 
+    "saturday-checkin-lanyard": TransactionType.SaturdayCheckinLanyard,
     "saturday-costume-husky": TransactionType.SaturdayCostumeHusky,
     "saturday-talk-dan-terry": TransactionType.SaturdayTalkWithDanTerry,
+    "saturday-talk-armora-rama": TransactionType.SaturdayTalkWithArmoraRama,
     "saturday-holly-photo": TransactionType.SaturdayPhotoWithHolly,
     "saturday-sandbox": TransactionType.SaturdaySandbox,
     "saturday-talk-kody": TransactionType.SaturdayTalkToKody,
     "saturday-badminton": TransactionType.SaturdayBadmintonSocial,
 
+    "sunday-checkin-lanyard": TransactionType.SundayCheckinLanyard,
     "sunday-costume-professional": TransactionType.SundayCostumeProfessional,
     "sunday-demo-day": TransactionType.SundayDemoDay,
+    "sunday-admissions-photo": TransactionType.SundayAdmissionsBoothPhoto,
 } as const;
 
 export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
     unknown: "Unknown",
     performance: "Performance",
     "activity-winner": "Activity Winner",
+    "student-interview": "Student Interview",
+
     "friday-costume-fandom": "Fandom Costume (Friday)",
-    "friday-fire-side-chat": "Fire Side Chat (Friday)",
+    // "friday-fire-side-chat": "Fire Side Chat (Friday)",
     "friday-holly-the-husky": "Picture with Holly (Friday)",
 
+    "saturday-checkin-lanyard": "Check-in with Lanyard (Saturday)",
     "saturday-costume-husky": "Husky Spirit Costume (Saturday)",
     "saturday-talk-dan-terry": "Talk with Dan Terry (Saturday)",
+    "saturday-talk-armora-rama": "Talk with Armora Rama (Saturday)",
     "saturday-holly-photo": "Picture with Holly (Saturday)",
     "saturday-talk-kody": "Talk with Kody (Saturday)",
     "saturday-sandbox": "Sandbox VR Demo (Saturday)",
     "saturday-badminton": "Badminton Social (Saturday)",
 
+    "sunday-checkin-lanyard": "Check-in with Lanyard (Sunday)",
     "sunday-costume-professional": "Professional Costume (Sunday)",
     "sunday-demo-day": "Demo Day (Sunday)",
+    "sunday-admissions-photo": "Admissions Booth Photo (Sunday)",
 };
 
 export const typeNameMap: Record<TransactionType, string> = {
@@ -431,19 +464,30 @@ export const typeNameMap: Record<TransactionType, string> = {
     [TransactionType.PrizePurchase]: "Prize Purchase",
     [TransactionType.Performance]: "Performance",
     [TransactionType.MonthOfHackingActivityWinner]: "Activity Winner",
+    [TransactionType.StudentInterview]: "Student Interview",
+
     [TransactionType.FridayCostumeFandom]: "Fandom Costume (Friday)",
-    [TransactionType.FridayFireSideChat]: "Fire Side Chat (Friday)",
+    // [TransactionType.FridayFireSideChat]: "Fire Side Chat (Friday)",
     [TransactionType.FridayHollyTheHusky]: "Picture with Holly (Friday)",
+
+    [TransactionType.SaturdayCheckinLanyard]:
+        "Check-in with Lanyard (Saturday)",
     [TransactionType.SaturdayCostumeHusky]: "Husky Spirit Costume (Saturday)",
     [TransactionType.SaturdayTalkWithDanTerry]:
         "Talk with Dan Terry (Saturday)",
+    [TransactionType.SaturdayTalkWithArmoraRama]:
+        "Talk with Armora Rama (Saturday)",
     [TransactionType.SaturdayPhotoWithHolly]: "Picture with Holly (Saturday)",
     [TransactionType.SaturdayTalkToKody]: "Talk with Kody (Saturday)",
     [TransactionType.SaturdaySandbox]: "Sandbox VR Demo (Saturday)",
     [TransactionType.SaturdayBadmintonSocial]: "Badminton Social (Saturday)",
+
+    [TransactionType.SundayCheckinLanyard]: "Check-in with Lanyard (Sunday)",
     [TransactionType.SundayCostumeProfessional]:
         "Professional Costume (Sunday)",
     [TransactionType.SundayDemoDay]: "Demo Day (Sunday)",
+    [TransactionType.SundayAdmissionsBoothPhoto]:
+        "Admissions Booth Photo (Sunday)",
 };
 
 /**
