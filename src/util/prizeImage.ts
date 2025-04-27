@@ -27,6 +27,8 @@ import UWBPenant from "@/public/hackeroonShop/uwbPenant.jpg";
 import USBDock from "@/public/hackeroonShop/usbDock.png";
 import LegoDinosaur from "@/public/hackeroonShop/legoDinosaur.png";
 import PurpleWaterBottle from "@/public/hackeroonShop/purpleWaterBottle.png";
+import AvanadeBeanie from "@/public/hackeroonShop/avanadeBeanie.png";
+import AvanadeDrawstringBag from "@/public/hackeroonShop/avanadeDrawstringBag.png";
 
 export const retrievePrizeImage = (
     prizeName: string | null,
@@ -86,6 +88,10 @@ export const retrievePrizeImage = (
             return LegoDinosaur;
         case "purpleWaterBottle":
             return PurpleWaterBottle;
+        case "avanadeBeanie":
+            return AvanadeBeanie;
+        case "avanadeDrawstringBag":
+            return AvanadeDrawstringBag;
         default:
             return DefaultImage;
     }
