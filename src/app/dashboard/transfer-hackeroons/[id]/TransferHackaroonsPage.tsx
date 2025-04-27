@@ -23,11 +23,14 @@ export default function TransferHackaroonsPage({
     const excludedTypes: (keyof typeof reasonTypeMap)[] = [
         "friday-costume-fandom",
         "friday-holly-the-husky",
-        // TODO: Replace this with saturday and remove sunday.
-        "sunday-demo-day",
-        "sunday-checkin-lanyard",
-        "sunday-costume-professional",
-        "sunday-admissions-photo",
+        "saturday-talk-armora-rama",
+        "saturday-badminton",
+        "saturday-checkin-lanyard",
+        "saturday-sandbox",
+        "saturday-costume-husky",
+        "saturday-talk-dan-terry",
+        "saturday-holly-photo",
+        "saturday-talk-kody",
     ];
 
     const [isModalOpen, setIsModalOpen] = useState(false);
