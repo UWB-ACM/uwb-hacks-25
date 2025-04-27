@@ -344,6 +344,8 @@ export enum TransactionType {
     SundayAdmissionsBoothPhoto = 20,
 
     StudentInterview = 22,
+
+    KeyboardCompetition = 23,
 }
 
 /**
@@ -355,6 +357,7 @@ export const valuedTransactionAmounts = {
     [TransactionType.Performance]: 25,
     [TransactionType.MonthOfHackingActivityWinner]: 100,
     [TransactionType.StudentInterview]: 50,
+    [TransactionType.KeyboardCompetition]: 100,
 
     [TransactionType.FridayCostumeFandom]: 100,
     // [TransactionType.FridayFireSideChat]: 100,
@@ -388,6 +391,7 @@ export const valuedTransactionLimits: Record<
     [TransactionType.Performance]: Infinity,
     [TransactionType.MonthOfHackingActivityWinner]: 3,
     [TransactionType.StudentInterview]: 1,
+    [TransactionType.KeyboardCompetition]: 1,
 
     [TransactionType.FridayCostumeFandom]: 1,
     // [TransactionType.FridayFireSideChat]: 1,
@@ -413,6 +417,7 @@ export const reasonTypeMap = {
     performance: TransactionType.Performance,
     "activity-winner": TransactionType.MonthOfHackingActivityWinner,
     "student-interview": TransactionType.StudentInterview,
+    "keyboard-comp": TransactionType.KeyboardCompetition,
 
     "friday-costume-fandom": TransactionType.FridayCostumeFandom,
     // "friday-fire-side-chat": TransactionType.FridayFireSideChat,
@@ -438,6 +443,7 @@ export const reasonNameMap: Record<keyof typeof reasonTypeMap, string> = {
     performance: "Performance",
     "activity-winner": "Activity Winner",
     "student-interview": "Student Interview",
+    "keyboard-comp": "Keyboard Competition",
 
     "friday-costume-fandom": "Fandom Costume (Friday)",
     // "friday-fire-side-chat": "Fire Side Chat (Friday)",
@@ -465,6 +471,7 @@ export const typeNameMap: Record<TransactionType, string> = {
     [TransactionType.Performance]: "Performance",
     [TransactionType.MonthOfHackingActivityWinner]: "Activity Winner",
     [TransactionType.StudentInterview]: "Student Interview",
+    [TransactionType.KeyboardCompetition]: "Keyboard Competition",
 
     [TransactionType.FridayCostumeFandom]: "Fandom Costume (Friday)",
     // [TransactionType.FridayFireSideChat]: "Fire Side Chat (Friday)",
