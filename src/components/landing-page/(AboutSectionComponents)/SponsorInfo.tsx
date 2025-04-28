@@ -17,11 +17,13 @@ function SponsorInfo() {
                     high-code solutions.
                 </p>
                 <Button
-                    href={"https://uwb-hacks-save-the-world.devpost.com"}
+                    href={
+                        "https://uwb-hacks-save-the-world.devpost.com/project-gallery"
+                    }
                     target="_blank"
                     fontSize={23}
                 >
-                    Register Now
+                    View Projects!
                 </Button>
             </div>
             <div className="mt-10 grow bg-white border-[3px] border-black flex flex-col p-4 items-center">
