@@ -6,7 +6,7 @@ const Page = () => {
             <h2 className="text-xl font-bold mb-4">Join the Community!</h2>
             <div className="flex justify-start">
                 <Button
-                    href={"https://discord.gg/6AapzPNvRy"}
+                    href={"https://discord.gg/DzWEhESsZw"}
                     target="_blank"
                     color="yellow"
                     fontSize={15}
