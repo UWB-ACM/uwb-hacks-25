@@ -75,13 +75,13 @@ const AboutSection: React.FC<{
                         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-x-4 gap-y-2 mt-2 md:mt-0 lg:mt-2">
                             <Button
                                 href={
-                                    "https://uwb-hacks-save-the-world.devpost.com"
+                                    "https://uwb-hacks-save-the-world.devpost.com/project-gallery"
                                 }
                                 target="_blank"
                                 color="blue"
                                 fontSize={13}
                             >
-                                Register for UWB Hacks!
+                                View Projects!
                             </Button>
                             <Button
                                 href={"/dashboard"}
