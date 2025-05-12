@@ -10,15 +10,17 @@ function MobileBanner({ bannerVisible }: BannerProps) {
         <>
             {bannerVisible && (
                 <div className="bg-orange-500 text-[9px] text-white font-rubik-mono-one justify-center items-center flex flex-col h-14">
-                    <p>Learn how to earn and spend your Hackeroons!</p>
+                    <p>Shape the Future of ACM!</p>
                     <div className="w-4"></div>
 
                     <Link
-                        href={"/hackeroon-guide"}
+                        href={
+                            "https://docs.google.com/forms/d/e/1FAIpQLSeH9UCGpnL1NEhQ0HwVzNRvsqEN2bt8NAvJMFRJ8ndWG0YGzg/viewform"
+                        }
                         className="text-white font-bold hover:underline"
                     >
                         <p className="underline cursor-pointer">
-                            Open Hackeroon Guide
+                            Officer Applications Open!
                         </p>
                     </Link>
                 </div>
