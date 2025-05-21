@@ -15,10 +15,6 @@ const MeetTheTeamSection = () => {
         committees[0].id,
     );
 
-    const activeCommittee = committees.find(
-        (committee) => committee.id === activeCommitteeId,
-    );
-
     return (
         <Panel id="meetTheTeamPanel" panelColor="white" className={panelMargin}>
             {/* Heading */}
@@ -42,9 +38,18 @@ const MeetTheTeamSection = () => {
                 />
 
                 {/* Team Members */}
-                {activeCommittee && (
-                    <MembersGrid members={activeCommittee.members} />
-                )}
+                {committees.map((committee) => (
+                    <div
+                        className={
+                            committee.id === activeCommitteeId
+                                ? undefined
+                                : "hidden w-0 h-0"
+                        }
+                        key={committee.id}
+                    >
+                        <MembersGrid members={committee.members} />
+                    </div>
+                ))}
             </PanelContent>
         </Panel>
     );

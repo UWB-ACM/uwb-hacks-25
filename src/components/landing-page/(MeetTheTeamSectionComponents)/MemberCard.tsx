@@ -20,7 +20,8 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
             {/* Profile Image */}
             <Image
                 src={member.photo}
-                alt={member.name}
+                // No alt because it'll get read out below.
+                alt=""
                 className="border-4 border-black w-24 h-24 object-cover object-center"
                 width={96}
                 height={96}
@@ -42,7 +43,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
                     <Image
                         src={LinkedInImage}
                         width={30}
-                        alt="LinkedIn"
+                        alt="Open LinkedIn"
                         className="absolute top-2 right-2 hidden sm:block"
                     />
                 )}
