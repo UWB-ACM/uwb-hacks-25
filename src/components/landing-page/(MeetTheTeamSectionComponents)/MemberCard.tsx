@@ -43,7 +43,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
                     <Image
                         src={LinkedInImage}
                         width={30}
-                        alt="Open LinkedIn"
+                        alt="Open Profile"
                         className="absolute top-2 right-2 hidden sm:block"
                     />
                 )}

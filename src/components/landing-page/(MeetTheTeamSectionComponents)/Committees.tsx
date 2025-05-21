@@ -56,7 +56,7 @@ export const committees = [
                 name: "Jonah Uellenberg",
                 role: "Digital Experience Co-lead, Developer",
                 photo: "/MeetTheTeamPhotos/jonah-uellenberg.jpg",
-                link: "https://www.linkedin.com/in/uellenberg",
+                link: "https://uellenberg.org",
             },
             {
                 id: "jui-bangali",
@@ -173,14 +173,14 @@ export const committees = [
                 name: "Jonah Uellenberg",
                 role: "Digital Experience Co-lead, Developer",
                 photo: "/MeetTheTeamPhotos/jonah-uellenberg.jpg",
-                link: "https://www.linkedin.com/in/uellenberg",
+                link: "https://uellenberg.org",
             },
             {
                 id: "khushpreet-gobindpuri",
                 name: "Preeti Gobindpuri",
                 role: "Lead Frontend Developer",
                 photo: "/MeetTheTeamPhotos/default.jpg",
-                link: undefined,
+                link: null,
             },
             {
                 id: "kat-tran",
