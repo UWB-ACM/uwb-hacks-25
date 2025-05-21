@@ -8,13 +8,11 @@ interface MemberCardProps {
         name: string;
         role: string;
         photo: string;
-        link?: string;
+        link: string | null;
     };
 }
 
 const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
-    const isClickable = !!member.link;
-
     const cardContent = (
         <div className="relative flex flex-col sm:flex-row items-center sm:items-start p-4 border-4 border-black shadow-lg bg-white transition-transform transform group hover:scale-105 cursor-pointer duration-300 w-[130px] h-[180px] sm:w-[340px] sm:h-[160px] flex-shrink-0">
             {/* Profile Image */}
@@ -39,7 +37,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
 
             {/* LinkedIn Logo */}
             <div className="pl-8">
-                {isClickable && (
+                {member.link && (
                     <Image
                         src={LinkedInImage}
                         width={30}
@@ -51,7 +49,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
         </div>
     );
 
-    return isClickable ? (
+    return member.link ? (
         <a href={member.link} target="_blank" rel="noopener noreferrer">
             {cardContent}
         </a>

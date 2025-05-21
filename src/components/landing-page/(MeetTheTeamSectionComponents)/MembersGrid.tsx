@@ -8,7 +8,7 @@ interface TeamMembersGridProps {
         name: string;
         role: string;
         photo: string;
-        link?: string;
+        link: string | null;
     }[];
 }
 
