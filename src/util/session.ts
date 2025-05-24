@@ -5,6 +5,11 @@ import { buildKey, redis } from "@/src/util/redis";
 import { NextRequest, NextResponse } from "next/server";
 import { User } from "./dataTypes";
 
+export const cookieName =
+    process.env.NODE_ENV === "development"
+        ? "session-uwbh25-dev"
+        : "__Host-session-uwbh25";
+
 /**
  * The time that a session should last for, in seconds.
  */
@@ -53,7 +58,7 @@ export interface Session {
 export async function getSession(): Promise<Session> {
     const cookieStore = await cookies();
 
-    const cookie = cookieStore.get("__Host-session-uwbh25");
+    const cookie = cookieStore.get(cookieName);
     if (!cookie?.value) {
         console.error("No session cookie found.");
         return {};
@@ -73,7 +78,7 @@ export async function getSession(): Promise<Session> {
  * Ensures that a request/response has a session
  */
 export async function ensureSession(req: NextRequest, res: NextResponse) {
-    const cookie = req.cookies.get("__Host-session-uwbh25");
+    const cookie = req.cookies.get(cookieName);
 
     // If we have a cookie, ensure that it points to a valid session.
     // Otherwise, create a new one.
@@ -99,11 +104,12 @@ export async function ensureSession(req: NextRequest, res: NextResponse) {
     const expiresAt = new Date(Date.now() + sessionTimeSeconds * 1000);
 
     res.cookies.set({
-        name: "__Host-session-uwbh25",
+        name: cookieName,
         value: newSessionId,
         expires: expiresAt,
         httpOnly: true,
-        secure: true,
+        // Development isn't a secure context.
+        secure: process.env.NODE_ENV !== "development",
         sameSite: "strict",
     });
 
@@ -111,7 +117,7 @@ export async function ensureSession(req: NextRequest, res: NextResponse) {
     // side code has the right session ID.
     // This doesn't write any cookies.
     req.cookies.set({
-        name: "__Host-session-uwbh25",
+        name: cookieName,
         value: newSessionId,
     });
 }
@@ -125,7 +131,7 @@ export async function ensureSession(req: NextRequest, res: NextResponse) {
 export async function saveSession(data: Session): Promise<void> {
     const cookieStore = await cookies();
 
-    const cookie = cookieStore.get("__Host-session-uwbh25");
+    const cookie = cookieStore.get(cookieName);
     if (!cookie?.value) {
         // This shouldn't happen, since every user should
         // have a session.
