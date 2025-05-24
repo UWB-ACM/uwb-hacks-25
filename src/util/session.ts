@@ -110,7 +110,10 @@ export async function ensureSession(req: NextRequest, res: NextResponse) {
         httpOnly: true,
         // Development isn't a secure context.
         secure: process.env.NODE_ENV !== "development",
-        sameSite: "strict",
+        // Not strict because the session may be used to
+        // generate first load HTML, and to enable auth
+        // with OAuth2 redirects.
+        sameSite: "lax",
     });
 
     // Also set the request header so that any server
