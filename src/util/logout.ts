@@ -9,11 +9,11 @@ import { buildKey } from "@/src/util/redis";
  */
 export async function logoutUser() {
     const cookieStore = await cookies();
-    const sessionCookie = cookieStore.get("session-uwbh25");
+    const sessionCookie = cookieStore.get("__Host-session-uwbh25");
 
     if (sessionCookie?.value) {
         await redis.del(buildKey("session", sessionCookie.value));
-        await cookieStore.delete("session-uwbh25");
+        cookieStore.delete("__Host-session-uwbh25");
 
         console.log("User logged out successfully.");
     }
